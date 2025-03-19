@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="tak.server.XPathPerformanceTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2025-03-19T02:50:11" hostname="lenss-10" time="0.032">
+  <properties/>
+  <testcase name="missionXpathTiming" classname="tak.server.XPathPerformanceTest" time="0.026"/>
+  <testcase name="stringMatchTimingWithLowercase" classname="tak.server.XPathPerformanceTest" time="0.002"/>
+  <testcase name="stringMatchTiming" classname="tak.server.XPathPerformanceTest" time="0.002"/>
+  <system-out><![CDATA[21:50:11.436 [Test worker] DEBUG o.s.t.c.s.DefaultTestContextBootstrapper - Using ContextCustomizers for test class [XPathPerformanceTest]: [DisableObservabilityContextCustomizer, PropertyMappingContextCustomizer, WebDriverContextCustomizer, ExcludeFilterContextCustomizer, DuplicateJsonObjectContextCustomizer, MockitoContextCustomizer]
+21:50:11.437 [Test worker] DEBUG o.s.t.c.u.TestContextSpringFactoriesUtils - Skipping candidate TestExecutionListener [org.springframework.test.context.observation.MicrometerObservationRegistryTestExecutionListener] due to a missing dependency. Specify custom TestExecutionListener classes or make the default TestExecutionListener classes and their required dependencies available. Offending class: io.micrometer.context.ThreadLocalAccessor. MicrometerObservationRegistryTestExecutionListener requires io.micrometer:micrometer-observation:1.10.8 or higher and io.micrometer:context-propagation:1.0.3 or higher.
+21:50:11.438 [Test worker] DEBUG o.s.t.c.s.DefaultTestContextBootstrapper - Using TestExecutionListeners for test class [XPathPerformanceTest]: [ServletTestExecutionListener, DirtiesContextBeforeModesTestExecutionListener, ApplicationEventsTestExecutionListener, MockitoTestExecutionListener, DependencyInjectionTestExecutionListener, DirtiesContextTestExecutionListener, TransactionalTestExecutionListener, SqlScriptsTestExecutionListener, EventPublishingTestExecutionListener, RestDocsTestExecutionListener, MockRestServiceServerResetTestExecutionListener, MockMvcPrintOnlyOnFailureTestExecutionListener, WebDriverTestExecutionListener, MockWebServiceServerTestExecutionListener, ResetMocksTestExecutionListener]
+21:50:11.439 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [tak.server.XPathPerformanceTest]
+21:50:11.440 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [tak.server.XPathPerformanceTest]
+21:50:11.440 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [tak.server.XPathPerformanceTest]
+21:50:11.440 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [tak.server.XPathPerformanceTest]
+21:50:11.441 [Test worker] DEBUG o.s.t.c.s.DirtiesContextBeforeModesTestExecutionListener - Before test class: class [XPathPerformanceTest], class annotated with @DirtiesContext [false] with mode [null]
+21:50:11.441 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 426, missCount = 1]
+21:50:11.441 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [tak.server.XPathPerformanceTest]
+21:50:11.441 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [tak.server.XPathPerformanceTest]
+21:50:11.441 [Test worker] DEBUG o.s.t.c.s.DependencyInjectionTestExecutionListener - Performing dependency injection for test class tak.server.XPathPerformanceTest
+21:50:11.441 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 427, missCount = 1]
+21:50:11.443 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 428, missCount = 1]
+21:50:11.444 [Test worker] DEBUG o.s.t.c.s.DirtiesContextBeforeModesTestExecutionListener - Before test method: class [XPathPerformanceTest], method [missionXpathTiming], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null]
+21:50:11.444 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 429, missCount = 1]
+21:50:11.444 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 430, missCount = 1]
+21:50:11.445 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 431, missCount = 1]
+21:50:11.448 [Test worker] INFO  tak.server.XPathPerformanceTest - CoT parse timing: 1925351 ns
+21:50:11.450 [Test worker] INFO  tak.server.XPathPerformanceTest - CoT parse timing: 2485787 ns
+21:50:11.452 [Test worker] INFO  tak.server.XPathPerformanceTest - CoT parse timing: 1861568 ns
+21:50:11.454 [Test worker] INFO  tak.server.XPathPerformanceTest - CoT parse timing: 1763258 ns
+21:50:11.456 [Test worker] INFO  tak.server.XPathPerformanceTest - CoT parse timing: 1719153 ns
+21:50:11.458 [Test worker] INFO  tak.server.XPathPerformanceTest - CoT parse timing: 1914200 ns
+21:50:11.461 [Test worker] INFO  tak.server.XPathPerformanceTest - CoT parse timing: 2230491 ns
+21:50:11.462 [Test worker] INFO  tak.server.XPathPerformanceTest - CoT parse timing: 1563605 ns
+21:50:11.464 [Test worker] INFO  tak.server.XPathPerformanceTest - CoT parse timing: 1488074 ns
+21:50:11.465 [Test worker] INFO  tak.server.XPathPerformanceTest - CoT parse timing: 1385779 ns
+21:50:11.466 [Test worker] INFO  tak.server.XPathPerformanceTest - chatCot: <?xml version="1.0" encoding="UTF-8"?>
+<event version="2.0" uid="GeoChat.ANDROID-358982072593830.Green.2b4fb2c4-300d-41e6-9df3-f21b597b87e3" type="b-t-f" time="2017-06-19T17:13:53.047Z" start="2017-06-19T17:13:53.047Z" stale="2017-06-20T17:13:53.047Z" how="h-g-i-g-o"><point lat="0.0" lon="0.0" hae="9999999.0" ce="9999999" le="9999999"/><detail><__chat id="Green" chatroom="Green"><chatgrp uid0="ANDROID-358982072593830" id="Green"/></__chat><link relation="p-p" type="a-f-G-U-C" uid="ANDROID-358982072593830"/><remarks time="2017-06-19T17:13:53.047Z" source="BAO.F.ATAK.ANDROID-358982072593830">hey there</remarks><precisionlocation geopointsrc="???" altsrc="???"/><_flow-tags_ marti1="2017-06-19T17:13:53Z"/><marti><dest mission="jimmy"/></marti></detail></event>
+21:50:11.466 [Test worker] INFO  tak.server.XPathPerformanceTest - mission XPath timing: 298588 ns
+21:50:11.466 [Test worker] INFO  tak.server.XPathPerformanceTest - mission XPath timing: 135497 ns
+21:50:11.466 [Test worker] INFO  tak.server.XPathPerformanceTest - mission XPath timing: 148338 ns
+21:50:11.467 [Test worker] INFO  tak.server.XPathPerformanceTest - mission XPath timing: 137134 ns
+21:50:11.467 [Test worker] INFO  tak.server.XPathPerformanceTest - mission XPath timing: 326672 ns
+21:50:11.467 [Test worker] INFO  tak.server.XPathPerformanceTest - mission XPath timing: 132964 ns
+21:50:11.467 [Test worker] INFO  tak.server.XPathPerformanceTest - mission XPath timing: 124991 ns
+21:50:11.468 [Test worker] INFO  tak.server.XPathPerformanceTest - mission XPath timing: 176164 ns
+21:50:11.468 [Test worker] INFO  tak.server.XPathPerformanceTest - mission XPath timing: 124270 ns
+21:50:11.468 [Test worker] INFO  tak.server.XPathPerformanceTest - mission XPath timing: 122801 ns
+21:50:11.468 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 432, missCount = 1]
+21:50:11.468 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 433, missCount = 1]
+21:50:11.468 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 434, missCount = 1]
+21:50:11.468 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 435, missCount = 1]
+21:50:11.468 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 436, missCount = 1]
+21:50:11.469 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 437, missCount = 1]
+21:50:11.469 [Test worker] DEBUG o.s.t.c.s.DirtiesContextTestExecutionListener - After test method: class [XPathPerformanceTest], method [missionXpathTiming], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null]
+21:50:11.469 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [tak.server.XPathPerformanceTest]
+21:50:11.469 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [tak.server.XPathPerformanceTest]
+21:50:11.470 [Test worker] DEBUG o.s.t.c.s.DependencyInjectionTestExecutionListener - Performing dependency injection for test class tak.server.XPathPerformanceTest
+21:50:11.470 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 438, missCount = 1]
+21:50:11.470 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 439, missCount = 1]
+21:50:11.470 [Test worker] DEBUG o.s.t.c.s.DirtiesContextBeforeModesTestExecutionListener - Before test method: class [XPathPerformanceTest], method [stringMatchTimingWithLowercase], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null]
+21:50:11.470 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 440, missCount = 1]
+21:50:11.470 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 441, missCount = 1]
+21:50:11.471 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 442, missCount = 1]
+21:50:11.471 [Test worker] INFO  tak.server.XPathPerformanceTest - string no-match timing toLowerCase(): 19479 ns
+21:50:11.471 [Test worker] INFO  tak.server.XPathPerformanceTest - string no-match timing toLowerCase(): 1303 ns
+21:50:11.471 [Test worker] INFO  tak.server.XPathPerformanceTest - string no-match timing toLowerCase(): 1094 ns
+21:50:11.471 [Test worker] INFO  tak.server.XPathPerformanceTest - string no-match timing toLowerCase(): 1032 ns
+21:50:11.471 [Test worker] INFO  tak.server.XPathPerformanceTest - string no-match timing toLowerCase(): 1053 ns
+21:50:11.471 [Test worker] INFO  tak.server.XPathPerformanceTest - string no-match timing toLowerCase(): 1040 ns
+21:50:11.471 [Test worker] INFO  tak.server.XPathPerformanceTest - string no-match timing toLowerCase(): 1057 ns
+21:50:11.471 [Test worker] INFO  tak.server.XPathPerformanceTest - string no-match timing toLowerCase(): 1036 ns
+21:50:11.471 [Test worker] INFO  tak.server.XPathPerformanceTest - string no-match timing toLowerCase(): 1036 ns
+21:50:11.471 [Test worker] INFO  tak.server.XPathPerformanceTest - string no-match timing toLowerCase(): 1069 ns
+21:50:11.471 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 443, missCount = 1]
+21:50:11.471 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 444, missCount = 1]
+21:50:11.471 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 445, missCount = 1]
+21:50:11.471 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 446, missCount = 1]
+21:50:11.471 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 447, missCount = 1]
+21:50:11.472 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 448, missCount = 1]
+21:50:11.472 [Test worker] DEBUG o.s.t.c.s.DirtiesContextTestExecutionListener - After test method: class [XPathPerformanceTest], method [stringMatchTimingWithLowercase], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null]
+21:50:11.472 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [tak.server.XPathPerformanceTest]
+21:50:11.472 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [tak.server.XPathPerformanceTest]
+21:50:11.472 [Test worker] DEBUG o.s.t.c.s.DependencyInjectionTestExecutionListener - Performing dependency injection for test class tak.server.XPathPerformanceTest
+21:50:11.472 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 449, missCount = 1]
+21:50:11.473 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 450, missCount = 1]
+21:50:11.473 [Test worker] DEBUG o.s.t.c.s.DirtiesContextBeforeModesTestExecutionListener - Before test method: class [XPathPerformanceTest], method [stringMatchTiming], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null]
+21:50:11.473 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 451, missCount = 1]
+21:50:11.473 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 452, missCount = 1]
+21:50:11.473 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 453, missCount = 1]
+21:50:11.474 [Test worker] INFO  tak.server.XPathPerformanceTest - string match mission success timing: 8951 ns
+21:50:11.474 [Test worker] INFO  tak.server.XPathPerformanceTest - string match mission success timing: 1796 ns
+21:50:11.474 [Test worker] INFO  tak.server.XPathPerformanceTest - string match mission success timing: 1199 ns
+21:50:11.474 [Test worker] INFO  tak.server.XPathPerformanceTest - string match mission success timing: 1197 ns
+21:50:11.474 [Test worker] INFO  tak.server.XPathPerformanceTest - string match mission success timing: 1173 ns
+21:50:11.474 [Test worker] INFO  tak.server.XPathPerformanceTest - string match mission success timing: 1122 ns
+21:50:11.474 [Test worker] INFO  tak.server.XPathPerformanceTest - string match mission success timing: 1139 ns
+21:50:11.474 [Test worker] INFO  tak.server.XPathPerformanceTest - string match mission success timing: 1276 ns
+21:50:11.474 [Test worker] INFO  tak.server.XPathPerformanceTest - string match mission success timing: 1151 ns
+21:50:11.474 [Test worker] INFO  tak.server.XPathPerformanceTest - string match mission success timing: 1203 ns
+21:50:11.474 [Test worker] INFO  tak.server.XPathPerformanceTest - string no-match timing: 1199 ns
+21:50:11.474 [Test worker] INFO  tak.server.XPathPerformanceTest - string no-match timing: 1322 ns
+21:50:11.474 [Test worker] INFO  tak.server.XPathPerformanceTest - string no-match timing: 1073 ns
+21:50:11.474 [Test worker] INFO  tak.server.XPathPerformanceTest - string no-match timing: 1043 ns
+21:50:11.474 [Test worker] INFO  tak.server.XPathPerformanceTest - string no-match timing: 1054 ns
+21:50:11.474 [Test worker] INFO  tak.server.XPathPerformanceTest - string no-match timing: 1082 ns
+21:50:11.474 [Test worker] INFO  tak.server.XPathPerformanceTest - string no-match timing: 1062 ns
+21:50:11.474 [Test worker] INFO  tak.server.XPathPerformanceTest - string no-match timing: 1051 ns
+21:50:11.474 [Test worker] INFO  tak.server.XPathPerformanceTest - string no-match timing: 1061 ns
+21:50:11.474 [Test worker] INFO  tak.server.XPathPerformanceTest - string no-match timing: 1039 ns
+21:50:11.474 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 454, missCount = 1]
+21:50:11.474 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 455, missCount = 1]
+21:50:11.474 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 456, missCount = 1]
+21:50:11.474 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 457, missCount = 1]
+21:50:11.475 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 458, missCount = 1]
+21:50:11.475 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 459, missCount = 1]
+21:50:11.475 [Test worker] DEBUG o.s.t.c.s.DirtiesContextTestExecutionListener - After test method: class [XPathPerformanceTest], method [stringMatchTiming], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null]
+21:50:11.475 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 460, missCount = 1]
+21:50:11.475 [Test worker] DEBUG o.s.t.c.s.DirtiesContextTestExecutionListener - After test class: class [XPathPerformanceTest], class annotated with @DirtiesContext [false] with mode [null]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

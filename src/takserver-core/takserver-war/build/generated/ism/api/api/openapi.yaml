@@ -1,0 +1,803 @@
+openapi: 3.0.0
+info:
+  contact: {}
+  description: A service for normalizing the interaction with classification markings
+  title: ISM Service
+  version: 1.0.0
+servers:
+- url: /
+paths:
+  /:
+    get:
+      operationId: AppController_getSuccess
+      parameters: []
+      responses:
+        "200":
+          description: ""
+      x-accepts: application/json
+  /can-access:
+    post:
+      operationId: IsmController_canAccess
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Validate User With Classification:
+                value:
+                  markings:
+                  - U
+                  - U//FOUO
+                  - TS//NF
+                  - "S//REL USA, FVEY"
+                  user:
+                    classifications:
+                    - U
+                    - C
+                    - S
+                    country: USA
+              Validate User With ACCMs:
+                value:
+                  markings:
+                  - S//NF//ACCM-HAPPY FROG
+                  user:
+                    accms:
+                    - BAD WEASEL
+                    country: USA
+              Validate User With Country of Origin:
+                value:
+                  markings:
+                  - "C//REL USA, FVEY"
+                  - C//NF
+                  user:
+                    country: GBR
+            schema:
+              $ref: '#/components/schemas/CanAccessDto'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CanAccessResponse'
+          description: A boolean value for each marking stating whether or not the
+            user has access
+      summary: Verify a user can access all portion marks provided
+      x-content-type: application/json
+      x-accepts: application/json
+  /parse:
+    get:
+      operationId: IsmController_parseMarking
+      parameters:
+      - example: false
+        explode: true
+        in: query
+        name: fgiExpand
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - example: false
+        explode: true
+        in: query
+        name: fgiCombine
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - example: pm
+        explode: true
+        in: query
+        name: format
+        required: true
+        schema:
+          enum:
+          - bl
+          - pm
+          type: string
+        style: form
+      - example: false
+        explode: true
+        in: query
+        name: enforceProgramNicknames
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - example: S//NF
+        explode: true
+        in: query
+        name: classification
+        required: true
+        schema:
+          type: string
+        style: form
+      - example: false
+        explode: true
+        in: query
+        name: camelCaseKeys
+        required: false
+        schema:
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MarkingResponse'
+          description: "The classification serialized, deserialized, and validated"
+      summary: Parse a classification string
+      x-accepts: application/json
+  /rollup:
+    post:
+      operationId: IsmController_rollupMarkings
+      parameters:
+      - example: "NATO,FAKE"
+        explode: true
+        in: query
+        name: expandable
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - example: false
+        explode: true
+        in: query
+        name: fgiExpand
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - example: false
+        explode: true
+        in: query
+        name: fgiCombine
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - example: pm
+        explode: true
+        in: query
+        name: format
+        required: true
+        schema:
+          enum:
+          - bl
+          - pm
+          type: string
+        style: form
+      - example: false
+        explode: true
+        in: query
+        name: enforceProgramNicknames
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - example: false
+        explode: true
+        in: query
+        name: camelCaseKeys
+        required: false
+        schema:
+          type: boolean
+        style: form
+      requestBody:
+        content:
+          application/json:
+            examples:
+              ACCMs:
+                value:
+                - S//ACCM-HAPPY FROG
+                - C//ACCM
+                - C//ACCM-SAD-TOAD
+              Expandable Tetragraphs:
+                value:
+                - "C//REL USA, GBR"
+                - "S//REL USA, NATO"
+                - "C//REL USA, AUS, GBR"
+              REL TO:
+                value:
+                - "S//REL USA, GBR"
+                - U
+                - "S//REL USA, GBR, JPN"
+            schema:
+              type: string
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MarkingResponse'
+          description: "The rolled up banner marking serialized, deserialized, and\
+            \ validated"
+      summary: Rollup an array of classification strings to a banner line or portion
+        mark
+      x-content-type: application/json
+      x-accepts: application/json
+components:
+  schemas:
+    User:
+      example:
+        country: USA
+        classifications:
+        - TS
+        - TS
+        accms:
+        - accms
+        - accms
+        sciControls:
+        - SIG
+        - SIG
+      properties:
+        country:
+          description: 3-letter country code
+          enum:
+          - USA
+          - AUS
+          - CAN
+          - GBR
+          - NZL
+          - ABW
+          - AFG
+          - AGO
+          - AIA
+          - ALA
+          - ALB
+          - AND
+          - ARE
+          - ARG
+          - ARM
+          - ASM
+          - ATA
+          - ATF
+          - ATG
+          - AUT
+          - AZE
+          - BDI
+          - BEL
+          - BEN
+          - BES
+          - BFA
+          - BGD
+          - BGR
+          - BHR
+          - BHS
+          - BIH
+          - BLM
+          - BLR
+          - BLZ
+          - BMU
+          - BOL
+          - BRA
+          - BRB
+          - BRN
+          - BTN
+          - BVT
+          - BWA
+          - CAF
+          - CCK
+          - CHE
+          - CHL
+          - CHN
+          - CIV
+          - CMR
+          - COD
+          - COG
+          - COK
+          - COL
+          - COM
+          - CPV
+          - CRI
+          - CUB
+          - CUW
+          - CXR
+          - CYM
+          - CYP
+          - CZE
+          - DEU
+          - DJI
+          - DMA
+          - DNK
+          - DOM
+          - DZA
+          - ECU
+          - EGY
+          - ERI
+          - ESH
+          - ESP
+          - EST
+          - ETH
+          - FIN
+          - FJI
+          - FLK
+          - FRA
+          - FRO
+          - FSM
+          - GAB
+          - GEO
+          - GGY
+          - GHA
+          - GIB
+          - GIN
+          - GLP
+          - GMB
+          - GNB
+          - GNQ
+          - GRC
+          - GRD
+          - GRL
+          - GTM
+          - GUF
+          - GUM
+          - GUY
+          - HKG
+          - HMD
+          - HND
+          - HRV
+          - HTI
+          - HUN
+          - IDN
+          - IMN
+          - IND
+          - IOT
+          - IRL
+          - IRN
+          - IRQ
+          - ISL
+          - ISR
+          - ITA
+          - JAM
+          - JEY
+          - JOR
+          - JPN
+          - KAZ
+          - KEN
+          - KGZ
+          - KHM
+          - KIR
+          - KNA
+          - KOR
+          - KWT
+          - LAO
+          - LBN
+          - LBR
+          - LBY
+          - LCA
+          - LIE
+          - LKA
+          - LSO
+          - LTU
+          - LUX
+          - LVA
+          - MAC
+          - MAF
+          - MAR
+          - MCO
+          - MDA
+          - MDG
+          - MDV
+          - MEX
+          - MHL
+          - MKD
+          - MLI
+          - MLT
+          - MMR
+          - MNE
+          - MNG
+          - MNP
+          - MOZ
+          - MRT
+          - MSR
+          - MTQ
+          - MUS
+          - MWI
+          - MYS
+          - MYT
+          - NAM
+          - NCL
+          - NER
+          - NFK
+          - NGA
+          - NIC
+          - NIU
+          - NLD
+          - NOR
+          - NPL
+          - NRU
+          - OMN
+          - PAK
+          - PAN
+          - PCN
+          - PER
+          - PHL
+          - PLW
+          - PNG
+          - POL
+          - PRI
+          - PRK
+          - PRT
+          - PRY
+          - PSE
+          - PYF
+          - QAT
+          - REU
+          - ROU
+          - RUS
+          - RWA
+          - SAU
+          - SDN
+          - SEN
+          - SGP
+          - SGS
+          - SHN
+          - SJM
+          - SLB
+          - SLE
+          - SLV
+          - SMR
+          - SOM
+          - SPM
+          - SRB
+          - SSD
+          - STP
+          - SUR
+          - SVK
+          - SVN
+          - SWE
+          - SWZ
+          - SXM
+          - SYC
+          - SYR
+          - TCA
+          - TCD
+          - TGO
+          - THA
+          - TJK
+          - TKL
+          - TKM
+          - TLS
+          - TON
+          - TTO
+          - TUN
+          - TUR
+          - TUV
+          - TWN
+          - TZA
+          - UGA
+          - UKR
+          - UMI
+          - URY
+          - UZB
+          - VAT
+          - VCT
+          - VEN
+          - VGB
+          - VIR
+          - VNM
+          - VUT
+          - WLF
+          - WSM
+          - XKS
+          - YEM
+          - ZAF
+          - ZMB
+          - ZWE
+          type: string
+        accms:
+          description: ACCM nicknames accessible to user
+          items:
+            type: string
+          type: array
+        classifications:
+          items:
+            enum:
+            - TS
+            - S
+            - C
+            - R
+            - U
+            type: string
+          type: array
+        sciControls:
+          items:
+            enum:
+            - SIG
+            - SI
+            - HCSP
+            - TK
+            type: string
+          type: array
+      required:
+      - accms
+      - classifications
+      - country
+      - sciControls
+      type: object
+    CanAccessDto:
+      example:
+        markings:
+        - markings
+        - markings
+        user:
+          country: USA
+          classifications:
+          - TS
+          - TS
+          accms:
+          - accms
+          - accms
+          sciControls:
+          - SIG
+          - SIG
+      properties:
+        markings:
+          description: Array of classification strings
+          items:
+            type: string
+          type: array
+        user:
+          $ref: '#/components/schemas/User'
+      required:
+      - markings
+      - user
+      type: object
+    UClassificationConfig:
+      properties:
+        active:
+          description: Allows configuration to be defined but not applied
+          type: boolean
+        nato:
+          description: Are NATO markings available at this classification level
+          type: boolean
+        bl:
+          description: Banner line version
+          enum:
+          - UNCLASSIFIED
+          type: string
+        pm:
+          description: Portion mark version
+          enum:
+          - U
+          type: string
+      required:
+      - active
+      - bl
+      - nato
+      - pm
+      type: object
+    RClassificationConfig:
+      properties:
+        active:
+          description: Allows configuration to be defined but not applied
+          type: boolean
+        nato:
+          description: Are NATO markings available at this classification level
+          type: boolean
+        bl:
+          description: Banner line version
+          enum:
+          - RESTRICTED
+          type: string
+        pm:
+          description: Portion mark version
+          enum:
+          - R
+          type: string
+      required:
+      - active
+      - bl
+      - nato
+      - pm
+      type: object
+    CClassificationConfig:
+      properties:
+        active:
+          description: Allows configuration to be defined but not applied
+          type: boolean
+        nato:
+          description: Are NATO markings available at this classification level
+          type: boolean
+        bl:
+          description: Banner line version
+          enum:
+          - CONFIDENTIAL
+          type: string
+        pm:
+          description: Portion mark version
+          enum:
+          - C
+          type: string
+      required:
+      - active
+      - bl
+      - nato
+      - pm
+      type: object
+    SClassificationConfig:
+      properties:
+        active:
+          description: Allows configuration to be defined but not applied
+          type: boolean
+        nato:
+          description: Are NATO markings available at this classification level
+          type: boolean
+        bl:
+          description: Banner line version
+          enum:
+          - SECRET
+          type: string
+        pm:
+          description: Portion mark version
+          enum:
+          - S
+          type: string
+      required:
+      - active
+      - bl
+      - nato
+      - pm
+      type: object
+    TSClassificationConfig:
+      properties:
+        active:
+          description: Allows configuration to be defined but not applied
+          type: boolean
+        nato:
+          description: Are NATO markings available at this classification level
+          type: boolean
+        bl:
+          description: Banner line version
+          enum:
+          - TOP SECRET
+          type: string
+        pm:
+          description: Portion mark version
+          enum:
+          - TS
+          type: string
+      required:
+      - active
+      - bl
+      - nato
+      - pm
+      type: object
+    NetworkClassificationConfig:
+      properties:
+        U:
+          $ref: '#/components/schemas/UClassificationConfig'
+        R:
+          $ref: '#/components/schemas/RClassificationConfig'
+        C:
+          $ref: '#/components/schemas/CClassificationConfig'
+        S:
+          $ref: '#/components/schemas/SClassificationConfig'
+        TS:
+          $ref: '#/components/schemas/TSClassificationConfig'
+      type: object
+    NetworkMetadata:
+      example:
+        classification: null
+        programnicknames:
+        - programnicknames
+        - programnicknames
+      properties:
+        classification:
+          $ref: '#/components/schemas/NetworkMetadata_classification'
+        programnicknames:
+          description: ACCMs supported by the network
+          items:
+            type: string
+          type: array
+      required:
+      - classification
+      - programnicknames
+      type: object
+    Meta:
+      example:
+        network:
+          classification: null
+          programnicknames:
+          - programnicknames
+          - programnicknames
+      properties:
+        network:
+          $ref: '#/components/schemas/NetworkMetadata'
+      required:
+      - network
+      type: object
+    CanAccessResponse:
+      example:
+        result: true
+        meta:
+          network:
+            classification: null
+            programnicknames:
+            - programnicknames
+            - programnicknames
+      properties:
+        meta:
+          $ref: '#/components/schemas/Meta'
+        result:
+          description: Whether or not the user can access the provided classification
+            markings
+          type: boolean
+      required:
+      - meta
+      - result
+      type: object
+    ISMObj:
+      properties:
+        classification:
+          items:
+            type: string
+          type: array
+        scicontrols:
+          items:
+            type: string
+          type: array
+        disseminationcontrols:
+          items:
+            type: string
+          type: array
+        releasableto:
+          items:
+            type: string
+          type: array
+        programnicknames:
+          items:
+            type: string
+          type: array
+        nonicmarkings:
+          items:
+            type: string
+          type: array
+        fgisourceopen:
+          items:
+            type: string
+          type: array
+        fgisourceprotected:
+          items:
+            type: string
+          type: array
+        ownerproducer:
+          items:
+            type: string
+          type: array
+      required:
+      - classification
+      - ownerproducer
+      type: object
+    MarkingResponse:
+      example:
+        valid: true
+        marking: marking
+        data: null
+      properties:
+        valid:
+          description: Is the rolled-up marking valid?
+          type: boolean
+        marking:
+          description: Resulting marking from rolling up portion marks
+          type: string
+        data:
+          $ref: '#/components/schemas/MarkingResponse_data'
+      required:
+      - data
+      - marking
+      - valid
+      type: object
+    NetworkMetadata_classification:
+      allOf:
+      - $ref: '#/components/schemas/NetworkClassificationConfig'
+      description: Classification configuration for the network
+    MarkingResponse_data:
+      allOf:
+      - $ref: '#/components/schemas/ISMObj'
+      description: Deserialized marking from rolling up portion marks
+

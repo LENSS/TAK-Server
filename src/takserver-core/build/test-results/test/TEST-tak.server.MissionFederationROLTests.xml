@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="tak.server.MissionFederationROLTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-03-19T02:50:11" hostname="lenss-10" time="0.078">
+  <properties/>
+  <testcase name="setMissionParentTest" classname="tak.server.MissionFederationROLTests" time="0.078"/>
+  <system-out><![CDATA[21:50:11.108 [Test worker] DEBUG o.s.t.c.s.DefaultTestContextBootstrapper - Using ContextCustomizers for test class [MissionFederationROLTests]: [DisableObservabilityContextCustomizer, PropertyMappingContextCustomizer, WebDriverContextCustomizer, ExcludeFilterContextCustomizer, DuplicateJsonObjectContextCustomizer, MockitoContextCustomizer]
+21:50:11.108 [Test worker] DEBUG o.s.t.c.u.TestContextSpringFactoriesUtils - Skipping candidate TestExecutionListener [org.springframework.test.context.observation.MicrometerObservationRegistryTestExecutionListener] due to a missing dependency. Specify custom TestExecutionListener classes or make the default TestExecutionListener classes and their required dependencies available. Offending class: io.micrometer.context.ThreadLocalAccessor. MicrometerObservationRegistryTestExecutionListener requires io.micrometer:micrometer-observation:1.10.8 or higher and io.micrometer:context-propagation:1.0.3 or higher.
+21:50:11.109 [Test worker] DEBUG o.s.t.c.s.DefaultTestContextBootstrapper - Using TestExecutionListeners for test class [MissionFederationROLTests]: [ServletTestExecutionListener, DirtiesContextBeforeModesTestExecutionListener, ApplicationEventsTestExecutionListener, MockitoTestExecutionListener, DependencyInjectionTestExecutionListener, DirtiesContextTestExecutionListener, TransactionalTestExecutionListener, SqlScriptsTestExecutionListener, EventPublishingTestExecutionListener, RestDocsTestExecutionListener, MockRestServiceServerResetTestExecutionListener, MockMvcPrintOnlyOnFailureTestExecutionListener, WebDriverTestExecutionListener, MockWebServiceServerTestExecutionListener, ResetMocksTestExecutionListener]
+21:50:11.109 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [tak.server.MissionFederationROLTests]
+21:50:11.109 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [tak.server.MissionFederationROLTests]
+21:50:11.109 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [tak.server.MissionFederationROLTests]
+21:50:11.109 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [tak.server.MissionFederationROLTests]
+21:50:11.109 [Test worker] DEBUG o.s.t.c.s.DirtiesContextBeforeModesTestExecutionListener - Before test class: class [MissionFederationROLTests], class annotated with @DirtiesContext [false] with mode [null]
+21:50:11.109 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 220, missCount = 1]
+21:50:11.110 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [tak.server.MissionFederationROLTests]
+21:50:11.110 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [tak.server.MissionFederationROLTests]
+21:50:11.110 [Test worker] DEBUG o.s.t.c.s.DependencyInjectionTestExecutionListener - Performing dependency injection for test class tak.server.MissionFederationROLTests
+21:50:11.110 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 221, missCount = 1]
+21:50:11.110 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 222, missCount = 1]
+21:50:11.111 [Test worker] DEBUG o.s.t.c.s.DirtiesContextBeforeModesTestExecutionListener - Before test method: class [MissionFederationROLTests], method [setMissionParentTest], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null]
+21:50:11.111 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 223, missCount = 1]
+21:50:11.111 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 224, missCount = 1]
+21:50:11.111 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 225, missCount = 1]
+21:50:11.113 [Test worker] DEBUG t.server.MissionFederationROLTests - ROL set parent: assign mission
+{"missionName":"childMission","parentMissionName":"parentMission"};
+21:50:11.114 [Test worker] DEBUG t.server.MissionFederationROLTests - about to parse and visit ROL program assign mission
+{"missionName":"childMission","parentMissionName":"parentMission"};
+21:50:11.115 [Test worker] DEBUG ROL - operation: assign
+21:50:11.115 [Test worker] DEBUG ROL - resource: mission
+21:50:11.141 [Test worker] DEBUG ROL - ROL JSON is not a Parameters object
+21:50:11.181 [Test worker] DEBUG ROL - ROL JSON is not a Resource object
+21:50:11.185 [Test worker] DEBUG ROL - ROL JSON is not a MissionUpdateDetails object
+21:50:11.186 [Test worker] DEBUG ROL - trying to parse as MissionHierarchy
+21:50:11.186 [Test worker] DEBUG ROL - parsed mission hierarchy details: com.bbn.marti.remote.sync.MissionHierarchy@b3c31cb
+21:50:11.186 [Test worker] DEBUG ROL - parameters: {"missionName":"childMission","parentMissionName":"parentMission"} parsed parameters: com.bbn.marti.remote.sync.MissionHierarchy@b3c31cb
+21:50:11.187 [Test worker] DEBUG t.server.MissionFederationROLTests -  evaluating assign on mission given com.bbn.marti.remote.sync.MissionHierarchy@b3c31cb
+21:50:11.187 [Test worker] DEBUG t.server.MissionFederationROLTests - parseResult: null
+21:50:11.187 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 226, missCount = 1]
+21:50:11.187 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 227, missCount = 1]
+21:50:11.187 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 228, missCount = 1]
+21:50:11.187 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 229, missCount = 1]
+21:50:11.187 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 230, missCount = 1]
+21:50:11.188 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 231, missCount = 1]
+21:50:11.188 [Test worker] DEBUG o.s.t.c.s.DirtiesContextTestExecutionListener - After test method: class [MissionFederationROLTests], method [setMissionParentTest], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null]
+21:50:11.188 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 232, missCount = 1]
+21:50:11.188 [Test worker] DEBUG o.s.t.c.s.DirtiesContextTestExecutionListener - After test class: class [MissionFederationROLTests], class annotated with @DirtiesContext [false] with mode [null]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

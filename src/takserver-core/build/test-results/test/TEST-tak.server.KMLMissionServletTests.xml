@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="tak.server.KMLMissionServletTests" tests="6" skipped="0" failures="0" errors="0" timestamp="2025-03-19T02:50:07" hostname="lenss-10" time="1.33">
+  <properties/>
+  <testcase name="buildMissionFeaturesTimeseriesLineString" classname="tak.server.KMLMissionServletTests" time="0.767"/>
+  <testcase name="buildMissionFeaturesUnoptimizedTrack" classname="tak.server.KMLMissionServletTests" time="0.013"/>
+  <testcase name="initStyles" classname="tak.server.KMLMissionServletTests" time="0.012"/>
+  <testcase name="initKMLExtendedData" classname="tak.server.KMLMissionServletTests" time="0.011"/>
+  <testcase name="buildMissionFeaturesOptimizedTrack" classname="tak.server.KMLMissionServletTests" time="0.009"/>
+  <testcase name="parseResultsForCotElements" classname="tak.server.KMLMissionServletTests" time="0.518"/>
+  <system-out><![CDATA[21:50:07.826 [Test worker] INFO  tak.server.KMLMissionServletTests - Finished initalizing services in KML Tests
+21:50:08.031 [Test worker] INFO  tak.server.KMLMissionServletTests - Finished initalizing services in KML Tests
+21:50:08.047 [Test worker] INFO  tak.server.KMLMissionServletTests - Finished initalizing services in KML Tests
+21:50:08.057 [Test worker] INFO  tak.server.KMLMissionServletTests - Finished initalizing services in KML Tests
+21:50:08.066 [Test worker] INFO  tak.server.KMLMissionServletTests - Finished initalizing services in KML Tests
+21:50:08.073 [Test worker] INFO  tak.server.KMLMissionServletTests - Finished initalizing services in KML Tests
+21:50:08.074 [Test worker] DEBUG com.bbn.marti.MissionKMLServlet - creating CoT worker 0
+21:50:08.076 [Test worker] DEBUG com.bbn.marti.MissionKMLServlet - creating CoT worker 1
+21:50:08.078 [Test worker] DEBUG com.bbn.marti.MissionKMLServlet - creating CoT worker 2
+21:50:08.080 [Test worker] DEBUG com.bbn.marti.MissionKMLServlet - creating CoT worker 3
+21:50:08.081 [Test worker] DEBUG com.bbn.marti.MissionKMLServlet - creating CoT worker 4
+21:50:08.081 [Test worker] DEBUG com.bbn.marti.MissionKMLServlet - fetching and deserializing cot data
+21:50:08.082 [Test worker] DEBUG com.bbn.marti.MissionKMLServlet - parsed cotelement: CotElement [uid=23146627-e80f-4174-9c2e-f724bafbb7cb, geom=10.0,32.0, cottype=u-rb-a, servertime=2019-03-10 04:28:30.9, prettytime=Unvalidated due to parse error, detailtext=<event><range value="4"/><bearing value="6"/><link relation="p-p" type="a-f-G-U-C" uid="ANDROID-358982072593830" point="10,0,0"/><link relation="p-p" type="a-f-G-U-C" uid="ANDROID-358982072593830" point="10,10,0"/><link relation="p-p" type="a-f-G-U-C" uid="ANDROID-358982072593830" point="0,10,0"/><link relation="p-p" type="a-f-G-U-C" uid="ANDROID-358982072593830" point="0,0,0"/></event>, hasImage=false, callsign=null, msl=10.0, le=9999999.0, lat=32.0, lon=10.0, urls=null, iconUrl=Unvalidated due to parse error, styleUrl=Unvalidated due to parse error, iconSetPath=Unvalidated due to parse error, iconArgbColor=null, iconSetUid=, iconGroup=, iconName=, hae=0.0 cotId: nullcourse=11.0, speed=10.0, ce=9999999.0]
+21:50:08.083 [Test worker] DEBUG com.bbn.marti.MissionKMLServlet - parsed cotelement: CotElement [uid=cf486d2f-f765-44a5-9f59-640fac196934, geom=10.0,32.0, cottype=u-d-r, servertime=2019-03-10 04:28:30.9, prettytime=Unvalidated due to parse error, detailtext=<event><link relation="p-p" type="a-f-G-U-C" uid="ANDROID-358982072593830" point="10,0,0"/><link relation="p-p" type="a-f-G-U-C" uid="ANDROID-358982072593830" point="10,10,0"/><link relation="p-p" type="a-f-G-U-C" uid="ANDROID-358982072593830" point="0,10,0"/><link relation="p-p" type="a-f-G-U-C" uid="ANDROID-358982072593830" point="0,0,0"/></event>, hasImage=false, callsign=null, msl=10.0, le=9999999.0, lat=32.0, lon=10.0, urls=null, iconUrl=Unvalidated due to parse error, styleUrl=Unvalidated due to parse error, iconSetPath=Unvalidated due to parse error, iconArgbColor=null, iconSetUid=, iconGroup=, iconName=, hae=0.0 cotId: nullcourse=11.0, speed=10.0, ce=9999999.0]
+21:50:08.083 [Test worker] DEBUG com.bbn.marti.MissionKMLServlet - Still processing...
+21:50:08.284 [Test worker] DEBUG com.bbn.marti.MissionKMLServlet - cot queue depth: 0
+21:50:08.578 [pool-1-thread-2] DEBUG c.b.m.MissionKMLServlet$CotParserWorker - producer completion detected - consumer thread terminating
+21:50:08.580 [pool-1-thread-3] DEBUG c.b.m.MissionKMLServlet$CotParserWorker - producer completion detected - consumer thread terminating
+21:50:08.581 [pool-1-thread-4] DEBUG c.b.m.MissionKMLServlet$CotParserWorker - producer completion detected - consumer thread terminating
+21:50:08.585 [pool-1-thread-5] DEBUG c.b.m.MissionKMLServlet$CotParserWorker - producer completion detected - consumer thread terminating
+21:50:08.585 [pool-1-thread-1] DEBUG c.b.m.MissionKMLServlet$CotParserWorker - producer completion detected - consumer thread terminating
+21:50:08.585 [Test worker] DEBUG com.bbn.marti.MissionKMLServlet - cot set size: 2
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

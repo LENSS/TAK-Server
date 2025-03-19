@@ -75,11 +75,11 @@
 	</subscription>
 
 	<repository enable="true" numDbConnections="200" primaryKeyBatchSize="500" insertionBatchSize="500">
-	  <connection url="jdbc:postgresql://127.0.0.1:5432/cot" username="martiuser" password="" />
+	  <connection url="jdbc:postgresql://127.0.0.1:5432/cot" username="martiuser" password="atakatak" />
 	  <!-- <connection url="jdbc:postgresql://127.0.0.1:5432/cot" username="martiuser"
 	              sslEnabled="true" sslMode="verify-ca"
-	              sslCert="certs/files/martiuser.pem" sslKey="certs/files/martiuser.key.pk8"
-	              sslRootCert="certs/files/ca.pem"/> -->
+	              sslCert="../scripts/certs/files/martiuser.pem" sslKey="../scripts/certs/files/martiuser.key.pk8"
+	              sslRootCert="../scripts/certs/files/ca.pem"/> -->
 	</repository>
 
 	<repeater enable="true" periodMillis="3000" staleDelayMillis="15000">
@@ -113,9 +113,9 @@
 	<security>
 		<tls context="TLSv1.2"
 			keymanager="SunX509"
-			keystore="JKS" keystoreFile="certs/files/takserver.jks" keystorePass="atakatak"
-			truststore="JKS" truststoreFile="certs/files/truststore-root.jks" truststorePass="atakatak">
-		 <!-- <crl _name="TAKServer CA" crlFile="certs/files/ca.crl"/>  -->
+			keystore="JKS" keystoreFile="../scripts/certs/files/takserver.jks" keystorePass="atakatak"
+			truststore="JKS" truststoreFile="../scripts/certs/files/truststore-TAK-ID-CA-01.jks" truststorePass="atakatak">
+		 <!-- <crl _name="TAKServer CA" crlFile="../scripts/certs/files/ca.crl"/>  -->
 
 		</tls>
 
@@ -123,8 +123,8 @@
 		 <!--
 		 <tls context="TLSv1.2"
 			keymanager="SunX509"
-			keystore="JKS" keystoreFile="certs/TAKServer.jks" keystorePass="atakatak"
-			truststore="JKS" truststoreFile="certs/truststore.jks" truststorePass="atakatak">
+			keystore="JKS" keystoreFile="../scripts/certs/TAKServer.jks" keystorePass="atakatak"
+			truststore="JKS" truststoreFile="../scripts/certs/truststore.jks" truststorePass="atakatak">
 		</tls>
 		-->
 
@@ -134,16 +134,16 @@
 	  <federation-server port="9000" v1enabled="false" v2port="9001" v2enabled="true">
 	    <tls context="TLSv1.2"
 		 keymanager="SunX509"
-		 keystore="JKS" keystoreFile="certs/files/takserver.jks" keystorePass="atakatak"
-		 truststore="JKS" truststoreFile="certs/files/fed-truststore.jks" truststorePass="atakatak"/>
+		 keystore="JKS" keystoreFile="../scripts/certs/files/takserver.jks" keystorePass="atakatak"
+		 truststore="JKS" truststoreFile="../scripts/certs/files/fed-truststore.jks" truststorePass="atakatak"/>
 	  </federation-server>
 	</federation>
  <!-- previous locations of federate keystore and truststore -->
  <!--
  <tls context="TLSv1.2"
 		 keymanager="SunX509"
-		 keystore="JKS" keystoreFile="certs/TAKServer.jks" keystorePass="atakatak"
-		 truststore="JKS" truststoreFile="certs/fed-truststore.jks" truststorePass="atakatak"/>
+		 keystore="JKS" keystoreFile="../scripts/certs/TAKServer.jks" keystorePass="atakatak"
+		 truststore="JKS" truststoreFile="../scripts/certs/fed-truststore.jks" truststorePass="atakatak"/>
  -->
 
 <!--
@@ -157,14 +157,14 @@
 	</certificateConfig>
 	<TAKServerCAConfig
 		keystore="JKS"
-		keystoreFile="certs/files/intermediate-signing.jks"
+		keystoreFile="../scripts/certs/files/intermediate-signing.jks"
 		keystorePass="atakatak"
 		validityDays="30"
 		signatureAlg="SHA256WithRSA" />
 	<MicrosoftCAConfig
 		username="{MS CA Username}"
 		password="{MS CA Password}"
-		truststore="/opt/tak/certs/files/keystore.jks"
+		truststore="../scripts/certs/files/keystore.jks"
 		truststorePass="atakatak"
 		svcUrl="https://{server}/{CA name}_CES_UsernamePassword/service.svc"
 		templateName="Copy of User"/>

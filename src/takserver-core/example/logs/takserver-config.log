@@ -1,0 +1,23 @@
+2025-03-18-21:51:45.337 [main] INFO tak.server.ServerConfiguration - Starting ServerConfiguration v5.2-RELEASE-16 using Java 17.0.14 with PID 15128 (/home/radu/Server/src/takserver-core/build/libs/takserver-core-5.2-RELEASE-16.war started by radu in /home/radu/Server/src/takserver-core/example)
+2025-03-18-21:51:45.339 [main] INFO tak.server.ServerConfiguration - The following 2 profiles are active: "config", "duplicatelogs"
+2025-03-18-21:52:30.492 [main] INFO tak.server.ServerConfiguration - Started ServerConfiguration in 46.652 seconds (process running for 48.834)
+2025-03-18-21:52:30.505 [main] INFO tak.server.ServerConfiguration - Started TAK Server config Microservice.
+2025-03-18-21:59:08.519 [main] INFO tak.server.ServerConfiguration - Starting ServerConfiguration v5.2-RELEASE-16 using Java 17.0.14 with PID 15788 (/home/radu/Server/src/takserver-core/build/libs/takserver-core-5.2-RELEASE-16.war started by radu in /home/radu/Server/src/takserver-core/example)
+2025-03-18-21:59:08.522 [main] INFO tak.server.ServerConfiguration - The following 2 profiles are active: "config", "duplicatelogs"
+2025-03-18-21:59:19.826 [main] INFO tak.server.ServerConfiguration - Started ServerConfiguration in 13.216 seconds (process running for 15.454)
+2025-03-18-21:59:19.838 [main] INFO tak.server.ServerConfiguration - Started TAK Server config Microservice.
+2025-03-18-22:01:07.885 [main] INFO tak.server.ServerConfiguration - Starting ServerConfiguration v5.2-RELEASE-16 using Java 17.0.14 with PID 16233 (/home/radu/Server/src/takserver-core/build/libs/takserver-core-5.2-RELEASE-16.war started by radu in /home/radu/Server/src/takserver-core/example)
+2025-03-18-22:01:07.887 [main] INFO tak.server.ServerConfiguration - The following 2 profiles are active: "config", "duplicatelogs"
+2025-03-18-22:01:19.064 [main] INFO tak.server.ServerConfiguration - Started ServerConfiguration in 13.204 seconds (process running for 15.443)
+2025-03-18-22:01:19.070 [main] INFO tak.server.ServerConfiguration - Started TAK Server config Microservice.
+2025-03-18-22:03:48.982 [main] INFO tak.server.ServerConfiguration - Starting ServerConfiguration v5.2-RELEASE-16 using Java 17.0.14 with PID 16688 (/home/radu/Server/src/takserver-core/build/libs/takserver-core-5.2-RELEASE-16.war started by radu in /home/radu/Server/src/takserver-core/example)
+2025-03-18-22:03:48.987 [main] INFO tak.server.ServerConfiguration - The following 2 profiles are active: "config", "duplicatelogs"
+2025-03-18-22:03:59.657 [main] INFO tak.server.ServerConfiguration - Started ServerConfiguration in 14.042 seconds (process running for 16.496)
+2025-03-18-22:03:59.674 [main] INFO tak.server.ServerConfiguration - Started TAK Server config Microservice.
+2025-03-18-22:11:47.982 [tcp-client-disco-sock-writer-#2-#37] ERROR o.a.i.s.d.tcp.TcpDiscoverySpi - Failed to send message: TcpDiscoveryClientMetricsUpdateMessage [super=TcpDiscoveryAbstractMessage [sndNodeId=null, id=bb09b5ca591-9f129a47-7b29-441e-8357-4ac5757fa51b, verifierNodeId=null, topVer=0, pendingIdx=0, failedNodes=null, isClient=true]]
+java.net.SocketException: Socket is closed
+	at java.base/java.net.Socket.getSendBufferSize(Socket.java:1296)
+	at org.apache.ignite.spi.discovery.tcp.TcpDiscoverySpi.socketStream(TcpDiscoverySpi.java:1598)
+	at org.apache.ignite.spi.discovery.tcp.TcpDiscoverySpi.writeToSocket(TcpDiscoverySpi.java:1740)
+	at org.apache.ignite.spi.discovery.tcp.ClientImpl$SocketWriter.body(ClientImpl.java:1447)
+	at org.apache.ignite.spi.IgniteSpiThread.run(IgniteSpiThread.java:58)

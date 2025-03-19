@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<UserAuthenticationFile xmlns="http://bbn.com/marti/xml/bindings">
+    <User identifier="webadmin" fingerprint="71:81:A3:47:63:1C:62:C3:9F:81:2E:C4:63:B7:82:F6:FB:DF:2A:44:78:D5:E0:4F:CF:C8:5C:2D:4A:AD:E9:83" passwordHashed="false" role="ROLE_ADMIN">
+        <groupList>__ANON__</groupList>
+    </User>
+</UserAuthenticationFile>

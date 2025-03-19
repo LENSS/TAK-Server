@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="tak.server.ClusterMessageConverterTests" tests="2" skipped="0" failures="0" errors="0" timestamp="2025-03-19T02:50:04" hostname="lenss-10" time="0.271">
+  <properties/>
+  <testcase name="serializeMessageTest" classname="tak.server.ClusterMessageConverterTests" time="0.226"/>
+  <testcase name="deserializeMessageTest" classname="tak.server.ClusterMessageConverterTests" time="0.042"/>
+  <system-out><![CDATA[21:49:59.780 [Test worker] DEBUG o.s.t.c.s.DefaultTestContextBootstrapper - Using ContextCustomizers for test class [ClusterMessageConverterTests]: [DisableObservabilityContextCustomizer, PropertyMappingContextCustomizer, WebDriverContextCustomizer, ExcludeFilterContextCustomizer, DuplicateJsonObjectContextCustomizer, MockitoContextCustomizer]
+21:49:59.809 [Test worker] DEBUG o.s.t.c.u.TestContextSpringFactoriesUtils - Skipping candidate TestExecutionListener [org.springframework.test.context.observation.MicrometerObservationRegistryTestExecutionListener] due to a missing dependency. Specify custom TestExecutionListener classes or make the default TestExecutionListener classes and their required dependencies available. Offending class: io.micrometer.context.ThreadLocalAccessor. MicrometerObservationRegistryTestExecutionListener requires io.micrometer:micrometer-observation:1.10.8 or higher and io.micrometer:context-propagation:1.0.3 or higher.
+21:49:59.822 [Test worker] DEBUG o.s.t.c.s.DefaultTestContextBootstrapper - Using TestExecutionListeners for test class [ClusterMessageConverterTests]: [ServletTestExecutionListener, DirtiesContextBeforeModesTestExecutionListener, ApplicationEventsTestExecutionListener, MockitoTestExecutionListener, DependencyInjectionTestExecutionListener, DirtiesContextTestExecutionListener, TransactionalTestExecutionListener, SqlScriptsTestExecutionListener, EventPublishingTestExecutionListener, RestDocsTestExecutionListener, MockRestServiceServerResetTestExecutionListener, MockMvcPrintOnlyOnFailureTestExecutionListener, WebDriverTestExecutionListener, MockWebServiceServerTestExecutionListener, ResetMocksTestExecutionListener]
+21:49:59.826 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [tak.server.ClusterMessageConverterTests]
+21:49:59.828 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [tak.server.ClusterMessageConverterTests]
+21:49:59.829 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [tak.server.ClusterMessageConverterTests]
+21:49:59.830 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [tak.server.ClusterMessageConverterTests]
+21:49:59.832 [Test worker] DEBUG o.s.t.c.s.DirtiesContextBeforeModesTestExecutionListener - Before test class: class [ClusterMessageConverterTests], class annotated with @DirtiesContext [false] with mode [null]
+21:49:59.835 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [tak.server.ClusterMessageConverterTests]
+21:49:59.836 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [tak.server.ClusterMessageConverterTests]
+21:49:59.841 [Test worker] DEBUG o.s.t.c.s.DependencyInjectionTestExecutionListener - Performing dependency injection for test class tak.server.ClusterMessageConverterTests
+21:49:59.843 [Test worker] DEBUG o.s.t.c.s.AbstractGenericContextLoader - Loading ApplicationContext for test class tak.server.ClusterMessageConverterTests
+21:49:59.885 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Activating profiles []
+21:49:59.886 [Test worker] DEBUG o.s.t.c.s.AnnotationConfigContextLoader - Registering component classes: [tak.server.TakServerTestApplicationConfig]
+21:49:59.942 [Test worker] DEBUG o.s.c.s.GenericApplicationContext - Refreshing org.springframework.context.support.GenericApplicationContext@423e4cbb
+21:49:59.954 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor'
+21:50:00.124 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.boot.test.mock.mockito.MockitoPostProcessor'
+21:50:01.249 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.event.internalEventListenerProcessor'
+21:50:01.252 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.event.internalEventListenerFactory'
+21:50:01.255 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalAutowiredAnnotationProcessor'
+21:50:01.259 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalCommonAnnotationProcessor'
+21:50:01.267 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalPersistenceAnnotationProcessor'
+21:50:01.268 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.boot.test.mock.mockito.MockitoPostProcessor$SpyPostProcessor'
+21:50:01.287 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'takServerTestApplicationConfig'
+21:50:01.301 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'jaxbMarshaller'
+21:50:01.319 [Test worker] DEBUG o.s.oxm.jaxb.Jaxb2Marshaller - Creating JAXBContext with classes to be bound [class com.bbn.marti.config.Input]
+21:50:01.550 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'objectMapper'
+21:50:01.753 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'clusterMessageConverter'
+21:50:01.779 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'serverInfo'
+21:50:01.781 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'getDistributedConfiguration'
+21:50:01.794 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'springContextBean'
+21:50:01.795 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'coreSpringContextBean'
+21:50:01.812 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'converter'
+21:50:01.813 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'ignite'
+21:50:01.817 [Test worker] DEBUG t.s.ignite.IgniteConfigurationHolder - Config file does not exist
+Ignite SPI connections per node: 4
+21:50:02.015 [Test worker] WARN  t.s.TakServerTestApplicationConfig - Redirecting ignite logs to '/home/radu/Server/src/takserver-core/build/tmp/test/logs/config-ignite.log'.
+[21:50:02]    __________  ________________ 
+[21:50:02]   /  _/ ___/ |/ /  _/_  __/ __/ 
+[21:50:02]  _/ // (7 7    // /  / / / _/   
+[21:50:02] /___/\___/_/|_/___/ /_/ /x___/  
+[21:50:02] 
+[21:50:02] ver. 2.15.0#20230425-sha1:f98f7f35
+[21:50:02] 2023 Copyright(C) Apache Software Foundation
+[21:50:02] 
+[21:50:02] Ignite documentation: https://ignite.apache.org
+[21:50:02] 
+[21:50:02] Quiet mode.
+[21:50:02]   ^-- Logging by 'Slf4jLogger [impl=Logger[o.a.i.i.IgniteKernal], quiet=true]'
+[21:50:02]   ^-- To see **FULL** console log here add -DIGNITE_QUIET=false or "-v" to ignite.{sh|bat}
+[21:50:02] 
+[21:50:02] OS: Linux 6.8.0-52-generic amd64
+[21:50:02] VM information: OpenJDK Runtime Environment 17.0.14+7-Ubuntu-122.04.1 Ubuntu OpenJDK 64-Bit Server VM 17.0.14+7-Ubuntu-122.04.1
+[21:50:02] Please set system property '-Djava.net.preferIPv4Stack=true' to avoid possible problems in mixed environments.
+[21:50:02] Configured plugins:
+[21:50:02]   ^-- None
+[21:50:02] 
+[21:50:02] Configured failure handler: [hnd=NoOpFailureHandler [super=AbstractFailureHandler [ignoredFailureTypes=UnmodifiableSet [SYSTEM_WORKER_BLOCKED, SYSTEM_CRITICAL_OPERATION_TIMEOUT]]]]
+[21:50:02] Initial heap size is 250MB (should be no less than 512MB, use -Xms512m -Xmx512m).
+[21:50:02] Message queue limit is set to 0 which may lead to potential OOMEs when running cache operations in FULL_ASYNC or PRIMARY_SYNC modes due to message queues growth on sender and receiver sides.
+[21:50:03] Data Regions Started: 4
+[21:50:03] 
+[21:50:03]     ^--   sysMemPlc region [type=internal, persistence=false, lazyAlloc=false,
+[21:50:03]       ...  initCfg=40MB, maxCfg=100MB, usedRam=0MB, freeRam=100%, allocRam=40MB]
+[21:50:03]     ^--   takserver-cache-region region [type=default, persistence=false, lazyAlloc=true,
+[21:50:03]       ...  initCfg=500MB, maxCfg=500MB, usedRam=0MB, freeRam=100%, allocRam=0MB]
+[21:50:03]     ^--   TxLog region [type=internal, persistence=false, lazyAlloc=false,
+[21:50:03]       ...  initCfg=40MB, maxCfg=100MB, usedRam=0MB, freeRam=100%, allocRam=40MB]
+[21:50:03]     ^--   volatileDsMemPlc region [type=user, persistence=false, lazyAlloc=true,
+[21:50:03]       ...  initCfg=40MB, maxCfg=100MB, usedRam=0MB, freeRam=100%, allocRam=0MB]
+[21:50:03] Security status [authentication=off, sandbox=off, tls/ssl=off]
+[21:50:03] Performance suggestions for grid  (fix if possible)
+[21:50:03] To disable, set -DIGNITE_PERFORMANCE_SUGGESTIONS_DISABLED=true
+[21:50:03]   ^-- Switch to the most recent 11 JVM version
+[21:50:03]   ^-- Set max direct memory size if getting 'OOME: Direct buffer memory' (add '-XX:MaxDirectMemorySize=<size>[g|G|m|M|k|K]' to JVM options)
+[21:50:03]   ^-- Speed up flushing of dirty pages by OS (alter vm.dirty_expire_centisecs parameter by setting to 500)
+[21:50:03]   ^-- Reduce pages swapping ratio (set vm.swappiness=10 or less)
+[21:50:03]   ^-- Disable assertions (remove '-ea' from JVM options)
+[21:50:03] Refer to this page for more performance suggestions: https://ignite.apache.org/docs/latest/perf-and-troubleshooting/memory-tuning
+[21:50:03] 
+[21:50:03] 
+[21:50:03] Ignite node started OK (id=91091ecc)
+[21:50:03] Topology snapshot [ver=1, locNode=91091ecc, servers=1, clients=0, state=ACTIVE, CPUs=4, offheap=0.49GB, heap=0.5GB]
+[21:50:03]   ^-- Baseline [id=0, size=1, online=1, offline=0]
+21:50:03.898 [services-deployment-worker-#57] ERROR c.b.m.r.config.LocalConfiguration - Config file does not exist.
+21:50:03.905 [services-deployment-worker-#57] INFO  c.b.m.r.config.LocalConfiguration - base url for V2 federated mission packages: https://127.0.1.1:8443/Marti
+21:50:03.906 [services-deployment-worker-#57] INFO  c.b.m.r.config.LocalConfiguration - saving upgraded QoS configuration
+21:50:04.038 [services-deployment-worker-#57] INFO  c.b.m.r.config.LocalConfiguration - upgrade detected
+21:50:04.038 [services-deployment-worker-#57] INFO  c.b.m.r.config.LocalConfiguration - upgrading configuration
+21:50:04.049 [services-deployment-worker-#57] INFO  c.b.m.r.config.LocalConfiguration - saving upgraded configuration
+messaging process Xmx (bytes) 536870912
+cache computed offheap max size 524288000 bytes
+cache computed offheap initial size 524288000 bytes
+ignite thread pool size: -1
+Ignite SPI connections per node: 4
+21:50:04.390 [services-deployment-worker-#57] DEBUG c.b.m.r.c.DistributedConfiguration - init method DistributedConfiguration
+21:50:04.391 [service-#60] DEBUG c.b.m.r.c.DistributedConfiguration - execute method DistributedConfiguration
+Ignite SPI connections per node: 4
+21:50:04.404 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'subscriptionStore'
+21:50:04.416 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'propertiesService'
+21:50:04.418 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'propertiesApi'
+21:50:04.448 [Test worker] DEBUG o.s.c.e.EventListenerMethodProcessor - 1 @EventListener methods processed on bean 'subscriptionStore': {private void com.bbn.marti.service.SubscriptionStore.init()=@org.springframework.context.event.EventListener(classes={org.springframework.context.event.ContextRefreshedEvent.class}, condition="", id="", value={org.springframework.context.event.ContextRefreshedEvent.class})}
+21:50:04.454 [Test worker] DEBUG c.b.marti.service.SubscriptionStore - init SubscriptionStore. ignite instance IgniteKernal [info=org.apache.ignite.internal.plugin.IgniteLogInfoProviderImpl@b889cb6, longJVMPauseDetector=LongJVMPauseDetector [workerRef=Thread[jvm-pause-detector-worker,5,main], longPausesCnt=0, longPausesTotalDuration=0, lastWakeUpTime=1742352604424, longPausesTimestamps=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], longPausesDurations=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]], cfg=IgniteConfiguration [igniteInstanceName=null, pubPoolSize=8, svcPoolSize=8, callbackPoolSize=8, stripedPoolSize=8, sysPoolSize=8, mgmtPoolSize=4, dataStreamerPoolSize=8, utilityCachePoolSize=8, utilityCacheKeepAliveTime=60000, p2pPoolSize=2, qryPoolSize=8, buildIdxPoolSize=1, igniteHome=null, igniteWorkDir=/home/radu/Server/src/takserver-core/ignite/work/config-tmp-work, mbeanSrv=com.sun.jmx.mbeanserver.JmxMBeanServer@de77146, nodeId=91091ecc-dca6-40ef-917a-64f6dbf07ee5, marsh=BinaryMarshaller [], marshLocJobs=false, p2pEnabled=false, netTimeout=5000, netCompressionLevel=1, sndRetryDelay=1000, sndRetryCnt=3, metricsHistSize=10000, metricsUpdateFreq=2000, metricsExpTime=9223372036854775807, discoSpi=TcpDiscoverySpi [addrRslvr=null, addressFilter=null, sockTimeout=5000, ackTimeout=5000, marsh=JdkMarshaller [clsFilter=org.apache.ignite.marshaller.MarshallerUtils$1@7112fa5], reconCnt=10, reconDelay=2000, maxAckTimeout=600000, soLinger=0, forceSrvMode=false, clientReconnectDisabled=false, internalLsnr=null, skipAddrsRandomization=false], segPlc=USE_FAILURE_HANDLER, segResolveAttempts=2, waitForSegOnStart=true, allResolversPassReq=true, segChkFreq=10000, commSpi=TcpCommunicationSpi [connectGate=org.apache.ignite.spi.communication.tcp.internal.ConnectGateway@6c5ca0b6, ctxInitLatch=java.util.concurrent.CountDownLatch@37b01ce2[Count = 0], stopping=false, clientPool=org.apache.ignite.spi.communication.tcp.internal.ConnectionClientPool@25d9298e, nioSrvWrapper=org.apache.ignite.spi.communication.tcp.internal.GridNioServerWrapper@6ab826bb, stateProvider=org.apache.ignite.spi.communication.tcp.internal.ClusterStateProvider@219db855], evtSpi=org.apache.ignite.spi.eventstorage.NoopEventStorageSpi@1a88c4f5, colSpi=NoopCollisionSpi [], deploySpi=LocalDeploymentSpi [], indexingSpi=org.apache.ignite.spi.indexing.noop.NoopIndexingSpi@a316f6b, addrRslvr=null, encryptionSpi=org.apache.ignite.spi.encryption.noop.NoopEncryptionSpi@63f9ddf9, tracingSpi=org.apache.ignite.spi.tracing.NoopTracingSpi@410fc508, clientMode=false, rebalanceThreadPoolSize=1, rebalanceTimeout=10000, rebalanceBatchesPrefetchCnt=3, rebalanceThrottle=0, rebalanceBatchSize=524288, txCfg=TransactionConfiguration [txSerEnabled=false, dfltIsolation=REPEATABLE_READ, dfltConcurrency=PESSIMISTIC, dfltTxTimeout=0, txTimeoutOnPartitionMapExchange=0, deadlockTimeout=10000, pessimisticTxLogSize=0, pessimisticTxLogLinger=10000, tmLookupClsName=null, txManagerFactory=null, useJtaSync=false], cacheSanityCheckEnabled=true, discoStartupDelay=60000, deployMode=SHARED, p2pMissedCacheSize=100, locHost=127.0.0.1, timeSrvPortBase=31100, timeSrvPortRange=100, failureDetectionTimeout=10000, sysWorkerBlockedTimeout=null, clientFailureDetectionTimeout=30000, metricsLogFreq=60000, connectorCfg=ConnectorConfiguration [jettyPath=null, host=null, port=11211, noDelay=true, directBuf=false, sndBufSize=32768, rcvBufSize=32768, idleQryCurTimeout=600000, idleQryCurCheckFreq=60000, sndQueueLimit=0, selectorCnt=4, idleTimeout=7000, sslEnabled=false, sslClientAuth=false, sslCtxFactory=null, sslFactory=null, portRange=100, threadPoolSize=8, msgInterceptor=null], odbcCfg=null, warmupClos=null, atomicCfg=AtomicConfiguration [seqReserveSize=1000, cacheMode=PARTITIONED, backups=1, aff=null, grpName=null], classLdr=null, sslCtxFactory=null, platformCfg=null, binaryCfg=null, memCfg=null, pstCfg=null, dsCfg=DataStorageConfiguration [pageSize=4096, concLvl=0, sysDataRegConf=org.apache.ignite.configuration.SystemDataRegionConfiguration@2a5abd3c, dfltDataRegConf=DataRegionConfiguration [name=takserver-cache-region, maxSize=524288000, initSize=524288000, swapPath=null, pageEvictionMode=RANDOM_2_LRU, pageReplacementMode=CLOCK, evictionThreshold=0.9, emptyPagesPoolSize=100, metricsEnabled=false, metricsSubIntervalCount=5, metricsRateTimeInterval=60000, persistenceEnabled=false, checkpointPageBufSize=0, lazyMemoryAllocation=true, warmUpCfg=null, memoryAllocator=null, cdcEnabled=false], dataRegions=null, storagePath=null, checkpointFreq=180000, lockWaitTime=10000, checkpointThreads=4, checkpointWriteOrder=SEQUENTIAL, walHistSize=20, maxWalArchiveSize=1073741824, walSegments=10, walSegmentSize=67108864, walPath=db/wal, walArchivePath=db/wal/archive, cdcWalPath=db/wal/cdc, cdcWalDirMaxSize=0, metricsEnabled=false, walMode=LOG_ONLY, walTlbSize=131072, walBuffSize=0, walFlushFreq=2000, walFsyncDelay=1000, walRecordIterBuffSize=67108864, alwaysWriteFullPages=false, fileIOFactory=org.apache.ignite.internal.processors.cache.persistence.file.AsyncFileIOFactory@2a484710, metricsSubIntervalCnt=5, metricsRateTimeInterval=60000, walAutoArchiveAfterInactivity=-1, walForceArchiveTimeout=-1, writeThrottlingEnabled=false, walCompactionEnabled=false, walCompactionLevel=1, checkpointReadLockTimeout=null, walPageCompression=DISABLED, walPageCompressionLevel=null, dfltWarmUpCfg=null, encCfg=org.apache.ignite.configuration.EncryptionConfiguration@3ffd4b12, defragmentationThreadPoolSize=4, minWalArchiveSize=-1, memoryAllocator=null], snapshotPath=snapshots, snapshotThreadPoolSize=4, activeOnStart=true, activeOnStartPropSetFlag=false, autoActivation=true, autoActivationPropSetFlag=false, clusterStateOnStart=null, sqlConnCfg=null, cliConnCfg=ClientConnectorConfiguration [host=null, port=10800, portRange=100, sockSndBufSize=0, sockRcvBufSize=0, tcpNoDelay=true, maxOpenCursorsPerConn=128, threadPoolSize=8, selectorCnt=4, idleTimeout=0, handshakeTimeout=10000, jdbcEnabled=true, odbcEnabled=true, thinCliEnabled=true, sslEnabled=false, useIgniteSslCtxFactory=true, sslClientAuth=false, sslCtxFactory=null, thinCliCfg=ThinClientConfiguration [maxActiveTxPerConn=100, maxActiveComputeTasksPerConn=0, sendServerExcStackTraceToClient=false]], mvccVacuumThreadCnt=2, mvccVacuumFreq=5000, authEnabled=false, failureHnd=NoOpFailureHandler [super=AbstractFailureHandler [ignoredFailureTypes=UnmodifiableSet [SYSTEM_WORKER_BLOCKED, SYSTEM_CRITICAL_OPERATION_TIMEOUT]]], commFailureRslvr=null, sqlCfg=SqlConfiguration [longQryWarnTimeout=3000, dfltQryTimeout=0, sqlQryHistSize=1000, validationEnabled=false], asyncContinuationExecutor=null], igniteInstanceName=null, startTime=1742352603855, rsrcCtx=null, reconnectState=ReconnectState [firstReconnectFut=GridFutureAdapter [ignoreInterrupts=false, state=INIT, res=null, hash=1885172464], curReconnectFut=null, reconnectDone=null]]
+21:50:04.467 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 0, missCount = 1]
+21:50:04.473 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 1, missCount = 1]
+21:50:04.477 [Test worker] DEBUG o.s.t.c.s.DirtiesContextBeforeModesTestExecutionListener - Before test method: class [ClusterMessageConverterTests], method [serializeMessageTest], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null]
+21:50:04.483 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 2, missCount = 1]
+21:50:04.483 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 3, missCount = 1]
+21:50:04.485 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 4, missCount = 1]
+21:50:04.678 [Test worker] DEBUG t.s.ClusterMessageConverterTests - clusterMessage: 
+�??�?
+?b-t-f*JGeoChat.ANDROID-358982072593830.Green.2b4fb2c4-300d-41e6-9df3-f21b597b87e30����+8����+@�����+J	h-g-i-g-oa???��?cAi???��?cAq???��?cAz�?
+�?<__chat id="Green" chatroom="Green"><chatgrp uid0="ANDROID-358982072593830" id="Green"/></__chat><link relation="p-p" type="a-f-G-U-C" uid="ANDROID-358982072593830"/><remarks time="2017-06-19T17:13:53.047Z" source="BAO.F.ATAK.ANDROID-358982072593830">hey there</remarks><_flow-tags_ marti1="2017-06-19T17:13:53Z"/><marti><dest mission="jimmy"/></marti>"
+
+????????? �����2? 5477c6cefada4a04b06fd482229e35b6"?__ANON__@?
+21:50:04.683 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 5, missCount = 1]
+21:50:04.685 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 6, missCount = 1]
+21:50:04.686 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 7, missCount = 1]
+21:50:04.686 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 8, missCount = 1]
+21:50:04.697 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 9, missCount = 1]
+21:50:04.701 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 10, missCount = 1]
+21:50:04.702 [Test worker] DEBUG o.s.t.c.s.DirtiesContextTestExecutionListener - After test method: class [ClusterMessageConverterTests], method [serializeMessageTest], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null]
+21:50:04.703 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [tak.server.ClusterMessageConverterTests]
+21:50:04.704 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [tak.server.ClusterMessageConverterTests]
+21:50:04.704 [Test worker] DEBUG o.s.t.c.s.DependencyInjectionTestExecutionListener - Performing dependency injection for test class tak.server.ClusterMessageConverterTests
+21:50:04.704 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 11, missCount = 1]
+21:50:04.705 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 12, missCount = 1]
+21:50:04.706 [Test worker] DEBUG o.s.t.c.s.DirtiesContextBeforeModesTestExecutionListener - Before test method: class [ClusterMessageConverterTests], method [deserializeMessageTest], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null]
+21:50:04.707 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 13, missCount = 1]
+21:50:04.707 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 14, missCount = 1]
+21:50:04.708 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 15, missCount = 1]
+21:50:04.744 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 16, missCount = 1]
+21:50:04.744 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 17, missCount = 1]
+21:50:04.746 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 18, missCount = 1]
+21:50:04.746 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 19, missCount = 1]
+21:50:04.746 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 20, missCount = 1]
+21:50:04.747 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 21, missCount = 1]
+21:50:04.747 [Test worker] DEBUG o.s.t.c.s.DirtiesContextTestExecutionListener - After test method: class [ClusterMessageConverterTests], method [deserializeMessageTest], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null]
+21:50:04.749 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@1d38cdde size = 1, maxSize = 32, parentContextCount = 0, hitCount = 22, missCount = 1]
+21:50:04.749 [Test worker] DEBUG o.s.t.c.s.DirtiesContextTestExecutionListener - After test class: class [ClusterMessageConverterTests], class annotated with @DirtiesContext [false] with mode [null]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
