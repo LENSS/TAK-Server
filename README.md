@@ -1,4 +1,4 @@
-Note: Some jar and war files were not uploaded to the repository due to file sizes. Those files were uploaded to the LENSS Team Drive (https://drive.google.com/drive/folders/1bLdEYcue45vCUVIeGzYD-8PRMRGlHcZv?usp=drive_link).
+Note: Some jar and war files that are required for running the server were not uploaded to the repository due to file sizes. Those files were uploaded to the LENSS Team Drive (https://drive.google.com/drive/folders/1bLdEYcue45vCUVIeGzYD-8PRMRGlHcZv?usp=drive_link). 
 
 # TAK Server Development
 *Requires Java 17*
@@ -11,46 +11,62 @@ Links:
  * [Publishing](src/docs/publishing.md)
 
 ---
-Clean and Build TAK Server, including war, retention service, plugin manager, user manager and schema manager.
+### System Requirements
+
+* Min. 4 cores, 8GB RAM, 40GB storage
+* Recommended OS: CentOS Linux 7, Rocky Linux 8, RHEL 8, Ubuntu 22, Raspberry Pi OS (64bit)
+* Java OpenJDK 17
+* PostgreSQL 15
+
+*The following instruction assumes you start with a clean installation of Ubuntu 22.04.5 LTS.*
+
+### Prerequisites
+
+Modify the Linux pluggable authentication module limits set within the /etc/security/limits.conf. This increases the number of file handles allowed within the per-user limit for open files to support Java threads. Configure the soft (user override) and hard (root override) limits using a command line text editor (vi/vim, or nano) or a one-line command string.
+```
+# Increase JVM threads
+# Each 'tab' is six spaces when typing manually
+echo -e "*      soft      nofile      32768\n*      hard      nofile      32768\n" | sudo tee --append /etc/security/limits.conf
+```
+
+Install Java OpenJDK 17.
+
+Clean and Build TAK Server, including war, retention service, plugin manager, user manager, and schema manager.
 ```
 cd src
 ./gradlew clean bootWar bootJar shadowJar
 ```
 
-Install PostgreSQL + PostGIS extension locally on your workstation, or run the docker container as described below.
-
-Start the Postres server.
-
-To run a local PostgreSQL + PostGIS container, follow the commands below using the official PostGIS database docker container as follows, and changing the environment variables supplied to the container as necessary. Note the '--rm' means the container will be destroyed when it is stopped.
-
+Install PostgreSQL + PostGIS extension locally on your workstation. If higher versions of PostgreSQL are installed, switch to 15.
 ```
-docker run -it -d --rm --name TakserverServer0DB \
-    --env POSTGRES_PASSWORD=e815f795745e \
-    --env POSTGRES_HOST_AUTH_METHOD=trust \
-    --env POSTGRES_USER=martiuser \
-    --env POSTGRES_DB=cot \
-    -p 5432 postgis/postgis:15-3.3
-
-echo SQL SERVER IP: `docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' TakserverServer0DB`
+sudo sh -c 'echo "deb https://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+wget -O- https://www.postgresql.org/media/keys/ACCC4CF8.asc | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/postgresql.org.gpg > /dev/null
+sudo apt update
+sudo apt install postgresql-15 postgis postgresql-15-postgis-3
 ```
 
-Setup Local Database. If the postgis container was used, only the last two lines should be necessary.  
+Start the Postgres server and create user, db, and postgis extension.
 ```
-- cd src/takserver-schemamanager
-- psql -d postgres  -c "CREATE ROLE martiuser LOGIN ENCRYPTED PASSWORD 'md564d5850dcafc6b4ddd03040ad1260bc2' SUPERUSER INHERIT CREATEDB NOCREATEROLE;"
-- createdb --owner=martiuser cot
-- ../gradlew shadowJar
-- java -jar build/libs/schemamanager-<version>-uber.jar upgrade # Make sure that the CoreConfig.xml is in the current directory
-```
-
-Configure Local CoreConfig and Certs
-```
-cd takserver-core/example
+sudo -u postgres psql
+CREATE ROLE martiuser LOGIN PASSWORD 'your_password_here' SUPERUSER INHERIT CREATEDB NOCREATEROLE;
+CREATE DATABASE cot OWNER martiuser;
+\c cot
+CREATE EXTENSION postgis;
+SELECT PostGIS_Version();
+exit
 ```
 
-This is the CoreConfig that takserver war will look for when running from the takserver-core/example directory. From this point, just follow the instructions at takserver/src/docs/TAK_Server_Configuration_Guide.pdf to set up the CoreConfig and Certs. Make sure that the CoreConfig now points to the directory where the certs were generated locally.
+Configure Local CoreConfig and Certs at src/takserver-core/example. This is the CoreConfig that takserver war will look for when running from the takserver-core/example directory. From this point, follow the instructions at takserver/src/docs/TAK_Server_Configuration_Guide.pdf to set up the CoreConfig and Certs. You can also refer to https://mytecknet.com/lets-build-a-tak-server/ for a more detailed, user-friendly version. See appendix B in src/docs/TAK_Server_Configuration_Guide.pdf for cert generation instructions.
 
-See appendix B in src/docs/TAK_Server_Configuration_Guide.pdf for cert generation instructions.
+When configuring CoreConfig.example.xml, edit the database password and the cerst' paths to point to the directory where the certs will be generated locally (src/takserver-core/scripts/certs/files).
+
+Setup Local Database.
+```
+cd src/takserver-schemamanager
+../gradlew shadowJar
+cp ../takserver-core/example/CoreConfig.example.xml CoreConfig.xml
+java -jar build/libs/schemamanager-5.2-RELEASE-16-uber.jar upgrade
+```
 
 ### Build TAK server to run locally for development
 
@@ -63,6 +79,7 @@ export IGNITE_HOME="$PWD/ignite"
 export JDK_JAVA_OPTIONS="-Dloader.path=WEB-INF/lib-provided,WEB-INF/lib,WEB-INF/classes,file:lib/ -Djava.net.preferIPv4Stack=true -Djava.security.egd=file:/dev/./urandom -DIGNITE_UPDATE_NOTIFIER=false -DIGNITE_QUIET=true -Dio.netty.tmpdir=$PWD -Djava.io.tmpdir=$PWD -Dio.netty.native.workdir=$PWD -Djdk.tls.client.protocols=TLSv1.2  --add-opens=java.base/sun.security.pkcs=ALL-UNNAMED --add-opens=java.base/sun.security.pkcs10=ALL-UNNAMED --add-opens=java.base/sun.security.util=ALL-UNNAMED --add-opens=java.base/sun.security.x509=ALL-UNNAMED --add-opens=java.base/sun.security.tools.keytool=ALL-UNNAMED --add-opens=java.base/jdk.internal.misc=ALL-UNNAMED --add-opens=java.base/sun.nio.ch=ALL-UNNAMED --add-opens=java.management/com.sun.jmx.mbeanserver=ALL-UNNAMED --add-opens=jdk.internal.jvmstat/sun.jvmstat.monitor=ALL-UNNAMED --add-opens=java.base/sun.reflect.generics.reflectiveObjects=ALL-UNNAMED --add-opens=jdk.management/com.sun.management.internal=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.nio=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.base/java.util.concurrent.locks=ALL-UNNAMED --add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.base/java.math=ALL-UNNAMED --add-opens=java.sql/java.sql=ALL-UNNAMED --add-opens=java.base/javax.net.ssl=ALL-UNNAMED --add-opens=java.base/java.net=ALL-UNNAMED --add-opens=jdk.unsupported/sun.misc=ALL-UNNAMED --add-opens=java.base/java.lang.ref=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.security=ALL-UNNAMED --add-opens=java.base/java.security.ssl=ALL-UNNAMED --add-opens=java.base/java.security.cert=ALL-UNNAMED --add-opens=java.base/sun.security.rsa=ALL-UNNAMED --add-opens=java.base/sun.security.ssl=ALL-UNNAMED --add-opens=java.base/sun.security.x500=ALL-UNNAMED --add-opens=java.base/sun.security.pkcs12=ALL-UNNAMED --add-opens=java.base/sun.security.provider=ALL-UNNAMED --add-opens=java.base/javax.security.auth.x500=ALL-UNNAMED"
 
 ```
+
 ### Running TAK server locally for development
 
 TAK server consists of three processes: Configuration, Messaging and API. 
@@ -75,15 +92,15 @@ Note - These commands include the **duplicatelogs** profile. This turns off the 
 
 #### Run Configuration Microservice
 ```
-java -server -XX:+AlwaysPreTouch -XX:+UseG1GC -XX:+ScavengeBeforeFullGC -XX:+DisableExplicitGC -Xmx<value> -Dspring.profiles.active=config,duplicatelogs -jar ../build/libs/takserver-core-xyz.war
+java -server -XX:+AlwaysPreTouch -XX:+UseG1GC -XX:+ScavengeBeforeFullGC -XX:+DisableExplicitGC -Xmx2g -Dspring.profiles.active=config,duplicatelogs -jar ../build/libs/takserver-core-5.2-RELEASE-16.war
 ```
 #### Run Messaging Microservice
 ```
-java -server -XX:+AlwaysPreTouch -XX:+UseG1GC -XX:+ScavengeBeforeFullGC -XX:+DisableExplicitGC -Xmx<value> -Dspring.profiles.active=messaging,duplicatelogs -jar ../build/libs/takserver-core-xyz.war
+java -server -XX:+AlwaysPreTouch -XX:+UseG1GC -XX:+ScavengeBeforeFullGC -XX:+DisableExplicitGC -Xmx2g -Dspring.profiles.active=messaging,duplicatelogs -jar ../build/libs/takserver-core-5.2-RELEASE-16.war
 ```
 #### Run API Microservice
 ```
-java -server -XX:+AlwaysPreTouch -XX:+UseG1GC -XX:+ScavengeBeforeFullGC -XX:+DisableExplicitGC -Xmx<value> -Dspring.profiles.active=api,duplicatelogs -Dkeystore.pkcs12.legacy -jar ../build/libs/takserver-core-xyz.war
+java -server -XX:+AlwaysPreTouch -XX:+UseG1GC -XX:+ScavengeBeforeFullGC -XX:+DisableExplicitGC -Xmx2g -Dspring.profiles.active=api,duplicatelogs -Dkeystore.pkcs12.legacy -jar ../build/libs/takserver-core-5.2-RELEASE-16.war
 ```
 
 #### Run Plugin Manager Microservice (optional - useful when working on plugin capability)
@@ -182,6 +199,3 @@ Build takserver and plugin manager
 cd <repo-home>/src
 ./gradlew clean build bootWar bootJar
 ```
-
-
-
