@@ -56,9 +56,9 @@ SELECT PostGIS_Version();
 exit
 ```
 
-Configure Local CoreConfig and Certs at src/takserver-core/example. This is the CoreConfig that takserver war will look for when running from the takserver-core/example directory. From this point, follow the instructions at takserver/src/docs/TAK_Server_Configuration_Guide.pdf to set up the CoreConfig and Certs. You can also refer to https://mytecknet.com/lets-build-a-tak-server/ for a more detailed, user-friendly version. See appendix B in src/docs/TAK_Server_Configuration_Guide.pdf for cert generation instructions.
+Configure Local CoreConfig and Certs at src/takserver-core/example. This is the CoreConfig that takserver war will look for when running from the takserver-core/example directory. From this point, follow the instructions at takserver/src/docs/TAK_Server_Configuration_Guide.pdf to set up the CoreConfig and Certs. You can also refer to https://mytecknet.com/lets-build-a-tak-server/ for a more user-friendly version. See appendix B in src/docs/TAK_Server_Configuration_Guide.pdf for cert generation instructions.
 
-When configuring CoreConfig.example.xml, edit the database password and the cerst' paths to point to the directory where the certs will be generated locally (src/takserver-core/scripts/certs/files).
+When configuring CoreConfig.example.xml, edit the database password and the certs' paths to point to the directory where the certs will be generated locally (src/takserver-core/scripts/certs/files).
 
 Setup Local Database.
 ```
