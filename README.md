@@ -1,3 +1,5 @@
+Note: Some jar and war files were not uploaded to the repository due to file sizes. Those files are uploaded to the LENSS Team Drive (https://drive.google.com/drive/folders/1bLdEYcue45vCUVIeGzYD-8PRMRGlHcZv?usp=drive_link).
+
 # TAK Server Development
 *Requires Java 17*
 
