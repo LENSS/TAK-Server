@@ -1,10 +1,10 @@
-src/federation-hub-ui/build/libs/federation-hub-ui-5.2-RELEASE-16.jar
-src/takserver-usermanager/build/libs/UserManager-5.2-RELEASE-16-all.jar
-src/takserver-schemamanager/build/libs/schemamanager-5.2-RELEASE-16-uber.jar
 src/federation-hub-broker/build/libs/federation-hub-broker-5.2-RELEASE-16.jar
+src/federation-hub-policy/build/libs/federation-hub-policy-5.2-RELEASE-16.jar
+src/federation-hub-ui/build/libs/federation-hub-ui-5.2-RELEASE-16.jar
+src/federation-hub-ui/build/libs/federation-hub-ui-5.2-RELEASE-16.war
+src/takserver-core/build/libs/takserver-core-5.2-RELEASE-16.jar
+src/takserver-core/build/libs/takserver-core-5.2-RELEASE-16.war
 src/takserver-plugin-manager/build/libs/takserver-plugin-manager-5.2-RELEASE-16.jar
 src/takserver-retention/build/libs/takserver-retention-5.2-RELEASE-16.jar
-src/takserver-core/build/libs/takserver-core-5.2-RELEASE-16.jar
-src/federation-hub-policy/build/libs/federation-hub-policy-5.2-RELEASE-16.jar
-src/federation-hub-ui/build/libs/federation-hub-ui-5.2-RELEASE-16.war
-src/takserver-core/build/libs/takserver-core-5.2-RELEASE-16.war
+src/takserver-schemamanager/build/libs/schemamanager-5.2-RELEASE-16-uber.jar
+src/takserver-usermanager/build/libs/UserManager-5.2-RELEASE-16-all.jar
