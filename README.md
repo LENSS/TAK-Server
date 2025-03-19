@@ -1,4 +1,4 @@
-Note: Some jar and war files were not uploaded to the repository due to file sizes. Those files are uploaded to the LENSS Team Drive (https://drive.google.com/drive/folders/1bLdEYcue45vCUVIeGzYD-8PRMRGlHcZv?usp=drive_link).
+Note: Some jar and war files were not uploaded to the repository due to file sizes. Those files were uploaded to the LENSS Team Drive (https://drive.google.com/drive/folders/1bLdEYcue45vCUVIeGzYD-8PRMRGlHcZv?usp=drive_link).
 
 # TAK Server Development
 *Requires Java 17*
@@ -17,13 +17,7 @@ cd src
 ./gradlew clean bootWar bootJar shadowJar
 ```
 
-In Eclipse, choose File -> Import -> Gradle -> Existing Gradle Project
-
-Navigate to `takserver/src`
-
-Select Finish. The TAK Server parent project, and all subprojects, will be imported into Eclipse.
-
-Install PostgreSQL + PostGIS extension locally on your workstation, or run the docker container as described below. If installing locally, use 
+Install PostgreSQL + PostGIS extension locally on your workstation, or run the docker container as described below.
 
 Start the Postres server.
 
