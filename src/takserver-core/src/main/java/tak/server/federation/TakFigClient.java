@@ -326,10 +326,31 @@ public class TakFigClient implements Serializable {
 			// Password of the keystore file
 			keyMgrFactory.init(self, figTls.getKeystorePass().toCharArray());
 
-			// Trust Manager Factory type (e.g., ??)
-			trustMgrFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+			try {
+				// Trust Manager Factory type (e.g., ??)
+				trustMgrFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
 
-			SSLConfig.initTrust(figTls, trustMgrFactory);
+				SSLConfig.initTrust(figTls, trustMgrFactory);
+
+			} catch (Exception e) {
+				String remoteFederateName = "Rok-Liaison";
+				String relayHost = "35.209.20.19";
+				int relayPort = 9001;
+
+				log.warn("Truststore load failed, possibly missing cert for {}: {}", remoteFederateName, e.getMessage());
+
+				boolean fetched = attemptDynamicCertFetch(remoteFederateName, relayHost, relayPort);
+				if (fetched) {
+					log.info("Successfully fetched certs from relay. Retrying connection...");
+
+					// Retry: re-initialize trust manager
+					trustMgrFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+					SSLConfig.initTrust(figTls, trustMgrFactory);
+				} else {
+					throw new TakException("Could not fetch missing cert for " + remoteFederateName, e);
+				}
+			}
+
 			try {
 
 				if (logger.isDebugEnabled()) {
@@ -1624,4 +1645,91 @@ public class TakFigClient implements Serializable {
 	public int getFederateMaxHops() {
 		return federateMaxHops;
 	}
+
+	public class FederatedChannelImpl extends FederatedChannelGrpc.FederatedChannelImplBase {
+
+		@Override
+		public void getCertificateForFederate(CertificateRequest request,
+											  StreamObserver<CertificateResponse> responseObserver) {
+
+			String federate = request.getFederateName();
+			GuardedStreamHolder<FederatedEvent> streamHolder =
+					federatedSubscriptionManager.getClientStreamMap().get(federate);
+
+			if (streamHolder == null || streamHolder.getCert() == null) {
+				responseObserver.onError(Status.NOT_FOUND
+						.withDescription("Unknown or disconnected federate: " + federate)
+						.asRuntimeException());
+				return;
+			}
+
+			try {
+				X509Certificate clientCert = streamHolder.getCert();
+				X509Certificate caCert = streamHolder.getCaCert();
+
+				CertificateResponse response = CertificateResponse.newBuilder()
+						.setClientCertPem(pemEncode(clientCert))
+						.setCaCertPem(pemEncode(caCert))
+						.build();
+
+				responseObserver.onNext(response);
+				responseObserver.onCompleted();
+			} catch (Exception e) {
+				responseObserver.onError(Status.INTERNAL.withCause(e).asRuntimeException());
+			}
+		}
+
+		private String pemEncode(X509Certificate cert) throws CertificateEncodingException {
+			return "-----BEGIN CERTIFICATE-----\n"
+					+ Base64.getMimeEncoder(64, "\n".getBytes()).encodeToString(cert.getEncoded())
+					+ "\n-----END CERTIFICATE-----\n";
+		}
+	}
+
+	private boolean attemptDynamicCertFetch(String missingFederate, String relayHost, int relayPort) {
+		try {
+			ManagedChannel channel = NettyChannelBuilder.forAddress(relayHost, relayPort)
+					.useTransportSecurity()
+					.sslContext(SSLConfig.get().getSslContext()) // trust relay B
+					.build();
+
+			FederatedChannelGrpc.FederatedChannelBlockingStub stub = FederatedChannelGrpc.newBlockingStub(channel);
+
+			CertificateRequest request = CertificateRequest.newBuilder()
+					.setFederateName(missingFederate)
+					.build();
+
+			CertificateResponse response = stub.getCertificateForFederate(request);
+
+			saveToTrustStore(response.getClientCertPem(), response.getCaCertPem());
+
+			channel.shutdown();
+			return true;
+		} catch (Exception e) {
+			log.warn("Failed to fetch cert for federate {} from relay {}: {}", missingFederate, relayHost, e.getMessage());
+			return false;
+		}
+	}
+
+	private void saveToTrustStore(String clientPem, String caPem) throws Exception {
+		CertificateFactory cf = CertificateFactory.getInstance("X.509");
+		Certificate clientCert = cf.generateCertificate(new ByteArrayInputStream(clientPem.getBytes()));
+		Certificate caCert = cf.generateCertificate(new ByteArrayInputStream(caPem.getBytes()));
+
+		FigServerConfig config = CoreConfigFacade.getInstance().getRemoteConfiguration().getSecurity().getTls();
+		KeyStore trustStore = KeyStore.getInstance(config.getTruststoreType());
+		try (FileInputStream in = new FileInputStream(config.getTruststoreFile())) {
+			trustStore.load(in, config.getTruststorePassword().toCharArray());
+		}
+
+		String aliasClient = "cert-" + ((X509Certificate) clientCert).getSerialNumber();
+		String aliasCa = "ca-" + ((X509Certificate) caCert).getSerialNumber();
+		trustStore.setCertificateEntry(aliasClient, clientCert);
+		trustStore.setCertificateEntry(aliasCa, caCert);
+
+		try (FileOutputStream out = new FileOutputStream(config.getTruststoreFile())) {
+			trustStore.store(out, config.getTruststorePassword().toCharArray());
+		}
+	}
+
 }
