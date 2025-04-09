@@ -35,6 +35,15 @@ import tak.server.Constants;
 import tak.server.cluster.ClusterManager;
 import tak.server.cot.CotEventContainer;
 
+import java.security.cert.X509Certificate;
+import java.security.cert.Certificate;
+import java.security.cert.CertificateFactory;
+import java.security.cert.CertificateEncodingException;
+import java.io.ByteArrayInputStream;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+
+
 /*
  * 
  * A subclass of FederateSubscription to handle FIG federates
@@ -57,8 +66,20 @@ public class FigFederateSubscription extends FederateSubscription {
     
     private GuardedStreamHolder<FederatedEvent> clientCallHolder;
     private GuardedStreamHolder<FederateGroups> groupsCallHolder;
-        
-    public Reachability<User> getReachability() {
+
+	private X509Certificate clientCert;
+	private X509Certificate caCert;
+
+	public void setCerts(X509Certificate clientCert, X509Certificate caCert) {
+		this.clientCert = clientCert;
+		this.caCert = caCert;
+	}
+
+	public X509Certificate getClientCert() { return clientCert; }
+	public X509Certificate getCaCert() { return caCert; }
+
+
+	public Reachability<User> getReachability() {
         return reachability;
     }
 

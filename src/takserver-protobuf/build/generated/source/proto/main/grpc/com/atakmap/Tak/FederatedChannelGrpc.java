@@ -126,6 +126,15 @@ public class FederatedChannelGrpc {
               "com.atakmap.FederatedChannel", "ClientFederateGroupsStream"),
           io.grpc.protobuf.ProtoUtils.marshaller(com.atakmap.Tak.FederateGroups.getDefaultInstance()),
           io.grpc.protobuf.ProtoUtils.marshaller(com.atakmap.Tak.Subscription.getDefaultInstance()));
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static final io.grpc.MethodDescriptor<com.atakmap.Tak.CertificateRequest,
+      com.atakmap.Tak.CertificateResponse> METHOD_GET_CERTIFICATE_FOR_FEDERATE =
+      io.grpc.MethodDescriptor.create(
+          io.grpc.MethodDescriptor.MethodType.UNARY,
+          generateFullMethodName(
+              "com.atakmap.FederatedChannel", "GetCertificateForFederate"),
+          io.grpc.protobuf.ProtoUtils.marshaller(com.atakmap.Tak.CertificateRequest.getDefaultInstance()),
+          io.grpc.protobuf.ProtoUtils.marshaller(com.atakmap.Tak.CertificateResponse.getDefaultInstance()));
 
   /**
    * Creates a new async stub that supports all call types for the service
@@ -237,6 +246,13 @@ public class FederatedChannelGrpc {
       return asyncUnimplementedStreamingCall(METHOD_CLIENT_FEDERATE_GROUPS_STREAM, responseObserver);
     }
 
+    /**
+     */
+    public void getCertificateForFederate(com.atakmap.Tak.CertificateRequest request,
+        io.grpc.stub.StreamObserver<com.atakmap.Tak.CertificateResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(METHOD_GET_CERTIFICATE_FOR_FEDERATE, responseObserver);
+    }
+
     @java.lang.Override public io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -316,6 +332,13 @@ public class FederatedChannelGrpc {
                 com.atakmap.Tak.FederateGroups,
                 com.atakmap.Tak.Subscription>(
                   this, METHODID_CLIENT_FEDERATE_GROUPS_STREAM)))
+          .addMethod(
+            METHOD_GET_CERTIFICATE_FOR_FEDERATE,
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.atakmap.Tak.CertificateRequest,
+                com.atakmap.Tak.CertificateResponse>(
+                  this, METHODID_GET_CERTIFICATE_FOR_FEDERATE)))
           .build();
     }
   }
@@ -431,6 +454,14 @@ public class FederatedChannelGrpc {
       return asyncClientStreamingCall(
           getChannel().newCall(METHOD_CLIENT_FEDERATE_GROUPS_STREAM, getCallOptions()), responseObserver);
     }
+
+    /**
+     */
+    public void getCertificateForFederate(com.atakmap.Tak.CertificateRequest request,
+        io.grpc.stub.StreamObserver<com.atakmap.Tak.CertificateResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(METHOD_GET_CERTIFICATE_FOR_FEDERATE, getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -505,6 +536,13 @@ public class FederatedChannelGrpc {
       return blockingServerStreamingCall(
           getChannel(), METHOD_SERVER_FEDERATE_GROUPS_STREAM, getCallOptions(), request);
     }
+
+    /**
+     */
+    public com.atakmap.Tak.CertificateResponse getCertificateForFederate(com.atakmap.Tak.CertificateRequest request) {
+      return blockingUnaryCall(
+          getChannel(), METHOD_GET_CERTIFICATE_FOR_FEDERATE, getCallOptions(), request);
+    }
   }
 
   /**
@@ -556,6 +594,14 @@ public class FederatedChannelGrpc {
       return futureUnaryCall(
           getChannel().newCall(METHOD_HEALTH_CHECK, getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.atakmap.Tak.CertificateResponse> getCertificateForFederate(
+        com.atakmap.Tak.CertificateRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(METHOD_GET_CERTIFICATE_FOR_FEDERATE, getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_SEND_ONE_EVENT = 0;
@@ -565,10 +611,11 @@ public class FederatedChannelGrpc {
   private static final int METHODID_HEALTH_CHECK = 4;
   private static final int METHODID_CLIENT_ROLSTREAM = 5;
   private static final int METHODID_SERVER_FEDERATE_GROUPS_STREAM = 6;
-  private static final int METHODID_BINARY_MESSAGE_STREAM = 7;
-  private static final int METHODID_SERVER_EVENT_STREAM = 8;
-  private static final int METHODID_SERVER_ROLSTREAM = 9;
-  private static final int METHODID_CLIENT_FEDERATE_GROUPS_STREAM = 10;
+  private static final int METHODID_GET_CERTIFICATE_FOR_FEDERATE = 7;
+  private static final int METHODID_BINARY_MESSAGE_STREAM = 8;
+  private static final int METHODID_SERVER_EVENT_STREAM = 9;
+  private static final int METHODID_SERVER_ROLSTREAM = 10;
+  private static final int METHODID_CLIENT_FEDERATE_GROUPS_STREAM = 11;
 
   private static class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -615,6 +662,10 @@ public class FederatedChannelGrpc {
           serviceImpl.serverFederateGroupsStream((com.atakmap.Tak.Subscription) request,
               (io.grpc.stub.StreamObserver<com.atakmap.Tak.FederateGroups>) responseObserver);
           break;
+        case METHODID_GET_CERTIFICATE_FOR_FEDERATE:
+          serviceImpl.getCertificateForFederate((com.atakmap.Tak.CertificateRequest) request,
+              (io.grpc.stub.StreamObserver<com.atakmap.Tak.CertificateResponse>) responseObserver);
+          break;
         default:
           throw new AssertionError();
       }
@@ -655,7 +706,8 @@ public class FederatedChannelGrpc {
         METHOD_CLIENT_ROLSTREAM,
         METHOD_SERVER_ROLSTREAM,
         METHOD_SERVER_FEDERATE_GROUPS_STREAM,
-        METHOD_CLIENT_FEDERATE_GROUPS_STREAM);
+        METHOD_CLIENT_FEDERATE_GROUPS_STREAM,
+        METHOD_GET_CERTIFICATE_FOR_FEDERATE);
   }
 
 }

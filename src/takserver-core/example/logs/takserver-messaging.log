@@ -7964,3 +7964,1019 @@ Caused by: java.net.ConnectException: Connection refused
 2025-04-09-06:43:54.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
 2025-04-09-06:43:59.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
 2025-04-09-06:44:04.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:44:09.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:44:14.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:44:19.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:44:19.446 [takserver-scheduled-1] WARN t.s.f.DistributedFederationManager - trying to reconnect outgoing TAK1 for the 51th time.
+2025-04-09-06:44:19.446 [takserver-scheduled-1] INFO tak.server.federation.TakFigClient - client name: TAK1
+2025-04-09-06:44:19.533 [takserver-scheduled-1] WARN com.bbn.marti.service.SSLConfig - TLS enabled, but no certificate revocation lists, and OSCP is not enabled in Core Config!
+2025-04-09-06:44:19.533 [takserver-scheduled-1] DEBUG tak.server.federation.TakFigClient - Trust managers: 1
+2025-04-09-06:44:19.537 [takserver-scheduled-1] DEBUG tak.server.federation.TakFigClient - init TakFigClient
+2025-04-09-06:44:19.538 [takserver-scheduled-1] DEBUG t.s.f.DistributedFederationManager - exception initiating outgoing FIG federate connection FederationOutgoing [displayName=TAK1, address=35.209.26.203, port=9001, enabled=true, reconnectInterval=30, fallback= nullmaxRetries= unlimited] Cannot invoke "com.bbn.marti.config.Federation$Federate.getMaxHops()" because the return value of "tak.server.federation.TakFigClient.getFederate()" is null
+java.lang.NullPointerException: Cannot invoke "com.bbn.marti.config.Federation$Federate.getMaxHops()" because the return value of "tak.server.federation.TakFigClient.getFederate()" is null
+	at tak.server.federation.TakFigClient.init(TakFigClient.java:1068)
+	at tak.server.federation.TakFigClient.start(TakFigClient.java:516)
+	at tak.server.federation.DistributedFederationManager.initiateOutgoing(DistributedFederationManager.java:441)
+	at tak.server.federation.DistributedFederationManager$4.run(DistributedFederationManager.java:2224)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2025-04-09-06:44:19.573 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - received error notification from server cause connection refused, check network connectivity to federate
+io.grpc.StatusRuntimeException: UNAVAILABLE: io exception
+	at io.grpc.Status.asRuntimeException(Status.java:537)
+	at io.grpc.stub.ClientCalls$StreamObserverToCallListenerAdapter.onClose(ClientCalls.java:481)
+	at io.grpc.internal.ClientCallImpl.closeObserver(ClientCallImpl.java:574)
+	at io.grpc.internal.ClientCallImpl.access$300(ClientCallImpl.java:72)
+	at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInternal(ClientCallImpl.java:742)
+	at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInContext(ClientCallImpl.java:723)
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37)
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:133)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: /35.209.26.203:9001
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:946)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2025-04-09-06:44:19.573 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - status: Status{code=UNAVAILABLE, description=io exception, cause=io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: /35.209.26.203:9001
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:946)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+} io exception
+2025-04-09-06:44:19.573 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - processing disconnect for FIG federate TakFigClient [clientName=TAK1, clientUid=381ad735ddf343328aa802063b905679, federateSubscription=null, config=com.bbn.marti.config.Federation@62855568, serverLastHealth=null] cause connection refused, check network connectivity to federate
+2025-04-09-06:44:19.574 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - Connection failure to v2 federate TAK1 - schedule retry: true - status: ConnectionStatus [connection=ConnectionInfo [connectionId=381ad735ddf343328aa802063b905679, nodeId=b5e2acf1-4d38-495a-81db-08020e813db6, port=9001, address=35.209.26.203, tls=true, input=null, cert=null, caCert=null, id=51, client=true, readCount=0, processedCount=0], federate=takserver:TAK-ID-CA-01, lastError=connection refused, check network connectivity to federate, connectionStatusValue=CONNECTING] cause connection refused, check network connectivity to federate
+2025-04-09-06:44:24.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:44:29.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:44:34.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:44:39.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:44:44.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:44:49.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:44:49.574 [takserver-scheduled-2] WARN t.s.f.DistributedFederationManager - trying to reconnect outgoing TAK1 for the 52th time.
+2025-04-09-06:44:49.574 [takserver-scheduled-2] INFO tak.server.federation.TakFigClient - client name: TAK1
+2025-04-09-06:44:49.657 [takserver-scheduled-2] WARN com.bbn.marti.service.SSLConfig - TLS enabled, but no certificate revocation lists, and OSCP is not enabled in Core Config!
+2025-04-09-06:44:49.657 [takserver-scheduled-2] DEBUG tak.server.federation.TakFigClient - Trust managers: 1
+2025-04-09-06:44:49.659 [takserver-scheduled-2] DEBUG tak.server.federation.TakFigClient - init TakFigClient
+2025-04-09-06:44:49.659 [takserver-scheduled-2] DEBUG t.s.f.DistributedFederationManager - exception initiating outgoing FIG federate connection FederationOutgoing [displayName=TAK1, address=35.209.26.203, port=9001, enabled=true, reconnectInterval=30, fallback= nullmaxRetries= unlimited] Cannot invoke "com.bbn.marti.config.Federation$Federate.getMaxHops()" because the return value of "tak.server.federation.TakFigClient.getFederate()" is null
+java.lang.NullPointerException: Cannot invoke "com.bbn.marti.config.Federation$Federate.getMaxHops()" because the return value of "tak.server.federation.TakFigClient.getFederate()" is null
+	at tak.server.federation.TakFigClient.init(TakFigClient.java:1068)
+	at tak.server.federation.TakFigClient.start(TakFigClient.java:516)
+	at tak.server.federation.DistributedFederationManager.initiateOutgoing(DistributedFederationManager.java:441)
+	at tak.server.federation.DistributedFederationManager$4.run(DistributedFederationManager.java:2224)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2025-04-09-06:44:49.691 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - received error notification from server cause connection refused, check network connectivity to federate
+io.grpc.StatusRuntimeException: UNAVAILABLE: io exception
+	at io.grpc.Status.asRuntimeException(Status.java:537)
+	at io.grpc.stub.ClientCalls$StreamObserverToCallListenerAdapter.onClose(ClientCalls.java:481)
+	at io.grpc.internal.DelayedClientCall$DelayedListener$3.run(DelayedClientCall.java:489)
+	at io.grpc.internal.DelayedClientCall$DelayedListener.delayOrExecute(DelayedClientCall.java:453)
+	at io.grpc.internal.DelayedClientCall$DelayedListener.onClose(DelayedClientCall.java:486)
+	at io.grpc.internal.ClientCallImpl.closeObserver(ClientCallImpl.java:574)
+	at io.grpc.internal.ClientCallImpl.access$300(ClientCallImpl.java:72)
+	at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInternal(ClientCallImpl.java:742)
+	at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInContext(ClientCallImpl.java:723)
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37)
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:133)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: /35.209.26.203:9001
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:946)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2025-04-09-06:44:49.691 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - status: Status{code=UNAVAILABLE, description=io exception, cause=io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: /35.209.26.203:9001
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:946)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+} io exception
+2025-04-09-06:44:49.692 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - processing disconnect for FIG federate TakFigClient [clientName=TAK1, clientUid=45e16ca30c38499bbba4e6562bf85647, federateSubscription=null, config=com.bbn.marti.config.Federation@62855568, serverLastHealth=null] cause connection refused, check network connectivity to federate
+2025-04-09-06:44:49.692 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - Connection failure to v2 federate TAK1 - schedule retry: true - status: ConnectionStatus [connection=ConnectionInfo [connectionId=45e16ca30c38499bbba4e6562bf85647, nodeId=b5e2acf1-4d38-495a-81db-08020e813db6, port=9001, address=35.209.26.203, tls=true, input=null, cert=null, caCert=null, id=52, client=true, readCount=0, processedCount=0], federate=takserver:TAK-ID-CA-01, lastError=connection refused, check network connectivity to federate, connectionStatusValue=CONNECTING] cause connection refused, check network connectivity to federate
+2025-04-09-06:44:54.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:44:59.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:45:04.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:45:09.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:45:14.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:45:19.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:45:19.693 [takserver-scheduled-2] WARN t.s.f.DistributedFederationManager - trying to reconnect outgoing TAK1 for the 53th time.
+2025-04-09-06:45:19.693 [takserver-scheduled-2] INFO tak.server.federation.TakFigClient - client name: TAK1
+2025-04-09-06:45:19.787 [takserver-scheduled-2] WARN com.bbn.marti.service.SSLConfig - TLS enabled, but no certificate revocation lists, and OSCP is not enabled in Core Config!
+2025-04-09-06:45:19.787 [takserver-scheduled-2] DEBUG tak.server.federation.TakFigClient - Trust managers: 1
+2025-04-09-06:45:19.789 [takserver-scheduled-2] DEBUG tak.server.federation.TakFigClient - init TakFigClient
+2025-04-09-06:45:19.790 [takserver-scheduled-2] DEBUG t.s.f.DistributedFederationManager - exception initiating outgoing FIG federate connection FederationOutgoing [displayName=TAK1, address=35.209.26.203, port=9001, enabled=true, reconnectInterval=30, fallback= nullmaxRetries= unlimited] Cannot invoke "com.bbn.marti.config.Federation$Federate.getMaxHops()" because the return value of "tak.server.federation.TakFigClient.getFederate()" is null
+java.lang.NullPointerException: Cannot invoke "com.bbn.marti.config.Federation$Federate.getMaxHops()" because the return value of "tak.server.federation.TakFigClient.getFederate()" is null
+	at tak.server.federation.TakFigClient.init(TakFigClient.java:1068)
+	at tak.server.federation.TakFigClient.start(TakFigClient.java:516)
+	at tak.server.federation.DistributedFederationManager.initiateOutgoing(DistributedFederationManager.java:441)
+	at tak.server.federation.DistributedFederationManager$4.run(DistributedFederationManager.java:2224)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2025-04-09-06:45:19.821 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - received error notification from server cause connection refused, check network connectivity to federate
+io.grpc.StatusRuntimeException: UNAVAILABLE: io exception
+	at io.grpc.Status.asRuntimeException(Status.java:537)
+	at io.grpc.stub.ClientCalls$StreamObserverToCallListenerAdapter.onClose(ClientCalls.java:481)
+	at io.grpc.internal.ClientCallImpl.closeObserver(ClientCallImpl.java:574)
+	at io.grpc.internal.ClientCallImpl.access$300(ClientCallImpl.java:72)
+	at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInternal(ClientCallImpl.java:742)
+	at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInContext(ClientCallImpl.java:723)
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37)
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:133)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: /35.209.26.203:9001
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:946)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2025-04-09-06:45:19.821 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - status: Status{code=UNAVAILABLE, description=io exception, cause=io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: /35.209.26.203:9001
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:946)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+} io exception
+2025-04-09-06:45:19.822 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - processing disconnect for FIG federate TakFigClient [clientName=TAK1, clientUid=ff21dbec5d0e4da0b3a3f8ba2530e0b2, federateSubscription=null, config=com.bbn.marti.config.Federation@62855568, serverLastHealth=null] cause connection refused, check network connectivity to federate
+2025-04-09-06:45:19.822 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - Connection failure to v2 federate TAK1 - schedule retry: true - status: ConnectionStatus [connection=ConnectionInfo [connectionId=ff21dbec5d0e4da0b3a3f8ba2530e0b2, nodeId=b5e2acf1-4d38-495a-81db-08020e813db6, port=9001, address=35.209.26.203, tls=true, input=null, cert=null, caCert=null, id=53, client=true, readCount=0, processedCount=0], federate=takserver:TAK-ID-CA-01, lastError=connection refused, check network connectivity to federate, connectionStatusValue=CONNECTING] cause connection refused, check network connectivity to federate
+2025-04-09-06:45:24.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:45:29.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:45:34.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:45:39.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:45:44.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:45:49.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:45:49.822 [takserver-scheduled-3] WARN t.s.f.DistributedFederationManager - trying to reconnect outgoing TAK1 for the 54th time.
+2025-04-09-06:45:49.823 [takserver-scheduled-3] INFO tak.server.federation.TakFigClient - client name: TAK1
+2025-04-09-06:45:49.905 [takserver-scheduled-3] WARN com.bbn.marti.service.SSLConfig - TLS enabled, but no certificate revocation lists, and OSCP is not enabled in Core Config!
+2025-04-09-06:45:49.905 [takserver-scheduled-3] DEBUG tak.server.federation.TakFigClient - Trust managers: 1
+2025-04-09-06:45:49.906 [takserver-scheduled-3] DEBUG tak.server.federation.TakFigClient - init TakFigClient
+2025-04-09-06:45:49.907 [takserver-scheduled-3] DEBUG t.s.f.DistributedFederationManager - exception initiating outgoing FIG federate connection FederationOutgoing [displayName=TAK1, address=35.209.26.203, port=9001, enabled=true, reconnectInterval=30, fallback= nullmaxRetries= unlimited] Cannot invoke "com.bbn.marti.config.Federation$Federate.getMaxHops()" because the return value of "tak.server.federation.TakFigClient.getFederate()" is null
+java.lang.NullPointerException: Cannot invoke "com.bbn.marti.config.Federation$Federate.getMaxHops()" because the return value of "tak.server.federation.TakFigClient.getFederate()" is null
+	at tak.server.federation.TakFigClient.init(TakFigClient.java:1068)
+	at tak.server.federation.TakFigClient.start(TakFigClient.java:516)
+	at tak.server.federation.DistributedFederationManager.initiateOutgoing(DistributedFederationManager.java:441)
+	at tak.server.federation.DistributedFederationManager$4.run(DistributedFederationManager.java:2224)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2025-04-09-06:45:49.938 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - received error notification from server cause connection refused, check network connectivity to federate
+io.grpc.StatusRuntimeException: UNAVAILABLE: io exception
+	at io.grpc.Status.asRuntimeException(Status.java:537)
+	at io.grpc.stub.ClientCalls$StreamObserverToCallListenerAdapter.onClose(ClientCalls.java:481)
+	at io.grpc.internal.DelayedClientCall$DelayedListener$3.run(DelayedClientCall.java:489)
+	at io.grpc.internal.DelayedClientCall$DelayedListener.delayOrExecute(DelayedClientCall.java:453)
+	at io.grpc.internal.DelayedClientCall$DelayedListener.onClose(DelayedClientCall.java:486)
+	at io.grpc.internal.ClientCallImpl.closeObserver(ClientCallImpl.java:574)
+	at io.grpc.internal.ClientCallImpl.access$300(ClientCallImpl.java:72)
+	at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInternal(ClientCallImpl.java:742)
+	at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInContext(ClientCallImpl.java:723)
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37)
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:133)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: /35.209.26.203:9001
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:946)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2025-04-09-06:45:49.938 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - status: Status{code=UNAVAILABLE, description=io exception, cause=io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: /35.209.26.203:9001
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:946)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+} io exception
+2025-04-09-06:45:49.939 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - processing disconnect for FIG federate TakFigClient [clientName=TAK1, clientUid=b3f466c87a4c48f89b43de6b82207f55, federateSubscription=null, config=com.bbn.marti.config.Federation@62855568, serverLastHealth=null] cause connection refused, check network connectivity to federate
+2025-04-09-06:45:49.939 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - Connection failure to v2 federate TAK1 - schedule retry: true - status: ConnectionStatus [connection=ConnectionInfo [connectionId=b3f466c87a4c48f89b43de6b82207f55, nodeId=b5e2acf1-4d38-495a-81db-08020e813db6, port=9001, address=35.209.26.203, tls=true, input=null, cert=null, caCert=null, id=54, client=true, readCount=0, processedCount=0], federate=takserver:TAK-ID-CA-01, lastError=connection refused, check network connectivity to federate, connectionStatusValue=CONNECTING] cause connection refused, check network connectivity to federate
+2025-04-09-06:45:54.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:45:59.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:46:04.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:46:09.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:46:14.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:46:19.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:46:19.940 [takserver-scheduled-1] WARN t.s.f.DistributedFederationManager - trying to reconnect outgoing TAK1 for the 55th time.
+2025-04-09-06:46:19.940 [takserver-scheduled-1] INFO tak.server.federation.TakFigClient - client name: TAK1
+2025-04-09-06:46:20.023 [takserver-scheduled-1] WARN com.bbn.marti.service.SSLConfig - TLS enabled, but no certificate revocation lists, and OSCP is not enabled in Core Config!
+2025-04-09-06:46:20.023 [takserver-scheduled-1] DEBUG tak.server.federation.TakFigClient - Trust managers: 1
+2025-04-09-06:46:20.025 [takserver-scheduled-1] DEBUG tak.server.federation.TakFigClient - init TakFigClient
+2025-04-09-06:46:20.025 [takserver-scheduled-1] DEBUG t.s.f.DistributedFederationManager - exception initiating outgoing FIG federate connection FederationOutgoing [displayName=TAK1, address=35.209.26.203, port=9001, enabled=true, reconnectInterval=30, fallback= nullmaxRetries= unlimited] Cannot invoke "com.bbn.marti.config.Federation$Federate.getMaxHops()" because the return value of "tak.server.federation.TakFigClient.getFederate()" is null
+java.lang.NullPointerException: Cannot invoke "com.bbn.marti.config.Federation$Federate.getMaxHops()" because the return value of "tak.server.federation.TakFigClient.getFederate()" is null
+	at tak.server.federation.TakFigClient.init(TakFigClient.java:1068)
+	at tak.server.federation.TakFigClient.start(TakFigClient.java:516)
+	at tak.server.federation.DistributedFederationManager.initiateOutgoing(DistributedFederationManager.java:441)
+	at tak.server.federation.DistributedFederationManager$4.run(DistributedFederationManager.java:2224)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2025-04-09-06:46:20.056 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - received error notification from server cause connection refused, check network connectivity to federate
+io.grpc.StatusRuntimeException: UNAVAILABLE: io exception
+	at io.grpc.Status.asRuntimeException(Status.java:537)
+	at io.grpc.stub.ClientCalls$StreamObserverToCallListenerAdapter.onClose(ClientCalls.java:481)
+	at io.grpc.internal.DelayedClientCall$DelayedListener$3.run(DelayedClientCall.java:489)
+	at io.grpc.internal.DelayedClientCall$DelayedListener.delayOrExecute(DelayedClientCall.java:453)
+	at io.grpc.internal.DelayedClientCall$DelayedListener.onClose(DelayedClientCall.java:486)
+	at io.grpc.internal.ClientCallImpl.closeObserver(ClientCallImpl.java:574)
+	at io.grpc.internal.ClientCallImpl.access$300(ClientCallImpl.java:72)
+	at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInternal(ClientCallImpl.java:742)
+	at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInContext(ClientCallImpl.java:723)
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37)
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:133)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: /35.209.26.203:9001
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:946)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2025-04-09-06:46:20.057 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - status: Status{code=UNAVAILABLE, description=io exception, cause=io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: /35.209.26.203:9001
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:946)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+} io exception
+2025-04-09-06:46:20.057 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - processing disconnect for FIG federate TakFigClient [clientName=TAK1, clientUid=1f0c08a244bf408ca35eafc8d0b0dac5, federateSubscription=null, config=com.bbn.marti.config.Federation@62855568, serverLastHealth=null] cause connection refused, check network connectivity to federate
+2025-04-09-06:46:20.058 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - Connection failure to v2 federate TAK1 - schedule retry: true - status: ConnectionStatus [connection=ConnectionInfo [connectionId=1f0c08a244bf408ca35eafc8d0b0dac5, nodeId=b5e2acf1-4d38-495a-81db-08020e813db6, port=9001, address=35.209.26.203, tls=true, input=null, cert=null, caCert=null, id=55, client=true, readCount=0, processedCount=0], federate=takserver:TAK-ID-CA-01, lastError=connection refused, check network connectivity to federate, connectionStatusValue=CONNECTING] cause connection refused, check network connectivity to federate
+2025-04-09-06:46:24.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:46:29.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:46:34.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:46:39.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:46:44.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:46:49.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:46:50.058 [takserver-scheduled-2] WARN t.s.f.DistributedFederationManager - trying to reconnect outgoing TAK1 for the 56th time.
+2025-04-09-06:46:50.058 [takserver-scheduled-2] INFO tak.server.federation.TakFigClient - client name: TAK1
+2025-04-09-06:46:50.140 [takserver-scheduled-2] WARN com.bbn.marti.service.SSLConfig - TLS enabled, but no certificate revocation lists, and OSCP is not enabled in Core Config!
+2025-04-09-06:46:50.140 [takserver-scheduled-2] DEBUG tak.server.federation.TakFigClient - Trust managers: 1
+2025-04-09-06:46:50.142 [takserver-scheduled-2] DEBUG tak.server.federation.TakFigClient - init TakFigClient
+2025-04-09-06:46:50.142 [takserver-scheduled-2] DEBUG t.s.f.DistributedFederationManager - exception initiating outgoing FIG federate connection FederationOutgoing [displayName=TAK1, address=35.209.26.203, port=9001, enabled=true, reconnectInterval=30, fallback= nullmaxRetries= unlimited] Cannot invoke "com.bbn.marti.config.Federation$Federate.getMaxHops()" because the return value of "tak.server.federation.TakFigClient.getFederate()" is null
+java.lang.NullPointerException: Cannot invoke "com.bbn.marti.config.Federation$Federate.getMaxHops()" because the return value of "tak.server.federation.TakFigClient.getFederate()" is null
+	at tak.server.federation.TakFigClient.init(TakFigClient.java:1068)
+	at tak.server.federation.TakFigClient.start(TakFigClient.java:516)
+	at tak.server.federation.DistributedFederationManager.initiateOutgoing(DistributedFederationManager.java:441)
+	at tak.server.federation.DistributedFederationManager$4.run(DistributedFederationManager.java:2224)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2025-04-09-06:46:50.175 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - received error notification from server cause connection refused, check network connectivity to federate
+io.grpc.StatusRuntimeException: UNAVAILABLE: io exception
+	at io.grpc.Status.asRuntimeException(Status.java:537)
+	at io.grpc.stub.ClientCalls$StreamObserverToCallListenerAdapter.onClose(ClientCalls.java:481)
+	at io.grpc.internal.DelayedClientCall$DelayedListener$3.run(DelayedClientCall.java:489)
+	at io.grpc.internal.DelayedClientCall$DelayedListener.delayOrExecute(DelayedClientCall.java:453)
+	at io.grpc.internal.DelayedClientCall$DelayedListener.onClose(DelayedClientCall.java:486)
+	at io.grpc.internal.ClientCallImpl.closeObserver(ClientCallImpl.java:574)
+	at io.grpc.internal.ClientCallImpl.access$300(ClientCallImpl.java:72)
+	at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInternal(ClientCallImpl.java:742)
+	at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInContext(ClientCallImpl.java:723)
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37)
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:133)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: /35.209.26.203:9001
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:946)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2025-04-09-06:46:50.175 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - status: Status{code=UNAVAILABLE, description=io exception, cause=io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: /35.209.26.203:9001
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:946)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+} io exception
+2025-04-09-06:46:50.175 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - processing disconnect for FIG federate TakFigClient [clientName=TAK1, clientUid=55851c94531f41deac6016ef9e4b8b49, federateSubscription=null, config=com.bbn.marti.config.Federation@62855568, serverLastHealth=null] cause connection refused, check network connectivity to federate
+2025-04-09-06:46:50.176 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - Connection failure to v2 federate TAK1 - schedule retry: true - status: ConnectionStatus [connection=ConnectionInfo [connectionId=55851c94531f41deac6016ef9e4b8b49, nodeId=b5e2acf1-4d38-495a-81db-08020e813db6, port=9001, address=35.209.26.203, tls=true, input=null, cert=null, caCert=null, id=56, client=true, readCount=0, processedCount=0], federate=takserver:TAK-ID-CA-01, lastError=connection refused, check network connectivity to federate, connectionStatusValue=CONNECTING] cause connection refused, check network connectivity to federate
+2025-04-09-06:46:54.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:46:59.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:47:04.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:47:09.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:47:14.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:47:19.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:47:20.176 [takserver-scheduled-3] WARN t.s.f.DistributedFederationManager - trying to reconnect outgoing TAK1 for the 57th time.
+2025-04-09-06:47:20.177 [takserver-scheduled-3] INFO tak.server.federation.TakFigClient - client name: TAK1
+2025-04-09-06:47:20.260 [takserver-scheduled-3] WARN com.bbn.marti.service.SSLConfig - TLS enabled, but no certificate revocation lists, and OSCP is not enabled in Core Config!
+2025-04-09-06:47:20.260 [takserver-scheduled-3] DEBUG tak.server.federation.TakFigClient - Trust managers: 1
+2025-04-09-06:47:20.262 [takserver-scheduled-3] DEBUG tak.server.federation.TakFigClient - init TakFigClient
+2025-04-09-06:47:20.262 [takserver-scheduled-3] DEBUG t.s.f.DistributedFederationManager - exception initiating outgoing FIG federate connection FederationOutgoing [displayName=TAK1, address=35.209.26.203, port=9001, enabled=true, reconnectInterval=30, fallback= nullmaxRetries= unlimited] Cannot invoke "com.bbn.marti.config.Federation$Federate.getMaxHops()" because the return value of "tak.server.federation.TakFigClient.getFederate()" is null
+java.lang.NullPointerException: Cannot invoke "com.bbn.marti.config.Federation$Federate.getMaxHops()" because the return value of "tak.server.federation.TakFigClient.getFederate()" is null
+	at tak.server.federation.TakFigClient.init(TakFigClient.java:1068)
+	at tak.server.federation.TakFigClient.start(TakFigClient.java:516)
+	at tak.server.federation.DistributedFederationManager.initiateOutgoing(DistributedFederationManager.java:441)
+	at tak.server.federation.DistributedFederationManager$4.run(DistributedFederationManager.java:2224)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2025-04-09-06:47:20.293 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - received error notification from server cause connection refused, check network connectivity to federate
+io.grpc.StatusRuntimeException: UNAVAILABLE: io exception
+	at io.grpc.Status.asRuntimeException(Status.java:537)
+	at io.grpc.stub.ClientCalls$StreamObserverToCallListenerAdapter.onClose(ClientCalls.java:481)
+	at io.grpc.internal.DelayedClientCall$DelayedListener$3.run(DelayedClientCall.java:489)
+	at io.grpc.internal.DelayedClientCall$DelayedListener.delayOrExecute(DelayedClientCall.java:453)
+	at io.grpc.internal.DelayedClientCall$DelayedListener.onClose(DelayedClientCall.java:486)
+	at io.grpc.internal.ClientCallImpl.closeObserver(ClientCallImpl.java:574)
+	at io.grpc.internal.ClientCallImpl.access$300(ClientCallImpl.java:72)
+	at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInternal(ClientCallImpl.java:742)
+	at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInContext(ClientCallImpl.java:723)
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37)
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:133)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: /35.209.26.203:9001
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:946)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2025-04-09-06:47:20.293 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - status: Status{code=UNAVAILABLE, description=io exception, cause=io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: /35.209.26.203:9001
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:946)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+} io exception
+2025-04-09-06:47:20.294 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - processing disconnect for FIG federate TakFigClient [clientName=TAK1, clientUid=ac69d30590c6411983f5f3724395d936, federateSubscription=null, config=com.bbn.marti.config.Federation@62855568, serverLastHealth=null] cause connection refused, check network connectivity to federate
+2025-04-09-06:47:20.294 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - Connection failure to v2 federate TAK1 - schedule retry: true - status: ConnectionStatus [connection=ConnectionInfo [connectionId=ac69d30590c6411983f5f3724395d936, nodeId=b5e2acf1-4d38-495a-81db-08020e813db6, port=9001, address=35.209.26.203, tls=true, input=null, cert=null, caCert=null, id=57, client=true, readCount=0, processedCount=0], federate=takserver:TAK-ID-CA-01, lastError=connection refused, check network connectivity to federate, connectionStatusValue=CONNECTING] cause connection refused, check network connectivity to federate
+2025-04-09-06:47:24.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:47:29.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:47:34.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:47:39.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:47:44.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:47:49.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:47:50.294 [takserver-scheduled-2] WARN t.s.f.DistributedFederationManager - trying to reconnect outgoing TAK1 for the 58th time.
+2025-04-09-06:47:50.295 [takserver-scheduled-2] INFO tak.server.federation.TakFigClient - client name: TAK1
+2025-04-09-06:47:50.378 [takserver-scheduled-2] WARN com.bbn.marti.service.SSLConfig - TLS enabled, but no certificate revocation lists, and OSCP is not enabled in Core Config!
+2025-04-09-06:47:50.378 [takserver-scheduled-2] DEBUG tak.server.federation.TakFigClient - Trust managers: 1
+2025-04-09-06:47:50.380 [takserver-scheduled-2] DEBUG tak.server.federation.TakFigClient - init TakFigClient
+2025-04-09-06:47:50.380 [takserver-scheduled-2] DEBUG t.s.f.DistributedFederationManager - exception initiating outgoing FIG federate connection FederationOutgoing [displayName=TAK1, address=35.209.26.203, port=9001, enabled=true, reconnectInterval=30, fallback= nullmaxRetries= unlimited] Cannot invoke "com.bbn.marti.config.Federation$Federate.getMaxHops()" because the return value of "tak.server.federation.TakFigClient.getFederate()" is null
+java.lang.NullPointerException: Cannot invoke "com.bbn.marti.config.Federation$Federate.getMaxHops()" because the return value of "tak.server.federation.TakFigClient.getFederate()" is null
+	at tak.server.federation.TakFigClient.init(TakFigClient.java:1068)
+	at tak.server.federation.TakFigClient.start(TakFigClient.java:516)
+	at tak.server.federation.DistributedFederationManager.initiateOutgoing(DistributedFederationManager.java:441)
+	at tak.server.federation.DistributedFederationManager$4.run(DistributedFederationManager.java:2224)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2025-04-09-06:47:50.412 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - received error notification from server cause connection refused, check network connectivity to federate
+io.grpc.StatusRuntimeException: UNAVAILABLE: io exception
+	at io.grpc.Status.asRuntimeException(Status.java:537)
+	at io.grpc.stub.ClientCalls$StreamObserverToCallListenerAdapter.onClose(ClientCalls.java:481)
+	at io.grpc.internal.DelayedClientCall$DelayedListener$3.run(DelayedClientCall.java:489)
+	at io.grpc.internal.DelayedClientCall$DelayedListener.delayOrExecute(DelayedClientCall.java:453)
+	at io.grpc.internal.DelayedClientCall$DelayedListener.onClose(DelayedClientCall.java:486)
+	at io.grpc.internal.ClientCallImpl.closeObserver(ClientCallImpl.java:574)
+	at io.grpc.internal.ClientCallImpl.access$300(ClientCallImpl.java:72)
+	at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInternal(ClientCallImpl.java:742)
+	at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInContext(ClientCallImpl.java:723)
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37)
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:133)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: /35.209.26.203:9001
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:946)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2025-04-09-06:47:50.412 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - status: Status{code=UNAVAILABLE, description=io exception, cause=io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: /35.209.26.203:9001
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:946)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+} io exception
+2025-04-09-06:47:50.412 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - processing disconnect for FIG federate TakFigClient [clientName=TAK1, clientUid=1fe7521618124ee7a6f49b78837d5a4c, federateSubscription=null, config=com.bbn.marti.config.Federation@62855568, serverLastHealth=null] cause connection refused, check network connectivity to federate
+2025-04-09-06:47:50.413 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - Connection failure to v2 federate TAK1 - schedule retry: true - status: ConnectionStatus [connection=ConnectionInfo [connectionId=1fe7521618124ee7a6f49b78837d5a4c, nodeId=b5e2acf1-4d38-495a-81db-08020e813db6, port=9001, address=35.209.26.203, tls=true, input=null, cert=null, caCert=null, id=58, client=true, readCount=0, processedCount=0], federate=takserver:TAK-ID-CA-01, lastError=connection refused, check network connectivity to federate, connectionStatusValue=CONNECTING] cause connection refused, check network connectivity to federate
+2025-04-09-06:47:54.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:47:59.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:48:04.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:48:09.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:48:14.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:48:19.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:48:20.413 [takserver-scheduled-1] WARN t.s.f.DistributedFederationManager - trying to reconnect outgoing TAK1 for the 59th time.
+2025-04-09-06:48:20.414 [takserver-scheduled-1] INFO tak.server.federation.TakFigClient - client name: TAK1
+2025-04-09-06:48:20.496 [takserver-scheduled-1] WARN com.bbn.marti.service.SSLConfig - TLS enabled, but no certificate revocation lists, and OSCP is not enabled in Core Config!
+2025-04-09-06:48:20.496 [takserver-scheduled-1] DEBUG tak.server.federation.TakFigClient - Trust managers: 1
+2025-04-09-06:48:20.498 [takserver-scheduled-1] DEBUG tak.server.federation.TakFigClient - init TakFigClient
+2025-04-09-06:48:20.498 [takserver-scheduled-1] DEBUG t.s.f.DistributedFederationManager - exception initiating outgoing FIG federate connection FederationOutgoing [displayName=TAK1, address=35.209.26.203, port=9001, enabled=true, reconnectInterval=30, fallback= nullmaxRetries= unlimited] Cannot invoke "com.bbn.marti.config.Federation$Federate.getMaxHops()" because the return value of "tak.server.federation.TakFigClient.getFederate()" is null
+java.lang.NullPointerException: Cannot invoke "com.bbn.marti.config.Federation$Federate.getMaxHops()" because the return value of "tak.server.federation.TakFigClient.getFederate()" is null
+	at tak.server.federation.TakFigClient.init(TakFigClient.java:1068)
+	at tak.server.federation.TakFigClient.start(TakFigClient.java:516)
+	at tak.server.federation.DistributedFederationManager.initiateOutgoing(DistributedFederationManager.java:441)
+	at tak.server.federation.DistributedFederationManager$4.run(DistributedFederationManager.java:2224)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2025-04-09-06:48:20.530 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - received error notification from server cause connection refused, check network connectivity to federate
+io.grpc.StatusRuntimeException: UNAVAILABLE: io exception
+	at io.grpc.Status.asRuntimeException(Status.java:537)
+	at io.grpc.stub.ClientCalls$StreamObserverToCallListenerAdapter.onClose(ClientCalls.java:481)
+	at io.grpc.internal.DelayedClientCall$DelayedListener$3.run(DelayedClientCall.java:489)
+	at io.grpc.internal.DelayedClientCall$DelayedListener.delayOrExecute(DelayedClientCall.java:453)
+	at io.grpc.internal.DelayedClientCall$DelayedListener.onClose(DelayedClientCall.java:486)
+	at io.grpc.internal.ClientCallImpl.closeObserver(ClientCallImpl.java:574)
+	at io.grpc.internal.ClientCallImpl.access$300(ClientCallImpl.java:72)
+	at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInternal(ClientCallImpl.java:742)
+	at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInContext(ClientCallImpl.java:723)
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37)
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:133)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: /35.209.26.203:9001
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:946)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2025-04-09-06:48:20.530 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - status: Status{code=UNAVAILABLE, description=io exception, cause=io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: /35.209.26.203:9001
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:946)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+} io exception
+2025-04-09-06:48:20.531 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - processing disconnect for FIG federate TakFigClient [clientName=TAK1, clientUid=13a3a19e8eda4ca1924d62eb086b3e57, federateSubscription=null, config=com.bbn.marti.config.Federation@62855568, serverLastHealth=null] cause connection refused, check network connectivity to federate
+2025-04-09-06:48:20.531 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - Connection failure to v2 federate TAK1 - schedule retry: true - status: ConnectionStatus [connection=ConnectionInfo [connectionId=13a3a19e8eda4ca1924d62eb086b3e57, nodeId=b5e2acf1-4d38-495a-81db-08020e813db6, port=9001, address=35.209.26.203, tls=true, input=null, cert=null, caCert=null, id=59, client=true, readCount=0, processedCount=0], federate=takserver:TAK-ID-CA-01, lastError=connection refused, check network connectivity to federate, connectionStatusValue=CONNECTING] cause connection refused, check network connectivity to federate
+2025-04-09-06:48:24.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:48:29.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:48:34.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:48:39.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:48:44.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:48:49.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:48:50.531 [takserver-scheduled-0] WARN t.s.f.DistributedFederationManager - trying to reconnect outgoing TAK1 for the 60th time.
+2025-04-09-06:48:50.532 [takserver-scheduled-0] INFO tak.server.federation.TakFigClient - client name: TAK1
+2025-04-09-06:48:50.614 [takserver-scheduled-0] WARN com.bbn.marti.service.SSLConfig - TLS enabled, but no certificate revocation lists, and OSCP is not enabled in Core Config!
+2025-04-09-06:48:50.614 [takserver-scheduled-0] DEBUG tak.server.federation.TakFigClient - Trust managers: 1
+2025-04-09-06:48:50.615 [takserver-scheduled-0] DEBUG tak.server.federation.TakFigClient - init TakFigClient
+2025-04-09-06:48:50.616 [takserver-scheduled-0] DEBUG t.s.f.DistributedFederationManager - exception initiating outgoing FIG federate connection FederationOutgoing [displayName=TAK1, address=35.209.26.203, port=9001, enabled=true, reconnectInterval=30, fallback= nullmaxRetries= unlimited] Cannot invoke "com.bbn.marti.config.Federation$Federate.getMaxHops()" because the return value of "tak.server.federation.TakFigClient.getFederate()" is null
+java.lang.NullPointerException: Cannot invoke "com.bbn.marti.config.Federation$Federate.getMaxHops()" because the return value of "tak.server.federation.TakFigClient.getFederate()" is null
+	at tak.server.federation.TakFigClient.init(TakFigClient.java:1068)
+	at tak.server.federation.TakFigClient.start(TakFigClient.java:516)
+	at tak.server.federation.DistributedFederationManager.initiateOutgoing(DistributedFederationManager.java:441)
+	at tak.server.federation.DistributedFederationManager$4.run(DistributedFederationManager.java:2224)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2025-04-09-06:48:50.648 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - received error notification from server cause connection refused, check network connectivity to federate
+io.grpc.StatusRuntimeException: UNAVAILABLE: io exception
+	at io.grpc.Status.asRuntimeException(Status.java:537)
+	at io.grpc.stub.ClientCalls$StreamObserverToCallListenerAdapter.onClose(ClientCalls.java:481)
+	at io.grpc.internal.DelayedClientCall$DelayedListener$3.run(DelayedClientCall.java:489)
+	at io.grpc.internal.DelayedClientCall$DelayedListener.delayOrExecute(DelayedClientCall.java:453)
+	at io.grpc.internal.DelayedClientCall$DelayedListener.onClose(DelayedClientCall.java:486)
+	at io.grpc.internal.ClientCallImpl.closeObserver(ClientCallImpl.java:574)
+	at io.grpc.internal.ClientCallImpl.access$300(ClientCallImpl.java:72)
+	at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInternal(ClientCallImpl.java:742)
+	at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInContext(ClientCallImpl.java:723)
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37)
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:133)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: /35.209.26.203:9001
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:946)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2025-04-09-06:48:50.648 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - status: Status{code=UNAVAILABLE, description=io exception, cause=io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: /35.209.26.203:9001
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:946)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+} io exception
+2025-04-09-06:48:50.648 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - processing disconnect for FIG federate TakFigClient [clientName=TAK1, clientUid=20599c360f7a41948a2d38e9143827b9, federateSubscription=null, config=com.bbn.marti.config.Federation@62855568, serverLastHealth=null] cause connection refused, check network connectivity to federate
+2025-04-09-06:48:50.649 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - Connection failure to v2 federate TAK1 - schedule retry: true - status: ConnectionStatus [connection=ConnectionInfo [connectionId=20599c360f7a41948a2d38e9143827b9, nodeId=b5e2acf1-4d38-495a-81db-08020e813db6, port=9001, address=35.209.26.203, tls=true, input=null, cert=null, caCert=null, id=60, client=true, readCount=0, processedCount=0], federate=takserver:TAK-ID-CA-01, lastError=connection refused, check network connectivity to federate, connectionStatusValue=CONNECTING] cause connection refused, check network connectivity to federate
+2025-04-09-06:48:54.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:48:59.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:49:04.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:49:09.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:49:14.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:49:19.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:49:20.649 [takserver-scheduled-2] WARN t.s.f.DistributedFederationManager - trying to reconnect outgoing TAK1 for the 61th time.
+2025-04-09-06:49:20.650 [takserver-scheduled-2] INFO tak.server.federation.TakFigClient - client name: TAK1
+2025-04-09-06:49:20.731 [takserver-scheduled-2] WARN com.bbn.marti.service.SSLConfig - TLS enabled, but no certificate revocation lists, and OSCP is not enabled in Core Config!
+2025-04-09-06:49:20.731 [takserver-scheduled-2] DEBUG tak.server.federation.TakFigClient - Trust managers: 1
+2025-04-09-06:49:20.733 [takserver-scheduled-2] DEBUG tak.server.federation.TakFigClient - init TakFigClient
+2025-04-09-06:49:20.733 [takserver-scheduled-2] DEBUG t.s.f.DistributedFederationManager - exception initiating outgoing FIG federate connection FederationOutgoing [displayName=TAK1, address=35.209.26.203, port=9001, enabled=true, reconnectInterval=30, fallback= nullmaxRetries= unlimited] Cannot invoke "com.bbn.marti.config.Federation$Federate.getMaxHops()" because the return value of "tak.server.federation.TakFigClient.getFederate()" is null
+java.lang.NullPointerException: Cannot invoke "com.bbn.marti.config.Federation$Federate.getMaxHops()" because the return value of "tak.server.federation.TakFigClient.getFederate()" is null
+	at tak.server.federation.TakFigClient.init(TakFigClient.java:1068)
+	at tak.server.federation.TakFigClient.start(TakFigClient.java:516)
+	at tak.server.federation.DistributedFederationManager.initiateOutgoing(DistributedFederationManager.java:441)
+	at tak.server.federation.DistributedFederationManager$4.run(DistributedFederationManager.java:2224)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2025-04-09-06:49:20.765 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - received error notification from server cause connection refused, check network connectivity to federate
+io.grpc.StatusRuntimeException: UNAVAILABLE: io exception
+	at io.grpc.Status.asRuntimeException(Status.java:537)
+	at io.grpc.stub.ClientCalls$StreamObserverToCallListenerAdapter.onClose(ClientCalls.java:481)
+	at io.grpc.internal.DelayedClientCall$DelayedListener$3.run(DelayedClientCall.java:489)
+	at io.grpc.internal.DelayedClientCall$DelayedListener.delayOrExecute(DelayedClientCall.java:453)
+	at io.grpc.internal.DelayedClientCall$DelayedListener.onClose(DelayedClientCall.java:486)
+	at io.grpc.internal.ClientCallImpl.closeObserver(ClientCallImpl.java:574)
+	at io.grpc.internal.ClientCallImpl.access$300(ClientCallImpl.java:72)
+	at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInternal(ClientCallImpl.java:742)
+	at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInContext(ClientCallImpl.java:723)
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37)
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:133)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: /35.209.26.203:9001
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:946)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2025-04-09-06:49:20.765 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - status: Status{code=UNAVAILABLE, description=io exception, cause=io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: /35.209.26.203:9001
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:946)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+} io exception
+2025-04-09-06:49:20.766 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - processing disconnect for FIG federate TakFigClient [clientName=TAK1, clientUid=088c2116e2a847558f0e14473f948f4f, federateSubscription=null, config=com.bbn.marti.config.Federation@62855568, serverLastHealth=null] cause connection refused, check network connectivity to federate
+2025-04-09-06:49:20.766 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - Connection failure to v2 federate TAK1 - schedule retry: true - status: ConnectionStatus [connection=ConnectionInfo [connectionId=088c2116e2a847558f0e14473f948f4f, nodeId=b5e2acf1-4d38-495a-81db-08020e813db6, port=9001, address=35.209.26.203, tls=true, input=null, cert=null, caCert=null, id=61, client=true, readCount=0, processedCount=0], federate=takserver:TAK-ID-CA-01, lastError=connection refused, check network connectivity to federate, connectionStatusValue=CONNECTING] cause connection refused, check network connectivity to federate
+2025-04-09-06:49:24.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:49:29.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:49:34.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:49:39.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:49:44.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:49:49.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:49:50.766 [takserver-scheduled-3] WARN t.s.f.DistributedFederationManager - trying to reconnect outgoing TAK1 for the 62th time.
+2025-04-09-06:49:50.767 [takserver-scheduled-3] INFO tak.server.federation.TakFigClient - client name: TAK1
+2025-04-09-06:49:50.850 [takserver-scheduled-3] WARN com.bbn.marti.service.SSLConfig - TLS enabled, but no certificate revocation lists, and OSCP is not enabled in Core Config!
+2025-04-09-06:49:50.850 [takserver-scheduled-3] DEBUG tak.server.federation.TakFigClient - Trust managers: 1
+2025-04-09-06:49:50.852 [takserver-scheduled-3] DEBUG tak.server.federation.TakFigClient - init TakFigClient
+2025-04-09-06:49:50.853 [takserver-scheduled-3] DEBUG t.s.f.DistributedFederationManager - exception initiating outgoing FIG federate connection FederationOutgoing [displayName=TAK1, address=35.209.26.203, port=9001, enabled=true, reconnectInterval=30, fallback= nullmaxRetries= unlimited] Cannot invoke "com.bbn.marti.config.Federation$Federate.getMaxHops()" because the return value of "tak.server.federation.TakFigClient.getFederate()" is null
+java.lang.NullPointerException: Cannot invoke "com.bbn.marti.config.Federation$Federate.getMaxHops()" because the return value of "tak.server.federation.TakFigClient.getFederate()" is null
+	at tak.server.federation.TakFigClient.init(TakFigClient.java:1068)
+	at tak.server.federation.TakFigClient.start(TakFigClient.java:516)
+	at tak.server.federation.DistributedFederationManager.initiateOutgoing(DistributedFederationManager.java:441)
+	at tak.server.federation.DistributedFederationManager$4.run(DistributedFederationManager.java:2224)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2025-04-09-06:49:50.884 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - received error notification from server cause connection refused, check network connectivity to federate
+io.grpc.StatusRuntimeException: UNAVAILABLE: io exception
+	at io.grpc.Status.asRuntimeException(Status.java:537)
+	at io.grpc.stub.ClientCalls$StreamObserverToCallListenerAdapter.onClose(ClientCalls.java:481)
+	at io.grpc.internal.DelayedClientCall$DelayedListener$3.run(DelayedClientCall.java:489)
+	at io.grpc.internal.DelayedClientCall$DelayedListener.delayOrExecute(DelayedClientCall.java:453)
+	at io.grpc.internal.DelayedClientCall$DelayedListener.onClose(DelayedClientCall.java:486)
+	at io.grpc.internal.ClientCallImpl.closeObserver(ClientCallImpl.java:574)
+	at io.grpc.internal.ClientCallImpl.access$300(ClientCallImpl.java:72)
+	at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInternal(ClientCallImpl.java:742)
+	at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInContext(ClientCallImpl.java:723)
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37)
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:133)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: /35.209.26.203:9001
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:946)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2025-04-09-06:49:50.885 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - status: Status{code=UNAVAILABLE, description=io exception, cause=io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: /35.209.26.203:9001
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:946)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+} io exception
+2025-04-09-06:49:50.885 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - processing disconnect for FIG federate TakFigClient [clientName=TAK1, clientUid=81737396409b43f0b0d4be83ff6c1dcb, federateSubscription=null, config=com.bbn.marti.config.Federation@62855568, serverLastHealth=null] cause connection refused, check network connectivity to federate
+2025-04-09-06:49:50.886 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - Connection failure to v2 federate TAK1 - schedule retry: true - status: ConnectionStatus [connection=ConnectionInfo [connectionId=81737396409b43f0b0d4be83ff6c1dcb, nodeId=b5e2acf1-4d38-495a-81db-08020e813db6, port=9001, address=35.209.26.203, tls=true, input=null, cert=null, caCert=null, id=62, client=true, readCount=0, processedCount=0], federate=takserver:TAK-ID-CA-01, lastError=connection refused, check network connectivity to federate, connectionStatusValue=CONNECTING] cause connection refused, check network connectivity to federate
+2025-04-09-06:49:54.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:49:59.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:50:04.098 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-06:50:07.280 [shutdown-hook] DEBUG t.s.f.DistributedFederationManager - DistributedFederationManager service cancelled
+2025-04-09-09:53:29.009 [main] INFO tak.server.ServerConfiguration - Starting ServerConfiguration v5.2-RELEASE-16 using Java 17.0.14 with PID 491935 (/home/radu/Server/src/takserver-core/build/libs/takserver-core-5.2-RELEASE-16.war started by radu in /home/radu/Server/src/takserver-core/example)
+2025-04-09-09:53:29.010 [main] DEBUG tak.server.ServerConfiguration - Running with Spring Boot v3.1.12, Spring v6.0.22
+2025-04-09-09:53:29.013 [main] INFO tak.server.ServerConfiguration - The following 3 profiles are active: "plugins", "messaging", "duplicatelogs"
+2025-04-09-09:53:38.001 [main] INFO tak.server.util.DataSourceUtils - 4 CPU cores detected. Postgres server maximum allowed connections value is 2100. The computed connection pool size is: 200
+2025-04-09-09:53:38.914 [main] WARN org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-04-09-09:53:46.727 [main] DEBUG t.s.f.DistributedFederationManager - DistributedFederationManager constructor.
+2025-04-09-09:53:46.741 [services-deployment-worker-#59] DEBUG t.s.f.DistributedFederationManager - init method DistributedFederationManager
+2025-04-09-09:53:46.875 [services-deployment-worker-#59] WARN com.bbn.marti.service.SSLConfig - TLS enabled, but no certificate revocation lists, and OSCP is not enabled in Core Config!
+2025-04-09-09:53:46.944 [service-#74] DEBUG t.s.f.DistributedFederationManager - execute method DistributedFederationManager
+2025-04-09-09:53:56.664 [main] INFO c.b.m.sync.JDBCEnterpriseSyncService - file cache explicity disabled.
+2025-04-09-09:53:56.673 [main] INFO c.b.marti.service.SubmissionService - input class type: Input
+2025-04-09-09:53:56.673 [main] INFO c.b.marti.service.SubmissionService - Configuring network input com.bbn.marti.config.Input stdssl: 
+2025-04-09-09:53:56.923 [main] WARN com.bbn.marti.service.SSLConfig - TLS enabled, but no certificate revocation lists, and OSCP is not enabled in Core Config!
+2025-04-09-09:53:57.605 [Thread-5] INFO c.b.marti.nio.netty.NioNettyBuilder - Successfully Started Netty Server for TlsServerInitializer on Port 8089 with watermark WriteBufferWaterMark(low: 8192, high: 16384)
+2025-04-09-09:53:58.050 [main] DEBUG t.s.f.DistributedFederationManager - federation enabled in config.
+2025-04-09-09:53:58.050 [main] INFO t.s.f.DistributedFederationManager - not starting disabled v1 federation server.
+2025-04-09-09:53:58.840 [main] INFO tak.server.federation.TakFigClient - client name: TAK1
+2025-04-09-09:53:58.947 [main] WARN com.bbn.marti.service.SSLConfig - TLS enabled, but no certificate revocation lists, and OSCP is not enabled in Core Config!
+2025-04-09-09:53:58.949 [main] DEBUG tak.server.federation.TakFigClient - Trust managers: 1
+2025-04-09-09:53:59.570 [main] DEBUG tak.server.federation.TakFigClient - init TakFigClient
+2025-04-09-09:53:59.677 [main] DEBUG t.s.f.DistributedFederationManager - exception initiating outgoing FIG federate connection FederationOutgoing [displayName=TAK1, address=35.209.26.203, port=9001, enabled=true, reconnectInterval=30, fallback= nullmaxRetries= unlimited] Cannot invoke "com.bbn.marti.config.Federation$Federate.getMaxHops()" because the return value of "tak.server.federation.TakFigClient.getFederate()" is null
+java.lang.NullPointerException: Cannot invoke "com.bbn.marti.config.Federation$Federate.getMaxHops()" because the return value of "tak.server.federation.TakFigClient.getFederate()" is null
+	at tak.server.federation.TakFigClient.init(TakFigClient.java:1108)
+	at tak.server.federation.TakFigClient.start(TakFigClient.java:556)
+	at tak.server.federation.DistributedFederationManager.initiateOutgoing(DistributedFederationManager.java:443)
+	at tak.server.federation.DistributedFederationManager.initiateAllOutgoing(DistributedFederationManager.java:345)
+	at tak.server.federation.DistributedFederationManager.onContextRefreshed(DistributedFederationManager.java:313)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.context.event.ApplicationListenerMethodAdapter.doInvoke(ApplicationListenerMethodAdapter.java:348)
+	at org.springframework.context.event.ApplicationListenerMethodAdapter.processEvent(ApplicationListenerMethodAdapter.java:233)
+	at org.springframework.context.event.ApplicationListenerMethodAdapter.onApplicationEvent(ApplicationListenerMethodAdapter.java:165)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:174)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:167)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:145)
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:445)
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:378)
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:971)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:618)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:739)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:441)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:325)
+	at tak.server.ServerConfiguration.main(ServerConfiguration.java:281)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49)
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95)
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58)
+	at org.springframework.boot.loader.PropertiesLauncher.main(PropertiesLauncher.java:466)
+2025-04-09-09:53:59.708 [main] DEBUG t.server.federation.FederationServer - v2 federation config
+2025-04-09-09:53:59.708 [main] DEBUG t.server.federation.FederationServer - scheduling v2 federation server start in 30 seconds
+2025-04-09-09:54:00.021 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - received error notification from server cause connection refused, check network connectivity to federate
+io.grpc.StatusRuntimeException: UNAVAILABLE: io exception
+	at io.grpc.Status.asRuntimeException(Status.java:537)
+	at io.grpc.stub.ClientCalls$StreamObserverToCallListenerAdapter.onClose(ClientCalls.java:481)
+	at io.grpc.internal.ClientCallImpl.closeObserver(ClientCallImpl.java:574)
+	at io.grpc.internal.ClientCallImpl.access$300(ClientCallImpl.java:72)
+	at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInternal(ClientCallImpl.java:742)
+	at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInContext(ClientCallImpl.java:723)
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37)
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:133)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: /35.209.26.203:9001
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:946)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2025-04-09-09:54:00.021 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - status: Status{code=UNAVAILABLE, description=io exception, cause=io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: /35.209.26.203:9001
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:946)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+} io exception
+2025-04-09-09:54:00.023 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - processing disconnect for FIG federate TakFigClient [clientName=TAK1, clientUid=090c55d5b8c240d6ba3457d71e216f07, federateSubscription=null, config=com.bbn.marti.config.Federation@65acdcf8, serverLastHealth=null] cause connection refused, check network connectivity to federate
+2025-04-09-09:54:00.067 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - Connection failure to v2 federate TAK1 - schedule retry: true - status: ConnectionStatus [connection=ConnectionInfo [connectionId=090c55d5b8c240d6ba3457d71e216f07, nodeId=e979d142-b760-40a6-ab79-6b20037211c6, port=9001, address=35.209.26.203, tls=true, input=null, cert=null, caCert=null, id=0, client=true, readCount=0, processedCount=0], federate=, lastError=connection refused, check network connectivity to federate, connectionStatusValue=CONNECTING] cause connection refused, check network connectivity to federate
+2025-04-09-09:54:00.152 [pool-18-thread-1] DEBUG t.server.federation.FederationServer - in v2 fed start executor
+2025-04-09-09:54:00.179 [main] INFO com.bbn.marti.nio.server.NioServer - max memory (bytes): 2147483648
+2025-04-09-09:54:00.179 [main] INFO com.bbn.marti.nio.server.NioServer - Server started
+2025-04-09-09:54:00.190 [pool-18-thread-1] INFO t.server.federation.FederationServer - Federation server (v2) started, listening on port 9001
+2025-04-09-09:54:00.341 [main] INFO t.server.cache.DatafeedCacheHelper - Done initializing PluginDatafeedCacheHelper with buffer cache value: 300 seconds
+2025-04-09-09:54:00.348 [main] INFO com.bbn.marti.util.VersionBean - TAK Server version 5.2-RELEASE-16-main
+2025-04-09-09:54:00.348 [main] INFO c.b.m.sync.EnterpriseSyncCacheHelper - file cache explicity disabled.
+2025-04-09-09:54:00.348 [main] INFO c.b.m.sync.EnterpriseSyncCacheHelper - Initialzed EnterpriseSyncCacheHelper with file cache TTL 120 seconds. Implementation: caffeine
+2025-04-09-09:54:00.349 [main] INFO tak.server.ServerConfiguration - Started ServerConfiguration in 34.131 seconds (process running for 48.971)
+2025-04-09-09:54:00.378 [main] INFO tak.server.ServerConfiguration - Started TAK Server messaging Microservice.
+2025-04-09-09:54:04.709 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-09:54:09.709 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-09:54:14.709 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-09:54:19.709 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-09:54:24.709 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-09:54:29.709 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-09-09:54:30.073 [takserver-scheduled-3] WARN t.s.f.DistributedFederationManager - trying to reconnect outgoing TAK1 for the 1th time.
+2025-04-09-09:54:30.073 [takserver-scheduled-3] INFO tak.server.federation.TakFigClient - client name: TAK1
+2025-04-09-09:54:30.160 [takserver-scheduled-3] WARN com.bbn.marti.service.SSLConfig - TLS enabled, but no certificate revocation lists, and OSCP is not enabled in Core Config!
+2025-04-09-09:54:30.160 [takserver-scheduled-3] DEBUG tak.server.federation.TakFigClient - Trust managers: 1
+2025-04-09-09:54:30.162 [takserver-scheduled-3] DEBUG tak.server.federation.TakFigClient - init TakFigClient
+2025-04-09-09:54:30.163 [takserver-scheduled-3] DEBUG t.s.f.DistributedFederationManager - exception initiating outgoing FIG federate connection FederationOutgoing [displayName=TAK1, address=35.209.26.203, port=9001, enabled=true, reconnectInterval=30, fallback= nullmaxRetries= unlimited] Cannot invoke "com.bbn.marti.config.Federation$Federate.getMaxHops()" because the return value of "tak.server.federation.TakFigClient.getFederate()" is null
+java.lang.NullPointerException: Cannot invoke "com.bbn.marti.config.Federation$Federate.getMaxHops()" because the return value of "tak.server.federation.TakFigClient.getFederate()" is null
+	at tak.server.federation.TakFigClient.init(TakFigClient.java:1108)
+	at tak.server.federation.TakFigClient.start(TakFigClient.java:556)
+	at tak.server.federation.DistributedFederationManager.initiateOutgoing(DistributedFederationManager.java:443)
+	at tak.server.federation.DistributedFederationManager$4.run(DistributedFederationManager.java:2226)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2025-04-09-09:54:30.194 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - received error notification from server cause connection refused, check network connectivity to federate
+io.grpc.StatusRuntimeException: UNAVAILABLE: io exception
+	at io.grpc.Status.asRuntimeException(Status.java:537)
+	at io.grpc.stub.ClientCalls$StreamObserverToCallListenerAdapter.onClose(ClientCalls.java:481)
+	at io.grpc.internal.DelayedClientCall$DelayedListener$3.run(DelayedClientCall.java:489)
+	at io.grpc.internal.DelayedClientCall$DelayedListener.delayOrExecute(DelayedClientCall.java:453)
+	at io.grpc.internal.DelayedClientCall$DelayedListener.onClose(DelayedClientCall.java:486)
+	at io.grpc.internal.ClientCallImpl.closeObserver(ClientCallImpl.java:574)
+	at io.grpc.internal.ClientCallImpl.access$300(ClientCallImpl.java:72)
+	at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInternal(ClientCallImpl.java:742)
+	at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInContext(ClientCallImpl.java:723)
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37)
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:133)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: /35.209.26.203:9001
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:946)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2025-04-09-09:54:30.194 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - status: Status{code=UNAVAILABLE, description=io exception, cause=io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: /35.209.26.203:9001
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:946)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+} io exception
+2025-04-09-09:54:30.195 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - processing disconnect for FIG federate TakFigClient [clientName=TAK1, clientUid=49c64b28f7e14e708850d871ba68aa9a, federateSubscription=null, config=com.bbn.marti.config.Federation@65acdcf8, serverLastHealth=null] cause connection refused, check network connectivity to federate
+2025-04-09-09:54:30.196 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - Connection failure to v2 federate TAK1 - schedule retry: true - status: ConnectionStatus [connection=ConnectionInfo [connectionId=49c64b28f7e14e708850d871ba68aa9a, nodeId=e979d142-b760-40a6-ab79-6b20037211c6, port=9001, address=35.209.26.203, tls=true, input=null, cert=null, caCert=null, id=1, client=true, readCount=0, processedCount=0], federate=, lastError=connection refused, check network connectivity to federate, connectionStatusValue=CONNECTING] cause connection refused, check network connectivity to federate
+2025-04-09-09:54:32.133 [shutdown-hook] DEBUG t.s.f.DistributedFederationManager - DistributedFederationManager service cancelled

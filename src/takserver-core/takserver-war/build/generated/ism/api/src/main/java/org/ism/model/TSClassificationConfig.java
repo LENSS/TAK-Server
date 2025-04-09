@@ -32,7 +32,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   TSClassificationConfig.JSON_PROPERTY_BL,
   TSClassificationConfig.JSON_PROPERTY_PM
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-08T18:00:19.000728313-05:00[America/Chicago]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-09T09:51:47.810907680-05:00[America/Chicago]")
 public class TSClassificationConfig {
   public static final String JSON_PROPERTY_ACTIVE = "active";
   private Boolean active;

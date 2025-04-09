@@ -84,6 +84,16 @@ public final class FigProto {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_atakmap_FederateHops_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_atakmap_CertificateRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_atakmap_CertificateRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_atakmap_CertificateResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_atakmap_CertificateResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -154,32 +164,37 @@ public final class FigProto {
       "riant\030\005 \001(\t\"N\n\022FederateProvenance\022\032\n\022fed" +
       "erationServerId\030\001 \001(\t\022\034\n\024federationServe",
       "rName\030\002 \001(\t\"4\n\014FederateHops\022\017\n\007maxHops\030\001" +
-      " \001(\003\022\023\n\013currentHops\030\002 \001(\003*A\n\004CRUD\022\013\n\007INV" +
-      "ALID\020\000\022\n\n\006CREATE\020\001\022\010\n\004READ\020\002\022\n\n\006UPDATE\020\003" +
-      "\022\n\n\006DELETE\020\004*/\n\014BINARY_TYPES\022\t\n\005EMPTY\020\000\022" +
-      "\t\n\005OTHER\020\001\022\t\n\005IMAGE\020\0022\274\006\n\020FederatedChann" +
-      "el\022A\n\014SendOneEvent\022\033.com.atakmap.Federat" +
-      "edEvent\032\022.com.atakmap.Empty\"\000\022F\n\023BinaryM" +
-      "essageStream\022\027.com.atakmap.BinaryBlob\032\022." +
-      "com.atakmap.Empty\"\000(\001\022<\n\013SendOneBlob\022\027.c" +
-      "om.atakmap.BinaryBlob\032\022.com.atakmap.Empt",
-      "y\"\000\022:\n\013getIdentity\022\022.com.atakmap.Empty\032\025" +
-      ".com.atakmap.Identity\"\000\022O\n\021ClientEventSt" +
-      "ream\022\031.com.atakmap.Subscription\032\033.com.at" +
-      "akmap.FederatedEvent\"\0000\001\022O\n\021ServerEventS" +
-      "tream\022\033.com.atakmap.FederatedEvent\032\031.com" +
-      ".atakmap.Subscription\"\000(\001\022E\n\013HealthCheck" +
-      "\022\031.com.atakmap.ClientHealth\032\031.com.atakma" +
-      "p.ServerHealth\"\000\022B\n\017ClientROLStream\022\031.co" +
-      "m.atakmap.Subscription\032\020.com.atakmap.ROL" +
-      "\"\0000\001\022B\n\017ServerROLStream\022\020.com.atakmap.RO",
-      "L\032\031.com.atakmap.Subscription\"\000(\001\022X\n\032Serv" +
-      "erFederateGroupsStream\022\031.com.atakmap.Sub" +
-      "scription\032\033.com.atakmap.FederateGroups\"\000" +
-      "0\001\022X\n\032ClientFederateGroupsStream\022\033.com.a" +
-      "takmap.FederateGroups\032\031.com.atakmap.Subs" +
-      "cription\"\000(\001B#\n\017com.atakmap.TakB\010FigProt" +
-      "oP\001\242\002\003TAKb\006proto3"
+      " \001(\003\022\023\n\013currentHops\030\002 \001(\003\"*\n\022Certificate" +
+      "Request\022\024\n\014federateName\030\001 \001(\t\"?\n\023Certifi" +
+      "cateResponse\022\025\n\rclientCertPem\030\001 \001(\t\022\021\n\tc" +
+      "aCertPem\030\002 \001(\t*A\n\004CRUD\022\013\n\007INVALID\020\000\022\n\n\006C" +
+      "REATE\020\001\022\010\n\004READ\020\002\022\n\n\006UPDATE\020\003\022\n\n\006DELETE\020" +
+      "\004*/\n\014BINARY_TYPES\022\t\n\005EMPTY\020\000\022\t\n\005OTHER\020\001\022" +
+      "\t\n\005IMAGE\020\0022\236\007\n\020FederatedChannel\022A\n\014SendO" +
+      "neEvent\022\033.com.atakmap.FederatedEvent\032\022.c" +
+      "om.atakmap.Empty\"\000\022F\n\023BinaryMessageStrea",
+      "m\022\027.com.atakmap.BinaryBlob\032\022.com.atakmap" +
+      ".Empty\"\000(\001\022<\n\013SendOneBlob\022\027.com.atakmap." +
+      "BinaryBlob\032\022.com.atakmap.Empty\"\000\022:\n\013getI" +
+      "dentity\022\022.com.atakmap.Empty\032\025.com.atakma" +
+      "p.Identity\"\000\022O\n\021ClientEventStream\022\031.com." +
+      "atakmap.Subscription\032\033.com.atakmap.Feder" +
+      "atedEvent\"\0000\001\022O\n\021ServerEventStream\022\033.com" +
+      ".atakmap.FederatedEvent\032\031.com.atakmap.Su" +
+      "bscription\"\000(\001\022E\n\013HealthCheck\022\031.com.atak" +
+      "map.ClientHealth\032\031.com.atakmap.ServerHea",
+      "lth\"\000\022B\n\017ClientROLStream\022\031.com.atakmap.S" +
+      "ubscription\032\020.com.atakmap.ROL\"\0000\001\022B\n\017Ser" +
+      "verROLStream\022\020.com.atakmap.ROL\032\031.com.ata" +
+      "kmap.Subscription\"\000(\001\022X\n\032ServerFederateG" +
+      "roupsStream\022\031.com.atakmap.Subscription\032\033" +
+      ".com.atakmap.FederateGroups\"\0000\001\022X\n\032Clien" +
+      "tFederateGroupsStream\022\033.com.atakmap.Fede" +
+      "rateGroups\032\031.com.atakmap.Subscription\"\000(" +
+      "\001\022`\n\031GetCertificateForFederate\022\037.com.ata" +
+      "kmap.CertificateRequest\032 .com.atakmap.Ce",
+      "rtificateResponse\"\000B#\n\017com.atakmap.TakB\010" +
+      "FigProtoP\001\242\002\003TAKb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -277,6 +292,18 @@ public final class FigProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_atakmap_FederateHops_descriptor,
         new java.lang.String[] { "MaxHops", "CurrentHops", });
+    internal_static_com_atakmap_CertificateRequest_descriptor =
+      getDescriptor().getMessageTypes().get(14);
+    internal_static_com_atakmap_CertificateRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_atakmap_CertificateRequest_descriptor,
+        new java.lang.String[] { "FederateName", });
+    internal_static_com_atakmap_CertificateResponse_descriptor =
+      getDescriptor().getMessageTypes().get(15);
+    internal_static_com_atakmap_CertificateResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_atakmap_CertificateResponse_descriptor,
+        new java.lang.String[] { "ClientCertPem", "CaCertPem", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

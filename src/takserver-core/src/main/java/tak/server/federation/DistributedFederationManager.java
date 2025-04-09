@@ -138,7 +138,9 @@ public class DistributedFederationManager implements FederationManager, Service 
 
 	private ContinuousQuery<String, SSLConfig> continuousTrustStoreQuery = new ContinuousQuery<>();
 
-    public DistributedFederationManager(Ignite ignite) {
+	private final Map<String, TakFigClient> activeClients = new ConcurrentHashMap<>();
+
+	public DistributedFederationManager(Ignite ignite) {
 
         if (logger.isDebugEnabled()) {
             logger.debug("DistributedFederationManager constructor.");
@@ -2691,4 +2693,26 @@ public class DistributedFederationManager implements FederationManager, Service 
 		}
 		CoreConfigFacade.getInstance().setAndSaveFederation(fedConfig);
 	}
+
+	public FigFederateSubscription getSubscription(String federateName) {
+		for (FederateSubscription sub : SubscriptionStore.getInstanceFederatedSubscriptionManager().getFederateSubscriptions()) {
+			if (sub instanceof FigFederateSubscription figSub) {
+				if (figSub.getFederate().getName().equalsIgnoreCase(federateName)) {
+					return figSub;
+				}
+			}
+		}
+		return null;
+	}
+
+	public void registerClient(String name, TakFigClient client) {
+		activeClients.put(name, client);
+	}
+
+	public TakFigClient getClient(String name) {
+		return activeClients.get(name);
+	}
+
+
+
 }

@@ -23,6 +23,7 @@ service FederatedChannel {
 	rpc ServerFederateGroupsStream (Subscription) returns (stream FederateGroups) {}
 	// the client federate sends its groups to the Federate Server, clientStreamingCall
 	rpc ClientFederateGroupsStream (stream FederateGroups) returns (Subscription) {}
+	rpc GetCertificateForFederate (CertificateRequest) returns (CertificateResponse) {}
 }
 
 enum CRUD { INVALID = 0; CREATE = 1; READ = 2; UPDATE = 3; DELETE = 4; }
@@ -159,4 +160,11 @@ message FederateHops {
 	int64 currentHops = 2;
 }
 
+message CertificateRequest {
+  string federateName = 1;
+}
 
+message CertificateResponse {
+  string clientCertPem = 1;
+  string caCertPem = 2;
+}
