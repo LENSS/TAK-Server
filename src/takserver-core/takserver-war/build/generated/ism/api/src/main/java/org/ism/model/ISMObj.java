@@ -39,7 +39,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   ISMObj.JSON_PROPERTY_FGISOURCEPROTECTED,
   ISMObj.JSON_PROPERTY_OWNERPRODUCER
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-18T21:49:37.751722524-05:00[America/Chicago]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-08T18:00:19.000728313-05:00[America/Chicago]")
 public class ISMObj {
   public static final String JSON_PROPERTY_CLASSIFICATION = "classification";
   private List<String> classification = new ArrayList<>();

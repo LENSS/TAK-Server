@@ -57,12 +57,15 @@
     <security>
         <tls keystore="JKS" keystoreFile="../scripts/certs/files/takserver.jks" keystorePass="atakatak" truststore="JKS" truststoreFile="../scripts/certs/files/truststore-TAK-ID-CA-01.jks" truststorePass="atakatak" context="TLSv1.2" keymanager="SunX509"/>
     </security>
-    <federation missionFederationDisruptionToleranceRecencySeconds="43200">
-        <federation-server port="9000" v1enabled="false" v2port="9001" v2enabled="true" webBaseUrl="https://127.0.1.1:8443/Marti">
+    <federation allowFederatedDelete="false" allowMissionFederation="true" allowDataFeedFederation="true" enableMissionFederationDisruptionTolerance="true" missionFederationDisruptionToleranceRecencySeconds="43200" enableFederation="true" enableDataPackageAndMissionFileFilter="false">
+        <federation-server port="9000" coreVersion="2" v1enabled="false" v2port="9001" v2enabled="true" webBaseUrl="https://127.0.1.1:8443/Marti">
             <tls keystore="JKS" keystoreFile="../scripts/certs/files/takserver.jks" keystorePass="atakatak" truststore="JKS" truststoreFile="../scripts/certs/files/fed-truststore.jks" truststorePass="atakatak" context="TLSv1.2" keymanager="SunX509"/>
+            <federation-port port="9000" tlsVersion="TLSv1.2"/>
             <v1Tls tlsVersion="TLSv1.2"/>
             <v1Tls tlsVersion="TLSv1.3"/>
         </federation-server>
+        <federation-outgoing displayName="TAK1" address="35.209.26.203" port="9001" enabled="true" protocolVersion="2" reconnectInterval="30" maxRetries="0" unlimitedRetries="true" connectionToken=""/>
+        <federate id="F8:BF:BA:84:C8:CB:18:27:80:87:2D:B7:CE:B4:31:EC:E0:FC:1F:AE:1A:72:9C:21:B8:05:99:40:95:06:7D:F6" name="takserver:TAK-ID-CA-01"/>
         <fileFilter>
             <fileExtension>pref</fileExtension>
         </fileFilter>

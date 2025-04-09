@@ -30,7 +30,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 @JsonPropertyOrder({
   Meta.JSON_PROPERTY_NETWORK
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-18T21:49:37.751722524-05:00[America/Chicago]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-08T18:00:19.000728313-05:00[America/Chicago]")
 public class Meta {
   public static final String JSON_PROPERTY_NETWORK = "network";
   private NetworkMetadata network;
