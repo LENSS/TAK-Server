@@ -18,3 +18,8 @@
 2025-04-09-09:53:18.843 [main] INFO tak.server.ServerConfiguration - The following 2 profiles are active: "config", "duplicatelogs"
 2025-04-09-09:53:27.211 [main] INFO tak.server.ServerConfiguration - Started ServerConfiguration in 11.15 seconds (process running for 15.832)
 2025-04-09-09:53:27.229 [main] INFO tak.server.ServerConfiguration - Started TAK Server config Microservice.
+2025-04-11-16:36:39.833 [main] INFO tak.server.ServerConfiguration - Starting ServerConfiguration v5.2-RELEASE-16 using Java 17.0.14 with PID 18183 (/home/radu/TAK-Server/src/takserver-core/build/libs/takserver-core-5.2-RELEASE-16.war started by radu in /home/radu/TAK-Server/src/takserver-core/example)
+2025-04-11-16:36:39.833 [main] DEBUG tak.server.ServerConfiguration - Running with Spring Boot v3.1.12, Spring v6.0.22
+2025-04-11-16:36:39.835 [main] INFO tak.server.ServerConfiguration - The following 2 profiles are active: "config", "duplicatelogs"
+2025-04-11-16:37:03.911 [main] INFO tak.server.ServerConfiguration - Started ServerConfiguration in 25.294 seconds (process running for 27.436)
+2025-04-11-16:37:03.928 [main] INFO tak.server.ServerConfiguration - Started TAK Server config Microservice.

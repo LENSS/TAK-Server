@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.120s</div>
+<div class="counter">0.065s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,12 +79,12 @@
 </thead>
 <tr>
 <td class="success">convertCotToJsonAndBack</td>
-<td class="success">0.114s</td>
+<td class="success">0.062s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">parseCotAlert</td>
-<td class="success">0.006s</td>
+<td class="success">0.003s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -92,14 +92,14 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>09:52:21.404 [Test worker] DEBUG t.s.RepeaterMessageConversionTest - alert911cot: &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+<pre>16:34:08.301 [Test worker] DEBUG t.s.RepeaterMessageConversionTest - alert911cot: &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;event version=&quot;2.0&quot; uid=&quot;16173334444-9-1-1&quot; type=&quot;b-a-o-tbl&quot; time=&quot;2018-12-17T22:47:15.109Z&quot; start=&quot;2018-12-17T22:47:15.109Z&quot; stale=&quot;2018-12-17T22:47:25.109Z&quot; how=&quot;m-g&quot;&gt;&lt;point lat=&quot;42.389128&quot; lon=&quot;-71.147716&quot; hae=&quot;6.1&quot; ce=&quot;6.0&quot; le=&quot;9999999.0&quot;/&gt;&lt;detail&gt;&lt;link uid=&quot;ANDROID-358982072593830&quot; type=&quot;a-f-G-U-C&quot; relation=&quot;p-p&quot;/&gt;&lt;contact callsign=&quot;BOB-Alert&quot;/&gt;&lt;emergency type=&quot;911 Alert&quot;&gt;BOB&lt;/emergency&gt;&lt;precisionlocation altsrc=&quot;???&quot; geopointsrc=&quot;???&quot;/&gt;&lt;/detail&gt;&lt;/event&gt;
-09:52:21.430 [Test worker] DEBUG c.b.marti.util.MessageConversionUtil - trying to convert CoT message &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+16:34:08.304 [Test worker] DEBUG c.b.marti.util.MessageConversionUtil - trying to convert CoT message &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;event version=&quot;2.0&quot; uid=&quot;16173334444-9-1-1&quot; type=&quot;b-a-o-tbl&quot; time=&quot;2018-12-17T22:47:15.109Z&quot; start=&quot;2018-12-17T22:47:15.109Z&quot; stale=&quot;2018-12-17T22:47:25.109Z&quot; how=&quot;m-g&quot;&gt;&lt;point lat=&quot;42.389128&quot; lon=&quot;-71.147716&quot; hae=&quot;6.1&quot; ce=&quot;6.0&quot; le=&quot;9999999.0&quot;/&gt;&lt;detail&gt;&lt;link uid=&quot;ANDROID-358982072593830&quot; type=&quot;a-f-G-U-C&quot; relation=&quot;p-p&quot;/&gt;&lt;contact callsign=&quot;BOB-Alert&quot;/&gt;&lt;emergency type=&quot;911 Alert&quot;&gt;BOB&lt;/emergency&gt;&lt;precisionlocation altsrc=&quot;???&quot; geopointsrc=&quot;???&quot;/&gt;&lt;/detail&gt;&lt;/event&gt; to socket sa message
-09:52:21.472 [Test worker] DEBUG t.s.RepeaterMessageConversionTest - alert911sa: SituationAwarenessMessage [messageType=SituationAwarenessMessage, uid=16173334444-9-1-1, type=b-a-o-tbl, lat=42.389128, lon=-71.147716, callsign=BOB-Alert, how=m-g, hae=6.1, ce=6.0, le=9999999.0, start=1545086835109, time=1545086835109, stale=1545086845109, group=null, role=null, iconsetPath=null, color=null, phoneNumber=null, takv=null, persistent=null, remarks=null, getMissions()=[], getUids()=[], getGroups()=[], getAddresses()=[]]
-09:52:21.473 [Test worker] DEBUG t.s.RepeaterMessageConversionTest - detail json: {&quot;precisionlocation&quot;:{&quot;altsrc&quot;:&quot;???&quot;,&quot;geopointsrc&quot;:&quot;???&quot;},&quot;contact&quot;:{&quot;callsign&quot;:&quot;BOB-Alert&quot;},&quot;link&quot;:{&quot;uid&quot;:&quot;ANDROID-358982072593830&quot;,&quot;type&quot;:&quot;a-f-G-U-C&quot;,&quot;relation&quot;:&quot;p-p&quot;},&quot;emergency&quot;:{&quot;type&quot;:&quot;911 Alert&quot;,&quot;content&quot;:&quot;BOB&quot;}}
-09:52:21.485 [Test worker] DEBUG t.s.RepeaterMessageConversionTest - alert911json: {&quot;messageType&quot;:&quot;SituationAwarenessMessage&quot;,&quot;missions&quot;:[],&quot;uids&quot;:[],&quot;groups&quot;:[],&quot;addresses&quot;:[],&quot;topics&quot;:[],&quot;uid&quot;:&quot;16173334444-9-1-1&quot;,&quot;type&quot;:&quot;b-a-o-tbl&quot;,&quot;lat&quot;:42.389128,&quot;lon&quot;:-71.147716,&quot;callsign&quot;:&quot;BOB-Alert&quot;,&quot;how&quot;:&quot;m-g&quot;,&quot;hae&quot;:6.1,&quot;ce&quot;:6.0,&quot;le&quot;:9999999.0,&quot;start&quot;:1545086835109,&quot;time&quot;:1545086835109,&quot;stale&quot;:1545086845109,&quot;messageType&quot;:&quot;SituationAwarenessMessage&quot;,&quot;detail&quot;:{&quot;precisionlocation&quot;:{&quot;altsrc&quot;:&quot;???&quot;,&quot;geopointsrc&quot;:&quot;???&quot;},&quot;contact&quot;:{&quot;callsign&quot;:&quot;BOB-Alert&quot;},&quot;link&quot;:{&quot;uid&quot;:&quot;ANDROID-358982072593830&quot;,&quot;type&quot;:&quot;a-f-G-U-C&quot;,&quot;relation&quot;:&quot;p-p&quot;},&quot;emergency&quot;:{&quot;type&quot;:&quot;911 Alert&quot;,&quot;content&quot;:&quot;BOB&quot;}}}
-09:52:21.518 [Test worker] DEBUG t.s.RepeaterMessageConversionTest - alert911cotFromJson: &lt;event version='2.0' uid='16173334444-9-1-1' type='b-a-o-tbl' time='2025-04-09T14:52:21Z' start='2025-04-09T14:52:21Z' stale='2025-04-10T14:52:21Z' how='m-g'&gt;&lt;point lat='42.389128' lon='-71.147716' hae='6.1' ce='6.0' le='9999999.0' /&gt;&lt;detail&gt;&lt;contact callsign='BOB-Alert' /&gt;&lt;precisionlocation altsrc='???' geopointsrc='???'/&gt;&lt;contact callsign='BOB-Alert'/&gt;&lt;link uid='ANDROID-358982072593830' type='a-f-G-U-C' relation='p-p'/&gt;&lt;emergency type='911 Alert' content='BOB'/&gt;&lt;/detail&gt;&lt;/event&gt;
+16:34:08.331 [Test worker] DEBUG t.s.RepeaterMessageConversionTest - alert911sa: SituationAwarenessMessage [messageType=SituationAwarenessMessage, uid=16173334444-9-1-1, type=b-a-o-tbl, lat=42.389128, lon=-71.147716, callsign=BOB-Alert, how=m-g, hae=6.1, ce=6.0, le=9999999.0, start=1545086835109, time=1545086835109, stale=1545086845109, group=null, role=null, iconsetPath=null, color=null, phoneNumber=null, takv=null, persistent=null, remarks=null, getMissions()=[], getUids()=[], getGroups()=[], getAddresses()=[]]
+16:34:08.331 [Test worker] DEBUG t.s.RepeaterMessageConversionTest - detail json: {&quot;precisionlocation&quot;:{&quot;altsrc&quot;:&quot;???&quot;,&quot;geopointsrc&quot;:&quot;???&quot;},&quot;contact&quot;:{&quot;callsign&quot;:&quot;BOB-Alert&quot;},&quot;link&quot;:{&quot;uid&quot;:&quot;ANDROID-358982072593830&quot;,&quot;type&quot;:&quot;a-f-G-U-C&quot;,&quot;relation&quot;:&quot;p-p&quot;},&quot;emergency&quot;:{&quot;type&quot;:&quot;911 Alert&quot;,&quot;content&quot;:&quot;BOB&quot;}}
+16:34:08.346 [Test worker] DEBUG t.s.RepeaterMessageConversionTest - alert911json: {&quot;messageType&quot;:&quot;SituationAwarenessMessage&quot;,&quot;missions&quot;:[],&quot;uids&quot;:[],&quot;groups&quot;:[],&quot;addresses&quot;:[],&quot;topics&quot;:[],&quot;uid&quot;:&quot;16173334444-9-1-1&quot;,&quot;type&quot;:&quot;b-a-o-tbl&quot;,&quot;lat&quot;:42.389128,&quot;lon&quot;:-71.147716,&quot;callsign&quot;:&quot;BOB-Alert&quot;,&quot;how&quot;:&quot;m-g&quot;,&quot;hae&quot;:6.1,&quot;ce&quot;:6.0,&quot;le&quot;:9999999.0,&quot;start&quot;:1545086835109,&quot;time&quot;:1545086835109,&quot;stale&quot;:1545086845109,&quot;messageType&quot;:&quot;SituationAwarenessMessage&quot;,&quot;detail&quot;:{&quot;precisionlocation&quot;:{&quot;altsrc&quot;:&quot;???&quot;,&quot;geopointsrc&quot;:&quot;???&quot;},&quot;contact&quot;:{&quot;callsign&quot;:&quot;BOB-Alert&quot;},&quot;link&quot;:{&quot;uid&quot;:&quot;ANDROID-358982072593830&quot;,&quot;type&quot;:&quot;a-f-G-U-C&quot;,&quot;relation&quot;:&quot;p-p&quot;},&quot;emergency&quot;:{&quot;type&quot;:&quot;911 Alert&quot;,&quot;content&quot;:&quot;BOB&quot;}}}
+16:34:08.363 [Test worker] DEBUG t.s.RepeaterMessageConversionTest - alert911cotFromJson: &lt;event version='2.0' uid='16173334444-9-1-1' type='b-a-o-tbl' time='2025-04-11T21:34:08Z' start='2025-04-11T21:34:08Z' stale='2025-04-12T21:34:08Z' how='m-g'&gt;&lt;point lat='42.389128' lon='-71.147716' hae='6.1' ce='6.0' le='9999999.0' /&gt;&lt;detail&gt;&lt;contact callsign='BOB-Alert' /&gt;&lt;precisionlocation altsrc='???' geopointsrc='???'/&gt;&lt;contact callsign='BOB-Alert'/&gt;&lt;link uid='ANDROID-358982072593830' type='a-f-G-U-C' relation='p-p'/&gt;&lt;emergency type='911 Alert' content='BOB'/&gt;&lt;/detail&gt;&lt;/event&gt;
 </pre>
 </span>
 </div>
@@ -111,7 +111,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.5.1</a> at Apr 9, 2025, 9:52:21 AM</p>
+<a href="http://www.gradle.org">Gradle 7.5.1</a> at Apr 11, 2025, 4:34:08 PM</p>
 </div>
 </div>
 </body>

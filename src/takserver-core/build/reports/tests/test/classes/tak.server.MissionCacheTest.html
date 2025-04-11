@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.026s</div>
+<div class="counter">0.009s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,7 +79,7 @@
 </thead>
 <tr>
 <td class="success">missionToUid</td>
-<td class="success">0.011s</td>
+<td class="success">0.003s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -89,12 +89,12 @@
 </tr>
 <tr>
 <td class="success">uidToMission</td>
-<td class="success">0.007s</td>
+<td class="success">0.002s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">uidToMissionContents</td>
-<td class="success">0.006s</td>
+<td class="success">0.002s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -102,81 +102,81 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>09:52:20.849 [Test worker] DEBUG o.s.t.c.s.DefaultTestContextBootstrapper - Using ContextCustomizers for test class [MissionCacheTest]: [DisableObservabilityContextCustomizer, PropertyMappingContextCustomizer, WebDriverContextCustomizer, ExcludeFilterContextCustomizer, DuplicateJsonObjectContextCustomizer, MockitoContextCustomizer]
-09:52:20.850 [Test worker] DEBUG o.s.t.c.u.TestContextSpringFactoriesUtils - Skipping candidate TestExecutionListener [org.springframework.test.context.observation.MicrometerObservationRegistryTestExecutionListener] due to a missing dependency. Specify custom TestExecutionListener classes or make the default TestExecutionListener classes and their required dependencies available. Offending class: io.micrometer.context.ThreadLocalAccessor. MicrometerObservationRegistryTestExecutionListener requires io.micrometer:micrometer-observation:1.10.8 or higher and io.micrometer:context-propagation:1.0.3 or higher.
-09:52:20.851 [Test worker] DEBUG o.s.t.c.s.DefaultTestContextBootstrapper - Using TestExecutionListeners for test class [MissionCacheTest]: [ServletTestExecutionListener, DirtiesContextBeforeModesTestExecutionListener, ApplicationEventsTestExecutionListener, MockitoTestExecutionListener, DependencyInjectionTestExecutionListener, DirtiesContextTestExecutionListener, TransactionalTestExecutionListener, SqlScriptsTestExecutionListener, EventPublishingTestExecutionListener, RestDocsTestExecutionListener, MockRestServiceServerResetTestExecutionListener, MockMvcPrintOnlyOnFailureTestExecutionListener, WebDriverTestExecutionListener, MockWebServiceServerTestExecutionListener, ResetMocksTestExecutionListener]
-09:52:20.851 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [tak.server.MissionCacheTest]
-09:52:20.851 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [tak.server.MissionCacheTest]
-09:52:20.851 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [tak.server.MissionCacheTest]
-09:52:20.851 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [tak.server.MissionCacheTest]
-09:52:20.852 [Test worker] DEBUG o.s.t.c.s.DirtiesContextBeforeModesTestExecutionListener - Before test class: class [MissionCacheTest], class annotated with @DirtiesContext [false] with mode [null]
-09:52:20.852 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 174, missCount = 1]
-09:52:20.852 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [tak.server.MissionCacheTest]
-09:52:20.854 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [tak.server.MissionCacheTest]
-09:52:20.855 [Test worker] DEBUG o.s.t.c.s.DependencyInjectionTestExecutionListener - Performing dependency injection for test class tak.server.MissionCacheTest
-09:52:20.855 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 175, missCount = 1]
-09:52:20.857 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 176, missCount = 1]
-09:52:20.858 [Test worker] DEBUG o.s.t.c.s.DirtiesContextBeforeModesTestExecutionListener - Before test method: class [MissionCacheTest], method [missionToUid], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null]
-09:52:20.858 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 177, missCount = 1]
-09:52:20.858 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 178, missCount = 1]
-09:52:20.858 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 179, missCount = 1]
-09:52:20.865 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 180, missCount = 1]
-09:52:20.866 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 181, missCount = 1]
-09:52:20.866 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 182, missCount = 1]
-09:52:20.866 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 183, missCount = 1]
-09:52:20.868 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 184, missCount = 1]
-09:52:20.868 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 185, missCount = 1]
-09:52:20.869 [Test worker] DEBUG o.s.t.c.s.DirtiesContextTestExecutionListener - After test method: class [MissionCacheTest], method [missionToUid], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null]
-09:52:20.869 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [tak.server.MissionCacheTest]
-09:52:20.869 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [tak.server.MissionCacheTest]
-09:52:20.869 [Test worker] DEBUG o.s.t.c.s.DependencyInjectionTestExecutionListener - Performing dependency injection for test class tak.server.MissionCacheTest
-09:52:20.869 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 186, missCount = 1]
-09:52:20.870 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 187, missCount = 1]
-09:52:20.870 [Test worker] DEBUG o.s.t.c.s.DirtiesContextBeforeModesTestExecutionListener - Before test method: class [MissionCacheTest], method [missionToUidContents], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null]
-09:52:20.871 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 188, missCount = 1]
-09:52:20.871 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 189, missCount = 1]
-09:52:20.871 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 190, missCount = 1]
-09:52:20.871 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 191, missCount = 1]
-09:52:20.871 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 192, missCount = 1]
-09:52:20.871 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 193, missCount = 1]
-09:52:20.872 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 194, missCount = 1]
-09:52:20.872 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 195, missCount = 1]
-09:52:20.872 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 196, missCount = 1]
-09:52:20.872 [Test worker] DEBUG o.s.t.c.s.DirtiesContextTestExecutionListener - After test method: class [MissionCacheTest], method [missionToUidContents], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null]
-09:52:20.872 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [tak.server.MissionCacheTest]
-09:52:20.872 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [tak.server.MissionCacheTest]
-09:52:20.873 [Test worker] DEBUG o.s.t.c.s.DependencyInjectionTestExecutionListener - Performing dependency injection for test class tak.server.MissionCacheTest
-09:52:20.873 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 197, missCount = 1]
-09:52:20.874 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 198, missCount = 1]
-09:52:20.874 [Test worker] DEBUG o.s.t.c.s.DirtiesContextBeforeModesTestExecutionListener - Before test method: class [MissionCacheTest], method [uidToMissionContents], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null]
-09:52:20.875 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 199, missCount = 1]
-09:52:20.875 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 200, missCount = 1]
-09:52:20.875 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 201, missCount = 1]
-09:52:20.875 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 202, missCount = 1]
-09:52:20.876 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 203, missCount = 1]
-09:52:20.878 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 204, missCount = 1]
-09:52:20.880 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 205, missCount = 1]
-09:52:20.880 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 206, missCount = 1]
-09:52:20.880 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 207, missCount = 1]
-09:52:20.880 [Test worker] DEBUG o.s.t.c.s.DirtiesContextTestExecutionListener - After test method: class [MissionCacheTest], method [uidToMissionContents], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null]
-09:52:20.881 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [tak.server.MissionCacheTest]
-09:52:20.881 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [tak.server.MissionCacheTest]
-09:52:20.881 [Test worker] DEBUG o.s.t.c.s.DependencyInjectionTestExecutionListener - Performing dependency injection for test class tak.server.MissionCacheTest
-09:52:20.881 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 208, missCount = 1]
-09:52:20.882 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 209, missCount = 1]
-09:52:20.882 [Test worker] DEBUG o.s.t.c.s.DirtiesContextBeforeModesTestExecutionListener - Before test method: class [MissionCacheTest], method [uidToMission], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null]
-09:52:20.882 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 210, missCount = 1]
-09:52:20.882 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 211, missCount = 1]
-09:52:20.883 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 212, missCount = 1]
-09:52:20.883 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 213, missCount = 1]
-09:52:20.883 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 214, missCount = 1]
-09:52:20.884 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 215, missCount = 1]
-09:52:20.884 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 216, missCount = 1]
-09:52:20.886 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 217, missCount = 1]
-09:52:20.886 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 218, missCount = 1]
-09:52:20.886 [Test worker] DEBUG o.s.t.c.s.DirtiesContextTestExecutionListener - After test method: class [MissionCacheTest], method [uidToMission], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null]
-09:52:20.890 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 219, missCount = 1]
-09:52:20.890 [Test worker] DEBUG o.s.t.c.s.DirtiesContextTestExecutionListener - After test class: class [MissionCacheTest], class annotated with @DirtiesContext [false] with mode [null]
+<pre>16:34:08.089 [Test worker] DEBUG o.s.t.c.s.DefaultTestContextBootstrapper - Using ContextCustomizers for test class [MissionCacheTest]: [DisableObservabilityContextCustomizer, PropertyMappingContextCustomizer, WebDriverContextCustomizer, ExcludeFilterContextCustomizer, DuplicateJsonObjectContextCustomizer, MockitoContextCustomizer]
+16:34:08.089 [Test worker] DEBUG o.s.t.c.u.TestContextSpringFactoriesUtils - Skipping candidate TestExecutionListener [org.springframework.test.context.observation.MicrometerObservationRegistryTestExecutionListener] due to a missing dependency. Specify custom TestExecutionListener classes or make the default TestExecutionListener classes and their required dependencies available. Offending class: io.micrometer.context.ThreadLocalAccessor. MicrometerObservationRegistryTestExecutionListener requires io.micrometer:micrometer-observation:1.10.8 or higher and io.micrometer:context-propagation:1.0.3 or higher.
+16:34:08.090 [Test worker] DEBUG o.s.t.c.s.DefaultTestContextBootstrapper - Using TestExecutionListeners for test class [MissionCacheTest]: [ServletTestExecutionListener, DirtiesContextBeforeModesTestExecutionListener, ApplicationEventsTestExecutionListener, MockitoTestExecutionListener, DependencyInjectionTestExecutionListener, DirtiesContextTestExecutionListener, TransactionalTestExecutionListener, SqlScriptsTestExecutionListener, EventPublishingTestExecutionListener, RestDocsTestExecutionListener, MockRestServiceServerResetTestExecutionListener, MockMvcPrintOnlyOnFailureTestExecutionListener, WebDriverTestExecutionListener, MockWebServiceServerTestExecutionListener, ResetMocksTestExecutionListener]
+16:34:08.090 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [tak.server.MissionCacheTest]
+16:34:08.090 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [tak.server.MissionCacheTest]
+16:34:08.090 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [tak.server.MissionCacheTest]
+16:34:08.090 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [tak.server.MissionCacheTest]
+16:34:08.090 [Test worker] DEBUG o.s.t.c.s.DirtiesContextBeforeModesTestExecutionListener - Before test class: class [MissionCacheTest], class annotated with @DirtiesContext [false] with mode [null]
+16:34:08.091 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 174, missCount = 1]
+16:34:08.091 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [tak.server.MissionCacheTest]
+16:34:08.091 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [tak.server.MissionCacheTest]
+16:34:08.091 [Test worker] DEBUG o.s.t.c.s.DependencyInjectionTestExecutionListener - Performing dependency injection for test class tak.server.MissionCacheTest
+16:34:08.091 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 175, missCount = 1]
+16:34:08.092 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 176, missCount = 1]
+16:34:08.093 [Test worker] DEBUG o.s.t.c.s.DirtiesContextBeforeModesTestExecutionListener - Before test method: class [MissionCacheTest], method [missionToUid], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null]
+16:34:08.093 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 177, missCount = 1]
+16:34:08.093 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 178, missCount = 1]
+16:34:08.094 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 179, missCount = 1]
+16:34:08.094 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 180, missCount = 1]
+16:34:08.094 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 181, missCount = 1]
+16:34:08.094 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 182, missCount = 1]
+16:34:08.094 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 183, missCount = 1]
+16:34:08.095 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 184, missCount = 1]
+16:34:08.095 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 185, missCount = 1]
+16:34:08.095 [Test worker] DEBUG o.s.t.c.s.DirtiesContextTestExecutionListener - After test method: class [MissionCacheTest], method [missionToUid], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null]
+16:34:08.095 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [tak.server.MissionCacheTest]
+16:34:08.095 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [tak.server.MissionCacheTest]
+16:34:08.095 [Test worker] DEBUG o.s.t.c.s.DependencyInjectionTestExecutionListener - Performing dependency injection for test class tak.server.MissionCacheTest
+16:34:08.096 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 186, missCount = 1]
+16:34:08.096 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 187, missCount = 1]
+16:34:08.096 [Test worker] DEBUG o.s.t.c.s.DirtiesContextBeforeModesTestExecutionListener - Before test method: class [MissionCacheTest], method [missionToUidContents], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null]
+16:34:08.096 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 188, missCount = 1]
+16:34:08.096 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 189, missCount = 1]
+16:34:08.097 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 190, missCount = 1]
+16:34:08.097 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 191, missCount = 1]
+16:34:08.097 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 192, missCount = 1]
+16:34:08.097 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 193, missCount = 1]
+16:34:08.097 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 194, missCount = 1]
+16:34:08.097 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 195, missCount = 1]
+16:34:08.098 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 196, missCount = 1]
+16:34:08.098 [Test worker] DEBUG o.s.t.c.s.DirtiesContextTestExecutionListener - After test method: class [MissionCacheTest], method [missionToUidContents], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null]
+16:34:08.098 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [tak.server.MissionCacheTest]
+16:34:08.098 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [tak.server.MissionCacheTest]
+16:34:08.098 [Test worker] DEBUG o.s.t.c.s.DependencyInjectionTestExecutionListener - Performing dependency injection for test class tak.server.MissionCacheTest
+16:34:08.099 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 197, missCount = 1]
+16:34:08.099 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 198, missCount = 1]
+16:34:08.099 [Test worker] DEBUG o.s.t.c.s.DirtiesContextBeforeModesTestExecutionListener - Before test method: class [MissionCacheTest], method [uidToMissionContents], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null]
+16:34:08.099 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 199, missCount = 1]
+16:34:08.099 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 200, missCount = 1]
+16:34:08.100 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 201, missCount = 1]
+16:34:08.100 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 202, missCount = 1]
+16:34:08.100 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 203, missCount = 1]
+16:34:08.100 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 204, missCount = 1]
+16:34:08.100 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 205, missCount = 1]
+16:34:08.100 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 206, missCount = 1]
+16:34:08.101 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 207, missCount = 1]
+16:34:08.101 [Test worker] DEBUG o.s.t.c.s.DirtiesContextTestExecutionListener - After test method: class [MissionCacheTest], method [uidToMissionContents], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null]
+16:34:08.101 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [tak.server.MissionCacheTest]
+16:34:08.101 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [tak.server.MissionCacheTest]
+16:34:08.101 [Test worker] DEBUG o.s.t.c.s.DependencyInjectionTestExecutionListener - Performing dependency injection for test class tak.server.MissionCacheTest
+16:34:08.101 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 208, missCount = 1]
+16:34:08.102 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 209, missCount = 1]
+16:34:08.102 [Test worker] DEBUG o.s.t.c.s.DirtiesContextBeforeModesTestExecutionListener - Before test method: class [MissionCacheTest], method [uidToMission], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null]
+16:34:08.102 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 210, missCount = 1]
+16:34:08.102 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 211, missCount = 1]
+16:34:08.103 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 212, missCount = 1]
+16:34:08.103 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 213, missCount = 1]
+16:34:08.103 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 214, missCount = 1]
+16:34:08.103 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 215, missCount = 1]
+16:34:08.103 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 216, missCount = 1]
+16:34:08.103 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 217, missCount = 1]
+16:34:08.103 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 218, missCount = 1]
+16:34:08.104 [Test worker] DEBUG o.s.t.c.s.DirtiesContextTestExecutionListener - After test method: class [MissionCacheTest], method [uidToMission], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null]
+16:34:08.104 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 219, missCount = 1]
+16:34:08.104 [Test worker] DEBUG o.s.t.c.s.DirtiesContextTestExecutionListener - After test class: class [MissionCacheTest], class annotated with @DirtiesContext [false] with mode [null]
 </pre>
 </span>
 </div>
@@ -188,7 +188,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.5.1</a> at Apr 9, 2025, 9:52:21 AM</p>
+<a href="http://www.gradle.org">Gradle 7.5.1</a> at Apr 11, 2025, 4:34:08 PM</p>
 </div>
 </div>
 </body>

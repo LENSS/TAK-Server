@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.022s</div>
+<div class="counter">0.010s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,7 +79,7 @@
 </thead>
 <tr>
 <td class="success">serializeMessageTest</td>
-<td class="success">0.022s</td>
+<td class="success">0.010s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -87,33 +87,33 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>09:52:21.526 [Test worker] DEBUG o.s.t.c.s.DefaultTestContextBootstrapper - Using ContextCustomizers for test class [TakMessageConversionTests]: [DisableObservabilityContextCustomizer, PropertyMappingContextCustomizer, WebDriverContextCustomizer, ExcludeFilterContextCustomizer, DuplicateJsonObjectContextCustomizer, MockitoContextCustomizer]
-09:52:21.526 [Test worker] DEBUG o.s.t.c.u.TestContextSpringFactoriesUtils - Skipping candidate TestExecutionListener [org.springframework.test.context.observation.MicrometerObservationRegistryTestExecutionListener] due to a missing dependency. Specify custom TestExecutionListener classes or make the default TestExecutionListener classes and their required dependencies available. Offending class: io.micrometer.context.ThreadLocalAccessor. MicrometerObservationRegistryTestExecutionListener requires io.micrometer:micrometer-observation:1.10.8 or higher and io.micrometer:context-propagation:1.0.3 or higher.
-09:52:21.528 [Test worker] DEBUG o.s.t.c.s.DefaultTestContextBootstrapper - Using TestExecutionListeners for test class [TakMessageConversionTests]: [ServletTestExecutionListener, DirtiesContextBeforeModesTestExecutionListener, ApplicationEventsTestExecutionListener, MockitoTestExecutionListener, DependencyInjectionTestExecutionListener, DirtiesContextTestExecutionListener, TransactionalTestExecutionListener, SqlScriptsTestExecutionListener, EventPublishingTestExecutionListener, RestDocsTestExecutionListener, MockRestServiceServerResetTestExecutionListener, MockMvcPrintOnlyOnFailureTestExecutionListener, WebDriverTestExecutionListener, MockWebServiceServerTestExecutionListener, ResetMocksTestExecutionListener]
-09:52:21.528 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [tak.server.TakMessageConversionTests]
-09:52:21.529 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [tak.server.TakMessageConversionTests]
-09:52:21.529 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [tak.server.TakMessageConversionTests]
-09:52:21.529 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [tak.server.TakMessageConversionTests]
-09:52:21.529 [Test worker] DEBUG o.s.t.c.s.DirtiesContextBeforeModesTestExecutionListener - Before test class: class [TakMessageConversionTests], class annotated with @DirtiesContext [false] with mode [null]
-09:52:21.529 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 413, missCount = 1]
-09:52:21.529 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [tak.server.TakMessageConversionTests]
-09:52:21.529 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [tak.server.TakMessageConversionTests]
-09:52:21.529 [Test worker] DEBUG o.s.t.c.s.DependencyInjectionTestExecutionListener - Performing dependency injection for test class tak.server.TakMessageConversionTests
-09:52:21.529 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 414, missCount = 1]
-09:52:21.530 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 415, missCount = 1]
-09:52:21.530 [Test worker] DEBUG o.s.t.c.s.DirtiesContextBeforeModesTestExecutionListener - Before test method: class [TakMessageConversionTests], method [serializeMessageTest], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null]
-09:52:21.536 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 416, missCount = 1]
-09:52:21.536 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 417, missCount = 1]
-09:52:21.537 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 418, missCount = 1]
-09:52:21.550 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 419, missCount = 1]
-09:52:21.551 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 420, missCount = 1]
-09:52:21.551 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 421, missCount = 1]
-09:52:21.551 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 422, missCount = 1]
-09:52:21.551 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 423, missCount = 1]
-09:52:21.552 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 424, missCount = 1]
-09:52:21.552 [Test worker] DEBUG o.s.t.c.s.DirtiesContextTestExecutionListener - After test method: class [TakMessageConversionTests], method [serializeMessageTest], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null]
-09:52:21.552 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@2552181d size = 1, maxSize = 32, parentContextCount = 0, hitCount = 425, missCount = 1]
-09:52:21.552 [Test worker] DEBUG o.s.t.c.s.DirtiesContextTestExecutionListener - After test class: class [TakMessageConversionTests], class annotated with @DirtiesContext [false] with mode [null]
+<pre>16:34:08.366 [Test worker] DEBUG o.s.t.c.s.DefaultTestContextBootstrapper - Using ContextCustomizers for test class [TakMessageConversionTests]: [DisableObservabilityContextCustomizer, PropertyMappingContextCustomizer, WebDriverContextCustomizer, ExcludeFilterContextCustomizer, DuplicateJsonObjectContextCustomizer, MockitoContextCustomizer]
+16:34:08.366 [Test worker] DEBUG o.s.t.c.u.TestContextSpringFactoriesUtils - Skipping candidate TestExecutionListener [org.springframework.test.context.observation.MicrometerObservationRegistryTestExecutionListener] due to a missing dependency. Specify custom TestExecutionListener classes or make the default TestExecutionListener classes and their required dependencies available. Offending class: io.micrometer.context.ThreadLocalAccessor. MicrometerObservationRegistryTestExecutionListener requires io.micrometer:micrometer-observation:1.10.8 or higher and io.micrometer:context-propagation:1.0.3 or higher.
+16:34:08.367 [Test worker] DEBUG o.s.t.c.s.DefaultTestContextBootstrapper - Using TestExecutionListeners for test class [TakMessageConversionTests]: [ServletTestExecutionListener, DirtiesContextBeforeModesTestExecutionListener, ApplicationEventsTestExecutionListener, MockitoTestExecutionListener, DependencyInjectionTestExecutionListener, DirtiesContextTestExecutionListener, TransactionalTestExecutionListener, SqlScriptsTestExecutionListener, EventPublishingTestExecutionListener, RestDocsTestExecutionListener, MockRestServiceServerResetTestExecutionListener, MockMvcPrintOnlyOnFailureTestExecutionListener, WebDriverTestExecutionListener, MockWebServiceServerTestExecutionListener, ResetMocksTestExecutionListener]
+16:34:08.367 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [tak.server.TakMessageConversionTests]
+16:34:08.367 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [tak.server.TakMessageConversionTests]
+16:34:08.367 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [tak.server.TakMessageConversionTests]
+16:34:08.367 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [tak.server.TakMessageConversionTests]
+16:34:08.367 [Test worker] DEBUG o.s.t.c.s.DirtiesContextBeforeModesTestExecutionListener - Before test class: class [TakMessageConversionTests], class annotated with @DirtiesContext [false] with mode [null]
+16:34:08.367 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 413, missCount = 1]
+16:34:08.367 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [tak.server.TakMessageConversionTests]
+16:34:08.367 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [tak.server.TakMessageConversionTests]
+16:34:08.367 [Test worker] DEBUG o.s.t.c.s.DependencyInjectionTestExecutionListener - Performing dependency injection for test class tak.server.TakMessageConversionTests
+16:34:08.368 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 414, missCount = 1]
+16:34:08.368 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 415, missCount = 1]
+16:34:08.368 [Test worker] DEBUG o.s.t.c.s.DirtiesContextBeforeModesTestExecutionListener - Before test method: class [TakMessageConversionTests], method [serializeMessageTest], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null]
+16:34:08.368 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 416, missCount = 1]
+16:34:08.369 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 417, missCount = 1]
+16:34:08.369 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 418, missCount = 1]
+16:34:08.377 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 419, missCount = 1]
+16:34:08.377 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 420, missCount = 1]
+16:34:08.377 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 421, missCount = 1]
+16:34:08.378 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 422, missCount = 1]
+16:34:08.378 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 423, missCount = 1]
+16:34:08.378 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 424, missCount = 1]
+16:34:08.378 [Test worker] DEBUG o.s.t.c.s.DirtiesContextTestExecutionListener - After test method: class [TakMessageConversionTests], method [serializeMessageTest], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null]
+16:34:08.378 [Test worker] DEBUG o.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@233789d9 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 425, missCount = 1]
+16:34:08.378 [Test worker] DEBUG o.s.t.c.s.DirtiesContextTestExecutionListener - After test class: class [TakMessageConversionTests], class annotated with @DirtiesContext [false] with mode [null]
 </pre>
 </span>
 </div>
@@ -125,7 +125,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.5.1</a> at Apr 9, 2025, 9:52:21 AM</p>
+<a href="http://www.gradle.org">Gradle 7.5.1</a> at Apr 11, 2025, 4:34:08 PM</p>
 </div>
 </div>
 </body>

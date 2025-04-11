@@ -8980,3 +8980,217 @@ Caused by: java.net.ConnectException: Connection refused
 2025-04-09-09:54:30.195 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - processing disconnect for FIG federate TakFigClient [clientName=TAK1, clientUid=49c64b28f7e14e708850d871ba68aa9a, federateSubscription=null, config=com.bbn.marti.config.Federation@65acdcf8, serverLastHealth=null] cause connection refused, check network connectivity to federate
 2025-04-09-09:54:30.196 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - Connection failure to v2 federate TAK1 - schedule retry: true - status: ConnectionStatus [connection=ConnectionInfo [connectionId=49c64b28f7e14e708850d871ba68aa9a, nodeId=e979d142-b760-40a6-ab79-6b20037211c6, port=9001, address=35.209.26.203, tls=true, input=null, cert=null, caCert=null, id=1, client=true, readCount=0, processedCount=0], federate=, lastError=connection refused, check network connectivity to federate, connectionStatusValue=CONNECTING] cause connection refused, check network connectivity to federate
 2025-04-09-09:54:32.133 [shutdown-hook] DEBUG t.s.f.DistributedFederationManager - DistributedFederationManager service cancelled
+2025-04-11-16:37:05.726 [main] INFO tak.server.ServerConfiguration - Starting ServerConfiguration v5.2-RELEASE-16 using Java 17.0.14 with PID 18287 (/home/radu/TAK-Server/src/takserver-core/build/libs/takserver-core-5.2-RELEASE-16.war started by radu in /home/radu/TAK-Server/src/takserver-core/example)
+2025-04-11-16:37:05.727 [main] DEBUG tak.server.ServerConfiguration - Running with Spring Boot v3.1.12, Spring v6.0.22
+2025-04-11-16:37:05.727 [main] INFO tak.server.ServerConfiguration - The following 3 profiles are active: "plugins", "messaging", "duplicatelogs"
+2025-04-11-16:37:13.620 [main] INFO tak.server.util.DataSourceUtils - 4 CPU cores detected. Postgres server maximum allowed connections value is 2100. The computed connection pool size is: 200
+2025-04-11-16:37:14.685 [main] WARN org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-04-11-16:37:25.311 [main] DEBUG t.s.f.DistributedFederationManager - DistributedFederationManager constructor.
+2025-04-11-16:37:25.340 [services-deployment-worker-#57] DEBUG t.s.f.DistributedFederationManager - init method DistributedFederationManager
+2025-04-11-16:37:25.606 [services-deployment-worker-#57] WARN com.bbn.marti.service.SSLConfig - TLS enabled, but no certificate revocation lists, and OSCP is not enabled in Core Config!
+2025-04-11-16:37:25.803 [service-#75] DEBUG t.s.f.DistributedFederationManager - execute method DistributedFederationManager
+2025-04-11-16:37:39.239 [main] INFO c.b.m.sync.JDBCEnterpriseSyncService - file cache explicity disabled.
+2025-04-11-16:37:39.250 [main] INFO c.b.marti.service.SubmissionService - input class type: Input
+2025-04-11-16:37:39.250 [main] INFO c.b.marti.service.SubmissionService - Configuring network input com.bbn.marti.config.Input stdssl: 
+2025-04-11-16:37:39.513 [main] WARN com.bbn.marti.service.SSLConfig - TLS enabled, but no certificate revocation lists, and OSCP is not enabled in Core Config!
+2025-04-11-16:37:40.303 [Thread-5] INFO c.b.marti.nio.netty.NioNettyBuilder - Successfully Started Netty Server for TlsServerInitializer on Port 8089 with watermark WriteBufferWaterMark(low: 8192, high: 16384)
+2025-04-11-16:37:41.419 [main] DEBUG t.s.f.DistributedFederationManager - federation enabled in config.
+2025-04-11-16:37:41.419 [main] INFO t.s.f.DistributedFederationManager - not starting disabled v1 federation server.
+2025-04-11-16:37:42.357 [main] INFO tak.server.federation.TakFigClient - client name: TAK1
+2025-04-11-16:37:42.539 [main] WARN com.bbn.marti.service.SSLConfig - TLS enabled, but no certificate revocation lists, and OSCP is not enabled in Core Config!
+2025-04-11-16:37:42.539 [main] DEBUG tak.server.federation.TakFigClient - Trust managers: 1
+2025-04-11-16:37:43.164 [main] DEBUG tak.server.federation.TakFigClient - init TakFigClient
+2025-04-11-16:37:43.265 [main] DEBUG t.s.f.DistributedFederationManager - exception initiating outgoing FIG federate connection FederationOutgoing [displayName=TAK1, address=35.209.26.203, port=9001, enabled=true, reconnectInterval=30, fallback= nullmaxRetries= unlimited] Cannot invoke "com.bbn.marti.config.Federation$Federate.getMaxHops()" because the return value of "tak.server.federation.TakFigClient.getFederate()" is null
+java.lang.NullPointerException: Cannot invoke "com.bbn.marti.config.Federation$Federate.getMaxHops()" because the return value of "tak.server.federation.TakFigClient.getFederate()" is null
+	at tak.server.federation.TakFigClient.init(TakFigClient.java:1108)
+	at tak.server.federation.TakFigClient.start(TakFigClient.java:556)
+	at tak.server.federation.DistributedFederationManager.initiateOutgoing(DistributedFederationManager.java:443)
+	at tak.server.federation.DistributedFederationManager.initiateAllOutgoing(DistributedFederationManager.java:345)
+	at tak.server.federation.DistributedFederationManager.onContextRefreshed(DistributedFederationManager.java:313)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.context.event.ApplicationListenerMethodAdapter.doInvoke(ApplicationListenerMethodAdapter.java:348)
+	at org.springframework.context.event.ApplicationListenerMethodAdapter.processEvent(ApplicationListenerMethodAdapter.java:233)
+	at org.springframework.context.event.ApplicationListenerMethodAdapter.onApplicationEvent(ApplicationListenerMethodAdapter.java:165)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:174)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:167)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:145)
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:445)
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:378)
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:971)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:618)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:739)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:441)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:325)
+	at tak.server.ServerConfiguration.main(ServerConfiguration.java:281)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49)
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95)
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58)
+	at org.springframework.boot.loader.PropertiesLauncher.main(PropertiesLauncher.java:466)
+2025-04-11-16:37:43.300 [main] DEBUG t.server.federation.FederationServer - v2 federation config
+2025-04-11-16:37:43.300 [main] DEBUG t.server.federation.FederationServer - scheduling v2 federation server start in 30 seconds
+2025-04-11-16:37:43.711 [pool-17-thread-1] DEBUG t.server.federation.FederationServer - in v2 fed start executor
+2025-04-11-16:37:43.727 [pool-17-thread-1] INFO t.server.federation.FederationServer - Federation server (v2) started, listening on port 9001
+2025-04-11-16:37:44.150 [main] INFO com.bbn.marti.nio.server.NioServer - max memory (bytes): 2147483648
+2025-04-11-16:37:44.150 [main] INFO com.bbn.marti.nio.server.NioServer - Server started
+2025-04-11-16:37:44.254 [main] INFO t.server.cache.DatafeedCacheHelper - Done initializing PluginDatafeedCacheHelper with buffer cache value: 300 seconds
+2025-04-11-16:37:44.271 [main] INFO com.bbn.marti.util.VersionBean - TAK Server version 5.2-RELEASE-16-main
+2025-04-11-16:37:44.271 [main] INFO c.b.m.sync.EnterpriseSyncCacheHelper - file cache explicity disabled.
+2025-04-11-16:37:44.271 [main] INFO c.b.m.sync.EnterpriseSyncCacheHelper - Initialzed EnterpriseSyncCacheHelper with file cache TTL 120 seconds. Implementation: caffeine
+2025-04-11-16:37:44.272 [main] INFO tak.server.ServerConfiguration - Started ServerConfiguration in 40.855 seconds (process running for 49.488)
+2025-04-11-16:37:44.321 [main] INFO tak.server.ServerConfiguration - Started TAK Server messaging Microservice.
+2025-04-11-16:37:48.305 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-11-16:37:53.305 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-11-16:37:58.305 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-11-16:38:03.305 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-11-16:38:08.305 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-11-16:38:13.305 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-11-16:38:13.524 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - received error notification from server cause connection timed out: /35.209.26.203:9001
+io.grpc.StatusRuntimeException: UNAVAILABLE: io exception
+	at io.grpc.Status.asRuntimeException(Status.java:537)
+	at io.grpc.stub.ClientCalls$StreamObserverToCallListenerAdapter.onClose(ClientCalls.java:481)
+	at io.grpc.internal.ClientCallImpl.closeObserver(ClientCallImpl.java:574)
+	at io.grpc.internal.ClientCallImpl.access$300(ClientCallImpl.java:72)
+	at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInternal(ClientCallImpl.java:742)
+	at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInContext(ClientCallImpl.java:723)
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37)
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:133)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: io.netty.channel.ConnectTimeoutException: connection timed out: /35.209.26.203:9001
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe$1.run(AbstractNioChannel.java:261)
+	at io.netty.util.concurrent.PromiseTask.runTask(PromiseTask.java:98)
+	at io.netty.util.concurrent.ScheduledFutureTask.run(ScheduledFutureTask.java:153)
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:470)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	... 1 common frames omitted
+2025-04-11-16:38:13.524 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - status: Status{code=UNAVAILABLE, description=io exception, cause=io.netty.channel.ConnectTimeoutException: connection timed out: /35.209.26.203:9001
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe$1.run(AbstractNioChannel.java:261)
+	at io.netty.util.concurrent.PromiseTask.runTask(PromiseTask.java:98)
+	at io.netty.util.concurrent.ScheduledFutureTask.run(ScheduledFutureTask.java:153)
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:470)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+} io exception
+2025-04-11-16:38:13.534 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - processing disconnect for FIG federate TakFigClient [clientName=TAK1, clientUid=ba681822b0c44e9cbf1281306dc8fe02, federateSubscription=null, config=com.bbn.marti.config.Federation@76ce3fb4, serverLastHealth=2025-04-11T16:37:46.233-05:00] cause connection timed out: /35.209.26.203:9001
+2025-04-11-16:38:13.543 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - Connection failure to v2 federate TAK1 - schedule retry: true - status: ConnectionStatus [connection=ConnectionInfo [connectionId=ba681822b0c44e9cbf1281306dc8fe02, nodeId=355fdc03-23ce-40d4-add6-277beb4de3ba, port=9001, address=35.209.26.203, tls=true, input=null, cert=null, caCert=null, id=0, client=true, readCount=0, processedCount=0], federate=, lastError=connection timed out: /35.209.26.203:9001, connectionStatusValue=CONNECTING] cause connection timed out: /35.209.26.203:9001
+2025-04-11-16:38:13.546 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - processing disconnect for FIG federate TakFigClient [clientName=TAK1, clientUid=ba681822b0c44e9cbf1281306dc8fe02, federateSubscription=null, config=com.bbn.marti.config.Federation@76ce3fb4, serverLastHealth=2025-04-11T16:37:46.233-05:00] cause connection timed out: /35.209.26.203:9001
+2025-04-11-16:38:13.547 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - Connection failure to v2 federate TAK1 - schedule retry: true - status: ConnectionStatus [connection=ConnectionInfo [connectionId=ba681822b0c44e9cbf1281306dc8fe02, nodeId=355fdc03-23ce-40d4-add6-277beb4de3ba, port=9001, address=35.209.26.203, tls=true, input=null, cert=null, caCert=null, id=0, client=true, readCount=0, processedCount=0], federate=, lastError=connection timed out: /35.209.26.203:9001, connectionStatusValue=RETRY_SCHEDULED] cause connection timed out: /35.209.26.203:9001
+2025-04-11-16:38:13.549 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - processing disconnect for FIG federate TakFigClient [clientName=TAK1, clientUid=ba681822b0c44e9cbf1281306dc8fe02, federateSubscription=null, config=com.bbn.marti.config.Federation@76ce3fb4, serverLastHealth=2025-04-11T16:37:46.233-05:00] cause connection timed out: /35.209.26.203:9001
+2025-04-11-16:38:13.549 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - Connection failure to v2 federate TAK1 - schedule retry: true - status: ConnectionStatus [connection=ConnectionInfo [connectionId=ba681822b0c44e9cbf1281306dc8fe02, nodeId=355fdc03-23ce-40d4-add6-277beb4de3ba, port=9001, address=35.209.26.203, tls=true, input=null, cert=null, caCert=null, id=0, client=true, readCount=0, processedCount=0], federate=, lastError=connection timed out: /35.209.26.203:9001, connectionStatusValue=RETRY_SCHEDULED] cause connection timed out: /35.209.26.203:9001
+2025-04-11-16:38:13.551 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - processing disconnect for FIG federate TakFigClient [clientName=TAK1, clientUid=ba681822b0c44e9cbf1281306dc8fe02, federateSubscription=null, config=com.bbn.marti.config.Federation@76ce3fb4, serverLastHealth=2025-04-11T16:37:46.233-05:00] cause connection timed out: /35.209.26.203:9001
+2025-04-11-16:38:13.551 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - Connection failure to v2 federate TAK1 - schedule retry: true - status: ConnectionStatus [connection=ConnectionInfo [connectionId=ba681822b0c44e9cbf1281306dc8fe02, nodeId=355fdc03-23ce-40d4-add6-277beb4de3ba, port=9001, address=35.209.26.203, tls=true, input=null, cert=null, caCert=null, id=0, client=true, readCount=0, processedCount=0], federate=, lastError=connection timed out: /35.209.26.203:9001, connectionStatusValue=RETRY_SCHEDULED] cause connection timed out: /35.209.26.203:9001
+2025-04-11-16:38:13.553 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - processing disconnect for FIG federate TakFigClient [clientName=TAK1, clientUid=ba681822b0c44e9cbf1281306dc8fe02, federateSubscription=null, config=com.bbn.marti.config.Federation@76ce3fb4, serverLastHealth=2025-04-11T16:37:46.233-05:00] cause connection timed out: /35.209.26.203:9001
+2025-04-11-16:38:13.553 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - Connection failure to v2 federate TAK1 - schedule retry: true - status: ConnectionStatus [connection=ConnectionInfo [connectionId=ba681822b0c44e9cbf1281306dc8fe02, nodeId=355fdc03-23ce-40d4-add6-277beb4de3ba, port=9001, address=35.209.26.203, tls=true, input=null, cert=null, caCert=null, id=0, client=true, readCount=0, processedCount=0], federate=, lastError=connection timed out: /35.209.26.203:9001, connectionStatusValue=RETRY_SCHEDULED] cause connection timed out: /35.209.26.203:9001
+2025-04-11-16:38:13.555 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - processing disconnect for FIG federate TakFigClient [clientName=TAK1, clientUid=ba681822b0c44e9cbf1281306dc8fe02, federateSubscription=null, config=com.bbn.marti.config.Federation@76ce3fb4, serverLastHealth=2025-04-11T16:37:46.233-05:00] cause connection timed out: /35.209.26.203:9001
+2025-04-11-16:38:13.555 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - Connection failure to v2 federate TAK1 - schedule retry: true - status: ConnectionStatus [connection=ConnectionInfo [connectionId=ba681822b0c44e9cbf1281306dc8fe02, nodeId=355fdc03-23ce-40d4-add6-277beb4de3ba, port=9001, address=35.209.26.203, tls=true, input=null, cert=null, caCert=null, id=0, client=true, readCount=0, processedCount=0], federate=, lastError=connection timed out: /35.209.26.203:9001, connectionStatusValue=RETRY_SCHEDULED] cause connection timed out: /35.209.26.203:9001
+2025-04-11-16:38:13.557 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - processing disconnect for FIG federate TakFigClient [clientName=TAK1, clientUid=ba681822b0c44e9cbf1281306dc8fe02, federateSubscription=null, config=com.bbn.marti.config.Federation@76ce3fb4, serverLastHealth=2025-04-11T16:37:46.233-05:00] cause connection timed out: /35.209.26.203:9001
+2025-04-11-16:38:13.557 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - Connection failure to v2 federate TAK1 - schedule retry: true - status: ConnectionStatus [connection=ConnectionInfo [connectionId=ba681822b0c44e9cbf1281306dc8fe02, nodeId=355fdc03-23ce-40d4-add6-277beb4de3ba, port=9001, address=35.209.26.203, tls=true, input=null, cert=null, caCert=null, id=0, client=true, readCount=0, processedCount=0], federate=, lastError=connection timed out: /35.209.26.203:9001, connectionStatusValue=RETRY_SCHEDULED] cause connection timed out: /35.209.26.203:9001
+2025-04-11-16:38:13.559 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - processing disconnect for FIG federate TakFigClient [clientName=TAK1, clientUid=ba681822b0c44e9cbf1281306dc8fe02, federateSubscription=null, config=com.bbn.marti.config.Federation@76ce3fb4, serverLastHealth=2025-04-11T16:37:46.233-05:00] cause connection timed out: /35.209.26.203:9001
+2025-04-11-16:38:13.559 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - Connection failure to v2 federate TAK1 - schedule retry: true - status: ConnectionStatus [connection=ConnectionInfo [connectionId=ba681822b0c44e9cbf1281306dc8fe02, nodeId=355fdc03-23ce-40d4-add6-277beb4de3ba, port=9001, address=35.209.26.203, tls=true, input=null, cert=null, caCert=null, id=0, client=true, readCount=0, processedCount=0], federate=, lastError=connection timed out: /35.209.26.203:9001, connectionStatusValue=RETRY_SCHEDULED] cause connection timed out: /35.209.26.203:9001
+2025-04-11-16:38:13.561 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - processing disconnect for FIG federate TakFigClient [clientName=TAK1, clientUid=ba681822b0c44e9cbf1281306dc8fe02, federateSubscription=null, config=com.bbn.marti.config.Federation@76ce3fb4, serverLastHealth=2025-04-11T16:37:46.233-05:00] cause connection timed out: /35.209.26.203:9001
+2025-04-11-16:38:13.562 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - Connection failure to v2 federate TAK1 - schedule retry: true - status: ConnectionStatus [connection=ConnectionInfo [connectionId=ba681822b0c44e9cbf1281306dc8fe02, nodeId=355fdc03-23ce-40d4-add6-277beb4de3ba, port=9001, address=35.209.26.203, tls=true, input=null, cert=null, caCert=null, id=0, client=true, readCount=0, processedCount=0], federate=, lastError=connection timed out: /35.209.26.203:9001, connectionStatusValue=RETRY_SCHEDULED] cause connection timed out: /35.209.26.203:9001
+2025-04-11-16:38:13.564 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - processing disconnect for FIG federate TakFigClient [clientName=TAK1, clientUid=ba681822b0c44e9cbf1281306dc8fe02, federateSubscription=null, config=com.bbn.marti.config.Federation@76ce3fb4, serverLastHealth=2025-04-11T16:37:46.233-05:00] cause connection timed out: /35.209.26.203:9001
+2025-04-11-16:38:13.564 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - Connection failure to v2 federate TAK1 - schedule retry: true - status: ConnectionStatus [connection=ConnectionInfo [connectionId=ba681822b0c44e9cbf1281306dc8fe02, nodeId=355fdc03-23ce-40d4-add6-277beb4de3ba, port=9001, address=35.209.26.203, tls=true, input=null, cert=null, caCert=null, id=0, client=true, readCount=0, processedCount=0], federate=, lastError=connection timed out: /35.209.26.203:9001, connectionStatusValue=RETRY_SCHEDULED] cause connection timed out: /35.209.26.203:9001
+2025-04-11-16:38:13.566 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - processing disconnect for FIG federate TakFigClient [clientName=TAK1, clientUid=ba681822b0c44e9cbf1281306dc8fe02, federateSubscription=null, config=com.bbn.marti.config.Federation@76ce3fb4, serverLastHealth=2025-04-11T16:37:46.233-05:00] cause connection timed out: /35.209.26.203:9001
+2025-04-11-16:38:13.566 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - Connection failure to v2 federate TAK1 - schedule retry: true - status: ConnectionStatus [connection=ConnectionInfo [connectionId=ba681822b0c44e9cbf1281306dc8fe02, nodeId=355fdc03-23ce-40d4-add6-277beb4de3ba, port=9001, address=35.209.26.203, tls=true, input=null, cert=null, caCert=null, id=0, client=true, readCount=0, processedCount=0], federate=, lastError=connection timed out: /35.209.26.203:9001, connectionStatusValue=RETRY_SCHEDULED] cause connection timed out: /35.209.26.203:9001
+2025-04-11-16:38:18.305 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-11-16:38:23.305 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-11-16:38:28.305 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-11-16:38:33.305 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-11-16:38:38.305 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-11-16:38:43.305 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-11-16:38:43.545 [takserver-scheduled-2] WARN t.s.f.DistributedFederationManager - trying to reconnect outgoing TAK1 for the 1th time.
+2025-04-11-16:38:43.546 [takserver-scheduled-2] INFO tak.server.federation.TakFigClient - client name: TAK1
+2025-04-11-16:38:43.628 [takserver-scheduled-2] WARN com.bbn.marti.service.SSLConfig - TLS enabled, but no certificate revocation lists, and OSCP is not enabled in Core Config!
+2025-04-11-16:38:43.628 [takserver-scheduled-2] DEBUG tak.server.federation.TakFigClient - Trust managers: 1
+2025-04-11-16:38:43.630 [takserver-scheduled-2] DEBUG tak.server.federation.TakFigClient - init TakFigClient
+2025-04-11-16:38:43.630 [takserver-scheduled-2] DEBUG t.s.f.DistributedFederationManager - exception initiating outgoing FIG federate connection FederationOutgoing [displayName=TAK1, address=35.209.26.203, port=9001, enabled=true, reconnectInterval=30, fallback= nullmaxRetries= unlimited] Cannot invoke "com.bbn.marti.config.Federation$Federate.getMaxHops()" because the return value of "tak.server.federation.TakFigClient.getFederate()" is null
+java.lang.NullPointerException: Cannot invoke "com.bbn.marti.config.Federation$Federate.getMaxHops()" because the return value of "tak.server.federation.TakFigClient.getFederate()" is null
+	at tak.server.federation.TakFigClient.init(TakFigClient.java:1108)
+	at tak.server.federation.TakFigClient.start(TakFigClient.java:556)
+	at tak.server.federation.DistributedFederationManager.initiateOutgoing(DistributedFederationManager.java:443)
+	at tak.server.federation.DistributedFederationManager$4.run(DistributedFederationManager.java:2226)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2025-04-11-16:38:48.305 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-11-16:38:53.305 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-11-16:38:57.935 [svc-#71] INFO t.s.f.DistributedFederationManager - disabling FIG outgoing TAK1
+2025-04-11-16:38:57.936 [svc-#71] DEBUG tak.server.federation.TakFigClient - processing disconnect for FIG federate TakFigClient [clientName=TAK1, clientUid=62398a73fc0046719d299ffdded8244c, federateSubscription=null, config=com.bbn.marti.config.Federation@76ce3fb4, serverLastHealth=2025-04-11T16:38:46.630-05:00] cause Outgoing deleted from UI
+2025-04-11-16:38:57.937 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - received error notification from server cause Connection is disabled, check Enable Connection
+io.grpc.StatusRuntimeException: UNAVAILABLE: Channel shutdownNow invoked
+	at io.grpc.Status.asRuntimeException(Status.java:537)
+	at io.grpc.stub.ClientCalls$StreamObserverToCallListenerAdapter.onClose(ClientCalls.java:481)
+	at io.grpc.internal.DelayedClientCall$DelayedListener$3.run(DelayedClientCall.java:489)
+	at io.grpc.internal.DelayedClientCall$DelayedListener.delayOrExecute(DelayedClientCall.java:453)
+	at io.grpc.internal.DelayedClientCall$DelayedListener.onClose(DelayedClientCall.java:486)
+	at io.grpc.internal.ClientCallImpl.closeObserver(ClientCallImpl.java:574)
+	at io.grpc.internal.ClientCallImpl.access$300(ClientCallImpl.java:72)
+	at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInternal(ClientCallImpl.java:742)
+	at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInContext(ClientCallImpl.java:723)
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37)
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:133)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2025-04-11-16:38:57.937 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - status: Status{code=UNAVAILABLE, description=Channel shutdownNow invoked, cause=null} Channel shutdownNow invoked
+2025-04-11-16:38:57.940 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - processing disconnect for FIG federate TakFigClient [clientName=TAK1, clientUid=62398a73fc0046719d299ffdded8244c, federateSubscription=null, config=com.bbn.marti.config.Federation@76ce3fb4, serverLastHealth=2025-04-11T16:38:46.630-05:00] cause Connection is disabled, check Enable Connection
+2025-04-11-16:38:57.941 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - Connection failure to v2 federate TAK1 - schedule retry: false - status: ConnectionStatus [connection=ConnectionInfo [connectionId=62398a73fc0046719d299ffdded8244c, nodeId=355fdc03-23ce-40d4-add6-277beb4de3ba, port=9001, address=35.209.26.203, tls=true, input=null, cert=null, caCert=null, id=1, client=true, readCount=0, processedCount=0], federate=, lastError=Connection is disabled, check Enable Connection, connectionStatusValue=DISABLED] cause Connection is disabled, check Enable Connection
+2025-04-11-16:38:57.942 [svc-#71] DEBUG tak.server.federation.TakFigClient - Connection failure to v2 federate TAK1 - schedule retry: false - status: ConnectionStatus [connection=ConnectionInfo [connectionId=62398a73fc0046719d299ffdded8244c, nodeId=355fdc03-23ce-40d4-add6-277beb4de3ba, port=9001, address=35.209.26.203, tls=true, input=null, cert=null, caCert=null, id=1, client=true, readCount=0, processedCount=0], federate=, lastError=Connection is disabled, check Enable Connection, connectionStatusValue=DISABLED] cause Outgoing deleted from UI
+2025-04-11-16:38:57.949 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - processing disconnect for FIG federate TakFigClient [clientName=TAK1, clientUid=62398a73fc0046719d299ffdded8244c, federateSubscription=null, config=com.bbn.marti.config.Federation@76ce3fb4, serverLastHealth=2025-04-11T16:38:46.630-05:00] cause Connection is disabled, check Enable Connection
+2025-04-11-16:38:57.955 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - Connection failure to v2 federate TAK1 - schedule retry: false - status: ConnectionStatus [connection=ConnectionInfo [connectionId=62398a73fc0046719d299ffdded8244c, nodeId=355fdc03-23ce-40d4-add6-277beb4de3ba, port=9001, address=35.209.26.203, tls=true, input=null, cert=null, caCert=null, id=1, client=true, readCount=0, processedCount=0], federate=, lastError=Connection is disabled, check Enable Connection, connectionStatusValue=DISABLED] cause Connection is disabled, check Enable Connection
+2025-04-11-16:38:57.958 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - processing disconnect for FIG federate TakFigClient [clientName=TAK1, clientUid=62398a73fc0046719d299ffdded8244c, federateSubscription=null, config=com.bbn.marti.config.Federation@76ce3fb4, serverLastHealth=2025-04-11T16:38:46.630-05:00] cause Connection is disabled, check Enable Connection
+2025-04-11-16:38:57.959 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - Connection failure to v2 federate TAK1 - schedule retry: false - status: ConnectionStatus [connection=ConnectionInfo [connectionId=62398a73fc0046719d299ffdded8244c, nodeId=355fdc03-23ce-40d4-add6-277beb4de3ba, port=9001, address=35.209.26.203, tls=true, input=null, cert=null, caCert=null, id=1, client=true, readCount=0, processedCount=0], federate=, lastError=Connection is disabled, check Enable Connection, connectionStatusValue=DISABLED] cause Connection is disabled, check Enable Connection
+2025-04-11-16:38:57.973 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - processing disconnect for FIG federate TakFigClient [clientName=TAK1, clientUid=62398a73fc0046719d299ffdded8244c, federateSubscription=null, config=com.bbn.marti.config.Federation@76ce3fb4, serverLastHealth=2025-04-11T16:38:46.630-05:00] cause Connection is disabled, check Enable Connection
+2025-04-11-16:38:57.978 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - Connection failure to v2 federate TAK1 - schedule retry: false - status: ConnectionStatus [connection=ConnectionInfo [connectionId=62398a73fc0046719d299ffdded8244c, nodeId=355fdc03-23ce-40d4-add6-277beb4de3ba, port=9001, address=35.209.26.203, tls=true, input=null, cert=null, caCert=null, id=1, client=true, readCount=0, processedCount=0], federate=, lastError=Connection is disabled, check Enable Connection, connectionStatusValue=DISABLED] cause Connection is disabled, check Enable Connection
+2025-04-11-16:38:57.988 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - processing disconnect for FIG federate TakFigClient [clientName=TAK1, clientUid=62398a73fc0046719d299ffdded8244c, federateSubscription=null, config=com.bbn.marti.config.Federation@76ce3fb4, serverLastHealth=2025-04-11T16:38:46.630-05:00] cause Connection is disabled, check Enable Connection
+2025-04-11-16:38:57.988 [takserver-grpc-0] DEBUG tak.server.federation.TakFigClient - Connection failure to v2 federate TAK1 - schedule retry: false - status: ConnectionStatus [connection=ConnectionInfo [connectionId=62398a73fc0046719d299ffdded8244c, nodeId=355fdc03-23ce-40d4-add6-277beb4de3ba, port=9001, address=35.209.26.203, tls=true, input=null, cert=null, caCert=null, id=1, client=true, readCount=0, processedCount=0], federate=, lastError=Connection is disabled, check Enable Connection, connectionStatusValue=DISABLED] cause Connection is disabled, check Enable Connection
+2025-04-11-16:38:58.305 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-11-16:39:03.305 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-11-16:39:06.945 [svc-#71] WARN t.s.f.DistributedFederationManager - Removing cert: CN=TAK-ID-CA-01, OU=US-ARMY-UNIT-1, O=LENSS, L=CSTAT, ST=TX, C=US
+2025-04-11-16:39:07.020 [svc-#71] INFO t.server.federation.FederationServer - refreshing config
+2025-04-11-16:39:07.020 [svc-#71] DEBUG t.server.federation.FederationServer - v2 federation config
+2025-04-11-16:39:07.110 [pool-22-thread-1] DEBUG t.server.federation.FederationServer - in v2 fed start executor
+2025-04-11-16:39:07.110 [pool-22-thread-1] INFO t.server.federation.FederationServer - Federation server (v2) started, listening on port 9001
+2025-04-11-16:39:08.305 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-11-16:39:12.020 [pool-21-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-11-16:39:13.305 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-11-16:39:17.020 [pool-21-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-11-16:39:18.305 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-11-16:39:22.020 [pool-21-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-11-16:39:23.305 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-11-16:39:27.020 [pool-21-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-11-16:39:28.305 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-11-16:39:32.020 [pool-21-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-11-16:39:33.305 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-11-16:39:37.020 [pool-21-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-11-16:39:38.305 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-11-16:39:42.020 [pool-21-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-11-16:39:43.305 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-11-16:39:47.020 [pool-21-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-11-16:39:48.305 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-11-16:39:52.020 [pool-21-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-11-16:39:53.305 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-11-16:39:57.020 [pool-21-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-11-16:39:58.305 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-11-16:40:01.910 [shutdown-hook] DEBUG t.s.f.DistributedFederationManager - DistributedFederationManager service cancelled

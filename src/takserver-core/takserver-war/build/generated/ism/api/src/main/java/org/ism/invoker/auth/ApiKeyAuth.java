@@ -3,7 +3,7 @@ package org.ism.invoker.auth;
 import org.springframework.http.HttpHeaders;
 import org.springframework.util.MultiValueMap;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-09T09:51:47.810907680-05:00[America/Chicago]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-11T16:33:33.291462497-05:00[America/Chicago]")
 public class ApiKeyAuth implements Authentication {
     private final String location;
     private final String paramName;

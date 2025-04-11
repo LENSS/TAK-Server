@@ -53,7 +53,7 @@ import java.util.TimeZone;
 
 import org.ism.invoker.auth.Authentication;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-09T09:51:47.810907680-05:00[America/Chicago]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-11T16:33:33.291462497-05:00[America/Chicago]")
 public class ApiClient {
     public enum CollectionFormat {
         CSV(","), TSV("\t"), SSV(" "), PIPES("|"), MULTI(null);

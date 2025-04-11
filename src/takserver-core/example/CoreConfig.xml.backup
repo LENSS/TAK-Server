@@ -64,7 +64,6 @@
             <v1Tls tlsVersion="TLSv1.2"/>
             <v1Tls tlsVersion="TLSv1.3"/>
         </federation-server>
-        <federation-outgoing displayName="TAK1" address="35.209.26.203" port="9001" enabled="true" protocolVersion="2" reconnectInterval="30" maxRetries="0" unlimitedRetries="true" connectionToken=""/>
         <federate id="F8:BF:BA:84:C8:CB:18:27:80:87:2D:B7:CE:B4:31:EC:E0:FC:1F:AE:1A:72:9C:21:B8:05:99:40:95:06:7D:F6" name="takserver:TAK-ID-CA-01"/>
         <fileFilter>
             <fileExtension>pref</fileExtension>
