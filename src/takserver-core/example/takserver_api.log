@@ -1,0 +1,249 @@
+NOTE: Picked up JDK_JAVA_OPTIONS: -Dloader.path=WEB-INF/lib-provided,WEB-INF/lib,WEB-INF/classes,file:lib/ -Djava.net.preferIPv4Stack=true -Djava.security.egd=file:/dev/./urandom -DIGNITE_UPDATE_NOTIFIER=false -DIGNITE_QUIET=true -Dio.netty.tmpdir=/home/radu/TAK-Server/src/takserver-core/example -Djava.io.tmpdir=/home/radu/TAK-Server/src/takserver-core/example -Dio.netty.native.workdir=/home/radu/TAK-Server/src/takserver-core/example -Djdk.tls.client.protocols=TLSv1.2 --add-opens=java.base/sun.security.pkcs=ALL-UNNAMED --add-opens=java.base/sun.security.pkcs10=ALL-UNNAMED --add-opens=java.base/sun.security.util=ALL-UNNAMED --add-opens=java.base/sun.security.x509=ALL-UNNAMED --add-opens=java.base/sun.security.tools.keytool=ALL-UNNAMED --add-opens=java.base/jdk.internal.misc=ALL-UNNAMED --add-opens=java.base/sun.nio.ch=ALL-UNNAMED --add-opens=java.management/com.sun.jmx.mbeanserver=ALL-UNNAMED --add-opens=jdk.internal.jvmstat/sun.jvmstat.monitor=ALL-UNNAMED --add-opens=java.base/sun.reflect.generics.reflectiveObjects=ALL-UNNAMED --add-opens=jdk.management/com.sun.management.internal=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.nio=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.base/java.util.concurrent.locks=ALL-UNNAMED --add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.base/java.math=ALL-UNNAMED --add-opens=java.sql/java.sql=ALL-UNNAMED --add-opens=java.base/javax.net.ssl=ALL-UNNAMED --add-opens=java.base/java.net=ALL-UNNAMED --add-opens=jdk.unsupported/sun.misc=ALL-UNNAMED --add-opens=java.base/java.lang.ref=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.security=ALL-UNNAMED --add-opens=java.base/java.security.ssl=ALL-UNNAMED --add-opens=java.base/java.security.cert=ALL-UNNAMED --add-opens=java.base/sun.security.rsa=ALL-UNNAMED --add-opens=java.base/sun.security.ssl=ALL-UNNAMED --add-opens=java.base/sun.security.x500=ALL-UNNAMED --add-opens=java.base/sun.security.pkcs12=ALL-UNNAMED --add-opens=java.base/sun.security.provider=ALL-UNNAMED --add-opens=java.base/javax.security.auth.x500=ALL-UNNAMED
+WARNING: package java.security.ssl not in java.base
+WARNING: package sun.security.x500 not in java.base
+17:54:35,716 |-INFO in ch.qos.logback.classic.LoggerContext[default] - This is logback-classic version 1.5.6
+17:54:35,744 |-INFO in ch.qos.logback.classic.util.ContextInitializer@7bc9e6ab - Here is a list of configurators discovered as a service, by rank: 
+17:54:35,744 |-INFO in ch.qos.logback.classic.util.ContextInitializer@7bc9e6ab -   org.springframework.boot.logging.logback.RootLogLevelConfigurator
+17:54:35,744 |-INFO in ch.qos.logback.classic.util.ContextInitializer@7bc9e6ab - They will be invoked in order until ExecutionStatus.DO_NOT_INVOKE_NEXT_IF_ANY is returned.
+17:54:35,744 |-INFO in ch.qos.logback.classic.util.ContextInitializer@7bc9e6ab - Constructed configurator of type class org.springframework.boot.logging.logback.RootLogLevelConfigurator
+17:54:35,770 |-INFO in ch.qos.logback.classic.util.ContextInitializer@7bc9e6ab - org.springframework.boot.logging.logback.RootLogLevelConfigurator.configure() call lasted 7 milliseconds. ExecutionStatus=INVOKE_NEXT_IF_ANY
+17:54:35,770 |-INFO in ch.qos.logback.classic.util.ContextInitializer@7bc9e6ab - Trying to configure with ch.qos.logback.classic.joran.SerializedModelConfigurator
+17:54:35,782 |-INFO in ch.qos.logback.classic.util.ContextInitializer@7bc9e6ab - Constructed configurator of type class ch.qos.logback.classic.joran.SerializedModelConfigurator
+17:54:35,788 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.scmo]
+17:54:35,790 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback.scmo]
+17:54:35,790 |-INFO in ch.qos.logback.classic.util.ContextInitializer@7bc9e6ab - ch.qos.logback.classic.joran.SerializedModelConfigurator.configure() call lasted 9 milliseconds. ExecutionStatus=INVOKE_NEXT_IF_ANY
+17:54:35,790 |-INFO in ch.qos.logback.classic.util.ContextInitializer@7bc9e6ab - Trying to configure with ch.qos.logback.classic.util.DefaultJoranConfigurator
+17:54:35,796 |-INFO in ch.qos.logback.classic.util.ContextInitializer@7bc9e6ab - Constructed configurator of type class ch.qos.logback.classic.util.DefaultJoranConfigurator
+17:54:35,802 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.xml]
+17:54:35,806 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback.xml]
+17:54:35,806 |-INFO in ch.qos.logback.classic.util.ContextInitializer@7bc9e6ab - ch.qos.logback.classic.util.DefaultJoranConfigurator.configure() call lasted 10 milliseconds. ExecutionStatus=INVOKE_NEXT_IF_ANY
+17:54:35,806 |-INFO in ch.qos.logback.classic.util.ContextInitializer@7bc9e6ab - Trying to configure with ch.qos.logback.classic.BasicConfigurator
+17:54:35,831 |-INFO in ch.qos.logback.classic.util.ContextInitializer@7bc9e6ab - Constructed configurator of type class ch.qos.logback.classic.BasicConfigurator
+17:54:35,831 |-INFO in ch.qos.logback.classic.BasicConfigurator@5488b5c5 - Setting up default configuration.
+17:54:35,999 |-INFO in ch.qos.logback.classic.util.ContextInitializer@7bc9e6ab - ch.qos.logback.classic.BasicConfigurator.configure() call lasted 169 milliseconds. ExecutionStatus=NEUTRAL
+17:54:48,769 |-INFO in ch.qos.logback.core.joran.spi.ConfigurationWatchList@4248ed58 - URL [jar:file:/home/radu/TAK-Server/src/takserver-core/build/libs/takserver-core-5.2-RELEASE-16.war!/WEB-INF/classes!/logback-spring.xml] is not of type file
+17:54:49,070 |-WARN in ch.qos.logback.classic.joran.action.LevelAction - <level> element is deprecated. Near [level] on line 212
+17:54:49,070 |-WARN in ch.qos.logback.classic.joran.action.LevelAction - Please use "level" attribute within <logger> or <root> elements instead.
+17:54:49,070 |-WARN in ch.qos.logback.classic.joran.action.LevelAction - <level> element is deprecated. Near [level] on line 216
+17:54:49,070 |-WARN in ch.qos.logback.classic.joran.action.LevelAction - Please use "level" attribute within <logger> or <root> elements instead.
+17:54:49,086 |-WARN in IfNestedWithinSecondPhaseElementSC - <if> elements cannot be nested within an <appender>, <logger> or <root> element
+17:54:49,086 |-WARN in IfNestedWithinSecondPhaseElementSC - See also http://logback.qos.ch/codes.html#nested_if_element
+17:54:49,094 |-WARN in IfNestedWithinSecondPhaseElementSC - Element <appender> at line 23 contains a nested <if> element at line 30
+17:54:49,094 |-WARN in IfNestedWithinSecondPhaseElementSC - Element <appender> at line 53 contains a nested <if> element at line 60
+17:54:49,094 |-WARN in IfNestedWithinSecondPhaseElementSC - Element <appender> at line 80 contains a nested <if> element at line 87
+17:54:49,094 |-WARN in IfNestedWithinSecondPhaseElementSC - Element <appender> at line 109 contains a nested <if> element at line 116
+17:54:49,094 |-WARN in IfNestedWithinSecondPhaseElementSC - Element <appender> at line 138 contains a nested <if> element at line 145
+17:54:49,094 |-WARN in IfNestedWithinSecondPhaseElementSC - Element <appender> at line 167 contains a nested <if> element at line 176
+17:54:49,187 |-INFO in ch.qos.logback.classic.model.processor.ConfigurationModelHandlerFull - Registering a new ReconfigureOnChangeTask ReconfigureOnChangeTask(born:1744757689187)
+17:54:49,188 |-INFO in ch.qos.logback.classic.model.processor.ConfigurationModelHandlerFull - Will scan for changes in [jar:file:/home/radu/TAK-Server/src/takserver-core/build/libs/takserver-core-5.2-RELEASE-16.war!/WEB-INF/classes!/logback-spring.xml] 
+17:54:49,188 |-INFO in ch.qos.logback.classic.model.processor.ConfigurationModelHandlerFull - Setting ReconfigureOnChangeTask scanning period to 30 seconds
+17:54:49,192 |-INFO in ch.qos.logback.core.joran.util.ConfigurationWatchListUtil@712ca57b - Adding [jar:file:/home/radu/TAK-Server/src/takserver-core/build/libs/takserver-core-5.2-RELEASE-16.war!/WEB-INF/lib/spring-boot-3.1.12.jar!/org/springframework/boot/logging/logback/defaults.xml] to configuration watch list.
+17:54:49,192 |-INFO in ch.qos.logback.core.joran.spi.ConfigurationWatchList@4248ed58 - URL [jar:file:/home/radu/TAK-Server/src/takserver-core/build/libs/takserver-core-5.2-RELEASE-16.war!/WEB-INF/lib/spring-boot-3.1.12.jar!/org/springframework/boot/logging/logback/defaults.xml] is not of type file
+17:54:49,200 |-INFO in ch.qos.logback.core.joran.action.ConversionRuleAction - registering conversion word clr with class [org.springframework.boot.logging.logback.ColorConverter]
+17:54:49,200 |-INFO in ch.qos.logback.core.joran.action.ConversionRuleAction - registering conversion word wex with class [org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter]
+17:54:49,200 |-INFO in ch.qos.logback.core.joran.action.ConversionRuleAction - registering conversion word wEx with class [org.springframework.boot.logging.logback.ExtendedWhitespaceThrowableProxyConverter]
+17:54:49,207 |-INFO in ch.qos.logback.classic.model.processor.LoggerContextListenerModelHandler - Adding LoggerContextListener of type [ch.qos.logback.classic.jul.LevelChangePropagator] to the object stack
+17:54:49,209 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@4564e94b - Propagating DEBUG level on Logger[ROOT] onto the JUL framework
+17:54:49,210 |-INFO in ch.qos.logback.classic.model.processor.LoggerContextListenerModelHandler - Starting LoggerContextListener
+17:54:49,525 |-INFO in ch.qos.logback.core.model.processor.conditional.IfModelHandler - Condition [false] evaluated to false on line 11
+17:54:49,537 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.apache.catalina.startup.DigesterFactory] to ERROR
+17:54:49,537 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@54534abf - Propagating ERROR level on Logger[org.apache.catalina.startup.DigesterFactory] onto the JUL framework
+17:54:49,537 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@4564e94b - Propagating ERROR level on Logger[org.apache.catalina.startup.DigesterFactory] onto the JUL framework
+17:54:49,537 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.apache.catalina.util.LifecycleBase] to ERROR
+17:54:49,537 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@54534abf - Propagating ERROR level on Logger[org.apache.catalina.util.LifecycleBase] onto the JUL framework
+17:54:49,537 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@4564e94b - Propagating ERROR level on Logger[org.apache.catalina.util.LifecycleBase] onto the JUL framework
+17:54:49,538 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.apache.coyote.http11.Http11NioProtocol] to WARN
+17:54:49,538 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@54534abf - Propagating WARN level on Logger[org.apache.coyote.http11.Http11NioProtocol] onto the JUL framework
+17:54:49,538 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@4564e94b - Propagating WARN level on Logger[org.apache.coyote.http11.Http11NioProtocol] onto the JUL framework
+17:54:49,538 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.apache.sshd.common.util.SecurityUtils] to WARN
+17:54:49,538 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@54534abf - Propagating WARN level on Logger[org.apache.sshd.common.util.SecurityUtils] onto the JUL framework
+17:54:49,538 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@4564e94b - Propagating WARN level on Logger[org.apache.sshd.common.util.SecurityUtils] onto the JUL framework
+17:54:49,538 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.apache.tomcat.util.net.NioSelectorPool] to WARN
+17:54:49,538 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@54534abf - Propagating WARN level on Logger[org.apache.tomcat.util.net.NioSelectorPool] onto the JUL framework
+17:54:49,538 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@4564e94b - Propagating WARN level on Logger[org.apache.tomcat.util.net.NioSelectorPool] onto the JUL framework
+17:54:49,538 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.eclipse.jetty.util.component.AbstractLifeCycle] to ERROR
+17:54:49,538 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@54534abf - Propagating ERROR level on Logger[org.eclipse.jetty.util.component.AbstractLifeCycle] onto the JUL framework
+17:54:49,538 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@4564e94b - Propagating ERROR level on Logger[org.eclipse.jetty.util.component.AbstractLifeCycle] onto the JUL framework
+17:54:49,538 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.hibernate.validator.internal.util.Version] to WARN
+17:54:49,538 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@54534abf - Propagating WARN level on Logger[org.hibernate.validator.internal.util.Version] onto the JUL framework
+17:54:49,538 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@4564e94b - Propagating WARN level on Logger[org.hibernate.validator.internal.util.Version] onto the JUL framework
+17:54:49,538 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.springframework.boot.actuate.endpoint.jmx] to WARN
+17:54:49,538 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@54534abf - Propagating WARN level on Logger[org.springframework.boot.actuate.endpoint.jmx] onto the JUL framework
+17:54:49,538 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@4564e94b - Propagating WARN level on Logger[org.springframework.boot.actuate.endpoint.jmx] onto the JUL framework
+17:54:49,538 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [application_log]
+17:54:49,538 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.rolling.RollingFileAppender]
+17:54:49,581 |-INFO in c.q.l.core.rolling.TimeBasedRollingPolicy@1366581056 - Will use gz compression
+17:54:49,583 |-INFO in c.q.l.core.rolling.TimeBasedRollingPolicy@1366581056 - Will use the pattern logs/takserver-api.%d{yyyy-MM-dd}.log for the active file
+17:54:49,611 |-INFO in c.q.l.core.rolling.DefaultTimeBasedFileNamingAndTriggeringPolicy - The date pattern is 'yyyy-MM-dd' from file name pattern 'logs/takserver-api.%d{yyyy-MM-dd}.log.gz'.
+17:54:49,611 |-INFO in c.q.l.core.rolling.DefaultTimeBasedFileNamingAndTriggeringPolicy - Roll-over at midnight.
+17:54:49,613 |-INFO in c.q.l.core.rolling.DefaultTimeBasedFileNamingAndTriggeringPolicy - Setting initial period to 2025-04-15T15:53:18.426Z
+17:54:49,629 |-INFO in ch.qos.logback.core.model.processor.conditional.IfModelHandler - Condition [false] evaluated to false on line 60
+17:54:49,630 |-INFO in ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+17:54:49,657 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[application_log] - Active log file name: logs/takserver-api.log
+17:54:49,657 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[application_log] - File property is set to [logs/takserver-api.log]
+17:54:49,658 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [http_access_log]
+17:54:49,658 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.rolling.RollingFileAppender]
+17:54:49,659 |-INFO in c.q.l.core.rolling.TimeBasedRollingPolicy@1164394344 - Will use gz compression
+17:54:49,659 |-INFO in c.q.l.core.rolling.TimeBasedRollingPolicy@1164394344 - Will use the pattern logs/takserver-api-access.%d{yyyy-MM-dd}.log for the active file
+17:54:49,660 |-INFO in c.q.l.core.rolling.DefaultTimeBasedFileNamingAndTriggeringPolicy - The date pattern is 'yyyy-MM-dd' from file name pattern 'logs/takserver-api-access.%d{yyyy-MM-dd}.log.gz'.
+17:54:49,660 |-INFO in c.q.l.core.rolling.DefaultTimeBasedFileNamingAndTriggeringPolicy - Roll-over at midnight.
+17:54:49,660 |-INFO in c.q.l.core.rolling.DefaultTimeBasedFileNamingAndTriggeringPolicy - Setting initial period to 2025-04-11T20:57:05.986Z
+17:54:49,676 |-INFO in ch.qos.logback.core.model.processor.conditional.IfModelHandler - Condition [false] evaluated to false on line 87
+17:54:49,676 |-INFO in ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+17:54:49,676 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[http_access_log] - Active log file name: logs/takserver-api-access.log
+17:54:49,676 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[http_access_log] - File property is set to [logs/takserver-api-access.log]
+17:54:49,676 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [audit_log]
+17:54:49,676 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.rolling.RollingFileAppender]
+17:54:49,677 |-INFO in c.q.l.core.rolling.TimeBasedRollingPolicy@665565246 - Will use gz compression
+17:54:49,677 |-INFO in c.q.l.core.rolling.TimeBasedRollingPolicy@665565246 - Will use the pattern logs/takserver-db-audit.%d{yyyy-MM-dd-HH}.log for the active file
+17:54:49,678 |-INFO in c.q.l.core.rolling.DefaultTimeBasedFileNamingAndTriggeringPolicy - The date pattern is 'yyyy-MM-dd-HH' from file name pattern 'logs/takserver-db-audit.%d{yyyy-MM-dd-HH}.log.gz'.
+17:54:49,678 |-INFO in c.q.l.core.rolling.DefaultTimeBasedFileNamingAndTriggeringPolicy - Roll-over at the top of every hour.
+17:54:49,678 |-INFO in c.q.l.core.rolling.DefaultTimeBasedFileNamingAndTriggeringPolicy - Setting initial period to 2025-04-11T20:57:05.990Z
+17:54:49,691 |-INFO in ch.qos.logback.core.model.processor.conditional.IfModelHandler - Condition [false] evaluated to false on line 176
+17:54:49,691 |-INFO in ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+17:54:49,691 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[audit_log] - Active log file name: logs/takserver-db-audit.log
+17:54:49,691 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[audit_log] - File property is set to [logs/takserver-db-audit.log]
+17:54:49,691 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [audit_log_async]
+17:54:49,691 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.classic.AsyncAppender]
+17:54:49,694 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [audit_log] to ch.qos.logback.classic.AsyncAppender[audit_log_async]
+17:54:49,694 |-INFO in ch.qos.logback.classic.AsyncAppender[audit_log_async] - Attaching appender named [audit_log] to AsyncAppender.
+17:54:49,695 |-INFO in ch.qos.logback.classic.AsyncAppender[audit_log_async] - Setting discardingThreshold to 51
+17:54:49,695 |-WARN in ch.qos.logback.core.model.processor.AppenderModelHandler - Appender named [console] not referenced. Skipping further processing.
+17:54:49,695 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [hibernate_audit_log]
+17:54:49,695 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [com.bbn.marti.logging.DelegatingAuditLogAppender]
+17:54:49,696 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [org.hibernate.SQL] to false
+17:54:49,696 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@54534abf - Propagating DEBUG level on Logger[org.hibernate.SQL] onto the JUL framework
+17:54:49,696 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@4564e94b - Propagating DEBUG level on Logger[org.hibernate.SQL] onto the JUL framework
+17:54:49,696 |-INFO in ch.qos.logback.classic.model.processor.LevelModelHandler - org.hibernate.SQL level set to DEBUG
+17:54:49,696 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [hibernate_audit_log] to Logger[org.hibernate.SQL]
+17:54:49,697 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [org.hibernate.type] to false
+17:54:49,697 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@54534abf - Propagating DEBUG level on Logger[org.hibernate.type] onto the JUL framework
+17:54:49,697 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@4564e94b - Propagating DEBUG level on Logger[org.hibernate.type] onto the JUL framework
+17:54:49,697 |-INFO in ch.qos.logback.classic.model.processor.LevelModelHandler - org.hibernate.type level set to DEBUG
+17:54:49,697 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [hibernate_audit_log] to Logger[org.hibernate.type]
+17:54:49,697 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] to OFF
+17:54:49,697 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@54534abf - Propagating OFF level on Logger[org.hibernate.engine.jdbc.spi.SqlExceptionHelper] onto the JUL framework
+17:54:49,697 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@4564e94b - Propagating OFF level on Logger[org.hibernate.engine.jdbc.spi.SqlExceptionHelper] onto the JUL framework
+17:54:49,697 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.springframework.web.socket.config.WebSocketMessageBrokerStats] to OFF
+17:54:49,697 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@54534abf - Propagating OFF level on Logger[org.springframework.web.socket.config.WebSocketMessageBrokerStats] onto the JUL framework
+17:54:49,697 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@4564e94b - Propagating OFF level on Logger[org.springframework.web.socket.config.WebSocketMessageBrokerStats] onto the JUL framework
+17:54:49,697 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [tak.server.ServerConfiguration] to DEBUG
+17:54:49,697 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@54534abf - Propagating DEBUG level on Logger[tak.server.ServerConfiguration] onto the JUL framework
+17:54:49,697 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@4564e94b - Propagating DEBUG level on Logger[tak.server.ServerConfiguration] onto the JUL framework
+17:54:49,697 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [tak.server.federation.DistributedFederationManager] to DEBUG
+17:54:49,697 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@54534abf - Propagating DEBUG level on Logger[tak.server.federation.DistributedFederationManager] onto the JUL framework
+17:54:49,697 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@4564e94b - Propagating DEBUG level on Logger[tak.server.federation.DistributedFederationManager] onto the JUL framework
+17:54:49,697 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [tak.server.federation.FederationServer] to DEBUG
+17:54:49,697 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@54534abf - Propagating DEBUG level on Logger[tak.server.federation.FederationServer] onto the JUL framework
+17:54:49,697 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@4564e94b - Propagating DEBUG level on Logger[tak.server.federation.FederationServer] onto the JUL framework
+17:54:49,697 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [tak.server.federation.TakFigClient] to DEBUG
+17:54:49,697 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@54534abf - Propagating DEBUG level on Logger[tak.server.federation.TakFigClient] onto the JUL framework
+17:54:49,697 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@4564e94b - Propagating DEBUG level on Logger[tak.server.federation.TakFigClient] onto the JUL framework
+17:54:49,697 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [com.bbn.roger.fig.FigProtocolNegotiator] to DEBUG
+17:54:49,697 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@54534abf - Propagating DEBUG level on Logger[com.bbn.roger.fig.FigProtocolNegotiator] onto the JUL framework
+17:54:49,697 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@4564e94b - Propagating DEBUG level on Logger[com.bbn.roger.fig.FigProtocolNegotiator] onto the JUL framework
+17:54:49,697 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.springframework] to WARN
+17:54:49,697 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@54534abf - Propagating WARN level on Logger[org.springframework] onto the JUL framework
+17:54:49,697 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@4564e94b - Propagating WARN level on Logger[org.springframework] onto the JUL framework
+17:54:49,697 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.apache] to WARN
+17:54:49,697 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@54534abf - Propagating WARN level on Logger[org.apache] onto the JUL framework
+17:54:49,698 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@4564e94b - Propagating WARN level on Logger[org.apache] onto the JUL framework
+17:54:49,698 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.hibernate] to WARN
+17:54:49,698 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@54534abf - Propagating WARN level on Logger[org.hibernate] onto the JUL framework
+17:54:49,698 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@4564e94b - Propagating WARN level on Logger[org.hibernate] onto the JUL framework
+17:54:49,698 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [com.zaxxer] to WARN
+17:54:49,698 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@54534abf - Propagating WARN level on Logger[com.zaxxer] onto the JUL framework
+17:54:49,698 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@4564e94b - Propagating WARN level on Logger[com.zaxxer] onto the JUL framework
+17:54:49,698 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] to DEBUG
+17:54:49,698 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@54534abf - Propagating DEBUG level on Logger[org.springframework.boot.web.embedded.tomcat.TomcatWebServer] onto the JUL framework
+17:54:49,698 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@4564e94b - Propagating DEBUG level on Logger[org.springframework.boot.web.embedded.tomcat.TomcatWebServer] onto the JUL framework
+17:54:49,698 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.springframework.security.config.http.FilterInvocationSecurityMetadataSourceParser] to OFF
+17:54:49,698 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@54534abf - Propagating OFF level on Logger[org.springframework.security.config.http.FilterInvocationSecurityMetadataSourceParser] onto the JUL framework
+17:54:49,698 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@4564e94b - Propagating OFF level on Logger[org.springframework.security.config.http.FilterInvocationSecurityMetadataSourceParser] onto the JUL framework
+17:54:49,698 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.springframework.boot.autoconfigure.orm.jpa] to OFF
+17:54:49,698 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@54534abf - Propagating OFF level on Logger[org.springframework.boot.autoconfigure.orm.jpa] onto the JUL framework
+17:54:49,698 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@4564e94b - Propagating OFF level on Logger[org.springframework.boot.autoconfigure.orm.jpa] onto the JUL framework
+17:54:49,698 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.springframework.boot.actuate.endpoint.EndpointId] to OFF
+17:54:49,698 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@54534abf - Propagating OFF level on Logger[org.springframework.boot.actuate.endpoint.EndpointId] onto the JUL framework
+17:54:49,698 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@4564e94b - Propagating OFF level on Logger[org.springframework.boot.actuate.endpoint.EndpointId] onto the JUL framework
+17:54:49,698 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [springfox] to OFF
+17:54:49,698 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@54534abf - Propagating OFF level on Logger[springfox] onto the JUL framework
+17:54:49,698 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@4564e94b - Propagating OFF level on Logger[springfox] onto the JUL framework
+17:54:49,698 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [com.bbn.marti.sync.MissionPackageUploadServlet] to WARN
+17:54:49,698 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@54534abf - Propagating WARN level on Logger[com.bbn.marti.sync.MissionPackageUploadServlet] onto the JUL framework
+17:54:49,698 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@4564e94b - Propagating WARN level on Logger[com.bbn.marti.sync.MissionPackageUploadServlet] onto the JUL framework
+17:54:49,698 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.apache.tomcat.util.net.NioEndpoint] to OFF
+17:54:49,698 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@54534abf - Propagating OFF level on Logger[org.apache.tomcat.util.net.NioEndpoint] onto the JUL framework
+17:54:49,698 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@4564e94b - Propagating OFF level on Logger[org.apache.tomcat.util.net.NioEndpoint] onto the JUL framework
+17:54:49,698 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [io.grpc.internal.SerializingExecutor] to OFF
+17:54:49,698 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@54534abf - Propagating OFF level on Logger[io.grpc.internal.SerializingExecutor] onto the JUL framework
+17:54:49,698 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@4564e94b - Propagating OFF level on Logger[io.grpc.internal.SerializingExecutor] onto the JUL framework
+17:54:49,698 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.apache.ignite] to ERROR
+17:54:49,698 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@54534abf - Propagating ERROR level on Logger[org.apache.ignite] onto the JUL framework
+17:54:49,698 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@4564e94b - Propagating ERROR level on Logger[org.apache.ignite] onto the JUL framework
+17:54:49,699 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.springframework.http] to OFF
+17:54:49,699 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@54534abf - Propagating OFF level on Logger[org.springframework.http] onto the JUL framework
+17:54:49,699 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@4564e94b - Propagating OFF level on Logger[org.springframework.http] onto the JUL framework
+17:54:49,699 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.springframework.web] to OFF
+17:54:49,699 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@54534abf - Propagating OFF level on Logger[org.springframework.web] onto the JUL framework
+17:54:49,699 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@4564e94b - Propagating OFF level on Logger[org.springframework.web] onto the JUL framework
+17:54:49,699 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.springframework.core] to OFF
+17:54:49,699 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@54534abf - Propagating OFF level on Logger[org.springframework.core] onto the JUL framework
+17:54:49,699 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@4564e94b - Propagating OFF level on Logger[org.springframework.core] onto the JUL framework
+17:54:49,699 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.apache.tomcat.util.net] to OFF
+17:54:49,699 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@54534abf - Propagating OFF level on Logger[org.apache.tomcat.util.net] onto the JUL framework
+17:54:49,699 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@4564e94b - Propagating OFF level on Logger[org.apache.tomcat.util.net] onto the JUL framework
+17:54:49,699 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [metrics-logger] to DEBUG
+17:54:49,699 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@54534abf - Propagating DEBUG level on Logger[metrics-logger] onto the JUL framework
+17:54:49,699 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@4564e94b - Propagating DEBUG level on Logger[metrics-logger] onto the JUL framework
+17:54:49,699 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.springframework.security.core.SpringSecurityCoreVersion] to OFF
+17:54:49,699 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@54534abf - Propagating OFF level on Logger[org.springframework.security.core.SpringSecurityCoreVersion] onto the JUL framework
+17:54:49,699 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@4564e94b - Propagating OFF level on Logger[org.springframework.security.core.SpringSecurityCoreVersion] onto the JUL framework
+17:54:49,699 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [data-access-log] to OFF
+17:54:49,699 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@54534abf - Propagating OFF level on Logger[data-access-log] onto the JUL framework
+17:54:49,699 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@4564e94b - Propagating OFF level on Logger[data-access-log] onto the JUL framework
+17:54:49,699 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [esapi_log]
+17:54:49,699 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.rolling.RollingFileAppender]
+17:54:49,700 |-INFO in c.q.l.core.rolling.TimeBasedRollingPolicy@1776486598 - Will use gz compression
+17:54:49,700 |-INFO in c.q.l.core.rolling.TimeBasedRollingPolicy@1776486598 - Will use the pattern logs/takserver-esapi.%d{yyyy-MM-dd}.log for the active file
+17:54:49,700 |-INFO in c.q.l.core.rolling.DefaultTimeBasedFileNamingAndTriggeringPolicy - The date pattern is 'yyyy-MM-dd' from file name pattern 'logs/takserver-esapi.%d{yyyy-MM-dd}.log.gz'.
+17:54:49,700 |-INFO in c.q.l.core.rolling.DefaultTimeBasedFileNamingAndTriggeringPolicy - Roll-over at midnight.
+17:54:49,701 |-INFO in c.q.l.core.rolling.DefaultTimeBasedFileNamingAndTriggeringPolicy - Setting initial period to 2025-04-11T20:57:05.990Z
+17:54:49,701 |-INFO in ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+17:54:49,701 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[esapi_log] - Active log file name: logs/takserver-esapi.log
+17:54:49,701 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[esapi_log] - File property is set to [logs/takserver-esapi.log]
+17:54:49,701 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [esapi_log_async]
+17:54:49,701 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.classic.AsyncAppender]
+17:54:49,701 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [esapi_log] to ch.qos.logback.classic.AsyncAppender[esapi_log_async]
+17:54:49,701 |-INFO in ch.qos.logback.classic.AsyncAppender[esapi_log_async] - Attaching appender named [esapi_log] to AsyncAppender.
+17:54:49,701 |-INFO in ch.qos.logback.classic.AsyncAppender[esapi_log_async] - Setting discardingThreshold to 51
+17:54:49,702 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [IntrusionDetector] to false
+17:54:49,702 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [esapi_log_async] to Logger[IntrusionDetector]
+17:54:49,702 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [http_access_log_async]
+17:54:49,702 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.classic.AsyncAppender]
+17:54:49,702 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [http_access_log] to ch.qos.logback.classic.AsyncAppender[http_access_log_async]
+17:54:49,702 |-INFO in ch.qos.logback.classic.AsyncAppender[http_access_log_async] - Attaching appender named [http_access_log] to AsyncAppender.
+17:54:49,702 |-INFO in ch.qos.logback.classic.AsyncAppender[http_access_log_async] - Setting discardingThreshold to 51
+17:54:49,702 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [http_access_logger] to false
+17:54:49,702 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [http_access_log_async] to Logger[http_access_logger]
+17:54:49,702 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [application_log_async]
+17:54:49,702 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.classic.AsyncAppender]
+17:54:49,702 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [application_log] to ch.qos.logback.classic.AsyncAppender[application_log_async]
+17:54:49,702 |-INFO in ch.qos.logback.classic.AsyncAppender[application_log_async] - Attaching appender named [application_log] to AsyncAppender.
+17:54:49,702 |-INFO in ch.qos.logback.classic.AsyncAppender[application_log_async] - Setting discardingThreshold to 51
+17:54:49,702 |-INFO in ch.qos.logback.classic.model.processor.RootLoggerModelHandler - Setting level of ROOT logger to DEBUG
+17:54:49,702 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [application_log_async] to Logger[ROOT]
+17:54:49,702 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [audit_log_async] to Logger[ROOT]
+17:54:49,703 |-INFO in ch.qos.logback.core.model.processor.DefaultProcessor@1a1ed4e5 - End of configuration.
+17:54:49,703 |-INFO in org.springframework.boot.logging.logback.SpringBootJoranConfigurator@667e34b1 - Registering current configuration as safe fallback point
+
+[2025-04-15 17:55:20] [gov.nasa.worldwind] Path is null 
+[2025-04-15 17:55:20] [com.bbn.marti.AltitudeConverter] Failed to load geoid data: Path is null 
+[2025-04-15 17:55:23] [org.apache.catalina.core.StandardContext] Suspicious URL pattern: [/swagger-resources/**] in context [], see sections 12.1 and 12.2 of the Servlet specification 
+[2025-04-15 17:55:29] [org.apache.coyote.http11.Http11NioProtocol] Starting ProtocolHandler ["https-jsse-nio-8443"] 
+[2025-04-15 17:55:29] [org.apache.tomcat.util.net.NioEndpoint.certificate] Connector [https-jsse-nio-8443], TLS virtual host [_default_], certificate type [UNDEFINED] configured from keystore [/home/radu/.keystore] using alias [tomcat] with trust store [null] 
+[2025-04-15 17:55:29] [org.apache.coyote.http11.Http11NioProtocol] Starting ProtocolHandler ["https-jsse-nio-8444"] 
+[2025-04-15 17:55:29] [org.apache.tomcat.util.net.NioEndpoint.certificate] Connector [https-jsse-nio-8444], TLS virtual host [_default_], certificate type [UNDEFINED] configured from keystore [../scripts/certs/files/takserver.jks] using alias [tomcat] with trust store [../scripts/certs/files/fed-truststore.jks] 
+[2025-04-15 17:55:29] [org.apache.coyote.http11.Http11NioProtocol] Starting ProtocolHandler ["https-jsse-nio-8446"] 
+[2025-04-15 17:55:55] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] Initializing Spring DispatcherServlet 'dispatcherServlet' 
+

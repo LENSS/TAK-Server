@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Configuration xmlns="http://bbn.com/marti/xml/config">
-    <network multicastTTL="5" serverId="b3fe219db25e40ac95364dbc194ea816" version="5.2-RELEASE-16-main">
+    <network multicastTTL="5" serverId="70518d1ac9594e938f206061d7e51ad7" version="5.2-RELEASE-16-main">
         <input _name="stdssl" protocol="tls" port="8089" coreVersion="2"/>
         <connector port="8443" _name="https"/>
         <connector port="8444" useFederationTruststore="true" _name="fed_https"/>
@@ -64,7 +64,6 @@
             <v1Tls tlsVersion="TLSv1.2"/>
             <v1Tls tlsVersion="TLSv1.3"/>
         </federation-server>
-        <federate id="F8:BF:BA:84:C8:CB:18:27:80:87:2D:B7:CE:B4:31:EC:E0:FC:1F:AE:1A:72:9C:21:B8:05:99:40:95:06:7D:F6" name="takserver:TAK-ID-CA-01"/>
         <fileFilter>
             <fileExtension>pref</fileExtension>
         </fileFilter>

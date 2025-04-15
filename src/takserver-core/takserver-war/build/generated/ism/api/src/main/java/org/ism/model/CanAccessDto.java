@@ -33,7 +33,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   CanAccessDto.JSON_PROPERTY_MARKINGS,
   CanAccessDto.JSON_PROPERTY_USER
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-11T16:33:33.291462497-05:00[America/Chicago]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-15T17:25:31.748339390-05:00[America/Chicago]")
 public class CanAccessDto {
   public static final String JSON_PROPERTY_MARKINGS = "markings";
   private List<String> markings = new ArrayList<>();

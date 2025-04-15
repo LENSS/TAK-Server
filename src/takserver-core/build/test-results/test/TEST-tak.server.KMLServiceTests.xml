@@ -1,42 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="tak.server.KMLServiceTests" tests="6" skipped="0" failures="0" errors="0" timestamp="2025-04-11T21:34:04" hostname="lenss-10" time="0.067">
+<testsuite name="tak.server.KMLServiceTests" tests="6" skipped="0" failures="0" errors="0" timestamp="2025-04-15T22:26:06" hostname="lenss-10" time="0.095">
   <properties/>
-  <testcase name="buildRectangle" classname="tak.server.KMLServiceTests" time="0.023"/>
-  <testcase name="buildAll" classname="tak.server.KMLServiceTests" time="0.014"/>
-  <testcase name="buildRangeAndBearing" classname="tak.server.KMLServiceTests" time="0.009"/>
-  <testcase name="parseRouteFromDetail" classname="tak.server.KMLServiceTests" time="0.006"/>
+  <testcase name="buildRectangle" classname="tak.server.KMLServiceTests" time="0.037"/>
+  <testcase name="buildAll" classname="tak.server.KMLServiceTests" time="0.022"/>
+  <testcase name="buildRangeAndBearing" classname="tak.server.KMLServiceTests" time="0.012"/>
+  <testcase name="parseRouteFromDetail" classname="tak.server.KMLServiceTests" time="0.007"/>
   <testcase name="buildPoint" classname="tak.server.KMLServiceTests" time="0.007"/>
-  <testcase name="buildLineString" classname="tak.server.KMLServiceTests" time="0.008"/>
-  <system-out><![CDATA[16:34:04.887 [Test worker] INFO  tak.server.KMLServiceTests - Finished initalizing services in KML Tests
-16:34:04.888 [Test worker] INFO  tak.server.KMLServiceTests - Running buildRectangle
-16:34:04.894 [Test worker] DEBUG c.b.marti.service.kml.KMLServiceImpl - process kml request for cotType: u-d-r secAgo: 0 kml: de.micromata.opengis.kml.v_2_2_0.Kml@1b4d89f
-16:34:04.894 [Test worker] DEBUG c.b.marti.service.kml.KMLServiceImpl - kml cot element count: 1
-16:34:04.895 [Test worker] DEBUG c.b.marti.service.kml.KMLServiceImpl - seenStyleUrls: [magenta, green, darkgreen, yellow, teal, cyan, medevac, orange, red, white, blue, purple, maroon, darkblue]
-16:34:04.904 [Test worker] DEBUG c.b.marti.service.kml.KMLServiceImpl - latest kml db query duration: 0 kml doc create duration: 0 kml processing duration: 7 total: 7
-16:34:04.908 [Test worker] INFO  tak.server.KMLServiceTests - Finished initalizing services in KML Tests
-16:34:04.908 [Test worker] DEBUG c.b.marti.service.kml.KMLServiceImpl - kml cot element count: 4
-16:34:04.909 [Test worker] DEBUG c.b.marti.service.kml.KMLServiceImpl - seenStyleUrls: [magenta, green, darkgreen, yellow, teal, cyan, medevac, orange, red, white, blue, purple, maroon, darkblue]
-16:34:04.918 [Test worker] DEBUG c.b.marti.service.kml.KMLServiceImpl - mission kml total time: 10
-16:34:04.922 [Test worker] INFO  tak.server.KMLServiceTests - Finished initalizing services in KML Tests
-16:34:04.923 [Test worker] INFO  tak.server.KMLServiceTests - Running buildRangeAndBearing
-16:34:04.924 [Test worker] DEBUG c.b.marti.service.kml.KMLServiceImpl - process kml request for cotType: u-rb-a secAgo: 0 kml: de.micromata.opengis.kml.v_2_2_0.Kml@1b4d89f
-16:34:04.924 [Test worker] DEBUG c.b.marti.service.kml.KMLServiceImpl - kml cot element count: 1
-16:34:04.924 [Test worker] DEBUG c.b.marti.service.kml.KMLServiceImpl - seenStyleUrls: [magenta, green, darkgreen, yellow, teal, cyan, medevac, orange, red, white, blue, purple, maroon, darkblue]
-16:34:04.927 [Test worker] DEBUG c.b.marti.service.kml.KMLServiceImpl - latest kml db query duration: 0 kml doc create duration: 0 kml processing duration: 3 total: 3
-16:34:04.931 [Test worker] INFO  tak.server.KMLServiceTests - Finished initalizing services in KML Tests
-16:34:04.931 [Test worker] INFO  tak.server.KMLServiceTests - Running parseRouteFromDetail
-16:34:04.939 [Test worker] INFO  tak.server.KMLServiceTests - Finished initalizing services in KML Tests
-16:34:04.939 [Test worker] INFO  tak.server.KMLServiceTests - Running buildPoint
-16:34:04.939 [Test worker] DEBUG c.b.marti.service.kml.KMLServiceImpl - process kml request for cotType: p-m-r secAgo: 0 kml: de.micromata.opengis.kml.v_2_2_0.Kml@1b4d89f
-16:34:04.939 [Test worker] DEBUG c.b.marti.service.kml.KMLServiceImpl - kml cot element count: 1
-16:34:04.940 [Test worker] DEBUG c.b.marti.service.kml.KMLServiceImpl - seenStyleUrls: [magenta, green, darkgreen, yellow, teal, cyan, medevac, orange, red, white, blue, purple, maroon, darkblue]
-16:34:04.940 [Test worker] DEBUG c.b.marti.service.kml.KMLServiceImpl - latest kml db query duration: 0 kml doc create duration: 0 kml processing duration: 1 total: 1
-16:34:04.944 [Test worker] INFO  tak.server.KMLServiceTests - Finished initalizing services in KML Tests
-16:34:04.945 [Test worker] INFO  tak.server.KMLServiceTests - Running buildLineString
-16:34:04.945 [Test worker] DEBUG c.b.marti.service.kml.KMLServiceImpl - process kml request for cotType: b-m-r secAgo: 0 kml: de.micromata.opengis.kml.v_2_2_0.Kml@1b4d89f
-16:34:04.945 [Test worker] DEBUG c.b.marti.service.kml.KMLServiceImpl - kml cot element count: 1
-16:34:04.946 [Test worker] DEBUG c.b.marti.service.kml.KMLServiceImpl - seenStyleUrls: [magenta, green, darkgreen, yellow, teal, cyan, medevac, orange, red, white, blue, purple, maroon, darkblue]
-16:34:04.948 [Test worker] DEBUG c.b.marti.service.kml.KMLServiceImpl - latest kml db query duration: 0 kml doc create duration: 0 kml processing duration: 3 total: 3
+  <testcase name="buildLineString" classname="tak.server.KMLServiceTests" time="0.009"/>
+  <system-out><![CDATA[17:26:06.344 [Test worker] INFO  tak.server.KMLServiceTests - Finished initalizing services in KML Tests
+17:26:06.344 [Test worker] INFO  tak.server.KMLServiceTests - Running buildRectangle
+17:26:06.353 [Test worker] DEBUG c.b.marti.service.kml.KMLServiceImpl - process kml request for cotType: u-d-r secAgo: 0 kml: de.micromata.opengis.kml.v_2_2_0.Kml@1b4d89f
+17:26:06.354 [Test worker] DEBUG c.b.marti.service.kml.KMLServiceImpl - kml cot element count: 1
+17:26:06.355 [Test worker] DEBUG c.b.marti.service.kml.KMLServiceImpl - seenStyleUrls: [magenta, green, darkgreen, yellow, teal, cyan, medevac, orange, red, white, blue, purple, maroon, darkblue]
+17:26:06.370 [Test worker] DEBUG c.b.marti.service.kml.KMLServiceImpl - latest kml db query duration: 0 kml doc create duration: 0 kml processing duration: 9 total: 9
+17:26:06.377 [Test worker] INFO  tak.server.KMLServiceTests - Finished initalizing services in KML Tests
+17:26:06.379 [Test worker] DEBUG c.b.marti.service.kml.KMLServiceImpl - kml cot element count: 4
+17:26:06.380 [Test worker] DEBUG c.b.marti.service.kml.KMLServiceImpl - seenStyleUrls: [magenta, green, darkgreen, yellow, teal, cyan, medevac, orange, red, white, blue, purple, maroon, darkblue]
+17:26:06.392 [Test worker] DEBUG c.b.marti.service.kml.KMLServiceImpl - mission kml total time: 14
+17:26:06.399 [Test worker] INFO  tak.server.KMLServiceTests - Finished initalizing services in KML Tests
+17:26:06.399 [Test worker] INFO  tak.server.KMLServiceTests - Running buildRangeAndBearing
+17:26:06.400 [Test worker] DEBUG c.b.marti.service.kml.KMLServiceImpl - process kml request for cotType: u-rb-a secAgo: 0 kml: de.micromata.opengis.kml.v_2_2_0.Kml@1b4d89f
+17:26:06.401 [Test worker] DEBUG c.b.marti.service.kml.KMLServiceImpl - kml cot element count: 1
+17:26:06.401 [Test worker] DEBUG c.b.marti.service.kml.KMLServiceImpl - seenStyleUrls: [magenta, green, darkgreen, yellow, teal, cyan, medevac, orange, red, white, blue, purple, maroon, darkblue]
+17:26:06.404 [Test worker] DEBUG c.b.marti.service.kml.KMLServiceImpl - latest kml db query duration: 0 kml doc create duration: 0 kml processing duration: 3 total: 3
+17:26:06.409 [Test worker] INFO  tak.server.KMLServiceTests - Finished initalizing services in KML Tests
+17:26:06.409 [Test worker] INFO  tak.server.KMLServiceTests - Running parseRouteFromDetail
+17:26:06.416 [Test worker] INFO  tak.server.KMLServiceTests - Finished initalizing services in KML Tests
+17:26:06.417 [Test worker] INFO  tak.server.KMLServiceTests - Running buildPoint
+17:26:06.418 [Test worker] DEBUG c.b.marti.service.kml.KMLServiceImpl - process kml request for cotType: p-m-r secAgo: 0 kml: de.micromata.opengis.kml.v_2_2_0.Kml@1b4d89f
+17:26:06.418 [Test worker] DEBUG c.b.marti.service.kml.KMLServiceImpl - kml cot element count: 1
+17:26:06.418 [Test worker] DEBUG c.b.marti.service.kml.KMLServiceImpl - seenStyleUrls: [magenta, green, darkgreen, yellow, teal, cyan, medevac, orange, red, white, blue, purple, maroon, darkblue]
+17:26:06.418 [Test worker] DEBUG c.b.marti.service.kml.KMLServiceImpl - latest kml db query duration: 0 kml doc create duration: 0 kml processing duration: 0 total: 0
+17:26:06.424 [Test worker] INFO  tak.server.KMLServiceTests - Finished initalizing services in KML Tests
+17:26:06.424 [Test worker] INFO  tak.server.KMLServiceTests - Running buildLineString
+17:26:06.424 [Test worker] DEBUG c.b.marti.service.kml.KMLServiceImpl - process kml request for cotType: b-m-r secAgo: 0 kml: de.micromata.opengis.kml.v_2_2_0.Kml@1b4d89f
+17:26:06.424 [Test worker] DEBUG c.b.marti.service.kml.KMLServiceImpl - kml cot element count: 1
+17:26:06.425 [Test worker] DEBUG c.b.marti.service.kml.KMLServiceImpl - seenStyleUrls: [magenta, green, darkgreen, yellow, teal, cyan, medevac, orange, red, white, blue, purple, maroon, darkblue]
+17:26:06.427 [Test worker] DEBUG c.b.marti.service.kml.KMLServiceImpl - latest kml db query duration: 0 kml doc create duration: 0 kml processing duration: 3 total: 3
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -40,7 +40,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   MarkingResponseData.JSON_PROPERTY_OWNERPRODUCER
 })
 @JsonTypeName("MarkingResponse_data")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-11T16:33:33.291462497-05:00[America/Chicago]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-15T17:25:31.748339390-05:00[America/Chicago]")
 public class MarkingResponseData {
   public static final String JSON_PROPERTY_CLASSIFICATION = "classification";
   private List<String> classification = new ArrayList<>();

@@ -277,9 +277,12 @@ public class TakFigClient implements Serializable {
 
 	private ClientCall<ROL, Subscription> rolCall;
 
-	private String relayName = "ROK-LIAISON";
+	private String relayName = "rok_liaison";
 	private String relayHost = "35.209.20.19";
 	private int relayPort = 9001;
+	private final AtomicBoolean attemptedCertFetch = new AtomicBoolean(false);
+	private Tls figTls;
+
 
 	public GuardedStreamHolder<ROL> getRolCall() {
 		return rolHolder;
@@ -295,7 +298,7 @@ public class TakFigClient implements Serializable {
 
 		fedManager.getInstance().registerClient(outgoing.getDisplayName(), this);
 
-		Tls figTls = CoreConfigFacade.getInstance().getRemoteConfiguration().getFederation().getFederationServer().getTls();
+		figTls = CoreConfigFacade.getInstance().getRemoteConfiguration().getFederation().getFederationServer().getTls();
 
 		// use the client name from the outgoing configuration
 		fedName = outgoing.getDisplayName();
@@ -345,31 +348,10 @@ public class TakFigClient implements Serializable {
 			// Password of the keystore file
 			keyMgrFactory.init(self, figTls.getKeystorePass().toCharArray());
 
-			try {
-				// Trust Manager Factory type (e.g., ??)
-				trustMgrFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+			// Trust Manager Factory type (e.g., ??)
+			trustMgrFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
 
-				SSLConfig.initTrust(figTls, trustMgrFactory);
-
-			} catch (Exception e) {
-
-				logger.warn("Truststore load failed, possibly missing cert for {}: {}", relayName, e.getMessage());
-
-				TakFigClient relayClient = fedManager.getClient(relayName);
-				FederatedChannelBlockingStub relayStub = relayClient.getFederatedChannelStub();
-
-				boolean fetched = attemptDynamicCertFetch(relayName, relayStub, figTls);
-				if (fetched) {
-					logger.info("Successfully fetched certs from relay. Retrying connection...");
-
-					// Retry: re-initialize trust manager
-					trustMgrFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
-					SSLConfig.initTrust(figTls, trustMgrFactory);
-				} else {
-					throw new TakException("Could not fetch missing cert for " + relayName, e);
-				}
-			}
-
+			SSLConfig.initTrust(figTls, trustMgrFactory);
 			try {
 
 				if (logger.isDebugEnabled()) {
@@ -765,6 +747,7 @@ public class TakFigClient implements Serializable {
 				}
 			}
 
+			/**
 			@Override
 			public void onError(Throwable t) {
 				String rootCauseMsg = FederationUtils.getHumanReadableErrorMsg(t);
@@ -783,6 +766,46 @@ public class TakFigClient implements Serializable {
 				SubscriptionStore.getInstanceFederatedSubscriptionManager().updateFederateOutgoingStatusCache(outgoing.getDisplayName(), status);
 				processDisconnect(t);
 			}
+			 **/
+
+			@Override
+			public void onError(Throwable t) {
+				String rootCauseMsg = FederationUtils.getHumanReadableErrorMsg(t);
+				if (logger.isDebugEnabled()) {
+					logger.debug("received error notification from server" + " cause " + rootCauseMsg, t);
+
+					if (t instanceof io.grpc.StatusRuntimeException) {
+						io.grpc.StatusRuntimeException tg = (io.grpc.StatusRuntimeException) t;
+						Status s = tg.getStatus();
+						logger.debug("status: " + s + " " + s.getDescription());
+					}
+				}
+
+				// Dynamic cert fetch logic
+				if (!attemptedCertFetch.getAndSet(true) && isCertValidationFailure(t)) {
+					logger.info("Detected certificate path validation error. Attempting dynamic cert fetch from relay...");
+
+					TakFigClient relayClient = fedManager.getClient(relayName);
+					if (relayClient != null) {
+						boolean fetched = attemptDynamicCertFetch(relayName, relayClient.getFederatedChannelStub(), figTls);
+
+						if (fetched) {
+							logger.info("Successfully fetched certs from relay. Retrying connection...");
+							FederationOutgoing outgoing = fedManager().getOutgoingConnection(outgoingName);
+							start(outgoing, status);
+							return;
+						} else {
+							logger.error("Cert fetch failed. Federation connection aborted.");
+						}
+					} else {
+						logger.error("Could not locate relay client.");
+					}
+				}
+
+				status.setLastError(rootCauseMsg);
+				SubscriptionStore.getInstanceFederatedSubscriptionManager().updateFederateOutgoingStatusCache(outgoing.getDisplayName(), status);
+				processDisconnect(t);
+			}
 
 			@Override
 			public void onCompleted() {
@@ -796,6 +819,14 @@ public class TakFigClient implements Serializable {
 				logger.info("received server onCompleted. Message count from server: " + serverMessageCounter.get() + " messages received in " + exectime + " seconds " + " - " + mps + " messages per second");
 			}
 
+			private boolean isCertValidationFailure(Throwable t) {
+				String msg = t.getMessage();
+				return msg != null && (
+					msg.contains("CERTIFICATE_UNKNOWN") ||
+					msg.contains("unable to find valid certification path") ||
+					msg.contains("PKIX path building failed")
+				);
+			}
 
 		});
 
