@@ -149,6 +149,19 @@ import tak.server.federation.message.Message;
 import tak.server.federation.rol.MissionRolVisitor;
 import tak.server.messaging.Messenger;
 
+import com.atakmap.Tak.CertificateRequest;
+import com.atakmap.Tak.CertificateResponse;
+
+import java.security.cert.X509Certificate;
+import java.security.cert.Certificate;
+import java.security.cert.CertificateFactory;
+import java.security.cert.CertificateEncodingException;
+import java.io.ByteArrayInputStream;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.util.Base64;
+import com.bbn.roger.fig.model.FigServerConfig;
+
 
 public class FederationServer {
 	private static final Logger logger = LoggerFactory.getLogger(FederationServer.class);
@@ -1536,6 +1549,40 @@ public class FederationServer {
 				responseObserver.onCompleted();
 			}
 
+		}
+
+		@Override
+		public void getCertificateForFederate(CertificateRequest request, StreamObserver<CertificateResponse> responseObserver) {
+			String federate = request.getFederateName();
+			FigFederateSubscription subscription = DistributedFederationManager.getInstance().getSubscription(federate);
+
+			if (subscription == null || subscription.getClientCert() == null) {
+				responseObserver.onError(Status.NOT_FOUND
+						.withDescription("Unknown or disconnected federate: " + federate)
+						.asRuntimeException());
+				return;
+			}
+
+			try {
+				X509Certificate clientCert = subscription.getClientCert();
+				X509Certificate caCert = subscription.getCaCert();
+
+				CertificateResponse response = CertificateResponse.newBuilder()
+						.setClientCertPem(pemEncode(clientCert))
+						.setCaCertPem(pemEncode(caCert))
+						.build();
+
+				responseObserver.onNext(response);
+				responseObserver.onCompleted();
+			} catch (Exception e) {
+				responseObserver.onError(Status.INTERNAL.withCause(e).asRuntimeException());
+			}
+		}
+
+		private String pemEncode(X509Certificate cert) throws CertificateEncodingException {
+			return "-----BEGIN CERTIFICATE-----\n"
+					+ Base64.getMimeEncoder(64, "\n".getBytes()).encodeToString(cert.getEncoded())
+					+ "\n-----END CERTIFICATE-----\n";
 		}
 
 		private class FederationMissionPackageProcessor implements FederationProcessor<ROL> {

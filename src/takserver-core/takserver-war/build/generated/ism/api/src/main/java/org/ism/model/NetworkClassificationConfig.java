@@ -38,7 +38,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   NetworkClassificationConfig.JSON_PROPERTY_S,
   NetworkClassificationConfig.JSON_PROPERTY_T_S
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-15T17:25:31.748339390-05:00[America/Chicago]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-15T20:40:59.900825030-05:00[America/Chicago]")
 public class NetworkClassificationConfig {
   public static final String JSON_PROPERTY_U = "U";
   private UClassificationConfig U;

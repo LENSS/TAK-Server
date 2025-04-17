@@ -820,12 +820,19 @@ public class TakFigClient implements Serializable {
 			}
 
 			private boolean isCertValidationFailure(Throwable t) {
-				String msg = t.getMessage();
-				return msg != null && (
-					msg.contains("CERTIFICATE_UNKNOWN") ||
-					msg.contains("unable to find valid certification path") ||
-					msg.contains("PKIX path building failed")
-				);
+				Throwable cause = t;
+				while (cause != null) {
+					String msg = cause.getMessage();
+					if (msg != null && (
+						msg.contains("unable to find valid certification path") ||
+						msg.contains("PKIX path building failed") ||
+						msg.contains("General OpenSslEngine problem")
+					)) {
+						return true;
+					}
+					cause = cause.getCause();
+				}
+				return false;
 			}
 
 		});
@@ -1696,6 +1703,7 @@ public class TakFigClient implements Serializable {
 		return federateMaxHops;
 	}
 
+	/**
 	public class FederatedChannelImpl extends FederatedChannelGrpc.FederatedChannelImplBase {
 
 		@Override
@@ -1735,6 +1743,7 @@ public class TakFigClient implements Serializable {
 					+ "\n-----END CERTIFICATE-----\n";
 		}
 	}
+	**/
 
 	private boolean attemptDynamicCertFetch(String missingFederate, FederatedChannelBlockingStub relayStub, Tls figTls) {
 		try {
