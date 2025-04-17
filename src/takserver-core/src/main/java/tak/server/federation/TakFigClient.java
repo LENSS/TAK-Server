@@ -277,8 +277,8 @@ public class TakFigClient implements Serializable {
 
 	private ClientCall<ROL, Subscription> rolCall;
 
-	private String relayName = "rok_liaison";
-	private String relayHost = "35.209.20.19";
+	private String relayName = "rucd_rok";
+	private String relayHost = "35.209.193.175";
 	private int relayPort = 9001;
 	private final AtomicBoolean attemptedCertFetch = new AtomicBoolean(false);
 	private Tls figTls;
