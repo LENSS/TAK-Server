@@ -1,165 +1,501 @@
-2025-04-15-10:44:39.720 [main] INFO tak.server.ServerConfiguration - Starting ServerConfiguration v5.2-RELEASE-16 using Java 17.0.14 with PID 17877 (/home/radu/TAK-Server/src/takserver-core/build/libs/takserver-core-5.2-RELEASE-16.war started by radu in /home/radu/TAK-Server/src/takserver-core/example)
-2025-04-15-10:44:39.720 [main] DEBUG tak.server.ServerConfiguration - Running with Spring Boot v3.1.12, Spring v6.0.22
-2025-04-15-10:44:39.721 [main] INFO tak.server.ServerConfiguration - The following 3 profiles are active: "plugins", "messaging", "duplicatelogs"
-2025-04-15-10:44:48.958 [main] INFO tak.server.util.DataSourceUtils - 4 CPU cores detected. Postgres server maximum allowed connections value is 410. The computed connection pool size is: 200
-2025-04-15-10:44:50.484 [main] WARN org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-04-15-10:44:58.849 [main] DEBUG t.s.f.DistributedFederationManager - DistributedFederationManager constructor.
-2025-04-15-10:44:58.864 [services-deployment-worker-#59] DEBUG t.s.f.DistributedFederationManager - init method DistributedFederationManager
-2025-04-15-10:44:59.059 [services-deployment-worker-#59] WARN com.bbn.marti.service.SSLConfig - TLS enabled, but no certificate revocation lists, and OSCP is not enabled in Core Config!
-2025-04-15-10:44:59.070 [service-#74] DEBUG t.s.f.DistributedFederationManager - execute method DistributedFederationManager
-2025-04-15-10:45:09.086 [main] INFO c.b.m.sync.JDBCEnterpriseSyncService - file cache explicity disabled.
-2025-04-15-10:45:09.095 [main] INFO c.b.marti.service.SubmissionService - input class type: Input
-2025-04-15-10:45:09.098 [main] INFO c.b.marti.service.SubmissionService - Configuring network input com.bbn.marti.config.Input stdssl: 
-2025-04-15-10:45:09.349 [main] WARN com.bbn.marti.service.SSLConfig - TLS enabled, but no certificate revocation lists, and OSCP is not enabled in Core Config!
-2025-04-15-10:45:09.906 [Thread-5] INFO c.b.marti.nio.netty.NioNettyBuilder - Successfully Started Netty Server for TlsServerInitializer on Port 8089 with watermark WriteBufferWaterMark(low: 8192, high: 16384)
-2025-04-15-10:45:10.489 [main] DEBUG t.s.f.DistributedFederationManager - federation enabled in config.
-2025-04-15-10:45:10.489 [main] INFO t.s.f.DistributedFederationManager - not starting disabled v1 federation server.
-2025-04-15-10:45:11.121 [main] DEBUG t.server.federation.FederationServer - v2 federation config
-2025-04-15-10:45:11.121 [main] DEBUG t.server.federation.FederationServer - scheduling v2 federation server start in 30 seconds
-2025-04-15-10:45:11.720 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - in v2 fed start executor
-2025-04-15-10:45:11.736 [main] INFO com.bbn.marti.nio.server.NioServer - max memory (bytes): 2147483648
-2025-04-15-10:45:11.736 [main] INFO com.bbn.marti.nio.server.NioServer - Server started
-2025-04-15-10:45:11.743 [pool-16-thread-1] INFO t.server.federation.FederationServer - Federation server (v2) started, listening on port 9001
-2025-04-15-10:45:11.812 [main] INFO t.server.cache.DatafeedCacheHelper - Done initializing PluginDatafeedCacheHelper with buffer cache value: 300 seconds
-2025-04-15-10:45:11.837 [main] INFO com.bbn.marti.util.VersionBean - TAK Server version 5.2-RELEASE-16-main
-2025-04-15-10:45:11.837 [main] INFO c.b.m.sync.EnterpriseSyncCacheHelper - file cache explicity disabled.
-2025-04-15-10:45:11.837 [main] INFO c.b.m.sync.EnterpriseSyncCacheHelper - Initialzed EnterpriseSyncCacheHelper with file cache TTL 120 seconds. Implementation: caffeine
-2025-04-15-10:45:11.838 [main] INFO tak.server.ServerConfiguration - Started ServerConfiguration in 34.81 seconds (process running for 49.484)
-2025-04-15-10:45:11.866 [main] INFO tak.server.ServerConfiguration - Started TAK Server messaging Microservice.
-2025-04-15-10:45:16.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:45:21.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:45:26.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:45:31.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:45:36.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:45:41.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:45:46.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:45:51.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:45:56.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:46:01.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:46:06.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:46:11.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:46:16.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:46:21.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:46:26.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:46:31.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:46:36.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:46:41.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:46:46.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:46:51.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:46:56.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:47:01.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:47:06.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:47:11.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:47:16.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:47:21.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:47:26.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:47:31.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:47:36.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:47:41.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:47:46.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:47:51.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:47:56.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:48:01.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:48:06.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:48:11.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:48:16.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:48:21.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:48:26.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:48:31.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:48:36.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:48:41.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:48:46.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:48:51.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:48:56.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:49:01.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:49:06.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:49:11.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:49:16.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:49:21.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:49:26.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:49:31.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:49:36.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:49:41.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:49:46.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:49:51.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:49:56.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:50:01.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:50:06.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:50:11.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:50:16.125 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:50:18.069 [shutdown-hook] DEBUG t.s.f.DistributedFederationManager - DistributedFederationManager service cancelled
-2025-04-15-10:52:35.750 [main] INFO tak.server.ServerConfiguration - Starting ServerConfiguration v5.2-RELEASE-16 using Java 17.0.14 with PID 19174 (/home/radu/TAK-Server/src/takserver-core/build/libs/takserver-core-5.2-RELEASE-16.war started by radu in /home/radu/TAK-Server/src/takserver-core/example)
-2025-04-15-10:52:35.751 [main] DEBUG tak.server.ServerConfiguration - Running with Spring Boot v3.1.12, Spring v6.0.22
-2025-04-15-10:52:35.752 [main] INFO tak.server.ServerConfiguration - The following 3 profiles are active: "plugins", "messaging", "duplicatelogs"
-2025-04-15-10:52:44.749 [main] INFO tak.server.util.DataSourceUtils - 4 CPU cores detected. Postgres server maximum allowed connections value is 410. The computed connection pool size is: 200
-2025-04-15-10:52:46.057 [main] WARN org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-04-15-10:52:54.299 [main] DEBUG t.s.f.DistributedFederationManager - DistributedFederationManager constructor.
-2025-04-15-10:52:54.330 [services-deployment-worker-#58] DEBUG t.s.f.DistributedFederationManager - init method DistributedFederationManager
-2025-04-15-10:52:54.516 [services-deployment-worker-#58] WARN com.bbn.marti.service.SSLConfig - TLS enabled, but no certificate revocation lists, and OSCP is not enabled in Core Config!
-2025-04-15-10:52:54.522 [service-#75] DEBUG t.s.f.DistributedFederationManager - execute method DistributedFederationManager
-2025-04-15-10:53:04.756 [main] INFO c.b.m.sync.JDBCEnterpriseSyncService - file cache explicity disabled.
-2025-04-15-10:53:04.763 [main] INFO c.b.marti.service.SubmissionService - input class type: Input
-2025-04-15-10:53:04.768 [main] INFO c.b.marti.service.SubmissionService - Configuring network input com.bbn.marti.config.Input stdssl: 
-2025-04-15-10:53:04.944 [main] WARN com.bbn.marti.service.SSLConfig - TLS enabled, but no certificate revocation lists, and OSCP is not enabled in Core Config!
-2025-04-15-10:53:05.372 [Thread-5] INFO c.b.marti.nio.netty.NioNettyBuilder - Successfully Started Netty Server for TlsServerInitializer on Port 8089 with watermark WriteBufferWaterMark(low: 8192, high: 16384)
-2025-04-15-10:53:05.747 [main] DEBUG t.s.f.DistributedFederationManager - federation enabled in config.
-2025-04-15-10:53:05.747 [main] INFO t.s.f.DistributedFederationManager - not starting disabled v1 federation server.
-2025-04-15-10:53:06.361 [main] DEBUG t.server.federation.FederationServer - v2 federation config
-2025-04-15-10:53:06.361 [main] DEBUG t.server.federation.FederationServer - scheduling v2 federation server start in 30 seconds
-2025-04-15-10:53:06.914 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - in v2 fed start executor
-2025-04-15-10:53:06.937 [main] INFO com.bbn.marti.nio.server.NioServer - max memory (bytes): 2147483648
-2025-04-15-10:53:06.937 [main] INFO com.bbn.marti.nio.server.NioServer - Server started
-2025-04-15-10:53:06.948 [pool-16-thread-1] INFO t.server.federation.FederationServer - Federation server (v2) started, listening on port 9001
-2025-04-15-10:53:07.015 [main] INFO t.server.cache.DatafeedCacheHelper - Done initializing PluginDatafeedCacheHelper with buffer cache value: 300 seconds
-2025-04-15-10:53:07.033 [main] INFO com.bbn.marti.util.VersionBean - TAK Server version 5.2-RELEASE-16-main
-2025-04-15-10:53:07.034 [main] INFO c.b.m.sync.EnterpriseSyncCacheHelper - file cache explicity disabled.
-2025-04-15-10:53:07.034 [main] INFO c.b.m.sync.EnterpriseSyncCacheHelper - Initialzed EnterpriseSyncCacheHelper with file cache TTL 120 seconds. Implementation: caffeine
-2025-04-15-10:53:07.036 [main] INFO tak.server.ServerConfiguration - Started ServerConfiguration in 33.925 seconds (process running for 49.024)
-2025-04-15-10:53:07.050 [main] INFO tak.server.ServerConfiguration - Started TAK Server messaging Microservice.
-2025-04-15-10:53:11.363 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:53:16.363 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:53:21.363 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:53:26.363 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:53:31.363 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:53:36.363 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:53:41.363 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-10:53:45.211 [shutdown-hook] DEBUG t.s.f.DistributedFederationManager - DistributedFederationManager service cancelled
-2025-04-15-17:54:49.881 [main] INFO tak.server.ServerConfiguration - Starting ServerConfiguration v5.2-RELEASE-16 using Java 17.0.14 with PID 37894 (/home/radu/TAK-Server/src/takserver-core/build/libs/takserver-core-5.2-RELEASE-16.war started by radu in /home/radu/TAK-Server/src/takserver-core/example)
-2025-04-15-17:54:49.881 [main] DEBUG tak.server.ServerConfiguration - Running with Spring Boot v3.1.12, Spring v6.0.22
-2025-04-15-17:54:49.883 [main] INFO tak.server.ServerConfiguration - The following 3 profiles are active: "plugins", "messaging", "duplicatelogs"
-2025-04-15-17:55:00.369 [main] INFO tak.server.util.DataSourceUtils - 4 CPU cores detected. Postgres server maximum allowed connections value is 410. The computed connection pool size is: 200
-2025-04-15-17:55:01.763 [main] WARN org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-04-15-17:55:10.553 [main] DEBUG t.s.f.DistributedFederationManager - DistributedFederationManager constructor.
-2025-04-15-17:55:10.577 [services-deployment-worker-#60] DEBUG t.s.f.DistributedFederationManager - init method DistributedFederationManager
-2025-04-15-17:55:10.721 [services-deployment-worker-#60] WARN com.bbn.marti.service.SSLConfig - TLS enabled, but no certificate revocation lists, and OSCP is not enabled in Core Config!
-2025-04-15-17:55:10.730 [service-#74] DEBUG t.s.f.DistributedFederationManager - execute method DistributedFederationManager
-2025-04-15-17:55:20.027 [main] INFO c.b.m.sync.JDBCEnterpriseSyncService - file cache explicity disabled.
-2025-04-15-17:55:20.032 [main] INFO c.b.marti.service.SubmissionService - input class type: Input
-2025-04-15-17:55:20.032 [main] INFO c.b.marti.service.SubmissionService - Configuring network input com.bbn.marti.config.Input stdssl: 
-2025-04-15-17:55:20.326 [main] WARN com.bbn.marti.service.SSLConfig - TLS enabled, but no certificate revocation lists, and OSCP is not enabled in Core Config!
-2025-04-15-17:55:20.756 [Thread-5] INFO c.b.marti.nio.netty.NioNettyBuilder - Successfully Started Netty Server for TlsServerInitializer on Port 8089 with watermark WriteBufferWaterMark(low: 8192, high: 16384)
-2025-04-15-17:55:21.166 [main] DEBUG t.s.f.DistributedFederationManager - federation enabled in config.
-2025-04-15-17:55:21.166 [main] INFO t.s.f.DistributedFederationManager - not starting disabled v1 federation server.
-2025-04-15-17:55:21.606 [main] DEBUG t.server.federation.FederationServer - v2 federation config
-2025-04-15-17:55:21.610 [main] DEBUG t.server.federation.FederationServer - scheduling v2 federation server start in 30 seconds
-2025-04-15-17:55:22.002 [pool-16-thread-1] DEBUG t.server.federation.FederationServer - in v2 fed start executor
-2025-04-15-17:55:22.013 [main] INFO com.bbn.marti.nio.server.NioServer - max memory (bytes): 2147483648
-2025-04-15-17:55:22.013 [main] INFO com.bbn.marti.nio.server.NioServer - Server started
-2025-04-15-17:55:22.025 [pool-16-thread-1] INFO t.server.federation.FederationServer - Federation server (v2) started, listening on port 9001
-2025-04-15-17:55:22.095 [main] INFO t.server.cache.DatafeedCacheHelper - Done initializing PluginDatafeedCacheHelper with buffer cache value: 300 seconds
-2025-04-15-17:55:22.128 [main] INFO com.bbn.marti.util.VersionBean - TAK Server version 5.2-RELEASE-16-main
-2025-04-15-17:55:22.128 [main] INFO c.b.m.sync.EnterpriseSyncCacheHelper - file cache explicity disabled.
-2025-04-15-17:55:22.128 [main] INFO c.b.m.sync.EnterpriseSyncCacheHelper - Initialzed EnterpriseSyncCacheHelper with file cache TTL 120 seconds. Implementation: caffeine
-2025-04-15-17:55:22.130 [main] INFO tak.server.ServerConfiguration - Started ServerConfiguration in 34.469 seconds (process running for 49.106)
-2025-04-15-17:55:22.183 [main] INFO tak.server.ServerConfiguration - Started TAK Server messaging Microservice.
-2025-04-15-17:55:26.615 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-17:55:31.615 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-17:55:36.615 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-17:55:41.615 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-17:55:46.615 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-17:55:51.615 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-17:55:56.615 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-17:56:01.615 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-17:56:06.615 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-17:56:11.615 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
-2025-04-15-17:56:15.100 [shutdown-hook] DEBUG t.s.f.DistributedFederationManager - DistributedFederationManager service cancelled
+2025-04-17-00:00:03.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:00:08.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:00:13.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:00:18.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:00:23.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:00:28.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:00:33.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:00:38.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:00:43.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:00:48.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:00:53.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:00:58.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:01:03.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:01:08.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:01:13.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:01:18.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:01:23.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:01:28.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:01:33.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:01:38.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:01:43.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:01:48.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:01:53.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:01:58.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:02:03.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:02:08.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:02:13.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:02:18.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:02:23.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:02:28.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:02:33.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:02:38.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:02:43.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:02:48.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:02:53.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:02:58.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:03:03.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:03:08.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:03:13.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:03:18.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:03:23.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:03:28.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:03:33.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:03:38.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:03:43.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:03:48.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:03:53.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:03:58.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:04:03.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:04:08.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:04:13.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:04:18.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:04:23.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:04:28.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:04:33.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:04:38.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:04:43.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:04:48.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:04:53.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:04:58.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:05:03.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:05:08.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:05:13.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:05:18.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:05:23.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:05:28.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:05:33.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:05:38.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:05:43.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:05:48.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:05:53.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:05:58.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:06:03.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:06:08.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:06:13.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:06:18.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:06:23.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:06:28.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:06:33.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:06:38.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:06:43.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:06:48.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:06:53.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:06:58.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:07:03.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:07:08.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:07:13.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:07:18.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:07:23.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:07:28.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:07:33.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:07:38.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:07:43.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:07:48.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:07:53.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:07:58.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:08:03.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:08:08.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:08:13.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:08:18.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:08:23.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:08:28.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:08:33.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:08:38.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:08:43.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:08:48.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:08:53.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:08:58.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:09:03.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:09:08.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:09:13.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:09:18.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:09:23.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:09:28.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:09:33.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:09:38.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:09:43.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:09:48.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:09:53.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:09:58.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:10:03.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:10:08.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:10:13.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:10:18.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:10:23.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:10:28.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:10:33.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:10:38.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:10:43.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:10:48.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:10:53.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:10:58.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:11:03.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:11:08.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:11:13.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:11:18.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:11:23.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:11:28.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:11:33.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:11:38.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:11:43.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:11:48.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:11:53.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:11:58.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:12:03.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:12:08.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:12:13.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:12:18.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:12:23.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:12:28.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:12:33.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:12:38.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:12:43.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:12:48.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:12:53.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:12:58.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:13:03.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:13:08.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:13:13.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:13:18.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:13:23.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:13:28.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:13:33.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:13:38.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:13:43.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:13:48.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:13:53.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:13:58.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:14:03.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:14:08.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:14:13.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:14:18.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:14:23.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:14:28.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:14:33.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:14:38.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:14:43.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:14:48.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:14:53.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:14:58.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:15:03.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:15:08.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:15:13.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:15:18.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:15:23.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:15:28.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:15:33.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:15:38.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:15:43.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:15:48.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:15:53.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:15:58.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:16:03.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:16:08.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:16:13.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:16:18.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:16:23.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:16:28.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:16:33.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:16:38.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:16:43.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:16:48.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:16:53.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:16:58.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:17:03.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:17:08.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:17:13.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:17:18.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:17:23.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:17:28.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:17:33.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:17:38.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:17:43.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:17:48.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:17:53.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:17:58.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:18:03.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:18:08.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:18:13.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:18:18.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:18:23.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:18:28.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:18:33.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:18:38.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:18:43.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:18:48.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:18:53.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:18:58.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:19:03.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:19:08.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:19:13.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:19:18.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:19:23.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:19:28.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:19:33.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:19:38.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:19:43.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:19:48.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:19:53.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:19:58.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:20:03.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:20:08.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:20:13.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:20:18.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:20:23.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:20:28.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:20:33.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:20:38.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:20:43.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:20:48.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:20:53.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:20:58.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:21:03.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:21:08.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:21:13.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:21:18.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:21:23.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:21:28.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:21:33.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:21:38.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:21:43.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:21:48.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:21:53.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:21:58.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:22:03.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:22:08.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:22:13.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:22:18.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:22:23.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:22:28.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:22:33.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:22:38.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:22:43.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:22:48.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:22:53.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:22:58.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:23:03.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:23:08.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:23:13.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:23:18.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:23:23.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:23:28.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:23:33.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:23:38.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:23:43.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:23:48.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:23:53.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:23:58.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:24:03.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:24:08.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:24:13.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:24:18.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:24:23.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:24:28.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:24:33.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:24:38.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:24:43.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:24:48.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:24:53.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:24:58.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:25:03.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:25:08.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:25:13.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:25:18.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:25:23.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:25:28.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:25:33.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:25:38.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:25:43.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:25:48.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:25:53.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:25:58.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:26:03.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:26:08.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:26:13.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:26:18.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:26:23.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:26:28.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:26:33.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:26:38.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:26:43.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:26:48.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:26:53.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:26:58.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:27:03.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:27:08.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:27:13.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:27:18.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:27:23.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:27:28.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:27:33.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:27:38.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:27:43.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:27:48.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:27:53.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:27:58.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:28:03.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:28:08.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:28:13.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:28:18.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:28:23.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:28:28.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:28:33.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:28:38.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:28:43.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:28:48.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:28:53.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:28:58.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:29:03.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:29:08.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:29:13.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:29:18.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:29:23.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:29:28.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:29:33.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:29:38.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:29:43.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:29:48.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:29:53.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:29:58.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:30:03.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:30:08.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:30:13.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:30:18.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:30:23.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:30:28.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:30:33.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:30:38.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:30:43.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:30:48.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:30:53.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:30:58.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:31:03.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:31:08.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:31:13.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:31:18.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:31:23.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:31:28.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:31:33.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:31:38.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:31:43.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:31:48.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:31:53.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:31:58.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:32:03.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:32:08.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:32:13.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:32:18.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:32:23.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:32:28.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:32:33.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:32:38.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:32:43.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:32:48.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:32:53.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:32:58.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:33:03.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:33:08.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:33:13.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:33:18.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:33:23.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:33:28.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:33:33.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:33:38.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:33:43.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:33:48.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:33:53.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:33:58.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:34:03.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:34:08.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:34:13.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:34:18.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:34:23.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:34:28.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:34:33.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:34:38.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:34:43.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:34:48.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:34:53.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:34:58.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:35:03.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:35:08.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:35:13.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:35:18.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:35:23.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:35:28.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:35:33.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:35:38.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:35:43.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:35:48.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:35:53.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:35:58.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:36:03.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:36:08.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:36:13.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:36:18.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:36:23.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:36:28.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:36:33.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:36:38.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:36:43.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:36:48.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:36:53.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:36:58.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:37:03.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:37:08.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:37:13.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:37:18.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:37:23.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:37:28.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:37:33.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:37:38.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:37:43.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:37:48.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:37:53.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:37:58.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:38:03.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:38:08.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:38:13.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:38:18.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:38:23.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:38:28.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:38:33.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:38:38.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:38:43.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:38:48.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:38:53.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:38:58.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:39:03.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:39:08.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:39:13.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:39:18.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:39:23.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:39:28.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:39:33.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:39:38.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:39:43.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:39:48.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:39:53.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:39:58.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:40:03.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:40:08.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:40:13.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:40:18.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:40:23.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:40:28.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:40:33.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:40:38.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:40:43.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:40:48.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:40:53.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:40:58.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:41:03.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:41:08.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:41:13.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:41:18.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:41:23.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:41:28.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:41:33.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:41:38.297 [pool-15-thread-1] DEBUG t.server.federation.FederationServer - Running inactivity check for 0 client streams
+2025-04-17-00:41:38.363 [shutdown-hook] DEBUG t.s.f.DistributedFederationManager - DistributedFederationManager service cancelled

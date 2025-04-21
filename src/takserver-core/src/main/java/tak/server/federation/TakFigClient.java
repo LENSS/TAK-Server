@@ -277,7 +277,7 @@ public class TakFigClient implements Serializable {
 
 	private ClientCall<ROL, Subscription> rolCall;
 
-	private String relayName = "rucd_rok";
+	private String relayName = "to_rucd_rok";
 	private String relayHost = "35.209.193.175";
 	private int relayPort = 9001;
 	private final AtomicBoolean attemptedCertFetch = new AtomicBoolean(false);
@@ -296,14 +296,14 @@ public class TakFigClient implements Serializable {
 		this.status = status;
 		this.connectionToken = outgoing.getConnectionToken();
 
-		fedManager.getInstance().registerClient(outgoing.getDisplayName(), this);
-
 		figTls = CoreConfigFacade.getInstance().getRemoteConfiguration().getFederation().getFederationServer().getTls();
 
 		// use the client name from the outgoing configuration
 		fedName = outgoing.getDisplayName();
 
 		clientUid = UUID.randomUUID().toString().replace("-", "");
+
+		fedManager.getInstance().registerClient(outgoing.getDisplayName(), this);
 
 		logger.info("client name: " + fedName);
 

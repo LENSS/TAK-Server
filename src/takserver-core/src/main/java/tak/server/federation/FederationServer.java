@@ -160,7 +160,6 @@ import java.io.ByteArrayInputStream;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.Base64;
-import com.bbn.roger.fig.model.FigServerConfig;
 
 
 public class FederationServer {
