@@ -258,6 +258,7 @@ public class FederationServer {
 
 	@EventListener({ContextRefreshedEvent.class})
 	private void init() {
+		logger.info("Federation server init");
 		fedServer = this;
 
 		InternalLoggerFactory.setDefaultFactory(Slf4JLoggerFactory.INSTANCE);
@@ -363,7 +364,9 @@ public class FederationServer {
 	}
 
 	private void start() {
-
+		if (logger.isDebugEnabled()) {
+			logger.debug("run start.");
+		}
 		try {
 			requireNonNull(config, "v2 fed configuration object");
 
@@ -434,6 +437,7 @@ public class FederationServer {
 							logger.debug("in v2 fed start executor");
 						}
 
+						// this server is grpc Server server
 						server.start();
 
 						logger.info("Federation server (v2) started, listening on port " + config.getPort());
@@ -551,6 +555,10 @@ public class FederationServer {
 			requireNonNull(subscription.getIdentity(), "client-specified identity");
 			FigServerFederateSubscription fedSub = null;
 			String fedName = subscription.getIdentity().getName();
+
+			if (logger.isDebugEnabled()) {
+				logger.debug("clientEvnetStream started. subscription: " + subscription);
+			}
 
 			if (Strings.isNullOrEmpty(fedName)) {
 				throw new IllegalArgumentException("invalid clientEventStream request from client - null or empty name was provided");
@@ -1123,6 +1131,10 @@ public class FederationServer {
 						// serialize federate config get/set operations
 						Federate federate = federationManager.getFederate(fingerprint);
 
+						if (logger.isDebugEnabled()) {
+							logger.debug("Outcome of Federate federate = federationManager.getFederate(fingerprint) : "+ federate);
+						}
+
 						if (federate == null) {
 							if (logger.isDebugEnabled()) {
 								logger.debug("CoreConfig federate not found for fingerprint / id: " + fingerprint);
@@ -1147,6 +1159,10 @@ public class FederationServer {
 			                            break;
 			                        }
 			                    }
+							}
+
+							if (logger.isDebugEnabled()) {
+								logger.debug("Outcome of Federate federate = federationManager.getFederate(fingerprint) : "+ federate);
 							}
 
 							federationManager.addFederateToConfig(federate);
@@ -1552,8 +1568,19 @@ public class FederationServer {
 
 		@Override
 		public void getCertificateForFederate(CertificateRequest request, StreamObserver<CertificateResponse> responseObserver) {
+
+			if (logger.isDebugEnabled()) {
+				logger.debug("run getCertificateForFederated for request: " + request);
+			}
+
 			String federate = request.getFederateName();
 			FigFederateSubscription subscription = DistributedFederationManager.getInstance().getSubscription(federate);
+
+			if (logger.isDebugEnabled()) {
+				logger.debug("FigFederateSubscription :" + subscription);
+				if (subscription == null) { logger.debug("FigFederateSubscription is null"); }
+				if (subscription.getClientCert() == null) { logger.debug("FigFederateSubscription client cert is null"); }
+			}
 
 			if (subscription == null || subscription.getClientCert() == null) {
 				responseObserver.onError(Status.NOT_FOUND

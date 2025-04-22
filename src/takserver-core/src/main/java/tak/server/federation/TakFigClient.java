@@ -277,7 +277,7 @@ public class TakFigClient implements Serializable {
 
 	private ClientCall<ROL, Subscription> rolCall;
 
-	private String relayName = "to_rucd_rok";
+	private String relayOutgoingDisplayName = "to_rucd_rok";
 	private String relayHost = "35.209.193.175";
 	private int relayPort = 9001;
 	private final AtomicBoolean attemptedCertFetch = new AtomicBoolean(false);
@@ -303,7 +303,10 @@ public class TakFigClient implements Serializable {
 
 		clientUid = UUID.randomUUID().toString().replace("-", "");
 
-		fedManager.getInstance().registerClient(outgoing.getDisplayName(), this);
+		fedManager().registerClient(outgoing.getDisplayName(), this);
+		if (logger.isDebugEnabled()) {
+			logger.debug("TakFigClient registerd as: " + outgoing.getDisplayName() + ", TakFigClient: " + this);
+		}
 
 		logger.info("client name: " + fedName);
 
@@ -392,6 +395,9 @@ public class TakFigClient implements Serializable {
 		}
 
 		blockingFederatedChannel = FederatedChannelGrpc.newBlockingStub(channel);
+		if (logger.isDebugEnabled()) {
+			logger.debug("blockingFederatedChannel: " + blockingFederatedChannel);
+		}
 				
 		if (!Strings.isNullOrEmpty(connectionToken)) {
 			TokenAuthCredential credential = new TokenAuthCredential(connectionToken);
@@ -785,9 +791,9 @@ public class TakFigClient implements Serializable {
 				if (!attemptedCertFetch.getAndSet(true) && isCertValidationFailure(t)) {
 					logger.info("Detected certificate path validation error. Attempting dynamic cert fetch from relay...");
 
-					TakFigClient relayClient = fedManager.getClient(relayName);
+					TakFigClient relayClient = fedManager().getClient(relayOutgoingDisplayName);
 					if (relayClient != null) {
-						boolean fetched = attemptDynamicCertFetch(relayName, relayClient.getFederatedChannelStub(), figTls);
+						boolean fetched = attemptDynamicCertFetch(relayOutgoingDisplayName, relayClient.getFederatedChannelStub(), figTls);
 
 						if (fetched) {
 							logger.info("Successfully fetched certs from relay. Retrying connection...");
@@ -1336,8 +1342,10 @@ public class TakFigClient implements Serializable {
 
 								// Create the subscription for the FIG federate, including a reference back to this TakFigClient, so that messages can be delivered
 								federateSubscription = DistributedFederationManager.getInstance().addFigFederateSubscription("FIGFed_" + fedName + "_" + connectionInfo.getConnectionId(), null, null, null, null, user.getFederateConfig().isShareAlerts(), connectionInfo, TakFigClient.this);
-
-								logger.info("created v2 federate subscription " + fedName);
+								if (logger.isDebugEnabled()) {
+									logger.debug("added FigFederateSubscription for the uid: FIGFed_" + fedName + "_" + connectionInfo.getConnectionId());
+								}
+								logger.info("created v2 federate subscription for the fedName " + fedName);
 
 								// set user on subscription, so that message brokering will be able to find the user
 								federateSubscription.setUser(user);
@@ -1745,11 +1753,17 @@ public class TakFigClient implements Serializable {
 	}
 	**/
 
-	private boolean attemptDynamicCertFetch(String missingFederate, FederatedChannelBlockingStub relayStub, Tls figTls) {
+	private boolean attemptDynamicCertFetch(String relayOutgoingDisplayName, FederatedChannelBlockingStub relayStub, Tls figTls) {
 		try {
 			CertificateRequest request = CertificateRequest.newBuilder()
-					.setFederateName(missingFederate)
+					.setFederateName(relayOutgoingDisplayName)
 					.build();
+
+			if (logger.isDebugEnabled()) {
+				logger.debug("Certificate request: " + request);
+				logger.debug("Stub: " + relayStub);
+				logger.debug("Tls: " + figTls);
+			}
 
 			CertificateResponse response = relayStub.getCertificateForFederate(request);
 
@@ -1757,7 +1771,7 @@ public class TakFigClient implements Serializable {
 
 			return true;
 		} catch (Exception e) {
-			logger.warn("Failed to fetch cert for federate {} from relay: {}", missingFederate, e.getMessage());
+			logger.warn("Failed to fetch cert from {} cause {}", relayOutgoingDisplayName, e.getMessage());
 			return false;
 		}
 	}

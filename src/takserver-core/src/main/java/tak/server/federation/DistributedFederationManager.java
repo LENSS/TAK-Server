@@ -192,7 +192,7 @@ public class DistributedFederationManager implements FederationManager, Service 
 		Configuration config = CoreConfigFacade.getInstance().getRemoteConfiguration();
 
 		if (logger.isDebugEnabled()) {
-			logger.debug("init method DistributedFederationManager");
+			logger.debug("init method DistributedFederationManager " + ctx);
 		}
 
 		// This occurs in WebSocketTest
@@ -207,7 +207,7 @@ public class DistributedFederationManager implements FederationManager, Service 
 	@Override
 	public void execute(ServiceContext ctx) throws Exception {
 		if (logger.isDebugEnabled()) {
-			logger.debug("execute method DistributedFederationManager");
+			logger.debug("execute method DistributedFederationManager " + ctx);
 		}
 	}
 
@@ -297,6 +297,7 @@ public class DistributedFederationManager implements FederationManager, Service 
 			logger.warn("FAIL" + e);
 		}
 
+		// This was not called since no CoreConfig.cluster.xml
 		if (CoreConfigFacade.getInstance().getRemoteConfiguration().getCluster().isEnabled()) {
 			setupIgniteListeners();
 		}
@@ -314,6 +315,9 @@ public class DistributedFederationManager implements FederationManager, Service 
 	}
 
 	private void initiateAllOutgoing() {
+		if (logger.isDebugEnabled()) {
+			logger.debug("run initiateAllOutgoing.");
+		}
 		if (outgoingsInitiated.compareAndSet(false, true)) {
 			// temporary set to check outgoing name uniqueness
 			Set<String> names = new HashSet<>();
@@ -431,6 +435,9 @@ public class DistributedFederationManager implements FederationManager, Service 
 
 	private synchronized boolean initiateOutgoing(@NotNull FederationOutgoing outgoing, @NotNull ConnectionStatus status) {
 		// v2 federation outgoing Connection
+		if (logger.isDebugEnabled()) {
+			logger.debug("run initiateOutgoing for " + outgoing.getDisplayName());
+		}
 		if (outgoing.getProtocolVersion() == Constants.FIG_FEDERATION) {
 			status.setConnectionStatusValue(ConnectionStatusValue.CONNECTING);
 			try {
