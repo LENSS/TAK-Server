@@ -22,3 +22,6 @@ src/takserver-core/scripts/certs/files/
 src/takserver-core/example/logs/
 src/.gradle/
 src/.idea/
+src/takserver-core/example/takserver_api.log
+src/takserver-core/example/takserver_config.log
+src/takserver-core/example/takserver_messaging.log
