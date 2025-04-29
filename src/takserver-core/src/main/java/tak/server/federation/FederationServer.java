@@ -22,20 +22,8 @@ import java.security.cert.Certificate;
 import java.security.cert.CertificateEncodingException;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
+import java.util.*;
 import java.util.Map.Entry;
-import java.util.NavigableSet;
-import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.Executors;
@@ -61,6 +49,7 @@ import com.google.common.collect.ComparisonChain;
 import com.google.common.hash.Hashing;
 import com.google.common.primitives.Longs;
 
+import com.google.protobuf.ByteString;
 import io.grpc.Context;
 import io.grpc.Contexts;
 import io.grpc.Grpc;
@@ -149,17 +138,7 @@ import tak.server.federation.message.Message;
 import tak.server.federation.rol.MissionRolVisitor;
 import tak.server.messaging.Messenger;
 
-import com.atakmap.Tak.CertificateRequest;
-import com.atakmap.Tak.CertificateResponse;
-
-import java.security.cert.X509Certificate;
-import java.security.cert.Certificate;
-import java.security.cert.CertificateFactory;
-import java.security.cert.CertificateEncodingException;
-import java.io.ByteArrayInputStream;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.util.Base64;
+import com.atakmap.Tak.CertificatesResponse;
 
 
 public class FederationServer {
@@ -1566,52 +1545,49 @@ public class FederationServer {
 
 		}
 
-		@Override
-		public void getCertificateForFederate(CertificateRequest request, StreamObserver<CertificateResponse> responseObserver) {
-
-			if (logger.isDebugEnabled()) {
-				logger.debug("run getCertificateForFederated for request: " + request);
-			}
-
-			String federate = request.getFederateName(); // this should be target's IP
-
-
-			FigFederateSubscription subscription = DistributedFederationManager.getInstance().getSubscription(federate);
-
-			if (logger.isDebugEnabled()) {
-				logger.debug("FigFederateSubscription :" + subscription);
-				if (subscription == null) { logger.debug("FigFederateSubscription is null"); }
-				if (subscription.getClientCert() == null) { logger.debug("FigFederateSubscription client cert is null"); }
-			}
-
-			if (subscription == null || subscription.getClientCert() == null) {
-				responseObserver.onError(Status.NOT_FOUND
-						.withDescription("Unknown or disconnected federate: " + federate)
-						.asRuntimeException());
-				return;
-			}
-
-			// Use target IP to fetch cert from the truststore
+		public void getTrustAnchorCertificates(Empty request, StreamObserver<CertificatesResponse> responseObserver) {
 			try {
-				X509Certificate clientCert = subscription.getClientCert();
-				X509Certificate caCert = subscription.getCaCert();
+				com.bbn.marti.config.Federation.FederationServer fedServerConfig = fedConfig().getFederationServer();
 
-				CertificateResponse response = CertificateResponse.newBuilder()
-						.setClientCertPem(pemEncode(clientCert))
-						.setCaCertPem(pemEncode(caCert))
+				String truststoreFile = fedServerConfig.getTls().getTruststoreFile();
+				String truststorePass = fedServerConfig.getTls().getTruststorePass();
+
+				KeyStore trustStore = KeyStore.getInstance("PKCS12");
+				try (FileInputStream fis = new FileInputStream(truststoreFile)) {
+					trustStore.load(fis, truststorePass.toCharArray());
+				}
+
+				List<ByteString> certsToSend = new ArrayList<>();
+				List<String> aliasList = Collections.list(trustStore.aliases());
+
+				for (int i = 0; i < aliasList.size() - 1; i++) {
+					String alias = aliasList.get(i);
+					Certificate cert = trustStore.getCertificate(alias);
+					if (cert instanceof X509Certificate) {
+						X509Certificate x509 = (X509Certificate) cert;
+						certsToSend.add(ByteString.copyFromUtf8(pemEncode(x509)));
+					}
+				}
+
+				CertificatesResponse response = CertificatesResponse.newBuilder()
+						.addAllPemEncodedCertificates(certsToSend)
 						.build();
-
 				responseObserver.onNext(response);
 				responseObserver.onCompleted();
+
 			} catch (Exception e) {
-				responseObserver.onError(Status.INTERNAL.withCause(e).asRuntimeException());
+				logger.error("Error retrieving trusted certs", e);
+				responseObserver.onError(Status.INTERNAL
+						.withDescription("Failed to retrieve trusted certs")
+						.withCause(e)
+						.asRuntimeException());
 			}
 		}
 
 		private String pemEncode(X509Certificate cert) throws CertificateEncodingException {
-			return "-----BEGIN CERTIFICATE-----\n"
-					+ Base64.getMimeEncoder(64, "\n".getBytes()).encodeToString(cert.getEncoded())
-					+ "\n-----END CERTIFICATE-----\n";
+			return "-----BEGIN CERTIFICATE-----\n" +
+					Base64.getMimeEncoder(64, new byte[]{'\n'}).encodeToString(cert.getEncoded()) +
+					"\n-----END CERTIFICATE-----\n";
 		}
 
 		private class FederationMissionPackageProcessor implements FederationProcessor<ROL> {

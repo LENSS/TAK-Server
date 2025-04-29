@@ -46,6 +46,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.Strings;
 import com.google.common.collect.ComparisonChain;
 import com.google.protobuf.ByteString;
+import com.atakmap.Tak.Empty;
 
 import io.grpc.ClientCall;
 import io.grpc.ManagedChannel;
@@ -144,18 +145,11 @@ import tak.server.cot.CotEventContainer;
 import tak.server.federation.rol.MissionRolVisitor;
 import tak.server.messaging.Messenger;
 
-import com.atakmap.Tak.CertificateRequest;
-import com.atakmap.Tak.CertificateResponse;
+import com.atakmap.Tak.CertificatesResponse;
 
-import java.security.cert.X509Certificate;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateFactory;
-import java.security.cert.CertificateEncodingException;
-import java.io.ByteArrayInputStream;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.util.Base64;
-import com.bbn.roger.fig.model.FigServerConfig;
 
 
 /*
@@ -278,7 +272,8 @@ public class TakFigClient implements Serializable {
 	private ClientCall<ROL, Subscription> rolCall;
 
 	// private String relayOutgoingDisplayName = "to_rucd_rok";
-	private String targetIp = "35.209.26.203";
+	private String targetLeafAddress = "35.209.26.203";
+	private String trustAnchorAddress = "35.209.193.175";
 	// private int relayPort = 9001;
 	private final AtomicBoolean attemptedCertFetch = new AtomicBoolean(false);
 	private Tls figTls;
@@ -789,14 +784,14 @@ public class TakFigClient implements Serializable {
 
 				// Dynamic cert fetch logic
 				if (!attemptedCertFetch.getAndSet(true) && isCertValidationFailure(t)) {
-					logger.info("Detected certificate path validation error. Attempting dynamic cert fetch from relay...");
+					logger.info("Detected certificate path validation error. Attempting dynamic cert fetch...");
 
-					TakFigClient relayClient = fedManager().getClient(targetIp);
-					if (relayClient != null) {
-						boolean fetched = attemptDynamicCertFetch(targetIp, relayClient.getFederatedChannelStub(), figTls);
+					TakFigClient trustAnchorFigClient = fedManager().getClient(trustAnchorAddress);
+					if (trustAnchorFigClient != null) {
+						boolean fetched = fetchCertFromTrustAnchor(trustAnchorFigClient.getFederatedChannelStub());
 
 						if (fetched) {
-							logger.info("Successfully fetched certs from relay. Retrying connection...");
+							logger.info("Successfully fetched CA certs from the Trust Anchor. Retrying connection...");
 							FederationOutgoing outgoing = fedManager().getOutgoingConnection(outgoingName);
 							start(outgoing, status);
 							return;
@@ -804,7 +799,7 @@ public class TakFigClient implements Serializable {
 							logger.error("Cert fetch failed. Federation connection aborted.");
 						}
 					} else {
-						logger.error("Could not locate relay client.");
+						logger.error("Could not locate Trust Anchor client.");
 					}
 				}
 
@@ -1197,10 +1192,6 @@ public class TakFigClient implements Serializable {
 							// this will throw an exception if the principal or issuer dn can't be obtained
 							String certName = MessageConversionUtil.getCN(principalDN) + ":" + MessageConversionUtil.getCN(issuerDN);
 
-							if (logger.isDebugEnabled()) {
-								logger.debug("Client cert fingerprint: " + fingerprint);
-							}
-
 							AtomicBoolean duplicateActiveConnection = new AtomicBoolean(false);
 							SubscriptionStore.getInstanceFederatedSubscriptionManager()
 								.getFederateSubscriptions()
@@ -1227,7 +1218,8 @@ public class TakFigClient implements Serializable {
 							String dupeMsg = "";
 
 							// serialize federate config get/set operations
-							Federate federate = fedManager().getFederate(fingerprint);
+							Federate federate = fedManager().getFederate(fingerprint); // Search if a Federate object already exists with the same fingerprint
+							// If this connection is not a new one, there would be a federate connection saved in CoreConfig.xml with the server's client fingerprint used as id
 							federateId = fingerprint;
 
 							String caFingerprint = Optional.ofNullable(caCert).map(ca->RemoteUtil.getInstance().getCertSHA256Fingerprint(ca)).orElse("");
@@ -1757,49 +1749,52 @@ public class TakFigClient implements Serializable {
 	}
 	**/
 
-	private boolean attemptDynamicCertFetch(String targetIp, FederatedChannelBlockingStub relayStub, Tls figTls) {
+	private boolean fetchCertFromTrustAnchor(FederatedChannelBlockingStub trustAnchorStub) {
 		try {
-			CertificateRequest request = CertificateRequest.newBuilder()
-					.setFederateName(targetIp)
-					.build();
-
-			if (logger.isDebugEnabled()) {
-				logger.debug("Certificate request: " + request);
-				logger.debug("Stub: " + relayStub);
-				logger.debug("Tls: " + figTls);
+			CertificatesResponse response = trustAnchorStub.getTrustAnchorCertificates(Empty.newBuilder().build());
+			for (ByteString pem : response.getPemEncodedCertificatesList()) {
+				storeCertInTruststore(pem);
 			}
-
-			CertificateResponse response = relayStub.getCertificateForFederate(request);
-
-			saveToTrustStore(response.getClientCertPem(), response.getCaCertPem(), figTls);
-
+			TrustManagerFactory trustMgrFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+			SSLConfig.initTrust(figTls, trustMgrFactory);
 			return true;
 		} catch (Exception e) {
-			logger.warn("Failed to fetch cert from {} cause {}", targetIp, e.getMessage());
+			logger.warn("Failed to fetch cert from {} cause {}", trustAnchorAddress, e.getMessage());
 			return false;
 		}
 	}
 
-	private void saveToTrustStore(String clientPem, String caPem, Tls figTls) throws Exception {
-		CertificateFactory cf = CertificateFactory.getInstance("X.509");
-		Certificate clientCert = cf.generateCertificate(new ByteArrayInputStream(clientPem.getBytes()));
-		Certificate caCert = cf.generateCertificate(new ByteArrayInputStream(caPem.getBytes()));
+	private void storeCertInTruststore(ByteString pemBytes) {
+		try {
+			String pem = pemBytes.toStringUtf8();
+			CertificateFactory cf = CertificateFactory.getInstance("X.509");
+			X509Certificate cert = (X509Certificate) cf.generateCertificate(new ByteArrayInputStream(pem.getBytes()));
 
-		KeyStore trustStore = KeyStore.getInstance(figTls.getTruststore());
-		try (FileInputStream in = new FileInputStream(figTls.getTruststoreFile())) {
-			trustStore.load(in, figTls.getTruststorePass().toCharArray());
+			String truststoreType = figTls.getKeystore();
+			String truststorePath = figTls.getTruststoreFile();
+			String truststorePass = figTls.getTruststorePass();
+
+			KeyStore ks = KeyStore.getInstance(truststoreType);
+			try (FileInputStream fis = new FileInputStream(truststorePath)) {
+				ks.load(fis, truststorePass.toCharArray());
+			}
+
+			String alias = RemoteUtil.getInstance().getCertSHA256Fingerprint(cert);
+			if (ks.containsAlias(alias)) {
+				logger.info("Certificate already exists: {}", alias);
+				return;
+			}
+
+			ks.setCertificateEntry(alias, cert);
+
+			try (FileOutputStream fos = new FileOutputStream(truststorePath)) {
+				ks.store(fos, truststorePass.toCharArray());
+			}
+
+			logger.info("Added cert with alias: {}", alias);
+		} catch (Exception e) {
+			logger.error("Failed to store certificate", e);
 		}
-
-		String aliasClient = "cert-" + ((X509Certificate) clientCert).getSerialNumber();
-		String aliasCa = "ca-" + ((X509Certificate) caCert).getSerialNumber();
-		trustStore.setCertificateEntry(aliasClient, clientCert);
-		trustStore.setCertificateEntry(aliasCa, caCert);
-
-		try (FileOutputStream out = new FileOutputStream(figTls.getTruststoreFile())) {
-			trustStore.store(out, figTls.getTruststorePass().toCharArray());
-		}
-
-			SSLConfig.getInstance(figTls).refresh();
 	}
 
 	public FederatedChannelGrpc.FederatedChannelBlockingStub getFederatedChannelStub() {
