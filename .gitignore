@@ -25,3 +25,5 @@ src/.idea/
 src/takserver-core/example/takserver_api.log
 src/takserver-core/example/takserver_config.log
 src/takserver-core/example/takserver_messaging.log
+src/takserver-core/example/ignite/
+src/takserver-core/example/work/
