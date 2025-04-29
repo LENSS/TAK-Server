@@ -158,6 +158,11 @@ ext.common_manifest = ['Add-Opens': ext.java_internal_opens.join(' ')]
       dirs project.rootDir.toString() + '/lib'
     }
   }
+
+  dependencies {
+    implementation 'com.nimbusds:oauth2-oidc-sdk:11.23.1'
+    implementation 'com.nimbusds:nimbus-jose-jwt:10.2'
+  }
 }
 
 subprojects {

@@ -2701,6 +2701,7 @@ public class DistributedFederationManager implements FederationManager, Service 
 		CoreConfigFacade.getInstance().setAndSaveFederation(fedConfig);
 	}
 
+	/**
 	public FigFederateSubscription getSubscription(String federateName) {
 		for (FederateSubscription sub : SubscriptionStore.getInstanceFederatedSubscriptionManager().getFederateSubscriptions()) {
 			if (sub instanceof FigFederateSubscription figSub) {
@@ -2710,7 +2711,17 @@ public class DistributedFederationManager implements FederationManager, Service 
 			}
 		}
 		return null;
+	}**/
+
+	public FigFederateSubscription getSubscription(String federateName) {
+		for (FederateSubscription sub : SubscriptionStore.getInstanceFederatedSubscriptionManager().getFederateSubscriptions()) {
+			if (sub instanceof FigFederateSubscription figSub) {
+				return figSub;
+			}
+		}
+		return null;
 	}
+
 
 	public void registerClient(String outgoingDisplayName, TakFigClient client) {
 		activeClients.put(outgoingDisplayName, client);

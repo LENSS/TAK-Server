@@ -557,7 +557,7 @@ public class FederationServer {
 			String fedName = subscription.getIdentity().getName();
 
 			if (logger.isDebugEnabled()) {
-				logger.debug("clientEvnetStream started. subscription: " + subscription);
+				logger.debug("clientEventStream started. subscription: " + subscription);
 			}
 
 			if (Strings.isNullOrEmpty(fedName)) {
@@ -1573,7 +1573,9 @@ public class FederationServer {
 				logger.debug("run getCertificateForFederated for request: " + request);
 			}
 
-			String federate = request.getFederateName();
+			String federate = request.getFederateName(); // this should be target's IP
+
+
 			FigFederateSubscription subscription = DistributedFederationManager.getInstance().getSubscription(federate);
 
 			if (logger.isDebugEnabled()) {
@@ -1589,6 +1591,7 @@ public class FederationServer {
 				return;
 			}
 
+			// Use target IP to fetch cert from the truststore
 			try {
 				X509Certificate clientCert = subscription.getClientCert();
 				X509Certificate caCert = subscription.getCaCert();

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/federation-common" />
+            <option value="$PROJECT_DIR$/federation-hub-broker" />
+            <option value="$PROJECT_DIR$/federation-hub-policy" />
+            <option value="$PROJECT_DIR$/federation-hub-ui" />
+            <option value="$PROJECT_DIR$/takserver-cluster" />
+            <option value="$PROJECT_DIR$/takserver-common" />
+            <option value="$PROJECT_DIR$/takserver-core" />
+            <option value="$PROJECT_DIR$/takserver-core/takserver-war" />
+            <option value="$PROJECT_DIR$/takserver-fig-core" />
+            <option value="$PROJECT_DIR$/takserver-fig-core/rol" />
+            <option value="$PROJECT_DIR$/takserver-package" />
+            <option value="$PROJECT_DIR$/takserver-package/API" />
+            <option value="$PROJECT_DIR$/takserver-package/database" />
+            <option value="$PROJECT_DIR$/takserver-package/federation-hub" />
+            <option value="$PROJECT_DIR$/takserver-package/launcher" />
+            <option value="$PROJECT_DIR$/takserver-package/messaging" />
+            <option value="$PROJECT_DIR$/takserver-package/takserver" />
+            <option value="$PROJECT_DIR$/takserver-plugin-manager" />
+            <option value="$PROJECT_DIR$/takserver-plugins" />
+            <option value="$PROJECT_DIR$/takserver-protobuf" />
+            <option value="$PROJECT_DIR$/takserver-retention" />
+            <option value="$PROJECT_DIR$/takserver-schemamanager" />
+            <option value="$PROJECT_DIR$/takserver-takcl-core" />
+            <option value="$PROJECT_DIR$/takserver-tool-ui" />
+            <option value="$PROJECT_DIR$/takserver-usermanager" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

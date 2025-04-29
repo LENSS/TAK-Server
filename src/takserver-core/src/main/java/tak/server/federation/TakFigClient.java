@@ -277,9 +277,9 @@ public class TakFigClient implements Serializable {
 
 	private ClientCall<ROL, Subscription> rolCall;
 
-	private String relayOutgoingDisplayName = "to_rucd_rok";
-	private String relayHost = "35.209.193.175";
-	private int relayPort = 9001;
+	// private String relayOutgoingDisplayName = "to_rucd_rok";
+	private String targetIp = "35.209.26.203";
+	// private int relayPort = 9001;
 	private final AtomicBoolean attemptedCertFetch = new AtomicBoolean(false);
 	private Tls figTls;
 
@@ -791,9 +791,9 @@ public class TakFigClient implements Serializable {
 				if (!attemptedCertFetch.getAndSet(true) && isCertValidationFailure(t)) {
 					logger.info("Detected certificate path validation error. Attempting dynamic cert fetch from relay...");
 
-					TakFigClient relayClient = fedManager().getClient(relayOutgoingDisplayName);
+					TakFigClient relayClient = fedManager().getClient(targetIp);
 					if (relayClient != null) {
-						boolean fetched = attemptDynamicCertFetch(relayOutgoingDisplayName, relayClient.getFederatedChannelStub(), figTls);
+						boolean fetched = attemptDynamicCertFetch(targetIp, relayClient.getFederatedChannelStub(), figTls);
 
 						if (fetched) {
 							logger.info("Successfully fetched certs from relay. Retrying connection...");
@@ -1197,6 +1197,10 @@ public class TakFigClient implements Serializable {
 							// this will throw an exception if the principal or issuer dn can't be obtained
 							String certName = MessageConversionUtil.getCN(principalDN) + ":" + MessageConversionUtil.getCN(issuerDN);
 
+							if (logger.isDebugEnabled()) {
+								logger.debug("Client cert fingerprint: " + fingerprint);
+							}
+
 							AtomicBoolean duplicateActiveConnection = new AtomicBoolean(false);
 							SubscriptionStore.getInstanceFederatedSubscriptionManager()
 								.getFederateSubscriptions()
@@ -1474,12 +1478,12 @@ public class TakFigClient implements Serializable {
 
 				logger.debug("Received remote federate groups = " + value);
 
-				// once the group stream is established, we are ready to setup event streaming
+				// once the group stream is established, we are ready to set up event streaming
 				if (value.getStreamUpdate() != null && value.getStreamUpdate().getStatus() == ServingStatus.SERVING) {
 					federateSubscription.setupEventStream();
 				}
 
-				// send the server our groups if we havent yet
+				// send the server our groups if we haven't yet
 				if (getFederate().isFederatedGroupMapping() && !hasSentGroups.getAndSet(true)) {
 					((FigFederateSubscription) getFederateSubscription()).submitFederateGroups(new HashSet<>(getFederate().getOutboundGroup()));
 				}
@@ -1753,10 +1757,10 @@ public class TakFigClient implements Serializable {
 	}
 	**/
 
-	private boolean attemptDynamicCertFetch(String relayOutgoingDisplayName, FederatedChannelBlockingStub relayStub, Tls figTls) {
+	private boolean attemptDynamicCertFetch(String targetIp, FederatedChannelBlockingStub relayStub, Tls figTls) {
 		try {
 			CertificateRequest request = CertificateRequest.newBuilder()
-					.setFederateName(relayOutgoingDisplayName)
+					.setFederateName(targetIp)
 					.build();
 
 			if (logger.isDebugEnabled()) {
@@ -1771,7 +1775,7 @@ public class TakFigClient implements Serializable {
 
 			return true;
 		} catch (Exception e) {
-			logger.warn("Failed to fetch cert from {} cause {}", relayOutgoingDisplayName, e.getMessage());
+			logger.warn("Failed to fetch cert from {} cause {}", targetIp, e.getMessage());
 			return false;
 		}
 	}

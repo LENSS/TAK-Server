@@ -239,6 +239,9 @@ public class FigProtocolNegotiator {
                         ctx.fireExceptionCaught(new Exception(message));
                     }
                 } else {
+                    if (logger.isDebugEnabled()) {
+                        logger.debug("TLS handshake failed");
+                    }
                     ctx.fireExceptionCaught(handshakeEvent.cause());
                 }
             }
