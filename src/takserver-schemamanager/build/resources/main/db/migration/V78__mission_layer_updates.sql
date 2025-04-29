@@ -1,1 +1,0 @@
-alter table mission_layer add column after text;

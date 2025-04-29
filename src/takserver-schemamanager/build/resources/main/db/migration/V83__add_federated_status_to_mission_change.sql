@@ -1,1 +1,0 @@
-alter table mission_change add column remote_federated_change boolean DEFAULT false;
