@@ -18,3 +18,7 @@ src/takserver-tool-ui/build/
 src/takserver-tool-ui/node_modules/
 src/takserver-tool-ui/.gradle/
 src/takserver-usermanager/build/
+src/takserver-core/scripts/certs/files/
+src/takserver-core/example/logs/
+src/.gradle/
+src/.idea/
