@@ -2723,12 +2723,12 @@ public class DistributedFederationManager implements FederationManager, Service 
 	}
 
 
-	public void registerClient(String outgoingDisplayName, TakFigClient client) {
-		activeClients.put(outgoingDisplayName, client);
+	public void registerClient(String outgoingAddress, TakFigClient client) {
+		activeClients.put(outgoingAddress, client);
 	}
 
-	public TakFigClient getClient(String outgoingDisplayName) {
-		return activeClients.get(outgoingDisplayName);
+	public TakFigClient getClient(String outgoingAddress) {
+		return activeClients.get(outgoingAddress);
 	}
 
 

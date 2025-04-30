@@ -271,10 +271,8 @@ public class TakFigClient implements Serializable {
 
 	private ClientCall<ROL, Subscription> rolCall;
 
-	// private String relayOutgoingDisplayName = "to_rucd_rok";
 	private String targetLeafAddress = "35.209.26.203";
 	private String trustAnchorAddress = "35.209.193.175";
-	// private int relayPort = 9001;
 	private final AtomicBoolean attemptedCertFetch = new AtomicBoolean(false);
 	private Tls figTls;
 
@@ -298,7 +296,7 @@ public class TakFigClient implements Serializable {
 
 		clientUid = UUID.randomUUID().toString().replace("-", "");
 
-		fedManager().registerClient(outgoing.getDisplayName(), this);
+		fedManager().registerClient(outgoing.getAddress(), this);
 		if (logger.isDebugEnabled()) {
 			logger.debug("TakFigClient registerd as: " + outgoing.getDisplayName() + ", TakFigClient: " + this);
 		}
