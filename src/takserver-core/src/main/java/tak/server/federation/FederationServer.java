@@ -574,7 +574,7 @@ public class FederationServer {
 
 				ConnectionInfo connection = new ConnectionInfo();
 				connection.setConnectionId(getCurrentSessionId());
-
+				/**
 				SocketAddress socketAddress = getCurrentSocketAddress();
 				String saToString = "";
 				if (socketAddress instanceof InetSocketAddress) {
@@ -587,7 +587,7 @@ public class FederationServer {
 					logger.debug("Socket Address to String: " + saToString);
 					logger.debug("SSLSession Peer Host: " + peerHost);
 				}
-
+				**/
 				/**
 				 // Hooking reverseStub into clientEventStream to detect client connection for dynamic cert fetch
 				 String remoteAddress = ...; // Extract from connectionInfo or SSLSession
