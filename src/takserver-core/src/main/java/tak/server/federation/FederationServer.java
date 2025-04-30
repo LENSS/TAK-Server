@@ -11,6 +11,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.net.InetAddress;
+import java.net.InetSocketAddress;
 import java.net.SocketAddress;
 import java.nio.ByteBuffer;
 import java.rmi.RemoteException;
@@ -84,6 +85,8 @@ import com.atakmap.Tak.ContactListEntry;
 import com.atakmap.Tak.Empty;
 import com.atakmap.Tak.FederateGroups;
 import com.atakmap.Tak.FederatedChannelGrpc;
+import com.atakmap.Tak.FederatedChannelGrpc.FederatedChannelBlockingStub;
+import com.atakmap.Tak.FederatedChannelGrpc.FederatedChannelStub;
 import com.atakmap.Tak.FederatedEvent;
 import com.atakmap.Tak.Identity;
 import com.atakmap.Tak.ROL;
@@ -168,6 +171,7 @@ public class FederationServer {
 	private final Map<String, String> clientROLStreamNames = new ConcurrentHashMap<>();
 	private final Map<String, String> serverFederateMap = new ConcurrentHashMap<>();
 	private final Map<String, GuardedStreamHolder<FederateGroups>> serverFederateGroupStreamMap = new ConcurrentHashMap<>();
+	private final Map<String, FederatedChannelBlockingStub> reverseClientStubs = new ConcurrentHashMap<>();
 
 	@Autowired
 	private DistributedFederationManager federationManager;
@@ -570,6 +574,41 @@ public class FederationServer {
 
 				ConnectionInfo connection = new ConnectionInfo();
 				connection.setConnectionId(getCurrentSessionId());
+
+				SocketAddress socketAddress = getCurrentSocketAddress();
+				String saToString = "";
+				if (socketAddress instanceof InetSocketAddress) {
+					saToString = ((InetSocketAddress) socketAddress).getAddress().getHostAddress();
+				}
+				String peerHost = session.getPeerHost();
+
+				if (logger.isDebugEnabled()) {
+					logger.debug("Socket Address: " + socketAddress);
+					logger.debug("Socket Address to String: " + saToString);
+					logger.debug("SSLSession Peer Host: " + peerHost);
+				}
+
+				/**
+				 // Hooking reverseStub into clientEventStream to detect client connection for dynamic cert fetch
+				 String remoteAddress = ...; // Extract from connectionInfo or SSLSession
+				 String federateName = subscription.getIdentity().getName(); // Or UID if more stable
+
+				 logger.info("Received federation client connection from: {}", federateName);
+
+				 // Optional: use known config to resolve remote address
+				 String remoteAddress = resolveFederateAddress(federateName); // Your own lookup
+
+				 try {
+				 ManagedChannel reverseChannel = openFigConnection(remoteAddress, 8443, getServerSslContext());
+				 FederatedChannelBlockingStub reverseStub = FederatedChannelGrpc.newBlockingStub(reverseChannel);
+
+				 reverseClientStubs.put(federateName, reverseStub);
+				 logger.info("Stored reverse stub for federate: {}", federateName);
+
+				 } catch (Exception e) {
+				 logger.warn("Failed to open reverse gRPC channel to federate: {}", federateName, e);
+				 }
+				 **/
 
 				fedSub = (FigServerFederateSubscription) federatedSubscriptionManager.getFederateSubscription(connection);
 
