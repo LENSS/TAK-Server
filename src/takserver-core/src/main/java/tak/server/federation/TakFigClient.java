@@ -1759,8 +1759,10 @@ public class TakFigClient implements Serializable {
 			for (ByteString pem : response.getPemEncodedCertificatesList()) {
 				storeCertInTruststore(pem);
 			}
-			TrustManagerFactory trustMgrFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
-			SSLConfig.initTrust(figTls, trustMgrFactory);
+			//TrustManagerFactory trustMgrFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+			tak.server.federation.FederationServer.refreshServer();
+			SSLConfig.getInstance(CoreConfigFacade.getInstance().getRemoteConfiguration().getFederation().getFederationServer().getTls());
+			//SSLConfig.initTrust(figTls, trustMgrFactory);
 			return true;
 		} catch (Exception e) {
 			logger.warn("Failed to fetch cert from {} cause {}", trustAnchorAddress, e.getMessage());
