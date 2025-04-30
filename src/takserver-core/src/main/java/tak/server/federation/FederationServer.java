@@ -1560,7 +1560,7 @@ public class FederationServer {
 				List<ByteString> certsToSend = new ArrayList<>();
 				List<String> aliasList = Collections.list(trustStore.aliases());
 
-				for (int i = 0; i < aliasList.size() - 1; i++) {
+				for (int i = 1; i < aliasList.size(); i++) { // skip the first certificate, which would be the root CA
 					String alias = aliasList.get(i);
 					Certificate cert = trustStore.getCertificate(alias);
 					if (cert instanceof X509Certificate) {
