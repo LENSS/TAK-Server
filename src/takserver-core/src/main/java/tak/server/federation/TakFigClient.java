@@ -1796,7 +1796,7 @@ public class TakFigClient implements Serializable {
 
 			logger.info("Added cert with alias: {}", alias);
 
-			fedManager().refreshAfterDynamicCertFetch(alias, cert);
+			fedManager.refreshAfterDynamicCertFetch(alias, cert);
 		} catch (Exception e) {
 			logger.error("Failed to store certificate", e);
 		}
