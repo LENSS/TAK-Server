@@ -779,11 +779,6 @@ public class TakFigClient implements Serializable {
 					}
 				}
 
-				if (logger.isDebugEnabled()) {
-					logger.debug("attemptedCertFetch: " + attemptedCertFetch);
-					logger.debug("isCertValidationFailure(t): " + isCertValidationFailure(t));
-				}
-
 				// Dynamic cert fetch logic
 				if (!attemptedCertFetch.getAndSet(true) && isCertValidationFailure(t)) {
 					logger.info("Detected certificate path validation error. Attempting dynamic cert fetch...");
@@ -1757,8 +1752,6 @@ public class TakFigClient implements Serializable {
 			for (ByteString pem : response.getPemEncodedCertificatesList()) {
 				storeCertInTruststore(pem);
 			}
-
-			FederationServer.refreshServer();
 			return true;
 		} catch (Exception e) {
 			logger.warn("Failed to fetch cert from {} cause {}", trustAnchorAddress, e.getMessage());

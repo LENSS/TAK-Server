@@ -1578,11 +1578,21 @@ public class DistributedFederationManager implements FederationManager, Service 
 
 	public void refreshAfterDynamicCertFetch(String alias, X509Certificate ca) {
 		try {
-			SSLConfig sslConfig = getSSLCache().get(SSL_TRUSTSTORE_KEY);
+
+			SSLConfig sslConfig = getSSLCache().computeIfAbsent(SSL_TRUSTSTORE_KEY, key -> SSLConfig.getInstance(CoreConfigFacade.getInstance()
+                    .getRemoteConfiguration()
+                    .getFederation()
+                    .getFederationServer()
+                    .getTls()));
+
 			sslConfig.getTrust().setEntry(alias, new KeyStore.TrustedCertificateEntry(ca), null);
 			getSSLCache().put(SSL_TRUSTSTORE_KEY, sslConfig);
+
 			tak.server.federation.FederationServer.refreshServer();
 			SSLConfig.getInstance(CoreConfigFacade.getInstance().getRemoteConfiguration().getFederation().getFederationServer().getTls());
+
+			logger.info("Refreshed truststore and reloaded server with new cert alias {}", alias);
+
 		} catch (Exception e) {
 			if (logger.isDebugEnabled()) {
 				logger.debug("exception adding ca", e);
