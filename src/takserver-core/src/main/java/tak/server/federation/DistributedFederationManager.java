@@ -1576,6 +1576,21 @@ public class DistributedFederationManager implements FederationManager, Service 
 		}
 	}
 
+	public void refreshAfterDynamicCertFetch(String alias, X509Certificate ca) {
+		try {
+			SSLConfig sslConfig = getSSLCache().get(SSL_TRUSTSTORE_KEY);
+			sslConfig.getTrust().setEntry(alias, new KeyStore.TrustedCertificateEntry(ca), null);
+			getSSLCache().put(SSL_TRUSTSTORE_KEY, sslConfig);
+			tak.server.federation.FederationServer.refreshServer();
+			SSLConfig.getInstance(CoreConfigFacade.getInstance().getRemoteConfiguration().getFederation().getFederationServer().getTls());
+		} catch (Exception e) {
+			if (logger.isDebugEnabled()) {
+				logger.debug("exception adding ca", e);
+			}
+		}
+	}
+
+
 	public List<CodecSource> getCodecSources(Tls tlsConfig) {
 		List<CodecSource> codecSources = new ArrayList<>();
 
