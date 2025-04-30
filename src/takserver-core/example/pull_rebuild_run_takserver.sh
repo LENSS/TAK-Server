@@ -10,3 +10,5 @@ cd src/takserver-core
 ../gradlew clean bootWar bootJar || exit 1
 
 cd example/
+
+./run_takserver.sh
