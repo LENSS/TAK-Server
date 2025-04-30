@@ -2756,6 +2756,10 @@ public class DistributedFederationManager implements FederationManager, Service 
 		return activeClients.get(outgoingAddress);
 	}
 
+	public TakFigClient removeClient(String outgoingAddress) {
+		return activeClients.remove(outgoingAddress);
+	}
+
 
 
 }

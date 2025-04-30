@@ -1412,6 +1412,7 @@ public class TakFigClient implements Serializable {
 
 		try {
 			channel.shutdownNow();
+			fedManager().removeClient(outgoing.getAddress());
 		} catch (Exception e) {
 			logger.warn("error terminating federated channel", e);
 		}
