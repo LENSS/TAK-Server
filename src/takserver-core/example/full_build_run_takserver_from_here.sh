@@ -1,6 +1,12 @@
 #!/bin/bash
 
-cd ../../
+./stop_takserver.sh || exit 1
+
+cd ~/TAK-Server/
+
+git pull origin main || exit 1
+
+cd src
 
 ./gradlew clean bootWar bootJar shadowJar || exit 1
 
