@@ -1,5 +1,7 @@
 #!/bin/bash
 
+./stop_takserver.sh || exit 1
+
 cd ~/TAK-Server/
 
 # Pull from the remote repository

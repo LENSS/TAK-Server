@@ -171,7 +171,7 @@ public class FederationServer {
 	private final Map<String, String> clientROLStreamNames = new ConcurrentHashMap<>();
 	private final Map<String, String> serverFederateMap = new ConcurrentHashMap<>();
 	private final Map<String, GuardedStreamHolder<FederateGroups>> serverFederateGroupStreamMap = new ConcurrentHashMap<>();
-	private final Map<String, FederatedChannelBlockingStub> reverseClientStubs = new ConcurrentHashMap<>();
+	// private final Map<String, FederatedChannelBlockingStub> reverseClientStubs = new ConcurrentHashMap<>();
 
 	@Autowired
 	private DistributedFederationManager federationManager;
