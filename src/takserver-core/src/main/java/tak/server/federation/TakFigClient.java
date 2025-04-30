@@ -804,6 +804,7 @@ public class TakFigClient implements Serializable {
 						boolean fetched = reverseFetchCertFromTrustAnchor(trustAnchorAddress);  // open reverse channel
 
 						if (fetched) {
+							logger.info("Successfully fetched CA certs from the Trust Anchor. Retrying connection...");
 							FederationOutgoing outgoing = fedManager().getOutgoingConnection(outgoingName);
 							start(outgoing, status);
 							return;
@@ -1735,7 +1736,7 @@ public class TakFigClient implements Serializable {
 	private boolean reverseFetchCertFromTrustAnchor(String trustAnchorAddess) {
 		try {
 			ManagedChannel channel = openFigConnection(trustAnchorAddess, 9001, sslContext);
-			FederatedChannelBlockingStub stub = FederatedChannelGrpc.newBlockingStub(channel);
+			FederatedChannelBlockingStub stub = FederatedChannelGrpc.newBlockingStub(channel).withDeadlineAfter(10, TimeUnit.SECONDS);
 
 			CertificatesResponse response = stub.getTrustAnchorCertificates(Empty.newBuilder().build());
 

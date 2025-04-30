@@ -2310,7 +2310,7 @@ public class FederationServer {
 			SslContext sslContext = sslConfig.getSslContext();
 
 			ManagedChannel channel = FederationUtils.openSecureGrpcChannel(trustAnchorAddress, 9001, sslContext);
-			FederatedChannelBlockingStub reverseStub = FederatedChannelGrpc.newBlockingStub(channel);
+			FederatedChannelBlockingStub reverseStub = FederatedChannelGrpc.newBlockingStub(channel).withDeadlineAfter(10, TimeUnit.SECONDS);
 
 			CertificatesResponse response = reverseStub.getTrustAnchorCertificates(Empty.newBuilder().build());
 
