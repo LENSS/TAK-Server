@@ -288,6 +288,7 @@ public class TakFigClient implements Serializable {
 		this.outgoingName = outgoing.getDisplayName();
 		this.status = status;
 		this.connectionToken = outgoing.getConnectionToken();
+		attemptedCertFetch.set(false);
 
 		figTls = CoreConfigFacade.getInstance().getRemoteConfiguration().getFederation().getFederationServer().getTls();
 
@@ -1763,6 +1764,7 @@ public class TakFigClient implements Serializable {
 			return true;
 		} catch (Exception e) {
 			logger.warn("Failed to fetch cert from {} cause {}", trustAnchorAddress, e.getMessage());
+			attemptedCertFetch.set(false);
 			return false;
 		}
 	}
