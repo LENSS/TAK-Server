@@ -147,9 +147,7 @@ import tak.server.messaging.Messenger;
 
 import com.atakmap.Tak.CertificatesResponse;
 
-import java.security.cert.Certificate;
 import java.security.cert.CertificateFactory;
-import java.io.FileOutputStream;
 
 
 /*
@@ -1757,11 +1755,11 @@ public class TakFigClient implements Serializable {
 		try {
 			CertificatesResponse response = trustAnchorStub.getTrustAnchorCertificates(Empty.newBuilder().build());
 			for (ByteString pem : response.getPemEncodedCertificatesList()) {
-				storeCertInTruststore(pem);
+				parseAndAddCA(pem);
 			}
 			//TrustManagerFactory trustMgrFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
-			tak.server.federation.FederationServer.refreshServer();
-			SSLConfig.getInstance(CoreConfigFacade.getInstance().getRemoteConfiguration().getFederation().getFederationServer().getTls());
+			//tak.server.federation.FederationServer.refreshServer();
+			//SSLConfig.getInstance(CoreConfigFacade.getInstance().getRemoteConfiguration().getFederation().getFederationServer().getTls());
 			//SSLConfig.initTrust(figTls, trustMgrFactory);
 			return true;
 		} catch (Exception e) {
@@ -1771,12 +1769,13 @@ public class TakFigClient implements Serializable {
 		}
 	}
 
-	private void storeCertInTruststore(ByteString pemBytes) {
+	private void parseAndAddCA(ByteString pemBytes) {
 		try {
 			String pem = pemBytes.toStringUtf8();
 			CertificateFactory cf = CertificateFactory.getInstance("X.509");
 			X509Certificate cert = (X509Certificate) cf.generateCertificate(new ByteArrayInputStream(pem.getBytes()));
-
+			fedManager.addCA(cert);
+			/**
 			String truststoreType = figTls.getKeystore();
 			String truststorePath = figTls.getTruststoreFile();
 			String truststorePass = figTls.getTruststorePass();
@@ -1799,6 +1798,7 @@ public class TakFigClient implements Serializable {
 			}
 
 			logger.info("Added cert with alias: {}", alias);
+			 **/
 		} catch (Exception e) {
 			logger.error("Failed to store certificate", e);
 		}
