@@ -273,7 +273,8 @@ public class TakFigClient implements Serializable {
 	private String trustAnchorAddress = "35.209.193.175";
 	private final AtomicBoolean attemptedCertFetch = new AtomicBoolean(false);
 	private Tls figTls;
-
+	private SslContextBuilder sslContextBuilder;
+	private SslContext sslContext;
 
 	public GuardedStreamHolder<ROL> getRolCall() {
 		return rolHolder;
@@ -356,8 +357,7 @@ public class TakFigClient implements Serializable {
 			} catch (Exception e) {
 				logger.warn("exception initializing trust store", e);
 			}
-			
-			SslContextBuilder sslContextBuilder;
+
 			// don't use a key manager if we are using token auth
 			if (!Strings.isNullOrEmpty(connectionToken)) {
 				sslContextBuilder = GrpcSslContexts.configure(SslContextBuilder.forClient(), SslProvider.OPENSSL)  // this ensures that we are using OpenSSL, not JRE SSL
@@ -379,8 +379,10 @@ public class TakFigClient implements Serializable {
 				}
 			}
 
+			sslContext = sslContextBuilder.protocols(Arrays.asList(context.split(","))).build();
+
 			channel = openFigConnection(outgoing.getAddress(), outgoing.getPort(),
-					sslContextBuilder.protocols(Arrays.asList(context.split(","))).build());
+					sslContext);
 
 		} catch (Exception e) {
 			logger.error("exception setting up TLS config", e);
@@ -784,7 +786,10 @@ public class TakFigClient implements Serializable {
 					logger.info("Detected certificate path validation error. Attempting dynamic cert fetch...");
 
 					TakFigClient trustAnchorFigClient = fedManager().getClient(trustAnchorAddress);
+
 					if (trustAnchorFigClient != null) {
+						logger.info("Trust Anchor connection found as outgoing client");
+
 						boolean fetched = fetchCertFromTrustAnchor(trustAnchorFigClient.getFederatedChannelStub());
 
 						if (fetched) {
@@ -792,12 +797,21 @@ public class TakFigClient implements Serializable {
 							FederationOutgoing outgoing = fedManager().getOutgoingConnection(outgoingName);
 							start(outgoing, status);
 							return;
-						} else {
-							logger.error("Cert fetch failed. Federation connection aborted.");
 						}
 					} else {
-						logger.error("Could not locate Trust Anchor client.");
+						logger.info("No outgoing connection to Trust Anchor. Attempting reverse fetch...");
+
+						boolean fetched = reverseFetchCertFromTrustAnchor(trustAnchorAddress);  // open reverse channel
+
+						if (fetched) {
+							FederationOutgoing outgoing = fedManager().getOutgoingConnection(outgoingName);
+							start(outgoing, status);
+							return;
+						}
 					}
+					attemptedCertFetch.set(false);
+
+					logger.error("Failed to locate Trust Anchor.");
 				}
 
 				status.setLastError(rootCauseMsg);
@@ -1704,48 +1718,6 @@ public class TakFigClient implements Serializable {
 		return federateMaxHops;
 	}
 
-	/**
-	public class FederatedChannelImpl extends FederatedChannelGrpc.FederatedChannelImplBase {
-
-		@Override
-		public void getCertificateForFederate(CertificateRequest request,
-											  StreamObserver<CertificateResponse> responseObserver) {
-
-			String federate = request.getFederateName();
-			FigFederateSubscription subscription =
-					DistributedFederationManager.getInstance().getSubscription(federate);
-
-			if (subscription == null || subscription.getClientCert() == null) {
-				responseObserver.onError(Status.NOT_FOUND
-						.withDescription("Unknown or disconnected federate: " + federate)
-						.asRuntimeException());
-				return;
-			}
-
-			try {
-				X509Certificate clientCert = subscription.getClientCert();
-				X509Certificate caCert = subscription.getCaCert();
-
-				CertificateResponse response = CertificateResponse.newBuilder()
-						.setClientCertPem(pemEncode(clientCert))
-						.setCaCertPem(pemEncode(caCert))
-						.build();
-
-				responseObserver.onNext(response);
-				responseObserver.onCompleted();
-			} catch (Exception e) {
-				responseObserver.onError(Status.INTERNAL.withCause(e).asRuntimeException());
-			}
-		}
-
-		private String pemEncode(X509Certificate cert) throws CertificateEncodingException {
-			return "-----BEGIN CERTIFICATE-----\n"
-					+ Base64.getMimeEncoder(64, "\n".getBytes()).encodeToString(cert.getEncoded())
-					+ "\n-----END CERTIFICATE-----\n";
-		}
-	}
-	**/
-
 	private boolean fetchCertFromTrustAnchor(FederatedChannelBlockingStub trustAnchorStub) {
 		try {
 			CertificatesResponse response = trustAnchorStub.getTrustAnchorCertificates(Empty.newBuilder().build());
@@ -1755,10 +1727,31 @@ public class TakFigClient implements Serializable {
 			return true;
 		} catch (Exception e) {
 			logger.warn("Failed to fetch cert from {} cause {}", trustAnchorAddress, e.getMessage());
-			attemptedCertFetch.set(false);
 			return false;
 		}
 	}
+
+	private boolean reverseFetchCertFromTrustAnchor(String trustAnchorAddess) {
+		try {
+			ManagedChannel channel = openFigConnection(trustAnchorAddess, 9001, sslContext);
+			FederatedChannelBlockingStub stub = FederatedChannelGrpc.newBlockingStub(channel);
+
+			CertificatesResponse response = stub.getTrustAnchorCertificates(Empty.newBuilder().build());
+
+			for (ByteString pem : response.getPemEncodedCertificatesList()) {
+				storeCertInTruststore(pem);  // existing logic
+			}
+			logger.info("Successfully fetched and installed trust anchors from {}", trustAnchorAddess);
+
+			channel.shutdownNow();
+			return true;
+
+		} catch (Exception e) {
+			logger.error("Failed to fetch trust anchors from {}: {}", trustAnchorAddess, e.getMessage(), e);
+			return false;
+		}
+	}
+
 
 	private void storeCertInTruststore(ByteString pemBytes) {
 		try {

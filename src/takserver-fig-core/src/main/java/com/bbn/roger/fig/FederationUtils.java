@@ -19,7 +19,12 @@ import com.google.common.hash.HashCode;
 import com.google.common.hash.HashFunction;
 import com.google.common.hash.Hashing;
 
+import io.grpc.internal.GrpcUtil;
+import io.grpc.ManagedChannel;
+import io.grpc.netty.NettyChannelBuilder;
+import io.netty.handler.ssl.SslContext;
 import jakarta.xml.bind.DatatypeConverter;
+
 
 public class FederationUtils {
 
@@ -174,4 +179,13 @@ public class FederationUtils {
             return "Unexpected exception: root cause message is null";
         }
     }
+
+    public static ManagedChannel openSecureGrpcChannel(String address, int port, SslContext sslContext) {
+        return NettyChannelBuilder.forAddress(address, port)
+                .sslContext(sslContext)
+                .maxInboundMessageSize(GrpcUtil.DEFAULT_MAX_MESSAGE_SIZE)
+                .keepAliveWithoutCalls(true)
+                .build();
+    }
+
 }

@@ -19,10 +19,7 @@ import java.security.KeyStore;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
-import java.security.cert.Certificate;
-import java.security.cert.CertificateEncodingException;
-import java.security.cert.CertificateException;
-import java.security.cert.X509Certificate;
+import java.security.cert.*;
 import java.util.*;
 import java.util.Map.Entry;
 import java.util.concurrent.ConcurrentHashMap;
@@ -63,8 +60,10 @@ import io.grpc.ServerInterceptors;
 import io.grpc.Status;
 import io.grpc.netty.NettyServerBuilder;
 import io.grpc.stub.StreamObserver;
+import io.grpc.ManagedChannel;
 import io.micrometer.core.instrument.Metrics;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.ssl.SslContext;
 import io.netty.util.internal.logging.InternalLoggerFactory;
 import io.netty.util.internal.logging.Slf4JLoggerFactory;
 
@@ -142,6 +141,7 @@ import tak.server.federation.rol.MissionRolVisitor;
 import tak.server.messaging.Messenger;
 
 import com.atakmap.Tak.CertificatesResponse;
+import java.io.ByteArrayInputStream;
 
 
 public class FederationServer {
@@ -574,42 +574,18 @@ public class FederationServer {
 
 				ConnectionInfo connection = new ConnectionInfo();
 				connection.setConnectionId(getCurrentSessionId());
-
+				/**
 				SocketAddress socketAddress = getCurrentSocketAddress();
-				String saToString = "";
+				String remoteAddress = "";
 				if (socketAddress instanceof InetSocketAddress) {
-					saToString = ((InetSocketAddress) socketAddress).getAddress().getHostAddress();
+					remoteAddress = ((InetSocketAddress) socketAddress).getAddress().getHostAddress();
 				}
-				String peerHost = session.getPeerHost();
 
 				if (logger.isDebugEnabled()) {
 					logger.debug("Socket Address: " + socketAddress);
-					logger.debug("Socket Address to String: " + saToString);
-					logger.debug("SSLSession Peer Host: " + peerHost);
+					logger.debug("Socket Address to String: " + remoteAddress);
 				}
-
-				/**
-				 // Hooking reverseStub into clientEventStream to detect client connection for dynamic cert fetch
-				 String remoteAddress = ...; // Extract from connectionInfo or SSLSession
-				 String federateName = subscription.getIdentity().getName(); // Or UID if more stable
-
-				 logger.info("Received federation client connection from: {}", federateName);
-
-				 // Optional: use known config to resolve remote address
-				 String remoteAddress = resolveFederateAddress(federateName); // Your own lookup
-
-				 try {
-				 ManagedChannel reverseChannel = openFigConnection(remoteAddress, 8443, getServerSslContext());
-				 FederatedChannelBlockingStub reverseStub = FederatedChannelGrpc.newBlockingStub(reverseChannel);
-
-				 reverseClientStubs.put(federateName, reverseStub);
-				 logger.info("Stored reverse stub for federate: {}", federateName);
-
-				 } catch (Exception e) {
-				 logger.warn("Failed to open reverse gRPC channel to federate: {}", federateName, e);
-				 }
-				 **/
-
+				**/
 				fedSub = (FigServerFederateSubscription) federatedSubscriptionManager.getFederateSubscription(connection);
 
 				// try and set here if federate is available
@@ -2324,4 +2300,69 @@ public class FederationServer {
 			return null;
 		}
 	}
+
+	private boolean fetchTrustAnchorFromClient(String trustAnchorAddress) {
+		try {
+			logger.info("Attempting reverse fetch of trust anchors from IP: {}", trustAnchorAddress);
+
+			sslConfig.initSslContext(config);
+
+			SslContext sslContext = sslConfig.getSslContext();
+
+			ManagedChannel channel = FederationUtils.openSecureGrpcChannel(trustAnchorAddress, 9001, sslContext);
+			FederatedChannelBlockingStub reverseStub = FederatedChannelGrpc.newBlockingStub(channel);
+
+			CertificatesResponse response = reverseStub.getTrustAnchorCertificates(Empty.newBuilder().build());
+
+			for (ByteString pem : response.getPemEncodedCertificatesList()) {
+				storeCertInTruststore(pem);  // existing logic
+			}
+
+			channel.shutdownNow();
+			logger.info("Successfully fetched and installed trust anchors from {}", trustAnchorAddress);
+			return true;
+
+		} catch (Exception e) {
+			logger.warn("Failed to fetch trust anchors from {}: {}", trustAnchorAddress, e.getMessage(), e);
+			return false;
+		}
+	}
+
+	private void storeCertInTruststore(ByteString pemBytes) {
+		try {
+			String pem = pemBytes.toStringUtf8();
+			CertificateFactory cf = CertificateFactory.getInstance("X.509");
+			X509Certificate cert = (X509Certificate) cf.generateCertificate(new ByteArrayInputStream(pem.getBytes()));
+
+			com.bbn.marti.config.Federation.FederationServer fedServerConfig = fedConfig().getFederationServer();
+
+			String truststoreType = fedServerConfig.getTls().getKeystore();
+			String truststorePath = fedServerConfig.getTls().getTruststoreFile();
+			String truststorePass = fedServerConfig.getTls().getTruststorePass();
+
+			KeyStore ks = KeyStore.getInstance(truststoreType);
+			try (FileInputStream fis = new FileInputStream(truststorePath)) {
+				ks.load(fis, truststorePass.toCharArray());
+			}
+
+			String alias = RemoteUtil.getInstance().getCertSHA256Fingerprint(cert);
+			if (ks.containsAlias(alias)) {
+				logger.info("Certificate already exists: {}", alias);
+				return;
+			}
+
+			ks.setCertificateEntry(alias, cert);
+
+			try (FileOutputStream fos = new FileOutputStream(truststorePath)) {
+				ks.store(fos, truststorePass.toCharArray());
+			}
+
+			logger.info("Added cert with alias: {}", alias);
+
+			federationManager.refreshAfterDynamicCertFetch(alias, cert);
+		} catch (Exception e) {
+			logger.error("Failed to store certificate", e);
+		}
+	}
+
 }
