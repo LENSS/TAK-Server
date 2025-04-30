@@ -11,7 +11,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.net.InetAddress;
-// import java.net.InetSocketAddress;
+import java.net.InetSocketAddress;
 import java.net.SocketAddress;
 import java.nio.ByteBuffer;
 import java.rmi.RemoteException;
@@ -85,8 +85,8 @@ import com.atakmap.Tak.ContactListEntry;
 import com.atakmap.Tak.Empty;
 import com.atakmap.Tak.FederateGroups;
 import com.atakmap.Tak.FederatedChannelGrpc;
-// import com.atakmap.Tak.FederatedChannelGrpc.FederatedChannelBlockingStub;
-// import com.atakmap.Tak.FederatedChannelGrpc.FederatedChannelStub;
+import com.atakmap.Tak.FederatedChannelGrpc.FederatedChannelBlockingStub;
+import com.atakmap.Tak.FederatedChannelGrpc.FederatedChannelStub;
 import com.atakmap.Tak.FederatedEvent;
 import com.atakmap.Tak.Identity;
 import com.atakmap.Tak.ROL;
@@ -171,7 +171,7 @@ public class FederationServer {
 	private final Map<String, String> clientROLStreamNames = new ConcurrentHashMap<>();
 	private final Map<String, String> serverFederateMap = new ConcurrentHashMap<>();
 	private final Map<String, GuardedStreamHolder<FederateGroups>> serverFederateGroupStreamMap = new ConcurrentHashMap<>();
-	// private final Map<String, FederatedChannelBlockingStub> reverseClientStubs = new ConcurrentHashMap<>();
+	private final Map<String, FederatedChannelBlockingStub> reverseClientStubs = new ConcurrentHashMap<>();
 
 	@Autowired
 	private DistributedFederationManager federationManager;
@@ -574,7 +574,7 @@ public class FederationServer {
 
 				ConnectionInfo connection = new ConnectionInfo();
 				connection.setConnectionId(getCurrentSessionId());
-				/**
+
 				SocketAddress socketAddress = getCurrentSocketAddress();
 				String saToString = "";
 				if (socketAddress instanceof InetSocketAddress) {
@@ -587,7 +587,7 @@ public class FederationServer {
 					logger.debug("Socket Address to String: " + saToString);
 					logger.debug("SSLSession Peer Host: " + peerHost);
 				}
-				**/
+
 				/**
 				 // Hooking reverseStub into clientEventStream to detect client connection for dynamic cert fetch
 				 String remoteAddress = ...; // Extract from connectionInfo or SSLSession
