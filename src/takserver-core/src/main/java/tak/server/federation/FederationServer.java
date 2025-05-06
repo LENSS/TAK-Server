@@ -11,7 +11,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.net.InetAddress;
-import java.net.InetSocketAddress;
 import java.net.SocketAddress;
 import java.nio.ByteBuffer;
 import java.rmi.RemoteException;
@@ -60,10 +59,8 @@ import io.grpc.ServerInterceptors;
 import io.grpc.Status;
 import io.grpc.netty.NettyServerBuilder;
 import io.grpc.stub.StreamObserver;
-import io.grpc.ManagedChannel;
 import io.micrometer.core.instrument.Metrics;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
-import io.netty.handler.ssl.SslContext;
 import io.netty.util.internal.logging.InternalLoggerFactory;
 import io.netty.util.internal.logging.Slf4JLoggerFactory;
 
@@ -84,8 +81,6 @@ import com.atakmap.Tak.ContactListEntry;
 import com.atakmap.Tak.Empty;
 import com.atakmap.Tak.FederateGroups;
 import com.atakmap.Tak.FederatedChannelGrpc;
-import com.atakmap.Tak.FederatedChannelGrpc.FederatedChannelBlockingStub;
-import com.atakmap.Tak.FederatedChannelGrpc.FederatedChannelStub;
 import com.atakmap.Tak.FederatedEvent;
 import com.atakmap.Tak.Identity;
 import com.atakmap.Tak.ROL;
@@ -141,6 +136,7 @@ import tak.server.federation.rol.MissionRolVisitor;
 import tak.server.messaging.Messenger;
 
 import com.atakmap.Tak.CertificatesResponse;
+import com.atakmap.Tak.CertificatesRequest;
 import java.io.ByteArrayInputStream;
 
 
@@ -171,7 +167,6 @@ public class FederationServer {
 	private final Map<String, String> clientROLStreamNames = new ConcurrentHashMap<>();
 	private final Map<String, String> serverFederateMap = new ConcurrentHashMap<>();
 	private final Map<String, GuardedStreamHolder<FederateGroups>> serverFederateGroupStreamMap = new ConcurrentHashMap<>();
-	private final Map<String, FederatedChannelBlockingStub> reverseClientStubs = new ConcurrentHashMap<>();
 
 	@Autowired
 	private DistributedFederationManager federationManager;
@@ -574,18 +569,7 @@ public class FederationServer {
 
 				ConnectionInfo connection = new ConnectionInfo();
 				connection.setConnectionId(getCurrentSessionId());
-				/**
-				SocketAddress socketAddress = getCurrentSocketAddress();
-				String remoteAddress = "";
-				if (socketAddress instanceof InetSocketAddress) {
-					remoteAddress = ((InetSocketAddress) socketAddress).getAddress().getHostAddress();
-				}
 
-				if (logger.isDebugEnabled()) {
-					logger.debug("Socket Address: " + socketAddress);
-					logger.debug("Socket Address to String: " + remoteAddress);
-				}
-				**/
 				fedSub = (FigServerFederateSubscription) federatedSubscriptionManager.getFederateSubscription(connection);
 
 				// try and set here if federate is available
@@ -1560,6 +1544,7 @@ public class FederationServer {
 
 		}
 
+		@Override
 		public void getTrustAnchorCertificates(Empty request, StreamObserver<CertificatesResponse> responseObserver) {
 			try {
 				com.bbn.marti.config.Federation.FederationServer fedServerConfig = fedConfig().getFederationServer();
@@ -1598,6 +1583,30 @@ public class FederationServer {
 						.asRuntimeException());
 			}
 		}
+
+		@Override
+		public void sendTrustAnchorCertificates(CertificatesResponse response, StreamObserver<Empty> responseObserver) {
+			try {
+				// Handle and store certs
+				for (ByteString pem : response.getPemEncodedCertificatesList()) {
+					try {
+						storeCertInTruststore(pem);
+						logger.info("Successfully updated the truststore.");
+					} catch (Exception e) {
+						logger.warn("Failed to process received cert", e);
+					}
+				}
+
+				responseObserver.onNext(Empty.getDefaultInstance());
+				responseObserver.onCompleted();
+			} catch (Exception e) {
+				logger.error("Failed to process SendTrustAnchorCertificates", e);
+				responseObserver.onError(
+						Status.INTERNAL.withDescription("Failed to process certificate").withCause(e).asRuntimeException()
+				);
+			}
+		}
+
 
 		private String pemEncode(X509Certificate cert) throws CertificateEncodingException {
 			return "-----BEGIN CERTIFICATE-----\n" +
@@ -2301,29 +2310,29 @@ public class FederationServer {
 		}
 	}
 
-	private boolean fetchTrustAnchorFromClient(String trustAnchorAddress) {
+	// When A needs to fetch certs from connected B
+	public boolean requestTrustAnchorsFromClient(String id) {
+		GuardedStreamHolder<FederatedEvent> streamHolder = clientStreamMap.get(id);
+
+		if (streamHolder == null) {
+			logger.warn("No active stream found for session {}", id);
+			return false;
+		}
+
 		try {
-			logger.info("Attempting reverse fetch of trust anchors from IP: {}", trustAnchorAddress);
+			CertificatesRequest req = CertificatesRequest.newBuilder()
+				.setReason("Missing CA for new federate")
+				.build();
 
-			sslConfig.initSslContext(config);
+			FederatedEvent event = FederatedEvent.newBuilder()
+				.setCertificatesRequest(req)
+				.build();
 
-			SslContext sslContext = sslConfig.getSslContext();
-
-			ManagedChannel channel = FederationUtils.openSecureGrpcChannel(trustAnchorAddress, 9001, sslContext);
-			FederatedChannelBlockingStub reverseStub = FederatedChannelGrpc.newBlockingStub(channel).withDeadlineAfter(10, TimeUnit.SECONDS);
-
-			CertificatesResponse response = reverseStub.getTrustAnchorCertificates(Empty.newBuilder().build());
-
-			for (ByteString pem : response.getPemEncodedCertificatesList()) {
-				storeCertInTruststore(pem);  // existing logic
-			}
-
-			channel.shutdownNow();
-			logger.info("Successfully fetched and installed trust anchors from {}", trustAnchorAddress);
+			streamHolder.send(event);
+			logger.info("Sent CertificatesRequest to session {}", id);
 			return true;
-
 		} catch (Exception e) {
-			logger.warn("Failed to fetch trust anchors from {}: {}", trustAnchorAddress, e.getMessage(), e);
+			logger.warn("Failed to send CertificatesRequest to session {}: {}", id, e.getMessage(), e);
 			return false;
 		}
 	}
@@ -2363,6 +2372,10 @@ public class FederationServer {
 		} catch (Exception e) {
 			logger.error("Failed to store certificate", e);
 		}
+	}
+
+	public static FederationServer getInstance() {
+		return fedServer;
 	}
 
 }

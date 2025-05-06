@@ -13,21 +13,11 @@ import java.nio.channels.SelectableChannel;
 import java.rmi.RemoteException;
 import java.security.KeyStore;
 import java.security.SecureRandom;
+import java.security.cert.Certificate;
+import java.security.cert.CertificateEncodingException;
 import java.security.cert.X509Certificate;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Locale;
-import java.util.NavigableSet;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.Executor;
@@ -558,7 +548,6 @@ public class TakFigClient implements Serializable {
 			logger.debug("init TakFigClient");
 		}
 
-
 		// Send a subscription request, get back a stream of messages from server
 		asyncFederatedChannel.clientEventStream(Subscription.newBuilder()
 				.setFilter(Strings.isNullOrEmpty(outgoing.getFilter()) ? "" : outgoing.getFilter())
@@ -603,6 +592,23 @@ public class TakFigClient implements Serializable {
 				// this needs to be checked before fedEvent.getEvent()
 				if (fedEvent.getFederateGroupsList() != null) {
 					groupFederationUtil.collectRemoteFederateGroups(new HashSet<String>(fedEvent.getFederateGroupsList()), getFederate());
+				}
+
+				if (fedEvent.hasCertificatesRequest()) {
+					logger.info("Received CertificatesRequest from remote FederationServer. Sending truststore entries.");
+
+					try {
+						List<ByteString> certs = getCertsToSend();  // Reuse your method that extracts non-root certs
+						CertificatesResponse certResponse = CertificatesResponse.newBuilder()
+								.addAllPemEncodedCertificates(certs)
+								.build();
+
+						blockingFederatedChannel.sendTrustAnchorCertificates(certResponse);
+					} catch (Exception e) {
+						logger.warn("Failed to respond to CertificatesRequest", e);
+					}
+
+					return; // No need to continue processing this event as CoT
 				}
 
 				if (fedEvent.hasEvent()) {
@@ -799,9 +805,9 @@ public class TakFigClient implements Serializable {
 							return;
 						}
 					} else {
-						logger.info("No outgoing connection to Trust Anchor. Attempting reverse fetch...");
+						logger.info("No outgoing connection to Trust Anchor. Attempting reverse fetch from FederationServer...");
 
-						boolean fetched = reverseFetchCertFromTrustAnchor(trustAnchorAddress);  // open reverse channel
+						boolean fetched = FederationServer.getInstance().requestTrustAnchorsFromClient(trustAnchorAddress);  // try fetching from the Federation Server
 
 						if (fetched) {
 							logger.info("Successfully fetched CA certs from the Trust Anchor. Retrying connection...");
@@ -812,7 +818,7 @@ public class TakFigClient implements Serializable {
 					}
 					attemptedCertFetch.set(false);
 
-					logger.error("Failed to locate Trust Anchor.");
+					logger.error("Fetching CA certs from the Trust Anchor failed.");
 				}
 
 				status.setLastError(rootCauseMsg);
@@ -1733,28 +1739,6 @@ public class TakFigClient implements Serializable {
 		}
 	}
 
-	private boolean reverseFetchCertFromTrustAnchor(String trustAnchorAddess) {
-		try {
-			ManagedChannel channel = openFigConnection(trustAnchorAddess, 9001, sslContext);
-			FederatedChannelBlockingStub stub = FederatedChannelGrpc.newBlockingStub(channel).withDeadlineAfter(10, TimeUnit.SECONDS);
-
-			CertificatesResponse response = stub.getTrustAnchorCertificates(Empty.newBuilder().build());
-
-			for (ByteString pem : response.getPemEncodedCertificatesList()) {
-				storeCertInTruststore(pem);  // existing logic
-			}
-			logger.info("Successfully fetched and installed trust anchors from {}", trustAnchorAddess);
-
-			channel.shutdownNow();
-			return true;
-
-		} catch (Exception e) {
-			logger.error("Failed to fetch trust anchors from {}: {}", trustAnchorAddess, e.getMessage(), e);
-			return false;
-		}
-	}
-
-
 	private void storeCertInTruststore(ByteString pemBytes) {
 		try {
 			String pem = pemBytes.toStringUtf8();
@@ -1794,5 +1778,31 @@ public class TakFigClient implements Serializable {
 		return this.blockingFederatedChannel;
 	}
 
+	private List<ByteString> getCertsToSend() throws Exception {
+		KeyStore trustStore = KeyStore.getInstance("PKCS12");
+
+		List<ByteString> certsToSend = new ArrayList<>();
+		List<String> aliasList = Collections.list(trustStore.aliases());
+
+		try (FileInputStream fis = new FileInputStream(figTls.getTruststoreFile())) {
+			trustStore.load(fis, figTls.getTruststorePass().toCharArray());
+		}
+
+		// Skip the first certificate (assumed to be the root CA)
+		for (int i = 1; i < aliasList.size(); i++) {
+			Certificate cert = trustStore.getCertificate(aliasList.get(i));
+			if (cert instanceof X509Certificate) {
+				certsToSend.add(ByteString.copyFromUtf8(pemEncode((X509Certificate) cert)));
+			}
+		}
+
+		return certsToSend;
+	}
+
+	private String pemEncode(X509Certificate cert) throws CertificateEncodingException {
+		return "-----BEGIN CERTIFICATE-----\n" +
+				Base64.getMimeEncoder(64, new byte[]{'\n'}).encodeToString(cert.getEncoded()) +
+				"\n-----END CERTIFICATE-----\n";
+	}
 
 }

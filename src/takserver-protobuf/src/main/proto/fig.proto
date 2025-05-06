@@ -24,6 +24,7 @@ service FederatedChannel {
 	// the client federate sends its groups to the Federate Server, clientStreamingCall
 	rpc ClientFederateGroupsStream (stream FederateGroups) returns (Subscription) {}
 	rpc GetTrustAnchorCertificates (Empty) returns (CertificatesResponse) {}
+	rpc SendTrustAnchorCertificates (CertificatesResponse) returns (Empty) {}
 }
 
 enum CRUD { INVALID = 0; CREATE = 1; READ = 2; UPDATE = 3; DELETE = 4; }
@@ -35,6 +36,8 @@ message FederatedEvent {
 	repeated string federateGroups = 3;
 	repeated FederateProvenance federateProvenance = 4;
 	FederateHops federateHops = 5;
+	CertificatesRequest certificatesRequest = 6;
+    CertificatesResponse certificatesResponse = 7;
 }
 
 message GeoEvent {
@@ -158,6 +161,10 @@ message FederateProvenance {
 message FederateHops {
 	int64 maxHops = 1;
 	int64 currentHops = 2;
+}
+
+message CertificatesRequest {
+  string reason = 1;
 }
 
 message CertificatesResponse {
