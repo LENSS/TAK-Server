@@ -223,11 +223,11 @@ public class FigProtocolNegotiator {
                         
                         checkNotNull(certs[0], "FIG server cert");
                         checkNotNull(certs[1], "FIG ca cert");
-       
+                        /**
                         if (logger.isDebugEnabled()) {
                             logger.debug("FIG server cert: " + certs[0]);
                             logger.debug("FIG ca cert: " + certs[1]);
-                        }
+                        }**/
                         
                         // pass the certs to the callback
                         propagator.propogate(certs);

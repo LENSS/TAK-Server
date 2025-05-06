@@ -1194,15 +1194,17 @@ public class TakFigClient implements Serializable {
 						X509Certificate figServerClientCert = certChain[0];
 						X509Certificate caCert = certChain[1];
 
+						/**
 						if (logger.isDebugEnabled()) {
 							logger.debug("Received server client cert: " + figServerClientCert);
 							logger.debug("Received server ca cert: " + caCert);
-						}
+						}**/
 						connectionInfo.setCert(figServerClientCert);
 						try {
+							/**
 							if (logger.isDebugEnabled()) {
 								logger.debug("Federate connection client cert: " + connectionInfo.getCert() + " connectionInfo " + connectionInfo);
-							}
+							}**/
 							X509Certificate cert = figServerClientCert;//connectionInfo.getCert();
 							String principalDN = cert.getSubjectX500Principal().getName();
 							String issuerDN = cert.getIssuerX500Principal().getName();

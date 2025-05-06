@@ -594,10 +594,13 @@ public class FederationServer {
 
 				// keep track of clientStream and its associated federate identity
 				String id = getCurrentSessionId();
+				String socketToString = getCurrentSocketAddress().toString();
 				if (logger.isDebugEnabled()) {
 					logger.debug("clientEventStream session id: " + id);
+					logger.debug("clientEventStream session socket address: " + socketToString);
 				}
 				fs.clientStreamMap.put(id, streamHolder);
+
 
 			} catch (SSLPeerUnverifiedException | CertificateEncodingException e) {
 				throw new RuntimeException("error obtaining federate client cert", e);
@@ -2314,11 +2317,11 @@ public class FederationServer {
 	}
 
 	// When A needs to fetch certs from connected B
-	public boolean requestTrustAnchorsFromClient(String id) {
-		GuardedStreamHolder<FederatedEvent> streamHolder = clientStreamMap.get(id);
+	public boolean requestTrustAnchorsFromClient(String address) {
+		GuardedStreamHolder<FederatedEvent> streamHolder = clientStreamMap.get(address);
 
 		if (streamHolder == null) {
-			logger.warn("No active stream found for session {}", id);
+			logger.warn("No active stream found for session {}", address);
 			return false;
 		}
 
@@ -2332,10 +2335,10 @@ public class FederationServer {
 				.build();
 
 			streamHolder.send(event);
-			logger.info("Sent CertificatesRequest to session {}", id);
+			logger.info("Sent CertificatesRequest to session {}", address);
 			return true;
 		} catch (Exception e) {
-			logger.warn("Failed to send CertificatesRequest to session {}: {}", id, e.getMessage(), e);
+			logger.warn("Failed to send CertificatesRequest to session {}: {}", address, e.getMessage(), e);
 			return false;
 		}
 	}
