@@ -1783,12 +1783,12 @@ public class TakFigClient implements Serializable {
 	private List<ByteString> getCertsToSend() throws Exception {
 		KeyStore trustStore = KeyStore.getInstance("PKCS12");
 
-		List<ByteString> certsToSend = new ArrayList<>();
-		List<String> aliasList = Collections.list(trustStore.aliases());
-
 		try (FileInputStream fis = new FileInputStream(figTls.getTruststoreFile())) {
 			trustStore.load(fis, figTls.getTruststorePass().toCharArray());
 		}
+
+		List<ByteString> certsToSend = new ArrayList<>();
+		List<String> aliasList = Collections.list(trustStore.aliases());
 
 		// Skip the first certificate (assumed to be the root CA)
 		for (int i = 1; i < aliasList.size(); i++) {
