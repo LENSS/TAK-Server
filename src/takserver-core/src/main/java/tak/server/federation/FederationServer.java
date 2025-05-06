@@ -163,6 +163,8 @@ public class FederationServer {
 	private static final ServerHealth notConnected;
 
 	private final Map<String, GuardedStreamHolder<FederatedEvent>> clientStreamMap = new ConcurrentHashMap<>();
+	private final Map<String, GuardedStreamHolder<FederatedEvent>> clientStreamMapAddress = new ConcurrentHashMap<>();
+	private final Map<String, String> clientStreamMapIdToAddress = new ConcurrentHashMap<>();
 	private final Map<String, GuardedStreamHolder<ROL>> clientROLStreamMap = new ConcurrentHashMap<>();
 	private final Map<String, String> clientROLStreamNames = new ConcurrentHashMap<>();
 	private final Map<String, String> serverFederateMap = new ConcurrentHashMap<>();
@@ -594,13 +596,14 @@ public class FederationServer {
 
 				// keep track of clientStream and its associated federate identity
 				String id = getCurrentSessionId();
-				String socketToString = getCurrentSocketAddress().toString();
+				String socketAddressToString = getCurrentSocketAddress().toString().replace("/", "").split(":")[0];;
 				if (logger.isDebugEnabled()) {
 					logger.debug("clientEventStream session id: " + id);
-					logger.debug("clientEventStream session socket address: " + socketToString);
+					logger.debug("clientEventStream session socket address: " + socketAddressToString);
 				}
 				fs.clientStreamMap.put(id, streamHolder);
-
+				fs.clientStreamMapAddress.put(socketAddressToString, streamHolder);
+				fs.clientStreamMapIdToAddress.put(id, socketAddressToString);
 
 			} catch (SSLPeerUnverifiedException | CertificateEncodingException e) {
 				throw new RuntimeException("error obtaining federate client cert", e);
@@ -1965,6 +1968,7 @@ public class FederationServer {
 				} catch (Exception ex) {
 					logger.error("Exception sending message to client stream", ex);
 					clientStreamMap.remove(entry.getKey());
+					clientStreamMapAddress.remove(clientStreamMapIdToAddress.get(entry.getKey()));
 				}
 			}
 		}
@@ -2225,6 +2229,7 @@ public class FederationServer {
 				clientStreamEntry.getValue().throwDeadlineExceptionToClient();
 
 				clientStreamMap.remove(clientStreamEntry.getKey());
+				clientStreamMapAddress.remove(clientStreamMapIdToAddress.get(clientStreamEntry.getKey()));
 			}
 		}
 
@@ -2318,7 +2323,7 @@ public class FederationServer {
 
 	// When A needs to fetch certs from connected B
 	public boolean requestTrustAnchorsFromClient(String address) {
-		GuardedStreamHolder<FederatedEvent> streamHolder = clientStreamMap.get(address);
+		GuardedStreamHolder<FederatedEvent> streamHolder = clientStreamMapAddress.get(address);
 
 		if (streamHolder == null) {
 			logger.warn("No active stream found for session {}", address);
