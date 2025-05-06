@@ -594,6 +594,9 @@ public class FederationServer {
 
 				// keep track of clientStream and its associated federate identity
 				String id = getCurrentSessionId();
+				if (logger.isDebugEnabled()) {
+					logger.debug("clientEventStream session id: " + id);
+				}
 				fs.clientStreamMap.put(id, streamHolder);
 
 			} catch (SSLPeerUnverifiedException | CertificateEncodingException e) {
