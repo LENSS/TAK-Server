@@ -138,7 +138,9 @@ public class DistributedFederationManager implements FederationManager, Service 
 
 	private ContinuousQuery<String, SSLConfig> continuousTrustStoreQuery = new ContinuousQuery<>();
 
-	private final Map<String, TakFigClient> activeClients = new ConcurrentHashMap<>();
+	private final Map<String, TakFigClient> activeTakFigClients = new ConcurrentHashMap<>();
+
+	private OpenIDFederationServer oidfServer;
 
 	public DistributedFederationManager(Ignite ignite) {
 
@@ -279,6 +281,15 @@ public class DistributedFederationManager implements FederationManager, Service 
 
 		if (logger.isDebugEnabled()) {
 			logger.debug("federation enabled in config.");
+		}
+
+		if (oidfServer == null) {
+			oidfServer = new OpenIDFederationServer();
+			try {
+				oidfServer.start();
+			} catch (Exception e) {
+				logger.error("Failed to start OpenID Federation server", e);
+			}
 		}
 
 		try {
@@ -2748,16 +2759,16 @@ public class DistributedFederationManager implements FederationManager, Service 
 	}
 
 
-	public void registerClient(String outgoingAddress, TakFigClient client) {
-		activeClients.put(outgoingAddress, client);
+	public void registerTakFigClient(String outgoingAddress, TakFigClient client) {
+		activeTakFigClients.put(outgoingAddress, client);
 	}
 
-	public TakFigClient getClient(String outgoingAddress) {
-		return activeClients.get(outgoingAddress);
+	public TakFigClient getTakFigClient(String outgoingAddress) {
+		return activeTakFigClients.get(outgoingAddress);
 	}
 
-	public TakFigClient removeClient(String outgoingAddress) {
-		return activeClients.remove(outgoingAddress);
+	public TakFigClient removeTakFigClient(String outgoingAddress) {
+		return activeTakFigClients.remove(outgoingAddress);
 	}
 
 

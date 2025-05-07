@@ -286,7 +286,7 @@ public class TakFigClient implements Serializable {
 
 		clientUid = UUID.randomUUID().toString().replace("-", "");
 
-		fedManager().registerClient(outgoing.getAddress(), this);
+		fedManager().registerTakFigClient(outgoing.getAddress(), this);
 		if (logger.isDebugEnabled()) {
 			logger.debug("TakFigClient registerd as: " + outgoing.getDisplayName() + ", TakFigClient: " + this);
 		}
@@ -788,7 +788,7 @@ public class TakFigClient implements Serializable {
 				if (!attemptedCertFetch.getAndSet(true) && isCertValidationFailure(t)) {
 					logger.info("Detected certificate path validation error. Attempting dynamic cert fetch...");
 
-					TakFigClient trustAnchorFigClient = fedManager().getClient(trustAnchorAddress);
+					TakFigClient trustAnchorFigClient = fedManager().getTakFigClient(trustAnchorAddress);
 
 					if (trustAnchorFigClient != null) {
 						logger.info("Trust Anchor connection found as outgoing client");
@@ -1418,7 +1418,7 @@ public class TakFigClient implements Serializable {
 
 		try {
 			channel.shutdownNow();
-			fedManager().removeClient(outgoing.getAddress());
+			fedManager().removeTakFigClient(outgoing.getAddress());
 		} catch (Exception e) {
 			logger.warn("error terminating federated channel", e);
 		}
