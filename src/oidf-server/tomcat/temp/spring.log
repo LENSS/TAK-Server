@@ -1,3 +1,15 @@
-2025-04-21 10:57:24.146  INFO 89119 --- [main] com.nimbusds.login.C2idLogin             : Starting C2idLogin v3.4.5-migrated-1.0.9 using Java 17.0.14 on lenss-10 with PID 89119 (/home/radu/connect2id-server-18.0/tomcat/webapps/c2id-login/WEB-INF/classes started by radu in /home/radu/connect2id-server-18.0/tomcat/bin)
-2025-04-21 10:57:24.148  INFO 89119 --- [main] com.nimbusds.login.C2idLogin             : The following profiles are active: prod
-2025-04-21 10:57:25.566  INFO 89119 --- [main] com.nimbusds.login.C2idLogin             : Started C2idLogin in 2.06 seconds (JVM running for 17.811)
+2025-05-07 15:39:17.026  INFO 63846 --- [main] com.nimbusds.login.C2idLogin             : Starting C2idLogin v3.4.5-migrated-1.0.9 using Java 17.0.15 on lenss-10 with PID 63846 (/home/radu/TAK-Server/src/oidf-server/tomcat/webapps/c2id-login/WEB-INF/classes started by radu in /home/radu/TAK-Server/src/oidf-server/tomcat/bin)
+2025-05-07 15:39:17.031  INFO 63846 --- [main] com.nimbusds.login.C2idLogin             : The following profiles are active: prod
+2025-05-07 15:39:18.649  INFO 63846 --- [main] com.nimbusds.login.C2idLogin             : Started C2idLogin in 2.354 seconds (JVM running for 7.252)
+2025-05-07 16:36:06.181  INFO 71850 --- [main] com.nimbusds.login.C2idLogin             : Starting C2idLogin v3.4.5-migrated-1.0.9 using Java 17.0.15 on lenss-10 with PID 71850 (/home/radu/TAK-Server/src/oidf-server/tomcat/webapps/c2id-login/WEB-INF/classes started by radu in /home/radu/TAK-Server/src/takserver-core/example)
+2025-05-07 16:36:06.205  INFO 71850 --- [main] com.nimbusds.login.C2idLogin             : The following profiles are active: prod
+2025-05-07 16:36:09.366  INFO 71850 --- [main] com.nimbusds.login.C2idLogin             : Started C2idLogin in 4.716 seconds (JVM running for 13.628)
+2025-05-07 16:41:37.723  INFO 73399 --- [main] com.nimbusds.login.C2idLogin             : Starting C2idLogin v3.4.5-migrated-1.0.9 using Java 17.0.15 on lenss-10 with PID 73399 (/home/radu/TAK-Server/src/oidf-server/tomcat/webapps/c2id-login/WEB-INF/classes started by radu in /home/radu/TAK-Server/src/takserver-core/example)
+2025-05-07 16:41:37.737  INFO 73399 --- [main] com.nimbusds.login.C2idLogin             : The following profiles are active: prod
+2025-05-07 16:41:41.955  INFO 73399 --- [main] com.nimbusds.login.C2idLogin             : Started C2idLogin in 6.135 seconds (JVM running for 16.371)
+2025-05-07 16:45:19.359  INFO 74829 --- [main] com.nimbusds.login.C2idLogin             : Starting C2idLogin v3.4.5-migrated-1.0.9 using Java 17.0.15 on lenss-10 with PID 74829 (/home/radu/TAK-Server/src/oidf-server/tomcat/webapps/c2id-login/WEB-INF/classes started by radu in /home/radu/TAK-Server/src/takserver-core/example)
+2025-05-07 16:45:19.371  INFO 74829 --- [main] com.nimbusds.login.C2idLogin             : The following profiles are active: prod
+2025-05-07 16:45:23.163  INFO 74829 --- [main] com.nimbusds.login.C2idLogin             : Started C2idLogin in 5.17 seconds (JVM running for 13.301)
+2025-05-07 17:12:23.098  INFO 77310 --- [main] com.nimbusds.login.C2idLogin             : Starting C2idLogin v3.4.5-migrated-1.0.9 using Java 17.0.15 on lenss-10 with PID 77310 (/home/radu/TAK-Server/src/oidf-server/tomcat/webapps/c2id-login/WEB-INF/classes started by radu in /home/radu/TAK-Server/src/takserver-core/example)
+2025-05-07 17:12:23.114  INFO 77310 --- [main] com.nimbusds.login.C2idLogin             : The following profiles are active: prod
+2025-05-07 17:12:28.279  INFO 77310 --- [main] com.nimbusds.login.C2idLogin             : Started C2idLogin in 6.972 seconds (JVM running for 17.416)

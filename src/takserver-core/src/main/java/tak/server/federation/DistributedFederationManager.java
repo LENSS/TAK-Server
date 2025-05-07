@@ -183,6 +183,7 @@ public class DistributedFederationManager implements FederationManager, Service 
 
 	@Override
 	public void cancel(ServiceContext ctx) {
+		oidfServer.stop();
 		if (logger.isDebugEnabled()) {
 			logger.debug("DistributedFederationManager service cancelled");
 		}
@@ -204,6 +205,12 @@ public class DistributedFederationManager implements FederationManager, Service 
 
 		getSSLCache().putIfAbsent(SSL_TRUSTSTORE_KEY,
 				SSLConfig.getInstance(config.getFederation().getFederationServer().getTls()));
+
+		if (oidfServer == null) {
+			oidfServer = new OpenIDFederationServer();
+			oidfServer.start();
+		}
+
 	}
 
 	@Override
@@ -281,15 +288,6 @@ public class DistributedFederationManager implements FederationManager, Service 
 
 		if (logger.isDebugEnabled()) {
 			logger.debug("federation enabled in config.");
-		}
-
-		if (oidfServer == null) {
-			oidfServer = new OpenIDFederationServer();
-			try {
-				oidfServer.start();
-			} catch (Exception e) {
-				logger.error("Failed to start OpenID Federation server", e);
-			}
 		}
 
 		try {
@@ -2674,10 +2672,12 @@ public class DistributedFederationManager implements FederationManager, Service 
 			} else {
 				logger.info("federation v2 is not enabled, so stopping if running.");
 				tak.server.federation.FederationServer.stopServer();
+				oidfServer.stop();
 			}
 		} else {
 			logger.info("federation is disabled, stopping federation server if running");
 			tak.server.federation.FederationServer.stopServer();
+			oidfServer.stop();
 			disableAllOutgoing();
 		}
 	}
