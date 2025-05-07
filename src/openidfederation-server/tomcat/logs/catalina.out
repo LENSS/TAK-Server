@@ -1,0 +1,487 @@
+21-Apr-2025 10:57:09.707 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.39
+21-Apr-2025 10:57:09.739 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Mar 4 2025 19:02:32 UTC
+21-Apr-2025 10:57:09.739 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.39.0
+21-Apr-2025 10:57:09.739 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+21-Apr-2025 10:57:09.739 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            6.8.0-57-generic
+21-Apr-2025 10:57:09.740 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+21-Apr-2025 10:57:09.740 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/java-17-openjdk-amd64
+21-Apr-2025 10:57:09.740 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           17.0.14+7-Ubuntu-122.04.1
+21-Apr-2025 10:57:09.740 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Ubuntu
+21-Apr-2025 10:57:09.740 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /home/radu/connect2id-server-18.0/tomcat
+21-Apr-2025 10:57:09.740 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /home/radu/connect2id-server-18.0/tomcat
+21-Apr-2025 10:57:09.742 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [/home/radu/opt/lib::/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib]
+21-Apr-2025 10:57:10.651 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+21-Apr-2025 10:57:10.779 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [1634] milliseconds
+21-Apr-2025 10:57:10.989 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+21-Apr-2025 10:57:10.989 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.39]
+21-Apr-2025 10:57:12.097 INFO [main] org.apache.tomcat.jakartaee.Migration.execute Performing migration from source [/home/radu/connect2id-server-18.0/tomcat/webapps-javaee/c2id-login.war] to destination [/home/radu/connect2id-server-18.0/tomcat/webapps-javaee/new6961707821625992992.tmp] with Jakarta EE specification profile [TOMCAT]
+21-Apr-2025 10:57:12.121 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [/home/radu/connect2id-server-18.0/tomcat/webapps-javaee/c2id-login.war] using streaming
+21-Apr-2025 10:57:12.247 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration skipped for archive [WEB-INF/lib/httpclient-4.5.13.jar] because it is excluded (the archive was copied unchanged)
+21-Apr-2025 10:57:12.248 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/jetty-servlet-9.4.42.v20210604.jar] using streaming
+21-Apr-2025 10:57:12.384 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/jetty-servlet-9.4.42.v20210604.jar]
+21-Apr-2025 10:57:12.385 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/spring-boot-2.5.2.jar] using streaming
+21-Apr-2025 10:57:12.940 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/spring-boot-2.5.2.jar]
+21-Apr-2025 10:57:12.941 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/jakarta.annotation-api-1.3.5.jar] using streaming
+21-Apr-2025 10:57:12.953 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/jakarta.annotation-api-1.3.5.jar]
+21-Apr-2025 10:57:12.953 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/jackson-datatype-jsr310-2.12.3.jar] using streaming
+21-Apr-2025 10:57:12.996 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/jackson-datatype-jsr310-2.12.3.jar]
+21-Apr-2025 10:57:12.997 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/spring-context-5.3.8.jar] using streaming
+21-Apr-2025 10:57:13.386 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/spring-context-5.3.8.jar]
+21-Apr-2025 10:57:13.387 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/spring-webmvc-5.3.8.jar] using streaming
+21-Apr-2025 10:57:13.769 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/spring-webmvc-5.3.8.jar]
+21-Apr-2025 10:57:13.770 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/javax.servlet-api-4.0.1.jar] using streaming
+21-Apr-2025 10:57:13.812 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/javax.servlet-api-4.0.1.jar]
+21-Apr-2025 10:57:13.828 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration skipped for archive [WEB-INF/lib/jackson-core-2.12.3.jar] because it is excluded (the archive was copied unchanged)
+21-Apr-2025 10:57:13.829 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/spring-boot-autoconfigure-2.5.2.jar] using streaming
+21-Apr-2025 10:57:14.271 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/spring-boot-autoconfigure-2.5.2.jar]
+21-Apr-2025 10:57:14.272 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/tomcat-embed-el-9.0.48.jar] using streaming
+21-Apr-2025 10:57:14.369 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/tomcat-embed-el-9.0.48.jar]
+21-Apr-2025 10:57:14.371 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration skipped for archive [WEB-INF/lib/slf4j-api-1.7.31.jar] because it is excluded (the archive was copied unchanged)
+21-Apr-2025 10:57:14.372 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/spring-web-5.3.8.jar] using streaming
+21-Apr-2025 10:57:14.781 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/spring-web-5.3.8.jar]
+21-Apr-2025 10:57:14.782 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/commons-logging-1.2.jar] using streaming
+21-Apr-2025 10:57:14.796 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/commons-logging-1.2.jar]
+21-Apr-2025 10:57:14.797 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/jetty-io-9.4.42.v20210604.jar] using streaming
+21-Apr-2025 10:57:14.835 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/jetty-io-9.4.42.v20210604.jar]
+21-Apr-2025 10:57:14.836 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/log4j-core-2.17.1.jar] using streaming
+21-Apr-2025 10:57:15.224 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/log4j-core-2.17.1.jar]
+21-Apr-2025 10:57:15.224 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/spring-boot-starter-web-2.5.2.jar] using streaming
+21-Apr-2025 10:57:15.226 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/spring-boot-starter-web-2.5.2.jar]
+21-Apr-2025 10:57:15.226 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/spring-beans-5.3.8.jar] using streaming
+21-Apr-2025 10:57:15.368 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/spring-beans-5.3.8.jar]
+21-Apr-2025 10:57:15.371 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration skipped for archive [WEB-INF/lib/jackson-annotations-2.12.3.jar] because it is excluded (the archive was copied unchanged)
+21-Apr-2025 10:57:15.371 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/jetty-webapp-9.4.42.v20210604.jar] using streaming
+21-Apr-2025 10:57:15.406 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/jetty-webapp-9.4.42.v20210604.jar]
+21-Apr-2025 10:57:15.423 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration skipped for archive [WEB-INF/lib/spring-aop-5.3.8.jar] because it is excluded (the archive was copied unchanged)
+21-Apr-2025 10:57:15.437 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration skipped for archive [WEB-INF/lib/httpcore-4.4.14.jar] because it is excluded (the archive was copied unchanged)
+21-Apr-2025 10:57:15.438 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/spring-core-5.3.8.jar] using streaming
+21-Apr-2025 10:57:15.734 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/spring-core-5.3.8.jar]
+21-Apr-2025 10:57:15.735 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/logback-core-1.2.3.jar] using streaming
+21-Apr-2025 10:57:15.838 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/logback-core-1.2.3.jar]
+21-Apr-2025 10:57:15.839 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/fluent-hc-4.5.13.jar] using streaming
+21-Apr-2025 10:57:15.845 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/fluent-hc-4.5.13.jar]
+21-Apr-2025 10:57:15.845 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/snakeyaml-1.28.jar] using streaming
+21-Apr-2025 10:57:15.913 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/snakeyaml-1.28.jar]
+21-Apr-2025 10:57:15.913 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/spring-boot-starter-2.5.2.jar] using streaming
+21-Apr-2025 10:57:15.915 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/spring-boot-starter-2.5.2.jar]
+21-Apr-2025 10:57:15.915 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/jetty-security-9.4.42.v20210604.jar] using streaming
+21-Apr-2025 10:57:15.947 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/jetty-security-9.4.42.v20210604.jar]
+21-Apr-2025 10:57:15.947 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/jetty-server-9.4.42.v20210604.jar] using streaming
+21-Apr-2025 10:57:16.129 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/jetty-server-9.4.42.v20210604.jar]
+21-Apr-2025 10:57:16.130 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration skipped for archive [WEB-INF/lib/log4j-to-slf4j-2.17.1.jar] because it is excluded (the archive was copied unchanged)
+21-Apr-2025 10:57:16.130 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/jackson-module-parameter-names-2.12.3.jar] using streaming
+21-Apr-2025 10:57:16.133 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/jackson-module-parameter-names-2.12.3.jar]
+21-Apr-2025 10:57:16.133 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/jakarta.servlet-api-4.0.4.jar] using streaming
+21-Apr-2025 10:57:16.161 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/jakarta.servlet-api-4.0.4.jar]
+21-Apr-2025 10:57:16.161 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/spring-boot-starter-jetty-2.5.2.jar] using streaming
+21-Apr-2025 10:57:16.162 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/spring-boot-starter-jetty-2.5.2.jar]
+21-Apr-2025 10:57:16.163 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/spring-jcl-5.3.8.jar] using streaming
+21-Apr-2025 10:57:16.167 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/spring-jcl-5.3.8.jar]
+21-Apr-2025 10:57:16.168 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration skipped for archive [WEB-INF/lib/jul-to-slf4j-1.7.31.jar] because it is excluded (the archive was copied unchanged)
+21-Apr-2025 10:57:16.168 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/jetty-servlets-9.4.42.v20210604.jar] using streaming
+21-Apr-2025 10:57:16.198 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/jetty-servlets-9.4.42.v20210604.jar]
+21-Apr-2025 10:57:16.210 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration skipped for archive [WEB-INF/lib/spring-expression-5.3.8.jar] because it is excluded (the archive was copied unchanged)
+21-Apr-2025 10:57:16.210 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/jetty-http-9.4.42.v20210604.jar] using streaming
+21-Apr-2025 10:57:16.252 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/jetty-http-9.4.42.v20210604.jar]
+21-Apr-2025 10:57:16.253 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/jetty-util-ajax-9.4.42.v20210604.jar] using streaming
+21-Apr-2025 10:57:16.265 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/jetty-util-ajax-9.4.42.v20210604.jar]
+21-Apr-2025 10:57:16.265 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/spring-boot-starter-logging-2.5.2.jar] using streaming
+21-Apr-2025 10:57:16.266 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/spring-boot-starter-logging-2.5.2.jar]
+21-Apr-2025 10:57:16.267 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/commons-lang3-3.12.0.jar] using streaming
+21-Apr-2025 10:57:16.382 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/commons-lang3-3.12.0.jar]
+21-Apr-2025 10:57:16.383 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/jakarta.websocket-api-1.1.2.jar] using streaming
+21-Apr-2025 10:57:16.396 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/jakarta.websocket-api-1.1.2.jar]
+21-Apr-2025 10:57:16.397 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/validation-api-2.0.1.Final.jar] using streaming
+21-Apr-2025 10:57:16.419 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/validation-api-2.0.1.Final.jar]
+21-Apr-2025 10:57:16.419 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/jetty-continuation-9.4.42.v20210604.jar] using streaming
+21-Apr-2025 10:57:16.426 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/jetty-continuation-9.4.42.v20210604.jar]
+21-Apr-2025 10:57:16.427 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/logback-classic-1.2.3.jar] using streaming
+21-Apr-2025 10:57:16.484 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/logback-classic-1.2.3.jar]
+21-Apr-2025 10:57:16.484 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/jackson-datatype-jdk8-2.12.3.jar] using streaming
+21-Apr-2025 10:57:16.491 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/jackson-datatype-jdk8-2.12.3.jar]
+21-Apr-2025 10:57:16.492 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/jackson-databind-2.12.3.jar] using streaming
+21-Apr-2025 10:57:16.778 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/jackson-databind-2.12.3.jar]
+21-Apr-2025 10:57:16.779 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/jetty-util-9.4.42.v20210604.jar] using streaming
+21-Apr-2025 10:57:16.884 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/jetty-util-9.4.42.v20210604.jar]
+21-Apr-2025 10:57:16.884 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/spring-boot-starter-json-2.5.2.jar] using streaming
+21-Apr-2025 10:57:16.885 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/spring-boot-starter-json-2.5.2.jar]
+21-Apr-2025 10:57:16.900 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration skipped for archive [WEB-INF/lib/commons-codec-1.15.jar] because it is excluded (the archive was copied unchanged)
+21-Apr-2025 10:57:16.900 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/log4j-api-2.17.1.jar] using streaming
+21-Apr-2025 10:57:16.959 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/log4j-api-2.17.1.jar]
+21-Apr-2025 10:57:16.959 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/jetty-xml-9.4.42.v20210604.jar] using streaming
+21-Apr-2025 10:57:16.971 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/jetty-xml-9.4.42.v20210604.jar]
+21-Apr-2025 10:57:17.165 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [/home/radu/connect2id-server-18.0/tomcat/webapps-javaee/c2id-login.war]
+21-Apr-2025 10:57:17.166 INFO [main] org.apache.tomcat.jakartaee.Migration.execute Migration completed successfully in [5,044] milliseconds
+21-Apr-2025 10:57:17.191 INFO [main] org.apache.tomcat.jakartaee.Migration.execute Performing migration from source [/home/radu/connect2id-server-18.0/tomcat/webapps-javaee/oidc-client.war] to destination [/home/radu/connect2id-server-18.0/tomcat/webapps-javaee/new15146553158165580892.tmp] with Jakarta EE specification profile [TOMCAT]
+21-Apr-2025 10:57:17.192 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [/home/radu/connect2id-server-18.0/tomcat/webapps-javaee/oidc-client.war] using streaming
+21-Apr-2025 10:57:17.193 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/lang-tag-1.6.jar] using streaming
+21-Apr-2025 10:57:17.195 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/lang-tag-1.6.jar]
+21-Apr-2025 10:57:17.195 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/jsoup-1.8.3.jar] using streaming
+21-Apr-2025 10:57:17.255 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/jsoup-1.8.3.jar]
+21-Apr-2025 10:57:17.255 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/java-property-utils-1.17.jar] using streaming
+21-Apr-2025 10:57:17.257 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/java-property-utils-1.17.jar]
+21-Apr-2025 10:57:17.258 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/oauth2-oidc-sdk-9.35.jar] using streaming
+21-Apr-2025 10:57:17.409 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/oauth2-oidc-sdk-9.35.jar]
+21-Apr-2025 10:57:17.444 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration skipped for archive [WEB-INF/lib/httpclient-4.5.13.jar] because it is excluded (the archive was copied unchanged)
+21-Apr-2025 10:57:17.456 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/nimbus-jose-jwt-9.22.jar] using streaming
+21-Apr-2025 10:57:17.579 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/nimbus-jose-jwt-9.22.jar]
+21-Apr-2025 10:57:17.579 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/json-smart-2.4.8.jar] using streaming
+21-Apr-2025 10:57:17.602 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/json-smart-2.4.8.jar]
+21-Apr-2025 10:57:17.602 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/commons-lang3-3.12.0.jar] using streaming
+21-Apr-2025 10:57:17.712 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/commons-lang3-3.12.0.jar]
+21-Apr-2025 10:57:17.712 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/accessors-smart-2.4.8.jar] using streaming
+21-Apr-2025 10:57:17.717 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/accessors-smart-2.4.8.jar]
+21-Apr-2025 10:57:17.718 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/metrics-jmx-4.1.29.jar] using streaming
+21-Apr-2025 10:57:17.722 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/metrics-jmx-4.1.29.jar]
+21-Apr-2025 10:57:17.722 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/vaadin-slf4j-jdk14-1.6.1.jar] using streaming
+21-Apr-2025 10:57:17.729 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/vaadin-slf4j-jdk14-1.6.1.jar]
+21-Apr-2025 10:57:17.730 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/commons-logging-1.2.jar] using streaming
+21-Apr-2025 10:57:17.741 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/commons-logging-1.2.jar]
+21-Apr-2025 10:57:17.741 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/atmosphere-runtime-2.2.13.vaadin1.jar] using streaming
+21-Apr-2025 10:57:17.917 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/atmosphere-runtime-2.2.13.vaadin1.jar]
+21-Apr-2025 10:57:17.917 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/vaadin-sass-compiler-0.9.13.jar] using streaming
+21-Apr-2025 10:57:18.010 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/vaadin-sass-compiler-0.9.13.jar]
+21-Apr-2025 10:57:18.012 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration skipped for archive [WEB-INF/lib/slf4j-api-1.7.32.jar] because it is excluded (the archive was copied unchanged)
+21-Apr-2025 10:57:18.018 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration skipped for archive [WEB-INF/lib/asm-9.1.jar] because it is excluded (the archive was copied unchanged)
+21-Apr-2025 10:57:18.018 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/fluent-hc-4.5.13.jar] using streaming
+21-Apr-2025 10:57:18.024 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/fluent-hc-4.5.13.jar]
+21-Apr-2025 10:57:18.024 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/metrics-core-4.1.29.jar] using streaming
+21-Apr-2025 10:57:18.046 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/metrics-core-4.1.29.jar]
+21-Apr-2025 10:57:18.046 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/pretty-json-1.4.3.jar] using streaming
+21-Apr-2025 10:57:18.063 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/pretty-json-1.4.3.jar]
+21-Apr-2025 10:57:18.078 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration skipped for archive [WEB-INF/lib/httpcore-4.4.13.jar] because it is excluded (the archive was copied unchanged)
+21-Apr-2025 10:57:18.078 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/vaadin-push-7.7.17.jar] using streaming
+21-Apr-2025 10:57:18.089 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/vaadin-push-7.7.17.jar]
+21-Apr-2025 10:57:18.089 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/commons-text-1.9.jar] using streaming
+21-Apr-2025 10:57:18.128 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/commons-text-1.9.jar]
+21-Apr-2025 10:57:18.129 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/flute-1.3.0.gg2.jar] using streaming
+21-Apr-2025 10:57:18.143 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/flute-1.3.0.gg2.jar]
+21-Apr-2025 10:57:18.158 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration skipped for archive [WEB-INF/lib/commons-codec-1.15.jar] because it is excluded (the archive was copied unchanged)
+21-Apr-2025 10:57:18.161 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/log4j-web-2.17.2.jar] using streaming
+21-Apr-2025 10:57:18.170 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/log4j-web-2.17.2.jar]
+21-Apr-2025 10:57:18.171 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/vaadin-shared-7.7.17.jar] using streaming
+21-Apr-2025 10:57:18.246 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/vaadin-shared-7.7.17.jar]
+21-Apr-2025 10:57:18.246 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/content-type-2.2.jar] using streaming
+21-Apr-2025 10:57:18.248 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/content-type-2.2.jar]
+21-Apr-2025 10:57:18.248 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/log4j-core-2.17.2.jar] using streaming
+21-Apr-2025 10:57:18.579 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/log4j-core-2.17.2.jar]
+21-Apr-2025 10:57:18.580 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/vaadin-server-7.7.17.jar] using streaming
+21-Apr-2025 10:57:19.103 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/vaadin-server-7.7.17.jar]
+21-Apr-2025 10:57:19.104 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/vaadin-client-compiled-7.7.17.jar] using streaming
+21-Apr-2025 10:57:19.216 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/vaadin-client-compiled-7.7.17.jar]
+21-Apr-2025 10:57:19.217 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/sac-1.3.jar] using streaming
+21-Apr-2025 10:57:19.221 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/sac-1.3.jar]
+21-Apr-2025 10:57:19.221 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/common-2.48.jar] using streaming
+21-Apr-2025 10:57:19.253 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/common-2.48.jar]
+21-Apr-2025 10:57:19.254 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/jcip-annotations-1.0-1.jar] using streaming
+21-Apr-2025 10:57:19.255 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/jcip-annotations-1.0-1.jar]
+21-Apr-2025 10:57:19.255 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/log4j-api-2.17.2.jar] using streaming
+21-Apr-2025 10:57:19.313 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/log4j-api-2.17.2.jar]
+21-Apr-2025 10:57:19.314 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration starting for archive [WEB-INF/lib/vaadin-themes-7.7.17.jar] using streaming
+21-Apr-2025 10:57:20.070 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [WEB-INF/lib/vaadin-themes-7.7.17.jar]
+21-Apr-2025 10:57:20.073 INFO [main] org.apache.tomcat.jakartaee.Migration.migrateStream Migration finished for archive [/home/radu/connect2id-server-18.0/tomcat/webapps-javaee/oidc-client.war]
+21-Apr-2025 10:57:20.074 INFO [main] org.apache.tomcat.jakartaee.Migration.execute Migration completed successfully in [2,882] milliseconds
+21-Apr-2025 10:57:20.080 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/home/radu/connect2id-server-18.0/tomcat/webapps/ldapauth.war]
+21-Apr-2025 10:57:20.798 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+21-Apr-2025 10:57:21.483 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/home/radu/connect2id-server-18.0/tomcat/webapps/ldapauth.war] has finished in [1,402] ms
+21-Apr-2025 10:57:21.483 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/home/radu/connect2id-server-18.0/tomcat/webapps/password-grant-handler.war]
+21-Apr-2025 10:57:21.747 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+21-Apr-2025 10:57:21.984 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/home/radu/connect2id-server-18.0/tomcat/webapps/password-grant-handler.war] has finished in [501] ms
+21-Apr-2025 10:57:21.985 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/home/radu/connect2id-server-18.0/tomcat/webapps/c2id-login.war]
+21-Apr-2025 10:57:23.166 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+
+                                  _   ___  _     _
+                                 | | |__ \(_)   | |
+   ___ ___  _ __  _ __   ___  ___| |_   ) )_  __| |
+  / __/ _ \| '_ \| '_ \ / _ \/ __| __| / /| |/ _` |
+ | (_| (_) | | | | | | |  __/ (__| |_ / /_| | (_| |
+  \___\___/|_| |_|_| |_|\___|\___|\__|____|_|\__,_|  Login  (v3.4.5-migrated-1.0.9)
+
+2025-04-21 10:57:24.146  INFO 89119 --- [           main] com.nimbusds.login.C2idLogin             : Starting C2idLogin v3.4.5-migrated-1.0.9 using Java 17.0.14 on lenss-10 with PID 89119 (/home/radu/connect2id-server-18.0/tomcat/webapps/c2id-login/WEB-INF/classes started by radu in /home/radu/connect2id-server-18.0/tomcat/bin)
+2025-04-21 10:57:24.148  INFO 89119 --- [           main] com.nimbusds.login.C2idLogin             : The following profiles are active: prod
+2025-04-21 10:57:25.566  INFO 89119 --- [           main] com.nimbusds.login.C2idLogin             : Started C2idLogin in 2.06 seconds (JVM running for 17.811)
+21-Apr-2025 10:57:25.581 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/home/radu/connect2id-server-18.0/tomcat/webapps/c2id-login.war] has finished in [3,596] ms
+21-Apr-2025 10:57:25.582 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/home/radu/connect2id-server-18.0/tomcat/webapps/oidc-client.war]
+Apr 21, 2025 10:57:26 AM org.apache.jasper.servlet.TldScanner scanJars
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+Apr 21, 2025 10:57:26 AM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing AtmosphereFramework
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework addAtmosphereHandler
+INFO: Installed AtmosphereHandler com.vaadin.server.communication.PushAtmosphereHandler mapped to context-path: /*
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework addAtmosphereHandler
+INFO: Installed the following AtmosphereInterceptor mapped to AtmosphereHandler com.vaadin.server.communication.PushAtmosphereHandler
+Apr 21, 2025 10:57:26 AM org.atmosphere.util.IOUtils readServiceFile
+INFO: META-INF/services/org.atmosphere.cpr.AtmosphereFramework not found in class loader
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework autoConfigureService
+INFO: Atmosphere is using org.atmosphere.util.VoidAnnotationProcessor for processing annotation
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework initWebSocket
+INFO: Installed WebSocketProtocol org.atmosphere.websocket.protocol.SimpleHttpProtocol 
+Apr 21, 2025 10:57:26 AM org.atmosphere.container.JSR356AsyncSupport <init>
+INFO: JSR 356 Mapping path /cb
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework configureAtmosphereInterceptor
+INFO: Installing Default AtmosphereInterceptors
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework newAInterceptor
+INFO: 	org.atmosphere.interceptor.CorsInterceptor : CORS Interceptor Support
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework newAInterceptor
+INFO: 	org.atmosphere.interceptor.CacheHeadersInterceptor : Default Response's Headers Interceptor
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework newAInterceptor
+INFO: 	org.atmosphere.interceptor.PaddingAtmosphereInterceptor : Browser Padding Interceptor Support
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework newAInterceptor
+INFO: 	org.atmosphere.interceptor.AndroidAtmosphereInterceptor : Android Interceptor Support
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework configureAtmosphereInterceptor
+INFO: Dropping Interceptor org.atmosphere.interceptor.HeartbeatInterceptor
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework newAInterceptor
+INFO: 	org.atmosphere.interceptor.SSEAtmosphereInterceptor : SSE Interceptor Support
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework newAInterceptor
+INFO: 	org.atmosphere.interceptor.JSONPAtmosphereInterceptor : JSONP Interceptor Support
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework newAInterceptor
+INFO: 	org.atmosphere.interceptor.JavaScriptProtocol : Atmosphere JavaScript Protocol
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework newAInterceptor
+INFO: 	org.atmosphere.interceptor.WebSocketMessageSuspendInterceptor : org.atmosphere.interceptor.WebSocketMessageSuspendInterceptor
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework newAInterceptor
+INFO: 	org.atmosphere.interceptor.OnDisconnectInterceptor : Browser disconnection detection
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework newAInterceptor
+INFO: 	org.atmosphere.interceptor.IdleResourceInterceptor : org.atmosphere.interceptor.IdleResourceInterceptor
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework configureAtmosphereInterceptor
+INFO: Set org.atmosphere.cpr.AtmosphereInterceptor.disableDefaults to disable them.
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework info
+INFO: Using EndpointMapper class org.atmosphere.util.DefaultEndpointMapper
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework info
+INFO: Using BroadcasterCache: org.atmosphere.cache.UUIDBroadcasterCache
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework info
+INFO: Default Broadcaster Class: org.atmosphere.cpr.DefaultBroadcaster
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework info
+INFO: Broadcaster Polling Wait Time 100
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework info
+INFO: Shared ExecutorService supported: true
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework info
+INFO: Messaging Thread Pool Size: Unlimited
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework info
+INFO: Async I/O Thread Pool Size: 200
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework info
+INFO: Using BroadcasterFactory: org.atmosphere.cpr.DefaultBroadcasterFactory
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework info
+INFO: Using WebSocketProcessor: org.atmosphere.websocket.DefaultWebSocketProcessor
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework info
+INFO: Invoke AtmosphereInterceptor on WebSocket message true
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework info
+INFO: HttpSession supported: true
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework info
+INFO: Atmosphere is using DefaultAtmosphereObjectFactory for dependency injection and object creation
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework info
+INFO: Atmosphere is using async support: org.atmosphere.container.JSR356AsyncSupport running under container: Apache Tomcat/10.1.39 using jakarta.servlet/3.0 and jsr356/WebSocket API
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework info
+INFO: Atmosphere Framework 2.2.13.vaadin1 started.
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework interceptor
+INFO: Installed AtmosphereInterceptor  Track Message Size Interceptor using | with priority BEFORE_DEFAULT 
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework addAtmosphereHandler
+INFO: Installed AtmosphereHandler com.vaadin.server.communication.PushAtmosphereHandler mapped to context-path: /*
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework addAtmosphereHandler
+INFO: Installed the following AtmosphereInterceptor mapped to AtmosphereHandler com.vaadin.server.communication.PushAtmosphereHandler
+Apr 21, 2025 10:57:26 AM org.atmosphere.util.IOUtils readServiceFile
+INFO: META-INF/services/org.atmosphere.cpr.AtmosphereFramework not found in class loader
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework autoConfigureService
+INFO: Atmosphere is using org.atmosphere.util.VoidAnnotationProcessor for processing annotation
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework initWebSocket
+INFO: Installed WebSocketProtocol org.atmosphere.websocket.protocol.SimpleHttpProtocol 
+Apr 21, 2025 10:57:26 AM org.atmosphere.container.JSR356AsyncSupport <init>
+INFO: JSR 356 Mapping path /{path}
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework configureAtmosphereInterceptor
+INFO: Installing Default AtmosphereInterceptors
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework newAInterceptor
+INFO: 	org.atmosphere.interceptor.CorsInterceptor : CORS Interceptor Support
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework newAInterceptor
+INFO: 	org.atmosphere.interceptor.CacheHeadersInterceptor : Default Response's Headers Interceptor
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework newAInterceptor
+INFO: 	org.atmosphere.interceptor.PaddingAtmosphereInterceptor : Browser Padding Interceptor Support
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework newAInterceptor
+INFO: 	org.atmosphere.interceptor.AndroidAtmosphereInterceptor : Android Interceptor Support
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework configureAtmosphereInterceptor
+INFO: Dropping Interceptor org.atmosphere.interceptor.HeartbeatInterceptor
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework newAInterceptor
+INFO: 	org.atmosphere.interceptor.SSEAtmosphereInterceptor : SSE Interceptor Support
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework newAInterceptor
+INFO: 	org.atmosphere.interceptor.JSONPAtmosphereInterceptor : JSONP Interceptor Support
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework newAInterceptor
+INFO: 	org.atmosphere.interceptor.JavaScriptProtocol : Atmosphere JavaScript Protocol
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework newAInterceptor
+INFO: 	org.atmosphere.interceptor.WebSocketMessageSuspendInterceptor : org.atmosphere.interceptor.WebSocketMessageSuspendInterceptor
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework newAInterceptor
+INFO: 	org.atmosphere.interceptor.OnDisconnectInterceptor : Browser disconnection detection
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework newAInterceptor
+INFO: 	org.atmosphere.interceptor.IdleResourceInterceptor : org.atmosphere.interceptor.IdleResourceInterceptor
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework configureAtmosphereInterceptor
+INFO: Set org.atmosphere.cpr.AtmosphereInterceptor.disableDefaults to disable them.
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework info
+INFO: Using EndpointMapper class org.atmosphere.util.DefaultEndpointMapper
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework info
+INFO: Using BroadcasterCache: org.atmosphere.cache.UUIDBroadcasterCache
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework info
+INFO: Default Broadcaster Class: org.atmosphere.cpr.DefaultBroadcaster
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework info
+INFO: Broadcaster Polling Wait Time 100
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework info
+INFO: Shared ExecutorService supported: true
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework info
+INFO: Messaging Thread Pool Size: Unlimited
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework info
+INFO: Async I/O Thread Pool Size: 200
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework info
+INFO: Using BroadcasterFactory: org.atmosphere.cpr.DefaultBroadcasterFactory
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework info
+INFO: Using WebSocketProcessor: org.atmosphere.websocket.DefaultWebSocketProcessor
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework info
+INFO: Invoke AtmosphereInterceptor on WebSocket message true
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework info
+INFO: HttpSession supported: true
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework info
+INFO: Atmosphere is using DefaultAtmosphereObjectFactory for dependency injection and object creation
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework info
+INFO: Atmosphere is using async support: org.atmosphere.container.JSR356AsyncSupport running under container: Apache Tomcat/10.1.39 using jakarta.servlet/3.0 and jsr356/WebSocket API
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework info
+INFO: Atmosphere Framework 2.2.13.vaadin1 started.
+Apr 21, 2025 10:57:26 AM org.atmosphere.cpr.AtmosphereFramework interceptor
+INFO: Installed AtmosphereInterceptor  Track Message Size Interceptor using | with priority BEFORE_DEFAULT 
+21-Apr-2025 10:57:26.764 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/home/radu/connect2id-server-18.0/tomcat/webapps/oidc-client.war] has finished in [1,180] ms
+21-Apr-2025 10:57:26.764 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/home/radu/connect2id-server-18.0/tomcat/webapps/c2id-logout.war]
+21-Apr-2025 10:57:26.925 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+21-Apr-2025 10:57:26.937 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/home/radu/connect2id-server-18.0/tomcat/webapps/c2id-logout.war] has finished in [172] ms
+21-Apr-2025 10:57:26.937 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/home/radu/connect2id-server-18.0/tomcat/webapps/c2id.war]
+21-Apr-2025 10:57:32.772 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+SLF4J(W): No SLF4J providers were found.
+SLF4J(W): Defaulting to no-operation (NOP) logger implementation
+SLF4J(W): See https://www.slf4j.org/codes.html#noProviders for further details.
+SLF4J(W): Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
+SLF4J(W): Ignoring binding found at [jar:file:/home/radu/connect2id-server-18.0/tomcat/webapps/c2id/WEB-INF/lib/log4j-slf4j-impl-2.24.2.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J(W): See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+21-Apr-2025 10:57:41.091 WARNING [main] org.glassfish.jersey.message.internal.MessagingBinders$EnabledProvidersBinder.bindToBinder A class jakarta.activation.DataSource for a default provider MessageBodyWriter<jakarta.activation.DataSource> was not found. The provider is not available.
+21-Apr-2025 10:57:41.111 WARNING [main] org.glassfish.jersey.server.wadl.WadlFeature.configure JAX-B API not found . WADL feature is disabled.
+21-Apr-2025 10:57:41.187 WARNING [main] org.glassfish.jersey.internal.inject.Providers.checkProviderRuntime A provider com.nimbusds.openid.connect.provider.sts.STSEndpoint registered in SERVER runtime does not implement any provider interfaces applicable in the SERVER runtime. Due to constraint configuration problems the provider com.nimbusds.openid.connect.provider.sts.STSEndpoint will be ignored. 
+21-Apr-2025 10:57:41.311 WARNING [main] org.glassfish.jersey.server.wadl.WadlFeature.configure JAX-B API not found . WADL feature is disabled.
+21-Apr-2025 10:57:41.319 WARNING [main] org.glassfish.jersey.internal.inject.Providers.checkProviderRuntime A provider com.nimbusds.authzstore.rest.WebAPI registered in SERVER runtime does not implement any provider interfaces applicable in the SERVER runtime. Due to constraint configuration problems the provider com.nimbusds.authzstore.rest.WebAPI will be ignored. 
+21-Apr-2025 10:57:41.383 WARNING [main] org.glassfish.jersey.server.wadl.WadlFeature.configure JAX-B API not found . WADL feature is disabled.
+21-Apr-2025 10:57:41.387 WARNING [main] org.glassfish.jersey.internal.inject.Providers.checkProviderRuntime A provider com.nimbusds.openid.connect.provider.ciba.sessions.CIBASessionsEndpoint registered in SERVER runtime does not implement any provider interfaces applicable in the SERVER runtime. Due to constraint configuration problems the provider com.nimbusds.openid.connect.provider.ciba.sessions.CIBASessionsEndpoint will be ignored. 
+21-Apr-2025 10:57:41.414 WARNING [main] org.glassfish.jersey.server.wadl.WadlFeature.configure JAX-B API not found . WADL feature is disabled.
+21-Apr-2025 10:57:41.416 WARNING [main] org.glassfish.jersey.internal.inject.Providers.checkProviderRuntime A provider com.nimbusds.openid.connect.provider.checksession.CheckSessionBackendEndpoint registered in SERVER runtime does not implement any provider interfaces applicable in the SERVER runtime. Due to constraint configuration problems the provider com.nimbusds.openid.connect.provider.checksession.CheckSessionBackendEndpoint will be ignored. 
+21-Apr-2025 10:57:41.447 WARNING [main] org.glassfish.jersey.server.wadl.WadlFeature.configure JAX-B API not found . WADL feature is disabled.
+21-Apr-2025 10:57:41.501 WARNING [main] org.glassfish.jersey.server.wadl.WadlFeature.configure JAX-B API not found . WADL feature is disabled.
+21-Apr-2025 10:57:41.508 WARNING [main] org.glassfish.jersey.internal.inject.Providers.checkProviderRuntime A provider com.nimbusds.sessionstore.rest.WebAPI registered in SERVER runtime does not implement any provider interfaces applicable in the SERVER runtime. Due to constraint configuration problems the provider com.nimbusds.sessionstore.rest.WebAPI will be ignored. 
+21-Apr-2025 10:57:41.550 WARNING [main] org.glassfish.jersey.server.wadl.WadlFeature.configure JAX-B API not found . WADL feature is disabled.
+21-Apr-2025 10:57:41.554 WARNING [main] org.glassfish.jersey.internal.inject.Providers.checkProviderRuntime A provider com.nimbusds.openid.connect.provider.authz.AuthorizationSessionEndpoint registered in SERVER runtime does not implement any provider interfaces applicable in the SERVER runtime. Due to constraint configuration problems the provider com.nimbusds.openid.connect.provider.authz.AuthorizationSessionEndpoint will be ignored. 
+21-Apr-2025 10:57:41.582 WARNING [main] org.glassfish.jersey.server.wadl.WadlFeature.configure JAX-B API not found . WADL feature is disabled.
+21-Apr-2025 10:57:41.585 WARNING [main] org.glassfish.jersey.internal.inject.Providers.checkProviderRuntime A provider com.nimbusds.openid.connect.provider.config.ConfigurationEndpoint registered in SERVER runtime does not implement any provider interfaces applicable in the SERVER runtime. Due to constraint configuration problems the provider com.nimbusds.openid.connect.provider.config.ConfigurationEndpoint will be ignored. 
+21-Apr-2025 10:57:41.605 WARNING [main] org.glassfish.jersey.server.wadl.WadlFeature.configure JAX-B API not found . WADL feature is disabled.
+21-Apr-2025 10:57:41.607 WARNING [main] org.glassfish.jersey.internal.inject.Providers.checkProviderRuntime A provider com.nimbusds.openid.connect.provider.authz.DirectAuthorizationEndpoint registered in SERVER runtime does not implement any provider interfaces applicable in the SERVER runtime. Due to constraint configuration problems the provider com.nimbusds.openid.connect.provider.authz.DirectAuthorizationEndpoint will be ignored. 
+21-Apr-2025 10:57:41.629 WARNING [main] org.glassfish.jersey.server.wadl.WadlFeature.configure JAX-B API not found . WADL feature is disabled.
+21-Apr-2025 10:57:41.632 WARNING [main] org.glassfish.jersey.internal.inject.Providers.checkProviderRuntime A provider com.nimbusds.openid.connect.provider.logout.endpoint.LogoutSessionEndpoint registered in SERVER runtime does not implement any provider interfaces applicable in the SERVER runtime. Due to constraint configuration problems the provider com.nimbusds.openid.connect.provider.logout.endpoint.LogoutSessionEndpoint will be ignored. 
+21-Apr-2025 10:57:42.574 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/home/radu/connect2id-server-18.0/tomcat/webapps/c2id.war] has finished in [15,636] ms
+21-Apr-2025 10:57:42.574 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/radu/connect2id-server-18.0/tomcat/webapps/manager]
+21-Apr-2025 10:57:42.600 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/radu/connect2id-server-18.0/tomcat/webapps/manager] has finished in [26] ms
+21-Apr-2025 10:57:42.600 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/radu/connect2id-server-18.0/tomcat/webapps/ROOT]
+21-Apr-2025 10:57:42.623 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/radu/connect2id-server-18.0/tomcat/webapps/ROOT] has finished in [23] ms
+21-Apr-2025 10:57:42.623 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/radu/connect2id-server-18.0/tomcat/webapps/host-manager]
+21-Apr-2025 10:57:42.636 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/radu/connect2id-server-18.0/tomcat/webapps/host-manager] has finished in [13] ms
+21-Apr-2025 10:57:42.640 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+21-Apr-2025 10:57:42.650 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [31870] milliseconds
+[CM8005] Stopping Infinispan...
+[CM8015] Stopped Infinispan cache clients.remoteRequestJWTClaimsCache in 3 ms
+[CM8015] Stopped Infinispan cache op.loginHintTokenMap in 6 ms
+[CM8015] Stopped Infinispan cache op.dPoPJTICache in 6 ms
+[CM8015] Stopped Infinispan cache keyStore.jwkSetMap in 396 ms
+[CM8015] Stopped Infinispan cache sessionStore.sessionMap in 405 ms
+[CM8015] Stopped Infinispan cache federation.registrationsMap in 406 ms
+[CM8015] Stopped Infinispan cache op.authSessionMap in 407 ms
+[CM8015] Stopped Infinispan cache authzStore.revocationJournalMap in 407 ms
+[CM8015] Stopped Infinispan cache clients.registrationsMap in 408 ms
+[CM8015] Stopped Infinispan cache authzStore.expendedTokenMap in 409 ms
+[CM8015] Stopped Infinispan cache clients.remoteJWKSetCache in 409 ms
+[CM8015] Stopped Infinispan cache authzStore.codeMap in 410 ms
+[CM8015] Stopped Infinispan cache authzStore.longLivedAuthzMap in 410 ms
+[CM8015] Stopped Infinispan cache keyStore.jwkSetHistoryMap in 411 ms
+[CM8015] Stopped Infinispan cache authzStore.idAccessTokenMap in 411 ms
+[CM8015] Stopped Infinispan cache op.consentSessionMap in 412 ms
+[CM8015] Stopped Infinispan cache sessionStore.subjectMap in 412 ms
+[CM8015] Stopped Infinispan cache org.infinispan.CONFIG in 413 ms
+21-Apr-2025 10:58:00.150 WARNING [http-nio-8080-exec-8] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [c2id] appears to have started a thread named [RxCachedWorkerPoolEvictor-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.14/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.14/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.14/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1679)
+ java.base@17.0.14/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.14/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.14/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.14/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.14/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.14/java.lang.Thread.run(Thread.java:840)
+21-Apr-2025 10:58:00.151 WARNING [http-nio-8080-exec-8] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [c2id] appears to have started a thread named [HttpClient-1-SelectorManager] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.14/sun.nio.ch.EPoll.wait(Native Method)
+ java.base@17.0.14/sun.nio.ch.EPollSelectorImpl.doSelect(EPollSelectorImpl.java:118)
+ java.base@17.0.14/sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:129)
+ java.base@17.0.14/sun.nio.ch.SelectorImpl.select(SelectorImpl.java:141)
+ platform/java.net.http@17.0.14/jdk.internal.net.http.HttpClientImpl$SelectorManager.run(HttpClientImpl.java:894)
+21-Apr-2025 10:58:11.540 INFO [http-nio-8080-exec-6] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+SLF4J(W): No SLF4J providers were found.
+SLF4J(W): Defaulting to no-operation (NOP) logger implementation
+SLF4J(W): See https://www.slf4j.org/codes.html#noProviders for further details.
+SLF4J(W): Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
+SLF4J(W): Ignoring binding found at [jar:file:/home/radu/connect2id-server-18.0/tomcat/webapps/c2id/WEB-INF/lib/log4j-slf4j-impl-2.24.2.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J(W): See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+21-Apr-2025 10:58:15.860 WARNING [http-nio-8080-exec-6] org.glassfish.jersey.message.internal.MessagingBinders$EnabledProvidersBinder.bindToBinder A class jakarta.activation.DataSource for a default provider MessageBodyWriter<jakarta.activation.DataSource> was not found. The provider is not available.
+21-Apr-2025 10:58:15.875 WARNING [http-nio-8080-exec-6] org.glassfish.jersey.server.wadl.WadlFeature.configure JAX-B API not found . WADL feature is disabled.
+21-Apr-2025 10:58:15.945 WARNING [http-nio-8080-exec-6] org.glassfish.jersey.internal.inject.Providers.checkProviderRuntime A provider com.nimbusds.openid.connect.provider.sts.STSEndpoint registered in SERVER runtime does not implement any provider interfaces applicable in the SERVER runtime. Due to constraint configuration problems the provider com.nimbusds.openid.connect.provider.sts.STSEndpoint will be ignored. 
+21-Apr-2025 10:58:16.052 WARNING [http-nio-8080-exec-6] org.glassfish.jersey.server.wadl.WadlFeature.configure JAX-B API not found . WADL feature is disabled.
+21-Apr-2025 10:58:16.059 WARNING [http-nio-8080-exec-6] org.glassfish.jersey.internal.inject.Providers.checkProviderRuntime A provider com.nimbusds.authzstore.rest.WebAPI registered in SERVER runtime does not implement any provider interfaces applicable in the SERVER runtime. Due to constraint configuration problems the provider com.nimbusds.authzstore.rest.WebAPI will be ignored. 
+21-Apr-2025 10:58:16.114 WARNING [http-nio-8080-exec-6] org.glassfish.jersey.server.wadl.WadlFeature.configure JAX-B API not found . WADL feature is disabled.
+21-Apr-2025 10:58:16.117 WARNING [http-nio-8080-exec-6] org.glassfish.jersey.internal.inject.Providers.checkProviderRuntime A provider com.nimbusds.openid.connect.provider.ciba.sessions.CIBASessionsEndpoint registered in SERVER runtime does not implement any provider interfaces applicable in the SERVER runtime. Due to constraint configuration problems the provider com.nimbusds.openid.connect.provider.ciba.sessions.CIBASessionsEndpoint will be ignored. 
+21-Apr-2025 10:58:16.142 WARNING [http-nio-8080-exec-6] org.glassfish.jersey.server.wadl.WadlFeature.configure JAX-B API not found . WADL feature is disabled.
+21-Apr-2025 10:58:16.145 WARNING [http-nio-8080-exec-6] org.glassfish.jersey.internal.inject.Providers.checkProviderRuntime A provider com.nimbusds.openid.connect.provider.checksession.CheckSessionBackendEndpoint registered in SERVER runtime does not implement any provider interfaces applicable in the SERVER runtime. Due to constraint configuration problems the provider com.nimbusds.openid.connect.provider.checksession.CheckSessionBackendEndpoint will be ignored. 
+21-Apr-2025 10:58:16.173 WARNING [http-nio-8080-exec-6] org.glassfish.jersey.server.wadl.WadlFeature.configure JAX-B API not found . WADL feature is disabled.
+21-Apr-2025 10:58:16.218 WARNING [http-nio-8080-exec-6] org.glassfish.jersey.server.wadl.WadlFeature.configure JAX-B API not found . WADL feature is disabled.
+21-Apr-2025 10:58:16.225 WARNING [http-nio-8080-exec-6] org.glassfish.jersey.internal.inject.Providers.checkProviderRuntime A provider com.nimbusds.sessionstore.rest.WebAPI registered in SERVER runtime does not implement any provider interfaces applicable in the SERVER runtime. Due to constraint configuration problems the provider com.nimbusds.sessionstore.rest.WebAPI will be ignored. 
+21-Apr-2025 10:58:16.267 WARNING [http-nio-8080-exec-6] org.glassfish.jersey.server.wadl.WadlFeature.configure JAX-B API not found . WADL feature is disabled.
+21-Apr-2025 10:58:16.271 WARNING [http-nio-8080-exec-6] org.glassfish.jersey.internal.inject.Providers.checkProviderRuntime A provider com.nimbusds.openid.connect.provider.authz.AuthorizationSessionEndpoint registered in SERVER runtime does not implement any provider interfaces applicable in the SERVER runtime. Due to constraint configuration problems the provider com.nimbusds.openid.connect.provider.authz.AuthorizationSessionEndpoint will be ignored. 
+21-Apr-2025 10:58:16.297 WARNING [http-nio-8080-exec-6] org.glassfish.jersey.server.wadl.WadlFeature.configure JAX-B API not found . WADL feature is disabled.
+21-Apr-2025 10:58:16.299 WARNING [http-nio-8080-exec-6] org.glassfish.jersey.internal.inject.Providers.checkProviderRuntime A provider com.nimbusds.openid.connect.provider.config.ConfigurationEndpoint registered in SERVER runtime does not implement any provider interfaces applicable in the SERVER runtime. Due to constraint configuration problems the provider com.nimbusds.openid.connect.provider.config.ConfigurationEndpoint will be ignored. 
+21-Apr-2025 10:58:16.320 WARNING [http-nio-8080-exec-6] org.glassfish.jersey.server.wadl.WadlFeature.configure JAX-B API not found . WADL feature is disabled.
+21-Apr-2025 10:58:16.322 WARNING [http-nio-8080-exec-6] org.glassfish.jersey.internal.inject.Providers.checkProviderRuntime A provider com.nimbusds.openid.connect.provider.authz.DirectAuthorizationEndpoint registered in SERVER runtime does not implement any provider interfaces applicable in the SERVER runtime. Due to constraint configuration problems the provider com.nimbusds.openid.connect.provider.authz.DirectAuthorizationEndpoint will be ignored. 
+21-Apr-2025 10:58:16.342 WARNING [http-nio-8080-exec-6] org.glassfish.jersey.server.wadl.WadlFeature.configure JAX-B API not found . WADL feature is disabled.
+21-Apr-2025 10:58:16.345 WARNING [http-nio-8080-exec-6] org.glassfish.jersey.internal.inject.Providers.checkProviderRuntime A provider com.nimbusds.openid.connect.provider.logout.endpoint.LogoutSessionEndpoint registered in SERVER runtime does not implement any provider interfaces applicable in the SERVER runtime. Due to constraint configuration problems the provider com.nimbusds.openid.connect.provider.logout.endpoint.LogoutSessionEndpoint will be ignored. 
+21-Apr-2025 18:24:08.936 INFO [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+21-Apr-2025 18:24:08.937 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+21-Apr-2025 18:24:08.939 INFO [main] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+[CM8005] Stopping Infinispan...
+[CM8015] Stopped Infinispan cache clients.remoteRequestJWTClaimsCache in 3 ms
+[CM8015] Stopped Infinispan cache op.loginHintTokenMap in 3 ms
+[CM8015] Stopped Infinispan cache op.dPoPJTICache in 4 ms
+[CM8015] Stopped Infinispan cache keyStore.jwkSetMap in 655 ms
+[CM8015] Stopped Infinispan cache sessionStore.sessionMap in 662 ms
+[CM8015] Stopped Infinispan cache federation.registrationsMap in 663 ms
+[CM8015] Stopped Infinispan cache op.authSessionMap in 663 ms
+[CM8015] Stopped Infinispan cache authzStore.revocationJournalMap in 663 ms
+[CM8015] Stopped Infinispan cache clients.registrationsMap in 664 ms
+[CM8015] Stopped Infinispan cache authzStore.expendedTokenMap in 664 ms
+[CM8015] Stopped Infinispan cache clients.remoteJWKSetCache in 664 ms
+[CM8015] Stopped Infinispan cache authzStore.codeMap in 664 ms
+[CM8015] Stopped Infinispan cache authzStore.longLivedAuthzMap in 665 ms
+[CM8015] Stopped Infinispan cache keyStore.jwkSetHistoryMap in 665 ms
+[CM8015] Stopped Infinispan cache authzStore.idAccessTokenMap in 665 ms
+[CM8015] Stopped Infinispan cache op.consentSessionMap in 666 ms
+[CM8015] Stopped Infinispan cache sessionStore.subjectMap in 666 ms
+[CM8015] Stopped Infinispan cache org.infinispan.CONFIG in 667 ms
+21-Apr-2025 18:24:09.676 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [c2id] appears to have started a thread named [RxCachedWorkerPoolEvictor-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.14/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.14/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.14/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1679)
+ java.base@17.0.14/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.14/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.14/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.14/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.14/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.14/java.lang.Thread.run(Thread.java:840)
+21-Apr-2025 18:24:09.677 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [c2id] appears to have started a thread named [HttpClient-2-SelectorManager] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.14/sun.nio.ch.EPoll.wait(Native Method)
+ java.base@17.0.14/sun.nio.ch.EPollSelectorImpl.doSelect(EPollSelectorImpl.java:118)
+ java.base@17.0.14/sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:129)
+ java.base@17.0.14/sun.nio.ch.SelectorImpl.select(SelectorImpl.java:141)
+ platform/java.net.http@17.0.14/jdk.internal.net.http.HttpClientImpl$SelectorManager.run(HttpClientImpl.java:894)
+21-Apr-2025 18:24:09.693 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+21-Apr-2025 18:24:09.701 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]

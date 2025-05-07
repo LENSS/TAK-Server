@@ -1,0 +1,107 @@
+{
+  "groups": [
+    {
+      "name": "c2id",
+      "type": "com.nimbusds.login.config.ApplicationProperties",
+      "sourceType": "com.nimbusds.login.config.ApplicationProperties"
+    },
+    {
+      "name": "c2id.authz",
+      "type": "com.nimbusds.login.config.ApplicationProperties$Authz",
+      "sourceType": "com.nimbusds.login.config.ApplicationProperties",
+      "sourceMethod": "getAuthz()"
+    },
+    {
+      "name": "c2id.ldap-auth",
+      "type": "com.nimbusds.login.config.ApplicationProperties$LdapAuth",
+      "sourceType": "com.nimbusds.login.config.ApplicationProperties",
+      "sourceMethod": "getLdapAuth()"
+    },
+    {
+      "name": "c2id.logout",
+      "type": "com.nimbusds.login.config.ApplicationProperties$Logout",
+      "sourceType": "com.nimbusds.login.config.ApplicationProperties",
+      "sourceMethod": "getLogout()"
+    },
+    {
+      "name": "c2id.session",
+      "type": "com.nimbusds.login.config.ApplicationProperties$Session",
+      "sourceType": "com.nimbusds.login.config.ApplicationProperties",
+      "sourceMethod": "getSession()"
+    }
+  ],
+  "properties": [
+    {
+      "name": "c2id.authenticator-class",
+      "type": "java.lang.String",
+      "sourceType": "com.nimbusds.login.config.ApplicationProperties"
+    },
+    {
+      "name": "c2id.authz.access-token",
+      "type": "java.lang.String",
+      "sourceType": "com.nimbusds.login.config.ApplicationProperties$Authz"
+    },
+    {
+      "name": "c2id.authz.long-lived",
+      "type": "java.lang.Boolean",
+      "sourceType": "com.nimbusds.login.config.ApplicationProperties$Authz",
+      "defaultValue": false
+    },
+    {
+      "name": "c2id.authz.resource-path",
+      "type": "java.lang.String",
+      "sourceType": "com.nimbusds.login.config.ApplicationProperties$Authz"
+    },
+    {
+      "name": "c2id.context-path",
+      "type": "java.lang.String",
+      "sourceType": "com.nimbusds.login.config.ApplicationProperties"
+    },
+    {
+      "name": "c2id.cookie-name",
+      "type": "java.lang.String",
+      "sourceType": "com.nimbusds.login.config.ApplicationProperties"
+    },
+    {
+      "name": "c2id.endpoint",
+      "type": "java.lang.String",
+      "sourceType": "com.nimbusds.login.config.ApplicationProperties"
+    },
+    {
+      "name": "c2id.ldap-auth.api-key",
+      "type": "java.lang.String",
+      "sourceType": "com.nimbusds.login.config.ApplicationProperties$LdapAuth"
+    },
+    {
+      "name": "c2id.ldap-auth.endpoint",
+      "type": "java.lang.String",
+      "sourceType": "com.nimbusds.login.config.ApplicationProperties$LdapAuth"
+    },
+    {
+      "name": "c2id.logout.access-token",
+      "type": "java.lang.String",
+      "sourceType": "com.nimbusds.login.config.ApplicationProperties$Logout"
+    },
+    {
+      "name": "c2id.logout.redirect-uri",
+      "type": "java.lang.String",
+      "sourceType": "com.nimbusds.login.config.ApplicationProperties$Logout"
+    },
+    {
+      "name": "c2id.logout.resource-path",
+      "type": "java.lang.String",
+      "sourceType": "com.nimbusds.login.config.ApplicationProperties$Logout"
+    },
+    {
+      "name": "c2id.session.access-token",
+      "type": "java.lang.String",
+      "sourceType": "com.nimbusds.login.config.ApplicationProperties$Session"
+    },
+    {
+      "name": "c2id.session.resource-path",
+      "type": "java.lang.String",
+      "sourceType": "com.nimbusds.login.config.ApplicationProperties$Session"
+    }
+  ],
+  "hints": []
+}

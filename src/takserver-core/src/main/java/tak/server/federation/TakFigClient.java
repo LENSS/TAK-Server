@@ -379,9 +379,6 @@ public class TakFigClient implements Serializable {
 		}
 
 		blockingFederatedChannel = FederatedChannelGrpc.newBlockingStub(channel);
-		if (logger.isDebugEnabled()) {
-			logger.debug("blockingFederatedChannel: " + blockingFederatedChannel);
-		}
 				
 		if (!Strings.isNullOrEmpty(connectionToken)) {
 			TokenAuthCredential credential = new TokenAuthCredential(connectionToken);
@@ -1488,8 +1485,6 @@ public class TakFigClient implements Serializable {
 				if (logger.isDebugEnabled()) {
 					logger.debug("Received remote federate groups = " + value);
 				}
-
-				logger.debug("Received remote federate groups = " + value);
 
 				// once the group stream is established, we are ready to set up event streaming
 				if (value.getStreamUpdate() != null && value.getStreamUpdate().getStatus() == ServingStatus.SERVING) {

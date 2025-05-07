@@ -1,0 +1,1019 @@
+2025-04-21T10:57:33,455 INFO main MAIN - [OP0012] Loaded SystemPropertiesSource [1]: class=com.nimbusds.openid.connect.provider.spi.config.source.URLSystemPropertiesSource
+2025-04-21T10:57:33,466 INFO main MAIN - [SP0001] URLSystemPropertiesSource: No properties retrieved, systemPropertiesURL not set
+2025-04-21T10:57:33,472 INFO main MAIN - [CM8000] Starting Infinispan...
+2025-04-21T10:57:33,472 INFO main MAIN - [CM8002] Infinispan configuration file: /WEB-INF/infinispan-local-h2.xml
+2025-04-21T10:57:34,095 INFO main ClusteredLockModuleLifecycle - ISPN029009: Configuration is not clustered, clustered locks are disabled
+2025-04-21T10:57:34,257 INFO main CONTAINER - ISPN000556: Starting user marshaller 'org.infinispan.commons.marshall.ImmutableProtoStreamMarshaller'
+2025-04-21T10:57:35,101 INFO main threads - JBoss Threads version 2.3.6.Final
+2025-04-21T10:57:35,113 INFO blocking-thread--p3-t1 MAIN - [IS0100] SQL store: Infinispan cache store configuration for authzStore.idAccessTokenMap:
+2025-04-21T10:57:35,113 INFO blocking-thread--p3-t1 MAIN - [IS0000] Infinispan SQL store: Record transformer class: com.nimbusds.authzstore.impl.persistence.sql.IDAccessTokenTransformer 
+2025-04-21T10:57:35,113 INFO blocking-thread--p3-t1 MAIN - [IS0001] Infinispan SQL store: Query executor class: not specified 
+2025-04-21T10:57:35,113 INFO blocking-thread--p3-t1 MAIN - [IS0002] Infinispan SQL store: SQL dialect: sqlDialect=H2 
+2025-04-21T10:57:35,113 INFO blocking-thread--p3-t1 MAIN - [IS0004] Infinispan SQL store: Create table if missing: createTableIfMissing=true 
+2025-04-21T10:57:35,113 INFO blocking-thread--p3-t1 MAIN - [IS0009] Infinispan SQL store: Create table ignore errors: createTableIgnoreErrors=false 
+2025-04-21T10:57:35,114 INFO blocking-thread--p3-t1 MAIN - [IS0008] Infinispan SQL store: Connection pool reference: keyStore.jwkSetMap 
+2025-04-21T10:57:35,114 INFO blocking-thread--p3-t1 MAIN - [IS0010] Infinispan SQL store: Expired record select query page limit: 1000
+2025-04-21T10:57:35,114 INFO blocking-thread--p3-t1 MAIN - [IS0140] SQL store: Expiration thread wake up interval for cache authzStore.idAccessTokenMap: 300000
+2025-04-21T10:57:35,128 INFO blocking-thread--p3-t1 MAIN - [IS0102] Initialized SQL external store for cache authzStore.idAccessTokenMap with table id_access_tokens
+2025-04-21T10:57:35,128 INFO blocking-thread--p3-t1 MAIN - [IS0139] SQL store: Deferred start of store using a shared connection pool: authzStore.idAccessTokenMap
+2025-04-21T10:57:35,138 INFO blocking-thread--p3-t1 MAIN - [IS0100] SQL store: Infinispan cache store configuration for authzStore.longLivedAuthzMap:
+2025-04-21T10:57:35,138 INFO blocking-thread--p3-t1 MAIN - [IS0000] Infinispan SQL store: Record transformer class: com.nimbusds.authzstore.impl.persistence.sql.AuthorizationRecordTransformer 
+2025-04-21T10:57:35,138 INFO blocking-thread--p3-t1 MAIN - [IS0001] Infinispan SQL store: Query executor class: com.nimbusds.authzstore.impl.persistence.sql.AuthorizationRecordQueryExecutor 
+2025-04-21T10:57:35,138 INFO blocking-thread--p3-t1 MAIN - [IS0002] Infinispan SQL store: SQL dialect: sqlDialect=H2 
+2025-04-21T10:57:35,138 INFO blocking-thread--p3-t1 MAIN - [IS0004] Infinispan SQL store: Create table if missing: createTableIfMissing=true 
+2025-04-21T10:57:35,139 INFO blocking-thread--p3-t1 MAIN - [IS0009] Infinispan SQL store: Create table ignore errors: createTableIgnoreErrors=false 
+2025-04-21T10:57:35,139 INFO blocking-thread--p3-t1 MAIN - [IS0008] Infinispan SQL store: Connection pool reference: keyStore.jwkSetMap 
+2025-04-21T10:57:35,139 INFO blocking-thread--p3-t1 MAIN - [IS0010] Infinispan SQL store: Expired record select query page limit: 250
+2025-04-21T10:57:35,139 INFO blocking-thread--p3-t1 MAIN - [IS0140] SQL store: Expiration thread wake up interval for cache authzStore.longLivedAuthzMap: 0
+2025-04-21T10:57:35,140 INFO blocking-thread--p3-t1 MAIN - [IS0102] Initialized SQL external store for cache authzStore.longLivedAuthzMap with table long_lived_authorizations
+2025-04-21T10:57:35,140 INFO blocking-thread--p3-t1 MAIN - [IS0138] SQL store: Deferred start of store using a shared connection pool: authzStore.longLivedAuthzMap
+2025-04-21T10:57:35,141 INFO main CONTAINER - ISPN000025: wakeUpInterval is <= 0, not starting expired purge thread
+2025-04-21T10:57:35,144 INFO blocking-thread--p3-t1 MAIN - [IS0100] SQL store: Infinispan cache store configuration for authzStore.revocationJournalMap:
+2025-04-21T10:57:35,144 INFO blocking-thread--p3-t1 MAIN - [IS0000] Infinispan SQL store: Record transformer class: com.nimbusds.authzstore.impl.persistence.sql.RevocationRecordTransformer 
+2025-04-21T10:57:35,144 INFO blocking-thread--p3-t1 MAIN - [IS0001] Infinispan SQL store: Query executor class: not specified 
+2025-04-21T10:57:35,144 INFO blocking-thread--p3-t1 MAIN - [IS0002] Infinispan SQL store: SQL dialect: sqlDialect=H2 
+2025-04-21T10:57:35,145 INFO blocking-thread--p3-t1 MAIN - [IS0004] Infinispan SQL store: Create table if missing: createTableIfMissing=true 
+2025-04-21T10:57:35,145 INFO blocking-thread--p3-t1 MAIN - [IS0009] Infinispan SQL store: Create table ignore errors: createTableIgnoreErrors=false 
+2025-04-21T10:57:35,145 INFO blocking-thread--p3-t1 MAIN - [IS0008] Infinispan SQL store: Connection pool reference: keyStore.jwkSetMap 
+2025-04-21T10:57:35,145 INFO blocking-thread--p3-t1 MAIN - [IS0010] Infinispan SQL store: Expired record select query page limit: 250
+2025-04-21T10:57:35,145 INFO blocking-thread--p3-t1 MAIN - [IS0140] SQL store: Expiration thread wake up interval for cache authzStore.revocationJournalMap: 0
+2025-04-21T10:57:35,145 INFO blocking-thread--p3-t1 MAIN - [IS0102] Initialized SQL external store for cache authzStore.revocationJournalMap with table revocation_journal
+2025-04-21T10:57:35,145 INFO blocking-thread--p3-t1 MAIN - [IS0138] SQL store: Deferred start of store using a shared connection pool: authzStore.revocationJournalMap
+2025-04-21T10:57:35,146 INFO main CONTAINER - ISPN000025: wakeUpInterval is <= 0, not starting expired purge thread
+2025-04-21T10:57:35,149 INFO blocking-thread--p3-t1 MAIN - [IS0100] SQL store: Infinispan cache store configuration for clients.registrationsMap:
+2025-04-21T10:57:35,149 INFO blocking-thread--p3-t1 MAIN - [IS0000] Infinispan SQL store: Record transformer class: com.nimbusds.openid.connect.provider.reg.store.persistence.sql.OIDCClientInformationTransformer 
+2025-04-21T10:57:35,149 INFO blocking-thread--p3-t1 MAIN - [IS0001] Infinispan SQL store: Query executor class: not specified 
+2025-04-21T10:57:35,150 INFO blocking-thread--p3-t1 MAIN - [IS0002] Infinispan SQL store: SQL dialect: sqlDialect=H2 
+2025-04-21T10:57:35,150 INFO blocking-thread--p3-t1 MAIN - [IS0004] Infinispan SQL store: Create table if missing: createTableIfMissing=true 
+2025-04-21T10:57:35,150 INFO blocking-thread--p3-t1 MAIN - [IS0009] Infinispan SQL store: Create table ignore errors: createTableIgnoreErrors=false 
+2025-04-21T10:57:35,150 INFO blocking-thread--p3-t1 MAIN - [IS0008] Infinispan SQL store: Connection pool reference: keyStore.jwkSetMap 
+2025-04-21T10:57:35,150 INFO blocking-thread--p3-t1 MAIN - [IS0010] Infinispan SQL store: Expired record select query page limit: 250
+2025-04-21T10:57:35,150 INFO blocking-thread--p3-t1 MAIN - [IS0140] SQL store: Expiration thread wake up interval for cache clients.registrationsMap: 0
+2025-04-21T10:57:35,153 INFO blocking-thread--p3-t1 MAIN - [IS0102] Initialized SQL external store for cache clients.registrationsMap with table clients
+2025-04-21T10:57:35,153 INFO blocking-thread--p3-t1 MAIN - [IS0138] SQL store: Deferred start of store using a shared connection pool: clients.registrationsMap
+2025-04-21T10:57:35,154 INFO main CONTAINER - ISPN000025: wakeUpInterval is <= 0, not starting expired purge thread
+2025-04-21T10:57:35,157 INFO main CONTAINER - ISPN000025: wakeUpInterval is <= 0, not starting expired purge thread
+2025-04-21T10:57:35,161 INFO main CONTAINER - ISPN000025: wakeUpInterval is <= 0, not starting expired purge thread
+2025-04-21T10:57:35,164 INFO blocking-thread--p3-t1 MAIN - [IS0100] SQL store: Infinispan cache store configuration for federation.registrationsMap:
+2025-04-21T10:57:35,164 INFO blocking-thread--p3-t1 MAIN - [IS0000] Infinispan SQL store: Record transformer class: com.nimbusds.openid.connect.provider.federation.reg.store.persistence.sql.FederationClientTransformer 
+2025-04-21T10:57:35,164 INFO blocking-thread--p3-t1 MAIN - [IS0001] Infinispan SQL store: Query executor class: not specified 
+2025-04-21T10:57:35,164 INFO blocking-thread--p3-t1 MAIN - [IS0002] Infinispan SQL store: SQL dialect: sqlDialect=H2 
+2025-04-21T10:57:35,164 INFO blocking-thread--p3-t1 MAIN - [IS0004] Infinispan SQL store: Create table if missing: createTableIfMissing=true 
+2025-04-21T10:57:35,164 INFO blocking-thread--p3-t1 MAIN - [IS0009] Infinispan SQL store: Create table ignore errors: createTableIgnoreErrors=false 
+2025-04-21T10:57:35,165 INFO blocking-thread--p3-t1 MAIN - [IS0008] Infinispan SQL store: Connection pool reference: keyStore.jwkSetMap 
+2025-04-21T10:57:35,165 INFO blocking-thread--p3-t1 MAIN - [IS0010] Infinispan SQL store: Expired record select query page limit: 250
+2025-04-21T10:57:35,165 INFO blocking-thread--p3-t1 MAIN - [IS0140] SQL store: Expiration thread wake up interval for cache federation.registrationsMap: 0
+2025-04-21T10:57:35,166 INFO blocking-thread--p3-t1 MAIN - [IS0102] Initialized SQL external store for cache federation.registrationsMap with table federation_clients
+2025-04-21T10:57:35,166 INFO blocking-thread--p3-t1 MAIN - [IS0138] SQL store: Deferred start of store using a shared connection pool: federation.registrationsMap
+2025-04-21T10:57:35,167 INFO main CONTAINER - ISPN000025: wakeUpInterval is <= 0, not starting expired purge thread
+2025-04-21T10:57:35,171 INFO blocking-thread--p3-t1 MAIN - [IS0100] SQL store: Infinispan cache store configuration for keyStore.jwkSetHistoryMap:
+2025-04-21T10:57:35,171 INFO blocking-thread--p3-t1 MAIN - [IS0000] Infinispan SQL store: Record transformer class: com.nimbusds.keystore.impl.persistence.sql.JWKSetHistoryTransformer 
+2025-04-21T10:57:35,171 INFO blocking-thread--p3-t1 MAIN - [IS0001] Infinispan SQL store: Query executor class: not specified 
+2025-04-21T10:57:35,171 INFO blocking-thread--p3-t1 MAIN - [IS0002] Infinispan SQL store: SQL dialect: sqlDialect=H2 
+2025-04-21T10:57:35,171 INFO blocking-thread--p3-t1 MAIN - [IS0004] Infinispan SQL store: Create table if missing: createTableIfMissing=true 
+2025-04-21T10:57:35,171 INFO blocking-thread--p3-t1 MAIN - [IS0009] Infinispan SQL store: Create table ignore errors: createTableIgnoreErrors=false 
+2025-04-21T10:57:35,171 INFO blocking-thread--p3-t1 MAIN - [IS0008] Infinispan SQL store: Connection pool reference: keyStore.jwkSetMap 
+2025-04-21T10:57:35,171 INFO blocking-thread--p3-t1 MAIN - [IS0010] Infinispan SQL store: Expired record select query page limit: 250
+2025-04-21T10:57:35,171 INFO blocking-thread--p3-t1 MAIN - [IS0140] SQL store: Expiration thread wake up interval for cache keyStore.jwkSetHistoryMap: 0
+2025-04-21T10:57:35,172 INFO blocking-thread--p3-t1 MAIN - [IS0102] Initialized SQL external store for cache keyStore.jwkSetHistoryMap with table jwks_history
+2025-04-21T10:57:35,172 INFO blocking-thread--p3-t1 MAIN - [IS0138] SQL store: Deferred start of store using a shared connection pool: keyStore.jwkSetHistoryMap
+2025-04-21T10:57:35,172 INFO main CONTAINER - ISPN000025: wakeUpInterval is <= 0, not starting expired purge thread
+2025-04-21T10:57:35,175 INFO blocking-thread--p3-t1 MAIN - [IS0100] SQL store: Infinispan cache store configuration for keyStore.jwkSetMap:
+2025-04-21T10:57:35,175 INFO blocking-thread--p3-t1 MAIN - [IS0000] Infinispan SQL store: Record transformer class: com.nimbusds.keystore.impl.persistence.sql.JWKSetTransformer 
+2025-04-21T10:57:35,176 INFO blocking-thread--p3-t1 MAIN - [IS0001] Infinispan SQL store: Query executor class: not specified 
+2025-04-21T10:57:35,176 INFO blocking-thread--p3-t1 MAIN - [IS0002] Infinispan SQL store: SQL dialect: sqlDialect=H2 
+2025-04-21T10:57:35,176 INFO blocking-thread--p3-t1 MAIN - [IS0004] Infinispan SQL store: Create table if missing: createTableIfMissing=true 
+2025-04-21T10:57:35,176 INFO blocking-thread--p3-t1 MAIN - [IS0009] Infinispan SQL store: Create table ignore errors: createTableIgnoreErrors=false 
+2025-04-21T10:57:35,176 INFO blocking-thread--p3-t1 MAIN - [IS0008] Infinispan SQL store: Connection pool reference: not specified 
+2025-04-21T10:57:35,176 INFO blocking-thread--p3-t1 MAIN - [IS0010] Infinispan SQL store: Expired record select query page limit: 250
+2025-04-21T10:57:35,176 INFO blocking-thread--p3-t1 MAIN - [IS0005] Infinispan SQL store: Data source class name: org.h2.jdbcx.JdbcDataSource 
+2025-04-21T10:57:35,176 INFO blocking-thread--p3-t1 MAIN - [IS0006] Infinispan SQL store: Data source URL: jdbc:h2:file:/home/radu/connect2id-server-18.0/tomcat/../h2/c2id;DATABASE_TO_UPPER=false 
+2025-04-21T10:57:35,176 INFO blocking-thread--p3-t1 MAIN - [IS0140] SQL store: Expiration thread wake up interval for cache keyStore.jwkSetMap: 0
+2025-04-21T10:57:35,176 INFO blocking-thread--p3-t1 MAIN - [IS0102] Initialized SQL external store for cache keyStore.jwkSetMap with table jwks
+2025-04-21T10:57:35,674 INFO blocking-thread--p3-t1 MAIN - [IS0161] SQL store: Resuming start for authzStore.idAccessTokenMap using the connection pool of keyStore.jwkSetMap
+2025-04-21T10:57:35,683 INFO blocking-thread--p3-t1 MAIN - [IS0143] SQL store: Transaction isolation for cache authzStore.idAccessTokenMap: TRANSACTION_READ_COMMITTED
+2025-04-21T10:57:36,413 INFO blocking-thread--p3-t1 MAIN - [IS0136] SQL store: Executing create table id_access_tokens (if missing?) for cache authzStore.idAccessTokenMap
+2025-04-21T10:57:36,463 INFO blocking-thread--p3-t1 MAIN - [IS0129] SQL store: Create table id_access_tokens (if missing?) for cache authzStore.idAccessTokenMap returned 0 changed rows
+2025-04-21T10:57:36,463 INFO blocking-thread--p3-t1 MAIN - [IS0133] SQL store: Found table transformer
+2025-04-21T10:57:36,928 INFO blocking-thread--p3-t1 MAIN - [IS0104] Started SQL external store connector for cache authzStore.idAccessTokenMap with table id_access_tokens
+2025-04-21T10:57:36,929 INFO blocking-thread--p3-t1 MAIN - [IS0161] SQL store: Resuming start for authzStore.longLivedAuthzMap using the connection pool of keyStore.jwkSetMap
+2025-04-21T10:57:36,930 INFO blocking-thread--p3-t1 MAIN - [IS0143] SQL store: Transaction isolation for cache authzStore.longLivedAuthzMap: TRANSACTION_READ_COMMITTED
+2025-04-21T10:57:36,930 INFO blocking-thread--p3-t1 MAIN - [IS0136] SQL store: Executing create table long_lived_authorizations (if missing?) for cache authzStore.longLivedAuthzMap
+2025-04-21T10:57:36,932 INFO blocking-thread--p3-t1 MAIN - [IS0129] SQL store: Create table long_lived_authorizations (if missing?) for cache authzStore.longLivedAuthzMap returned 0 changed rows
+2025-04-21T10:57:36,932 INFO blocking-thread--p3-t1 MAIN - [IS0133] SQL store: Found table transformer
+2025-04-21T10:57:36,935 INFO blocking-thread--p3-t1 MAIN - [IS0134] SQL store: Executing table transform for cache authzStore.longLivedAuthzMap: ALTER TABLE IF EXISTS long_lived_authorizations ADD COLUMN IF NOT EXISTS rtm BIGINT DEFAULT 0 AFTER rtl
+2025-04-21T10:57:36,947 INFO blocking-thread--p3-t1 MAIN - [IS0104] Started SQL external store connector for cache authzStore.longLivedAuthzMap with table long_lived_authorizations
+2025-04-21T10:57:36,947 INFO blocking-thread--p3-t1 MAIN - [IS0161] SQL store: Resuming start for authzStore.revocationJournalMap using the connection pool of keyStore.jwkSetMap
+2025-04-21T10:57:36,947 INFO blocking-thread--p3-t1 MAIN - [IS0143] SQL store: Transaction isolation for cache authzStore.revocationJournalMap: TRANSACTION_READ_COMMITTED
+2025-04-21T10:57:36,947 INFO blocking-thread--p3-t1 MAIN - [IS0136] SQL store: Executing create table revocation_journal (if missing?) for cache authzStore.revocationJournalMap
+2025-04-21T10:57:36,949 INFO blocking-thread--p3-t1 MAIN - [IS0129] SQL store: Create table revocation_journal (if missing?) for cache authzStore.revocationJournalMap returned 0 changed rows
+2025-04-21T10:57:36,949 INFO blocking-thread--p3-t1 MAIN - [IS0104] Started SQL external store connector for cache authzStore.revocationJournalMap with table revocation_journal
+2025-04-21T10:57:36,949 INFO blocking-thread--p3-t1 MAIN - [IS0161] SQL store: Resuming start for clients.registrationsMap using the connection pool of keyStore.jwkSetMap
+2025-04-21T10:57:36,949 INFO blocking-thread--p3-t1 MAIN - [IS0143] SQL store: Transaction isolation for cache clients.registrationsMap: TRANSACTION_READ_COMMITTED
+2025-04-21T10:57:36,949 INFO blocking-thread--p3-t1 MAIN - [IS0136] SQL store: Executing create table clients (if missing?) for cache clients.registrationsMap
+2025-04-21T10:57:36,954 INFO blocking-thread--p3-t1 MAIN - [IS0129] SQL store: Create table clients (if missing?) for cache clients.registrationsMap returned 0 changed rows
+2025-04-21T10:57:36,955 INFO blocking-thread--p3-t1 MAIN - [IS0133] SQL store: Found table transformer
+2025-04-21T10:57:36,971 INFO blocking-thread--p3-t1 MAIN - [IS0134] SQL store: Executing table transform for cache clients.registrationsMap: ALTER TABLE IF EXISTS clients ADD COLUMN IF NOT EXISTS dpop_bound_access_tokens BOOLEAN NOT NULL DEFAULT FALSE AFTER tls_client_certificate_bound_access_tokens
+2025-04-21T10:57:36,981 INFO blocking-thread--p3-t1 MAIN - [IS0134] SQL store: Executing table transform for cache clients.registrationsMap: ALTER TABLE IF EXISTS clients ADD COLUMN IF NOT EXISTS backchannel_token_delivery_mode VARCHAR(4) AFTER post_logout_redirect_uris
+2025-04-21T10:57:36,988 INFO blocking-thread--p3-t1 MAIN - [IS0134] SQL store: Executing table transform for cache clients.registrationsMap: ALTER TABLE IF EXISTS clients ADD COLUMN IF NOT EXISTS backchannel_client_notification_endpoint VARCHAR(1000) AFTER backchannel_token_delivery_mode
+2025-04-21T10:57:36,995 INFO blocking-thread--p3-t1 MAIN - [IS0134] SQL store: Executing table transform for cache clients.registrationsMap: ALTER TABLE IF EXISTS clients ADD COLUMN IF NOT EXISTS backchannel_authentication_request_signing_alg VARCHAR(10) AFTER backchannel_client_notification_endpoint
+2025-04-21T10:57:37,004 INFO blocking-thread--p3-t1 MAIN - [IS0134] SQL store: Executing table transform for cache clients.registrationsMap: ALTER TABLE IF EXISTS clients ADD COLUMN IF NOT EXISTS backchannel_user_code_parameter BOOLEAN NOT NULL DEFAULT FALSE AFTER backchannel_authentication_request_signing_alg
+2025-04-21T10:57:37,010 INFO blocking-thread--p3-t1 MAIN - [IS0104] Started SQL external store connector for cache clients.registrationsMap with table clients
+2025-04-21T10:57:37,011 INFO blocking-thread--p3-t1 MAIN - [IS0161] SQL store: Resuming start for federation.registrationsMap using the connection pool of keyStore.jwkSetMap
+2025-04-21T10:57:37,011 INFO blocking-thread--p3-t1 MAIN - [IS0143] SQL store: Transaction isolation for cache federation.registrationsMap: TRANSACTION_READ_COMMITTED
+2025-04-21T10:57:37,011 INFO blocking-thread--p3-t1 MAIN - [IS0136] SQL store: Executing create table federation_clients (if missing?) for cache federation.registrationsMap
+2025-04-21T10:57:37,012 INFO blocking-thread--p3-t1 MAIN - [IS0129] SQL store: Create table federation_clients (if missing?) for cache federation.registrationsMap returned 0 changed rows
+2025-04-21T10:57:37,012 INFO blocking-thread--p3-t1 MAIN - [IS0104] Started SQL external store connector for cache federation.registrationsMap with table federation_clients
+2025-04-21T10:57:37,012 INFO blocking-thread--p3-t1 MAIN - [IS0161] SQL store: Resuming start for keyStore.jwkSetHistoryMap using the connection pool of keyStore.jwkSetMap
+2025-04-21T10:57:37,012 INFO blocking-thread--p3-t1 MAIN - [IS0143] SQL store: Transaction isolation for cache keyStore.jwkSetHistoryMap: TRANSACTION_READ_COMMITTED
+2025-04-21T10:57:37,012 INFO blocking-thread--p3-t1 MAIN - [IS0136] SQL store: Executing create table jwks_history (if missing?) for cache keyStore.jwkSetHistoryMap
+2025-04-21T10:57:37,014 INFO blocking-thread--p3-t1 MAIN - [IS0129] SQL store: Create table jwks_history (if missing?) for cache keyStore.jwkSetHistoryMap returned 0 changed rows
+2025-04-21T10:57:37,014 INFO blocking-thread--p3-t1 MAIN - [IS0104] Started SQL external store connector for cache keyStore.jwkSetHistoryMap with table jwks_history
+2025-04-21T10:57:37,014 INFO blocking-thread--p3-t1 MAIN - [IS0143] SQL store: Transaction isolation for cache keyStore.jwkSetMap: TRANSACTION_READ_COMMITTED
+2025-04-21T10:57:37,014 INFO blocking-thread--p3-t1 MAIN - [IS0136] SQL store: Executing create table jwks (if missing?) for cache keyStore.jwkSetMap
+2025-04-21T10:57:37,016 INFO blocking-thread--p3-t1 MAIN - [IS0129] SQL store: Create table jwks (if missing?) for cache keyStore.jwkSetMap returned 0 changed rows
+2025-04-21T10:57:37,016 INFO blocking-thread--p3-t1 MAIN - [IS0104] Started SQL external store connector for cache keyStore.jwkSetMap with table jwks
+2025-04-21T10:57:37,017 INFO main CONTAINER - ISPN000025: wakeUpInterval is <= 0, not starting expired purge thread
+2025-04-21T10:57:37,034 INFO blocking-thread--p3-t1 MAIN - [IS0100] SQL store: Infinispan cache store configuration for sessionStore.sessionMap:
+2025-04-21T10:57:37,034 INFO blocking-thread--p3-t1 MAIN - [IS0000] Infinispan SQL store: Record transformer class: com.nimbusds.sessionstore.impl.persistence.sql.SubjectSessionTransformer 
+2025-04-21T10:57:37,034 INFO blocking-thread--p3-t1 MAIN - [IS0001] Infinispan SQL store: Query executor class: not specified 
+2025-04-21T10:57:37,034 INFO blocking-thread--p3-t1 MAIN - [IS0002] Infinispan SQL store: SQL dialect: sqlDialect=H2 
+2025-04-21T10:57:37,034 INFO blocking-thread--p3-t1 MAIN - [IS0004] Infinispan SQL store: Create table if missing: createTableIfMissing=true 
+2025-04-21T10:57:37,034 INFO blocking-thread--p3-t1 MAIN - [IS0009] Infinispan SQL store: Create table ignore errors: createTableIgnoreErrors=false 
+2025-04-21T10:57:37,034 INFO blocking-thread--p3-t1 MAIN - [IS0008] Infinispan SQL store: Connection pool reference: keyStore.jwkSetMap 
+2025-04-21T10:57:37,034 INFO blocking-thread--p3-t1 MAIN - [IS0010] Infinispan SQL store: Expired record select query page limit: 1000
+2025-04-21T10:57:37,035 INFO blocking-thread--p3-t1 MAIN - [IS0140] SQL store: Expiration thread wake up interval for cache sessionStore.sessionMap: 600000
+2025-04-21T10:57:37,035 INFO blocking-thread--p3-t1 MAIN - [IS0102] Initialized SQL external store for cache sessionStore.sessionMap with table subject_sessions
+2025-04-21T10:57:37,035 INFO blocking-thread--p3-t1 MAIN - [IS0143] SQL store: Transaction isolation for cache sessionStore.sessionMap: TRANSACTION_READ_COMMITTED
+2025-04-21T10:57:37,035 INFO blocking-thread--p3-t1 MAIN - [IS0136] SQL store: Executing create table subject_sessions (if missing?) for cache sessionStore.sessionMap
+2025-04-21T10:57:37,037 INFO blocking-thread--p3-t1 MAIN - [IS0129] SQL store: Create table subject_sessions (if missing?) for cache sessionStore.sessionMap returned 0 changed rows
+2025-04-21T10:57:37,037 INFO blocking-thread--p3-t1 MAIN - [IS0133] SQL store: Found table transformer
+2025-04-21T10:57:37,040 INFO blocking-thread--p3-t1 MAIN - [IS0134] SQL store: Executing table transform for cache sessionStore.sessionMap: ALTER TABLE IF EXISTS subject_sessions ADD COLUMN IF NOT EXISTS ctx VARCHAR(10) AFTER access_ts
+2025-04-21T10:57:37,044 INFO blocking-thread--p3-t1 MAIN - [IS0134] SQL store: Executing table transform for cache sessionStore.sessionMap: ALTER TABLE IF EXISTS subject_sessions ADD COLUMN IF NOT EXISTS jkt CHAR(43) AFTER access_ts
+2025-04-21T10:57:37,050 INFO blocking-thread--p3-t1 MAIN - [IS0134] SQL store: Executing table transform for cache sessionStore.sessionMap: ALTER TABLE IF EXISTS subject_sessions ADD COLUMN IF NOT EXISTS fpt CHAR(43) AFTER access_ts
+2025-04-21T10:57:37,056 INFO blocking-thread--p3-t1 MAIN - [IS0104] Started SQL external store connector for cache sessionStore.sessionMap with table subject_sessions
+2025-04-21T10:57:37,059 INFO blocking-thread--p3-t1 MAIN - [IS0100] SQL store: Infinispan cache store configuration for sessionStore.subjectMap:
+2025-04-21T10:57:37,060 INFO blocking-thread--p3-t1 MAIN - [IS0000] Infinispan SQL store: Record transformer class: com.nimbusds.sessionstore.impl.persistence.sql.SubjectIndexTransformer 
+2025-04-21T10:57:37,060 INFO blocking-thread--p3-t1 MAIN - [IS0001] Infinispan SQL store: Query executor class: not specified 
+2025-04-21T10:57:37,060 INFO blocking-thread--p3-t1 MAIN - [IS0002] Infinispan SQL store: SQL dialect: sqlDialect=H2 
+2025-04-21T10:57:37,060 INFO blocking-thread--p3-t1 MAIN - [IS0004] Infinispan SQL store: Create table if missing: createTableIfMissing=true 
+2025-04-21T10:57:37,060 INFO blocking-thread--p3-t1 MAIN - [IS0009] Infinispan SQL store: Create table ignore errors: createTableIgnoreErrors=false 
+2025-04-21T10:57:37,060 INFO blocking-thread--p3-t1 MAIN - [IS0008] Infinispan SQL store: Connection pool reference: keyStore.jwkSetMap 
+2025-04-21T10:57:37,060 INFO blocking-thread--p3-t1 MAIN - [IS0010] Infinispan SQL store: Expired record select query page limit: 250
+2025-04-21T10:57:37,060 INFO blocking-thread--p3-t1 MAIN - [IS0140] SQL store: Expiration thread wake up interval for cache sessionStore.subjectMap: 0
+2025-04-21T10:57:37,060 INFO blocking-thread--p3-t1 MAIN - [IS0102] Initialized SQL external store for cache sessionStore.subjectMap with table subject_index
+2025-04-21T10:57:37,060 INFO blocking-thread--p3-t1 MAIN - [IS0143] SQL store: Transaction isolation for cache sessionStore.subjectMap: TRANSACTION_READ_COMMITTED
+2025-04-21T10:57:37,061 INFO blocking-thread--p3-t1 MAIN - [IS0136] SQL store: Executing create table subject_index (if missing?) for cache sessionStore.subjectMap
+2025-04-21T10:57:37,062 INFO blocking-thread--p3-t1 MAIN - [IS0129] SQL store: Create table subject_index (if missing?) for cache sessionStore.subjectMap returned 0 changed rows
+2025-04-21T10:57:37,062 INFO blocking-thread--p3-t1 MAIN - [IS0104] Started SQL external store connector for cache sessionStore.subjectMap with table subject_index
+2025-04-21T10:57:37,062 INFO main CONTAINER - ISPN000025: wakeUpInterval is <= 0, not starting expired purge thread
+2025-04-21T10:57:37,098 INFO main MAIN - [KS0300] Infinispan cache manager status: RUNNING
+2025-04-21T10:57:37,099 INFO main MAIN - Loaded properties file /WEB-INF/keyStore.properties
+2025-04-21T10:57:37,101 INFO main MAIN - [KS0307] Overriding system properties: []
+2025-04-21T10:57:37,166 INFO main MAIN - [KS0100] Key store AES encryption JWK: size=128 kid=null thumbprint=EjhINBvDjzr-KPv7IP6Ty5XQiFBM34Mh3NoBv8kcNao
+2025-04-21T10:57:37,166 WARN main MAIN - [KS0101] The key store is configured with the demo AES encryption JWK, generate a new JWK for production use: https://connect2id.com/products/server/docs/config/jwk-set
+2025-04-21T10:57:37,172 INFO main MAIN - [KS1000] Initialized key store
+2025-04-21T10:57:37,172 INFO main MAIN - [KS0304] Started key store
+2025-04-21T10:57:37,173 INFO main MAIN - [TR0002] Created single-tenant manager
+2025-04-21T10:57:37,175 INFO main MAIN - [AS0400] Infinispan cache manager status: RUNNING
+2025-04-21T10:57:37,176 INFO main MAIN - Loaded properties file /WEB-INF/authzStore.properties
+2025-04-21T10:57:37,178 INFO main MAIN - Loaded properties file /WEB-INF/oidcProvider.properties
+2025-04-21T10:57:37,178 INFO main MAIN - [AS0412] Overriding system properties: []
+2025-04-21T10:57:37,198 INFO main MAIN - [AS0000] Authorization code lifetime: 300 s
+2025-04-21T10:57:37,198 INFO main MAIN - [AS0001] Default access token lifetime: 600 s
+2025-04-21T10:57:37,198 INFO main MAIN - [AS0003] Self-contained access token JWS algorithm: RS256
+2025-04-21T10:57:37,198 INFO main MAIN - [AS0033] Self-contained access token JWE algorithm: dir
+2025-04-21T10:57:37,198 INFO main MAIN - [AS0034] Self-contained access token JWE method: A128GCM
+2025-04-21T10:57:37,198 INFO main MAIN - [AS0036] Self-contained access token include "x5c" JWT header: true
+2025-04-21T10:57:37,198 INFO main MAIN - [AS0006] Direct access token inspection is allowed: false
+2025-04-21T10:57:37,198 WARN main MAIN - [AS0032] Disabled public subject security in self-contained access tokens: false
+2025-04-21T10:57:37,198 INFO main MAIN - [AS0012] Default refresh token lifetime: 0 s
+2025-04-21T10:57:37,198 INFO main MAIN - [AS0013] Default rotate refresh token: false
+2025-04-21T10:57:37,198 INFO main MAIN - [AS0010] Always update refresh token (deprecated): false
+2025-04-21T10:57:37,199 INFO main MAIN - [AS0014] Rotated refresh token reuse grace period: 5 s
+2025-04-21T10:57:37,199 INFO main MAIN - [AS0050] Revocation timestamp check bias: 0 s
+2025-04-21T10:57:37,199 INFO main MAIN - [AS0040] Pairwise subjects: Pad local subjects to length: no padding
+2025-04-21T10:57:37,199 INFO main MAIN - [AS0030] Authorization store API access token configured / API enabled: true
+2025-04-21T10:57:37,199 INFO main MAIN - [AS0031] Additional authorization store API access tokens: 0
+2025-04-21T10:57:37,199 INFO main MAIN - [AS0029] Highly-available mode enabled: true
+2025-04-21T10:57:37,199 INFO main MAIN - [AS0028] Discarded attributes: []
+2025-04-21T10:57:37,199 INFO main MAIN - [AS0011] Issue legacy refresh tokens: false
+2025-04-21T10:57:37,199 INFO main MAIN - Loaded properties file /WEB-INF/claimsCompression.properties
+2025-04-21T10:57:37,528 INFO main KEY-STORE - [KS2010] Generating JWK set for OP context
+2025-04-21T10:57:38,081 INFO main KEY-STORE - [KS2000] Generated new signing RSA 2048 bit key with ID ZxE7
+2025-04-21T10:57:38,346 INFO main KEY-STORE - [KS2000] Generated new signing EC P-256 key with ID wFC8
+2025-04-21T10:57:38,366 INFO main KEY-STORE - [KS2000] Generated new signing EC P-384 key with ID Rwqe
+2025-04-21T10:57:38,389 INFO main KEY-STORE - [KS2000] Generated new signing EC P-521 key with ID PPue
+2025-04-21T10:57:38,396 INFO main KEY-STORE - [KS2000] Generated new signing EC secp256k1 key with ID TMcH
+2025-04-21T10:57:38,611 INFO main KEY-STORE - [KS2000] Generated new signing Ed25519 key with ID veGL
+2025-04-21T10:57:38,691 INFO main KEY-STORE - [KS2000] Generated new encryption RSA 2048 bit key with ID byT1
+2025-04-21T10:57:39,438 INFO main KEY-STORE - [KS2000] Generated new encryption EC P-256 key with ID lCgK
+2025-04-21T10:57:39,449 INFO main KEY-STORE - [KS2000] Generated new encryption EC P-384 key with ID zvJr
+2025-04-21T10:57:39,462 INFO main KEY-STORE - [KS2000] Generated new encryption EC P-521 key with ID EyXc
+2025-04-21T10:57:39,464 INFO main KEY-STORE - [KS2000] Generated new symmetric encryption 128 bit key with ID 1k2r
+2025-04-21T10:57:39,465 INFO main KEY-STORE - [KS2000] Generated new HMAC SHA 256 bit key with ID hmac
+2025-04-21T10:57:39,465 INFO main KEY-STORE - [KS2000] Generated new subject encryption AES SIV 256 bit key with ID subject-encrypt
+2025-04-21T10:57:39,466 INFO main KEY-STORE - [KS2000] Generated new refresh token encryption AES SIV 256 bit key with ID refresh-token-encrypt
+2025-04-21T10:57:39,670 INFO main KEY-STORE - [KS2007] Stored JWK set for OP context
+2025-04-21T10:57:39,735 INFO main MAIN - [AS0413] Validated optional symmetric encryption key for self-contained access tokens
+2025-04-21T10:57:39,749 INFO main MAIN - [AS0540] Loaded class com.nimbusds.authzstore.codecs.DefaultSelfContainedAccessTokenClaimsCodec
+2025-04-21T10:57:39,751 INFO main MAIN - [AS0530] Loaded class com.nimbusds.authzstore.codecs.DefaultIdentifierAccessTokenCodec
+2025-04-21T10:57:39,754 INFO main MAIN - [AS0236] Code map entry count strategy: DEFAULT
+2025-04-21T10:57:39,755 INFO main MAIN - [AS0235] Identifier-based access token map entry count strategy: DIRECT
+2025-04-21T10:57:39,756 INFO main MAIN - [AS0234] Long-lived authorization map entry count strategy: DIRECT
+2025-04-21T10:57:39,757 INFO main MAIN - [AS0237] Revocation journal map entry count strategy: DIRECT
+2025-04-21T10:57:39,757 INFO main MAIN - [AS0330] Expended token map entry count strategy: DEFAULT
+2025-04-21T10:57:39,759 INFO main MAIN - [AS0200] Completed initialization of the Infinispan authorization store
+2025-04-21T10:57:39,759 INFO main MAIN - [AS0410] Started authorization store
+2025-04-21T10:57:39,760 INFO main MAIN - [SS0300] Infinispan cache manager status: RUNNING
+2025-04-21T10:57:39,760 INFO main MAIN - Loaded properties file /WEB-INF/sessionStore.properties
+2025-04-21T10:57:39,760 INFO main MAIN - [SS0307] Overriding system properties: []
+2025-04-21T10:57:39,761 INFO main MAIN - [SS0120] Orphaned subject key purge interval: -1s
+2025-04-21T10:57:39,761 INFO main MAIN - Loaded properties file /WEB-INF/sessionStore.properties
+2025-04-21T10:57:39,761 INFO main MAIN - [SS0306] Overriding system properties: []
+2025-04-21T10:57:39,762 INFO main MAIN - [SS0100] Default max subject session lifetime: 259200 minutes
+2025-04-21T10:57:39,762 INFO main MAIN - [SS0102] Default subject authentication lifetime: 43200 minutes
+2025-04-21T10:57:39,762 INFO main MAIN - [SS0104] Default max idle subject session time: 14400 minutes
+2025-04-21T10:57:39,763 INFO main MAIN - [SS0106] Web and native client group session quota per subject: 5
+2025-04-21T10:57:39,763 INFO main MAIN - [SS0111] Native IdP app session quota per subject: 1
+2025-04-21T10:57:39,763 INFO main MAIN - [SS0107] Policy on subject session quota exhaustion: CLOSE_OLD_SESSION
+2025-04-21T10:57:39,763 INFO main MAIN - [SS0109] Session store API access token configured / API enabled: true
+2025-04-21T10:57:39,763 INFO main MAIN - [SS0112] Additional session store API access tokens: 0
+2025-04-21T10:57:39,763 INFO main MAIN - [SS0110] Accepts legacy SIDs (without appended HMAC): false
+2025-04-21T10:57:39,771 INFO main MAIN - [SS0211] Subject session map entry count strategy: DIRECT_WITH_PASSIVATION
+2025-04-21T10:57:39,772 INFO main MAIN - [SS0207] Task to remove orphaned subject keys not scheduled
+2025-04-21T10:57:39,772 INFO main MAIN - [SS0304] Started subject session store
+2025-04-21T10:57:39,783 INFO main MAIN - [OP0115] Connect2id server version: 18.0
+2025-04-21T10:57:39,784 INFO main MAIN - [OP0130] Starting Connect2id server on lenss-10/127.0.1.1
+2025-04-21T10:57:39,830 INFO main MAIN - [OP0147] Installed BouncyCastle JCA provider for JOSE algorithms: [XC20P, A256CBC+HS512, EdDSA, RSA-OAEP-384, A128CBC+HS256]
+2025-04-21T10:57:39,831 INFO main MAIN - Loaded properties file /WEB-INF/oidcProvider.properties
+2025-04-21T10:57:39,831 INFO main MAIN - [OP0128] Overriding system properties: []
+2025-04-21T10:57:39,962 WARN main MAIN - [OP0001] Invalid OP / AS issuer: http://127.0.0.1:8080/c2id
+2025-04-21T10:57:39,962 INFO main MAIN - [OP0009] Issuer alias mode: MIGRATION
+2025-04-21T10:57:39,962 INFO main MAIN - [OP0002] Policy URI: none
+2025-04-21T10:57:39,962 INFO main MAIN - [OP0003] Terms of service URI: none
+2025-04-21T10:57:39,962 INFO main MAIN - [OP0004] Service documentation URI: none
+2025-04-21T10:57:39,962 INFO main MAIN - [OP0007] Splash page: urn:c2id:splash_page:default
+2025-04-21T10:57:39,962 INFO main MAIN - [OP0005] Custom OP / AS metadata: none
+2025-04-21T10:57:39,962 INFO main MAIN - [OP0008] Published OP / AS metadata overlay: none
+2025-04-21T10:57:39,962 INFO main MAIN - [OP5102] Client registry configuration:
+2025-04-21T10:57:39,962 INFO main MAIN - [OP5103] Client registration endpoint allows open registration: false
+2025-04-21T10:57:39,962 INFO main MAIN - [OP5104] Client registration rejects non-TLS (unprotected) redirection URIs: true
+2025-04-21T10:57:39,962 INFO main MAIN - [OP5114] Client registration allows localhost redirection URIs for testing and development purposes: false
+2025-04-21T10:57:39,962 INFO main MAIN - [OP5115] Client registration allows non-TLS front and back-channel logout URIs for testing and development purposes: false
+2025-04-21T10:57:39,962 INFO main MAIN - [OP5101] Client registration endpoint allows provider managed sector ID URNs: false
+2025-04-21T10:57:39,962 INFO main MAIN - [OP5105] Client registration access token length: 32 bytes
+2025-04-21T10:57:39,963 INFO main MAIN - [OP5110] Client registration access token length refreshed on update: true
+2025-04-21T10:57:39,963 INFO main MAIN - [OP5106] Client ID length: 8 bytes
+2025-04-21T10:57:39,963 INFO main MAIN - [OP5108] Client secret lifetime: 0 hours
+2025-04-21T10:57:39,963 INFO main MAIN - [OP5111] Client secret always refreshed on update: true
+2025-04-21T10:57:39,963 INFO main MAIN - [OP5113] Client request URI quota: 10
+2025-04-21T10:57:39,963 INFO main MAIN - [OP5112] Client registration initial access token requires audience: true
+2025-04-21T10:57:39,963 INFO main MAIN - [OP5109] Client registration master API access token configured / API enabled: true
+2025-04-21T10:57:39,963 INFO main MAIN - [OP5190] Resource retriever HTTP connect timeout: 1000ms
+2025-04-21T10:57:39,963 INFO main MAIN - [OP5191] Resource retriever HTTP read timeout: 1000ms
+2025-04-21T10:57:39,963 INFO main MAIN - [OP0090] Disabled SSO for selected clients: none
+2025-04-21T10:57:39,963 INFO main MAIN - [OP0091] Native client group SSO enabled: false
+2025-04-21T10:57:39,963 INFO main MAIN - [OP0060] Pairwise subjects: Pad local subjects to length: no padding
+2025-04-21T10:57:39,963 INFO main MAIN - [OP1000] ID token default lifetime: 300 seconds
+2025-04-21T10:57:39,966 INFO main MAIN - [OP1001] ID token JWS algorithms: RS256, RS384, RS512, PS256, PS384, PS512, ES256, ES256K, ES384, ES512, HS256, HS384, HS512, EdDSA
+2025-04-21T10:57:39,966 INFO main MAIN - [OP1003] ID token JWE algorithms: RSA-OAEP-256, RSA-OAEP-384, RSA-OAEP-512, ECDH-ES, ECDH-ES+A128KW, ECDH-ES+A192KW, ECDH-ES+A256KW, dir, A128KW, A192KW, A256KW, A128GCMKW, A192GCMKW, A256GCMKW
+2025-04-21T10:57:39,967 INFO main MAIN - [OP1004] ID token JWE methods: A128CBC-HS256, A192CBC-HS384, A256CBC-HS512, A128GCM, A192GCM, A256GCM, XC20P
+2025-04-21T10:57:39,967 INFO main MAIN - [OP1005] ID token includes s_hash: disabled
+2025-04-21T10:57:39,967 INFO main MAIN - [OP1009] ID token includes jti: disabled
+2025-04-21T10:57:39,967 INFO main MAIN - [OP1010] ID token includes x5c: enabled
+2025-04-21T10:57:39,967 INFO main MAIN - [OP2015] ID token includes subject session claims: * (all)
+2025-04-21T10:57:39,967 INFO main MAIN - [OP1002] ID token issue ignores claims sources exceptions: true
+2025-04-21T10:57:39,967 INFO main MAIN - [OP1006] ID token JWT 'typ' (type): null
+2025-04-21T10:57:39,967 INFO main MAIN - [OP0011] Supported authorization_details types: null
+2025-04-21T10:57:39,967 INFO main MAIN - [OP0030] PAR lifetime: 60 seconds
+2025-04-21T10:57:39,967 INFO main MAIN - [OP0031] PAR required: false
+2025-04-21T10:57:39,967 WARN main MAIN - [OP2004] Authorization endpoint (consider using HTTPS): http://127.0.0.1:8080/c2id-login
+2025-04-21T10:57:39,967 INFO main MAIN - [OP2005] Authorization session lifetime: 15 minutes
+2025-04-21T10:57:39,967 INFO main MAIN - [OP2006] Enabled OAuth 2.0 response types: code, token, id_token, id_token token, code id_token, code id_token token
+2025-04-21T10:57:39,967 INFO main MAIN - [OP2016] Enabled OAuth 2.0 response modes: query, fragment, form_post, query.jwt, fragment.jwt, form_post.jwt, jwt
+2025-04-21T10:57:39,967 INFO main MAIN - [OP2032] Prohibit switch between basic query and fragment response_mode: false
+2025-04-21T10:57:39,967 INFO main MAIN - [OP2045] Scope limited to registered: true
+2025-04-21T10:57:39,968 INFO main MAIN - [OP2017] Accepted request JWS algorithms: [HS256, HS384, HS512, RS256, RS384, RS512, PS256, PS384, PS512, ES256, ES256K, ES384, ES512]
+2025-04-21T10:57:39,968 INFO main MAIN - [OP2025] Accepted request JWE algorithms: [RSA-OAEP-256, RSA-OAEP-384, RSA-OAEP-512, ECDH-ES, ECDH-ES+A128KW, ECDH-ES+A192KW, ECDH-ES+A256KW, dir]
+2025-04-21T10:57:39,968 INFO main MAIN - [OP2026] Accepted request JWE encryption methods: [A128CBC-HS256, A192CBC-HS384, A256CBC-HS512, A128GCM, A192GCM, A256GCM, XC20P]
+2025-04-21T10:57:39,968 INFO main MAIN - [OP2033] Accepted JARM JWS algorithms: [HS256, HS384, HS512, RS256, RS384, RS512, PS256, PS384, PS512, ES256, ES256K, ES384, ES512, EdDSA]
+2025-04-21T10:57:39,968 INFO main MAIN - [OP2034] Accepted JARM JWE algorithms: [RSA-OAEP-256, RSA-OAEP-384, RSA-OAEP-512, ECDH-ES, ECDH-ES+A128KW, ECDH-ES+A192KW, ECDH-ES+A256KW, dir]
+2025-04-21T10:57:39,968 INFO main MAIN - [OP2035] Accepted JARM JWE encryption methods: [A128CBC-HS256, A192CBC-HS384, A256CBC-HS512, A128GCM, A192GCM, A256GCM, XC20P]
+2025-04-21T10:57:39,968 INFO main MAIN - [OP2038] JARM JWT includes x5c: enabled
+2025-04-21T10:57:39,968 INFO main MAIN - [OP2013] Include OAuth 2.0 client information in auth prompt: false
+2025-04-21T10:57:39,968 INFO main MAIN - [OP2020] Include OAuth 2.0 client information in final response: false
+2025-04-21T10:57:39,968 INFO main MAIN - [OP2021] Include subject session in final response: false
+2025-04-21T10:57:39,968 INFO main MAIN - [OP2014] Include other previously consented scope and claims in consent prompt: false
+2025-04-21T10:57:39,968 INFO main MAIN - [OP2028] Include raw OpenID claims request parameter in consent prompt: false
+2025-04-21T10:57:39,969 INFO main MAIN - [OP2036] Authorization parameters to include in auth prompt: []
+2025-04-21T10:57:39,969 INFO main MAIN - [OP2037] Authorization parameters to include in consent prompt: []
+2025-04-21T10:57:39,969 INFO main MAIN - [OP2018] Always prompt for authentication: false
+2025-04-21T10:57:39,969 INFO main MAIN - [OP2002] Always prompt for consent: false
+2025-04-21T10:57:39,969 INFO main MAIN - [OP2001] Always prompt mode: PROMPT_NONE
+2025-04-21T10:57:39,969 INFO main MAIN - [OP2000] ID token hint (id_token_hint) required with prompt=none: false
+2025-04-21T10:57:39,969 INFO main MAIN - [OP2042] Always require redirect_uri: false
+2025-04-21T10:57:39,969 INFO main MAIN - [OP2029] Allowed PKCE methods: [plain, S256]
+2025-04-21T10:57:39,969 INFO main MAIN - [OP2027] Required PKCE methods: []
+2025-04-21T10:57:39,969 INFO main MAIN - [OP2030] Request JWT policy for OAuth: STRICT
+2025-04-21T10:57:39,969 INFO main MAIN - [OP2031] Request JWT policy for OpenID Connect: MERGE_UNSECURED
+2025-04-21T10:57:39,969 INFO main MAIN - [OP2043] Always require signed request JWT: false
+2025-04-21T10:57:39,969 INFO main MAIN - [OP2023] Request JWT exp required: false
+2025-04-21T10:57:39,969 INFO main MAIN - [OP2039] Request JWT nbf required: false
+2025-04-21T10:57:39,969 INFO main MAIN - [OP2040] Max lifetime of request JWT exp: not specified
+2025-04-21T10:57:39,969 INFO main MAIN - [OP2041] Max age of request JWT nbf: not specified
+2025-04-21T10:57:39,969 INFO main MAIN - [OP2024] Request JWTs must include all authorization request parameters: false
+2025-04-21T10:57:39,969 INFO main MAIN - [OP2044] Always require signed response: false
+2025-04-21T10:57:39,969 INFO main MAIN - [OP2019] Additional custom error codes for the authorization endpoint: []
+2025-04-21T10:57:39,970 INFO main MAIN - [OP2008] Advertised OAuth 2.0 scopes: openid
+2025-04-21T10:57:39,970 INFO main MAIN - [OP2009] Advertised OpenID Connect claims: sub
+2025-04-21T10:57:39,970 INFO main MAIN - [OP2010] Advertised ACRs: null
+2025-04-21T10:57:39,970 INFO main MAIN - [OP2011] Advertised display types: page
+2025-04-21T10:57:39,970 INFO main MAIN - [OP2012] Advertised UI locales: null
+2025-04-21T10:57:39,970 INFO main MAIN - [OP2022] Additional authorization API access tokens: 0
+2025-04-21T10:57:39,970 INFO main MAIN - [OP6100] Client authentication methods: client_secret_basic, client_secret_post, client_secret_jwt, private_key_jwt, none
+2025-04-21T10:57:39,970 INFO main MAIN - [OP6101] Client authentication JWS algorithms: HS256, HS384, HS512, RS256, RS384, RS512, PS256, PS384, PS512, ES256, ES256K, ES384, ES512
+2025-04-21T10:57:39,970 INFO main MAIN - [OP6109] JWT authentication audience check: LEGACY
+2025-04-21T10:57:39,970 INFO main MAIN - [OP6110] JWT authentication audience check JSON query: none
+2025-04-21T10:57:39,970 INFO main MAIN - [OP6107] Prevent client_secret_jwt and private_key_jwt replay: true
+2025-04-21T10:57:39,970 INFO main MAIN - [OP6108] Maximum exp time ahead for client_secret_jwt and private_key_jwt: disabled
+2025-04-21T10:57:39,970 INFO main MAIN - [OP6105] Token endpoint requires client X.509 certificate: false
+2025-04-21T10:57:39,970 INFO main MAIN - [OP6106] Token introspection prune audience: true
+2025-04-21T10:57:39,970 INFO main MAIN - [OP6103] Token introspection response always JWT: false
+2025-04-21T10:57:39,970 INFO main MAIN - [OP6104] Token introspection JWT 'typ' (type): token-introspection+jwt
+2025-04-21T10:57:39,971 INFO main MAIN - [OP7200] UserInfo endpoint JWS algorithms: RS256, RS384, RS512, PS256, PS384, PS512, ES256, ES256K, ES384, ES512, HS256, HS384, HS512, EdDSA
+2025-04-21T10:57:39,971 INFO main MAIN - [OP7202] UserInfo endpoint JWE algorithms: RSA-OAEP-256, RSA-OAEP-384, RSA-OAEP-512, ECDH-ES, ECDH-ES+A128KW, ECDH-ES+A192KW, ECDH-ES+A256KW, dir, A128KW, A192KW, A256KW, A128GCMKW, A192GCMKW, A256GCMKW
+2025-04-21T10:57:39,971 INFO main MAIN - [OP7204] UserInfo endpoint JWE methods: A128CBC-HS256, A192CBC-HS384, A256CBC-HS512, A128GCM, A192GCM, A256GCM, XC20P
+2025-04-21T10:57:39,971 INFO main MAIN - [OP7206] UserInfo endpoint allows access token in URI query: false
+2025-04-21T10:57:39,971 INFO main MAIN - [OP7207] UserInfo JWT 'typ' (type): null
+2025-04-21T10:57:39,971 INFO main MAIN - [OP2700] Logout (end-session) endpoint disabled
+2025-04-21T10:57:39,971 INFO main MAIN - [OP2772] Back-channel logout tokens explicitly typed with JWT logout+jwt type ("typ") header: true
+2025-04-21T10:57:39,971 INFO main MAIN - [OP2770] Back-channel logout HTTP connect timeout: 1000ms
+2025-04-21T10:57:39,971 INFO main MAIN - [OP2771] Back-channel logout HTTP read timeout: 1000ms
+2025-04-21T10:57:39,971 INFO main MAIN - [OP2800] Check session iframe: disabled
+2025-04-21T10:57:39,971 INFO main MAIN - [OP0081] CIBA enabled: false
+2025-04-21T10:57:39,971 INFO main MAIN - [OP0040] OpenID Federation: Enabled: false
+2025-04-21T10:57:39,971 INFO main MAIN - [OP0020] Supports identity assurance / verified claims: false
+2025-04-21T10:57:39,971 INFO main MAIN - [OP2910] General STS API access token configured / API enabled: false
+2025-04-21T10:57:39,971 INFO main MAIN - [OP2911] STS private_key_jwt API access token configured / API enabled: false
+2025-04-21T10:57:39,971 INFO main MAIN - [OP2911] STS login_hint_token API access token configured / API enabled: false
+2025-04-21T10:57:39,972 INFO main MAIN - [OP2911] STS JAR API access token configured / API enabled: false
+2025-04-21T10:57:39,972 INFO main MAIN - [OP2913] STS login_hint_token direct issue allowed (API access token not required): false 
+2025-04-21T10:57:39,972 INFO main MAIN - [OP6901] Client X.509 certificates accepted
+2025-04-21T10:57:39,972 INFO main MAIN - [OP6900] TLS termination proxy: Client X.509 certificate HTTP header: not configured
+2025-04-21T10:57:39,973 INFO main MAIN - [OP0006] OP / AS issuer aliases: none
+2025-04-21T10:57:39,973 INFO main MAIN - Loaded properties file /WEB-INF/keyStore.properties
+2025-04-21T10:57:39,973 INFO main MAIN - [KS0303] Overriding system properties: []
+2025-04-21T10:57:39,974 INFO main MAIN - [KS0156] Key store default size for new generated RSA JWKs: 2048 bits
+2025-04-21T10:57:39,974 INFO main MAIN - [KS0154] Key store mode for OP JWK set context: DYNAMIC
+2025-04-21T10:57:39,974 INFO main MAIN - [KS0154] Key store mode for FEDERATION JWK set context: DYNAMIC
+2025-04-21T10:57:39,974 INFO main MAIN - [KS0150] Key store generate FEDERATION JWK set if empty: true
+2025-04-21T10:57:39,974 INFO main MAIN - [KS0150] Key store generate OP JWK set if empty: true
+2025-04-21T10:57:39,974 INFO main MAIN - [KS0160] Key store PKCS#11 enabled for FEDERATION JWK set: false
+2025-04-21T10:57:39,974 INFO main MAIN - [KS0160] Key store PKCS#11 enabled for OP JWK set: false
+2025-04-21T10:57:39,974 INFO main MAIN - [KS0154] Key store JWK set cache lifetime: 60s
+2025-04-21T10:57:39,974 INFO main MAIN - [KS0152] Key store API access token configured / API enabled: false
+2025-04-21T10:57:40,089 INFO main MAIN - [OP0119] Loaded OpenID claims map file /WEB-INF/customClaimsMap.properties with 0 entries
+2025-04-21T10:57:40,089 INFO main MAIN - [OP0080] Custom scope value - OpenID claims map:
+2025-04-21T10:57:40,093 INFO main MAIN - [OP0214] Created event dispatcher with 0 listeners in total
+2025-04-21T10:57:40,100 INFO main MAIN - [PWW0000] Password grant handler enabled: true
+2025-04-21T10:57:40,100 INFO main MAIN - [PWW0001] Password grant handler: Endpoint URL: http://127.0.0.1:8080/password-grant-handler
+2025-04-21T10:57:40,100 INFO main MAIN - [PWW0002] Password grant handler: Accepted custom token request parameters: []
+2025-04-21T10:57:40,100 INFO main MAIN - [PWW0005] Password grant handler: Included client metadata parameters: [scope, default_max_age, application_type, data, require_auth_time, subject_type, default_acr_values, sector_identifier_uri]
+2025-04-21T10:57:40,100 INFO main MAIN - [PWW0003] Password grant handler: HTTP connect timeout: 250 ms
+2025-04-21T10:57:40,100 INFO main MAIN - [PWW0004] Password grant handler: HTTP read timeout: 500 ms
+2025-04-21T10:57:40,101 INFO main MAIN - [OP7106] Loaded PasswordGrantHandler: class=com.nimbusds.openid.connect.provider.spi.impl.grants.handlers.web.password.PasswordGrantDelegator enabled=true
+2025-04-21T10:57:40,101 INFO main MAIN - [OP7103] Active password grant handler: class=com.nimbusds.openid.connect.provider.spi.impl.grants.handlers.web.password.PasswordGrantDelegator
+2025-04-21T10:57:40,106 INFO main MAIN - [CGH0000] Client credentials grant handler enabled: true
+2025-04-21T10:57:40,106 INFO main MAIN - [CGH0101] Access token lifetime: default
+2025-04-21T10:57:40,106 INFO main MAIN - [CGH0102] Access token encoding: SELF_CONTAINED
+2025-04-21T10:57:40,106 INFO main MAIN - [CGH0103] Access JWT encrypt: false
+2025-04-21T10:57:40,106 INFO main MAIN - [CGH0104] Access token audience: null
+2025-04-21T10:57:40,106 INFO main MAIN - [CGH0105] Client metadata fields to include in access tokens: []
+2025-04-21T10:57:40,107 INFO main MAIN - [OP7106] Loaded ClientCredentialsGrantHandler: class=com.nimbusds.openid.connect.provider.spi.impl.grants.handlers.local.clientcredentials.SimpleClientCredentialsGrantHandler enabled=true
+2025-04-21T10:57:40,107 INFO main MAIN - [CCW0000] Client credentials grant handler enabled: false
+2025-04-21T10:57:40,107 INFO main MAIN - [OP7106] Loaded ClientCredentialsGrantHandler: class=com.nimbusds.openid.connect.provider.spi.impl.grants.handlers.web.clientcredentials.ClientCredentialsGrantDelegator enabled=false
+2025-04-21T10:57:40,107 INFO main MAIN - [OP7103] Active client_credentials grant handler: class=com.nimbusds.openid.connect.provider.spi.impl.grants.handlers.local.clientcredentials.SimpleClientCredentialsGrantHandler
+2025-04-21T10:57:40,109 INFO main MAIN - [SJH0000] JWT bearer grant handler enabled: true
+2025-04-21T10:57:40,110 INFO main MAIN - [SJH0101] Access token lifetime: default
+2025-04-21T10:57:40,110 INFO main MAIN - [SJH0102] Access token encoding: SELF_CONTAINED
+2025-04-21T10:57:40,110 INFO main MAIN - [SJH0103] Access JWT encrypt: false
+2025-04-21T10:57:40,110 INFO main MAIN - [SJH0104] Access token audience: null
+2025-04-21T10:57:40,110 INFO main MAIN - [SJH0105] Client metadata fields to include in access tokens: []
+2025-04-21T10:57:40,110 INFO main MAIN - [OP7106] Loaded SelfIssuedJWTGrantHandler: class=com.nimbusds.openid.connect.provider.spi.impl.grants.handlers.local.jwt.selfissued.SimpleSelfIssuedJWTGrantHandler enabled=true
+2025-04-21T10:57:40,110 INFO main MAIN - [OP7103] Active urn:ietf:params:oauth:grant-type:jwt-bearer grant handler: class=com.nimbusds.openid.connect.provider.spi.impl.grants.handlers.local.jwt.selfissued.SimpleSelfIssuedJWTGrantHandler
+2025-04-21T10:57:40,111 INFO main MAIN - [OP0251] No enabled ThirdPartyJWTGrantHandler found
+2025-04-21T10:57:40,112 INFO main MAIN - [OP0251] No enabled SelfIssuedSAML2GrantHandler found
+2025-04-21T10:57:40,113 INFO main MAIN - [OP0251] No enabled ThirdPartySAML2GrantHandler found
+2025-04-21T10:57:40,116 INFO main MAIN - [TEW0000] Token exchange grant handler enabled: false
+2025-04-21T10:57:40,116 INFO main MAIN - [OP7106] Loaded TokenExchangeGrantHandler: class=com.nimbusds.openid.connect.provider.spi.impl.grants.handlers.web.tokenexchange.TokenExchangeGrantDelegator enabled=false
+2025-04-21T10:57:40,116 INFO main MAIN - [OP0251] No enabled TokenExchangeGrantHandler found
+2025-04-21T10:57:40,119 INFO main MAIN - [OP0251] No enabled PrivateKeyJWTCertificateVerifier found
+2025-04-21T10:57:40,138 INFO main MAIN - [CMC0001] Additional client metadata checks: true
+2025-04-21T10:57:40,138 INFO main MAIN - [OP5177] Loaded FinalMetadataValidator: class=com.nimbusds.openid.connect.provider.reg.spi.AdditionalClientMetadataChecks enabled=true
+2025-04-21T10:57:40,138 INFO main MAIN - [OP0135] Client registry entry count strategy: DIRECT
+2025-04-21T10:57:40,138 INFO main MAIN - [OP0136] Client JWK set cache entry count strategy: DEFAULT
+2025-04-21T10:57:40,138 INFO main MAIN - [OP0137] Request JWT cache entry count strategy: DEFAULT
+2025-04-21T10:57:40,141 INFO main MAIN - [OP0106] Started the client registry
+2025-04-21T10:57:40,143 INFO main FED-REG - [OP8042] Started periodic task for reaping expired federation client registrations
+2025-04-21T10:57:40,143 INFO main MAIN - [OP0144] Started the federation client index and reaper
+2025-04-21T10:57:40,146 INFO main MAIN - [CSLDAP0003] Initializing LDAP claims source...
+2025-04-21T10:57:40,146 INFO main MAIN - [CSLDAP0002] Overriding system properties: 
+2025-04-21T10:57:40,169 INFO main MAIN - [CSLDAP0000] LDAP claims source configuration:
+2025-04-21T10:57:40,169 INFO main MAIN - [CSLDAP0001] LDAP claims source enabled: true
+2025-04-21T10:57:40,169 INFO main MAIN - [CSLDAP0005] LDAP attribute map: /WEB-INF/ldapClaimsMap.json
+2025-04-21T10:57:40,169 INFO main MAIN - [CM1001] LDAP server [0]: 127.0.0.1:11389 (transport security NONE)
+2025-04-21T10:57:40,170 WARN main MAIN - [CM1002] LDAP server connection not protected (security=NONE), consider using STARTTLS or SSL
+2025-04-21T10:57:40,170 INFO main MAIN - [CM1004] LDAP server connect timeout: 250 ms
+2025-04-21T10:57:40,170 INFO main MAIN - [CM1005] LDAP server response timeout: Determined by LDAP client library
+2025-04-21T10:57:40,170 INFO main MAIN - [CM1006] Self-signed LDAP server certificates are trusted: false
+2025-04-21T10:57:40,170 INFO main MAIN - [CM1100] LDAP server connection pool size: 5
+2025-04-21T10:57:40,170 INFO main MAIN - [CM1103] LDAP server connection pool initial size: 0
+2025-04-21T10:57:40,170 INFO main MAIN - [CM1101] LDAP server connection pool max wait time: 250 ms
+2025-04-21T10:57:40,170 INFO main MAIN - [CM1102] LDAP server connection pool max age: 0 ms
+2025-04-21T10:57:40,175 INFO main MAIN - [CM1050] Directory user DN: uid=alice,ou=people,dc=wonderland,dc=net
+2025-04-21T10:57:40,175 INFO main MAIN - LDAP claims source: Base DN: ou=people,dc=wonderland,dc=net
+2025-04-21T10:57:40,175 INFO main MAIN - LDAP claims source: Search scope: ONE
+2025-04-21T10:57:40,175 INFO main MAIN - LDAP claims source: Filter: (uid=%u)
+2025-04-21T10:57:40,175 INFO main MAIN - [CM1200] Custom certificate trust store enabled: false
+2025-04-21T10:57:40,175 INFO main MAIN - [CM1210] Custom key store enabled: false
+2025-04-21T10:57:40,176 INFO main MAIN - [CSLDAP0100] Loading LDAP attribute map from file resource
+2025-04-21T10:57:40,220 INFO main MAIN - [OP7101] Loaded ClaimsSource [1]: com.nimbusds.openid.connect.provider.spi.claims.ldap.LDAPClaimsSource
+2025-04-21T10:57:40,220 INFO main MAIN - [OP7107] Claims source enabled at init [1]: true
+2025-04-21T10:57:40,221 INFO main MAIN - [OP7102] Claims supported by source [1]: sub email_verified address x_employee_number name nickname phone_number_verified phone_number preferred_username given_name family_name email 
+2025-04-21T10:57:40,223 INFO main MAIN - [CSS0011] Initializing subject session-based claims source...
+2025-04-21T10:57:40,223 INFO main MAIN - [CSS0010] Overriding system properties: []
+2025-04-21T10:57:40,224 INFO main MAIN - [CSS0000] Subject session-based claims source configuration:
+2025-04-21T10:57:40,224 INFO main MAIN - [CSS0001] Subject session-based claims source enabled: false
+2025-04-21T10:57:40,224 INFO main MAIN - [OP7104] Loaded AdvancedClaimsSource [2]: com.nimbusds.openid.connect.provider.spi.claims.session.SubjectSessionBasedClaimsSource
+2025-04-21T10:57:40,224 INFO main MAIN - [OP7107] Claims source enabled at init [2]: false
+2025-04-21T10:57:40,224 INFO main MAIN - [OP7102] Claims supported by source [2]: 
+2025-04-21T10:57:40,225 INFO main MAIN - [CSHTTP0011] Initializing HTTP claims source...
+2025-04-21T10:57:40,226 INFO main MAIN - [CSHTTP0010] Overriding system properties: []
+2025-04-21T10:57:40,227 INFO main MAIN - [CSHTTP0000] HTTP claims source configuration:
+2025-04-21T10:57:40,227 INFO main MAIN - [CSHTTP0001] HTTP claims source enabled: false
+2025-04-21T10:57:40,227 INFO main MAIN - [OP7104] Loaded AdvancedClaimsSource [3]: com.nimbusds.openid.connect.provider.spi.claims.http.HTTPClaimsSource
+2025-04-21T10:57:40,227 INFO main MAIN - [OP7107] Claims source enabled at init [3]: false
+2025-04-21T10:57:40,227 INFO main MAIN - [OP7102] Claims supported by source [3]: 
+2025-04-21T10:57:40,227 INFO main MAIN - [OP7003] Initialized the claims collector
+2025-04-21T10:57:40,227 INFO main MAIN - [OP0108] Started the claims source aggregator
+2025-04-21T10:57:40,229 INFO main MAIN - [OP0110] Started the JWT factory
+2025-04-21T10:57:40,254 INFO main MAIN - [OP0112] Started the ID token factory
+2025-04-21T10:57:40,255 INFO main MAIN - [OP2940] Login hint token map entry count strategy: DEFAULT
+2025-04-21T10:57:40,270 INFO main MAIN - [OP0251] No enabled AuthorizationRequestValidator found
+2025-04-21T10:57:40,271 INFO main MAIN - [OP0251] No enabled PARValidator found
+2025-04-21T10:57:40,271 INFO main MAIN - [OP2171] Authentication session entry count strategy: DEFAULT
+2025-04-21T10:57:40,271 INFO main MAIN - [OP2172] Consent session entry count strategy: DEFAULT
+2025-04-21T10:57:40,280 INFO main MAIN - [OP0251] No enabled AuthorizationRequestValidator found
+2025-04-21T10:57:40,283 INFO main MAIN - [OP2100] Created new authorization session handler
+2025-04-21T10:57:40,287 INFO main MAIN - [OP0251] No enabled CIBARequestHandler found
+2025-04-21T10:57:40,292 INFO main MAIN - [OP6740] Loaded LoginHintResolver: class=com.nimbusds.openid.connect.provider.spi.impl.subjects.LoginHintResolverDelegator enabled=false
+2025-04-21T10:57:40,292 INFO main MAIN - [OP0251] No enabled LoginHintResolver found
+2025-04-21T10:57:40,300 INFO main MAIN - [CM8008] Infinispan clustering: not configured
+2025-04-21T10:57:40,300 INFO main MAIN - [CM8006] Started Infinispan LOCAL cache op.dPoPJTICache in 3203 ms
+2025-04-21T10:57:40,314 INFO main MAIN - [OP6210] Token request handler: Found delegating password grant handler class com.nimbusds.openid.connect.provider.spi.impl.grants.handlers.web.password.PasswordGrantDelegator: enabled
+2025-04-21T10:57:40,315 INFO main MAIN - [OP6210] Token request handler: Found delegating client_credentials grant handler class com.nimbusds.openid.connect.provider.spi.impl.grants.handlers.local.clientcredentials.SimpleClientCredentialsGrantHandler: enabled
+2025-04-21T10:57:40,317 INFO main MAIN - [OP6210] Token request handler: Found delegating urn:ietf:params:oauth:grant-type:jwt-bearer grant handler class com.nimbusds.openid.connect.provider.spi.impl.grants.handlers.local.jwt.selfissued.SimpleSelfIssuedJWTGrantHandler: enabled
+2025-04-21T10:57:40,325 INFO main MAIN - [DS0000] Device SSO handler enabled: true
+2025-04-21T10:57:40,325 INFO main MAIN - [DS0001] Device SSO handler scope values requiring interaction: []
+2025-04-21T10:57:40,325 INFO main MAIN - [DS0101] Access token lifetime: default
+2025-04-21T10:57:40,325 INFO main MAIN - [DS0102] Access token encoding: SELF_CONTAINED
+2025-04-21T10:57:40,325 INFO main MAIN - [DS0103] Access JWT encrypt: false
+2025-04-21T10:57:40,325 INFO main MAIN - [DS0104] Access token audience: null
+2025-04-21T10:57:40,325 INFO main MAIN - [DS0105] Client metadata fields to include in access tokens: []
+2025-04-21T10:57:40,325 INFO main MAIN - [DS0106] Refresh token issue: true
+2025-04-21T10:57:40,325 INFO main MAIN - [DS0107] Refresh token lifetime: default
+2025-04-21T10:57:40,325 INFO main MAIN - [DS0108] Refresh token max idle time: 0
+2025-04-21T10:57:40,326 INFO main MAIN - [DS0109] Refresh token rotate: default
+2025-04-21T10:57:40,326 INFO main MAIN - [DS0002] Device SSO handler preferred claims transport: USERINFO
+2025-04-21T10:57:40,326 INFO main MAIN - [OP7106] Loaded DeviceSSOHandler: class=com.nimbusds.openid.connect.provider.spi.impl.nativesso.handlers.LocalDeviceSSOHandler enabled=true
+2025-04-21T10:57:40,327 INFO main MAIN - [OP0251] No enabled CustomTokenResponseComposer found
+2025-04-21T10:57:40,331 INFO main MAIN - [OP0251] No enabled TokenIntrospectionResponseComposer found
+2025-04-21T10:57:40,332 INFO main MAIN - [OP6530] Using default TokenIntrospectionResponseComposer: class=class com.nimbusds.openid.connect.provider.token.introspection.DefaultResponseComposer
+2025-04-21T10:57:40,744 INFO main SESSION-STORE - [SS0604] Added session ended event listener: class com.nimbusds.openid.connect.provider.logout.channel.back.LogoutTokenDispatcher
+2025-04-21T10:57:40,744 INFO main SESSION-STORE - [SS0602] Added session expired event listener: class com.nimbusds.openid.connect.provider.logout.channel.back.LogoutTokenDispatcher
+2025-04-21T10:57:40,751 INFO main MAIN - [CM7106] Started Dropwizard metrics and health checks
+2025-04-21T10:57:40,751 INFO main MAIN - Loaded properties file /WEB-INF/monitor.properties
+2025-04-21T10:57:40,753 INFO main MAIN - [CM7000] Overriding system properties: []
+2025-04-21T10:57:40,753 INFO main MAIN - [CM7020] Entry count cache timeout: 1800s
+2025-04-21T10:57:40,753 INFO main MAIN - [CM7001] JMX reporting enabled: false
+2025-04-21T10:57:40,753 INFO main MAIN - [CM7002] Graphite reporting enabled: false
+2025-04-21T10:57:40,753 INFO main MAIN - [CM7101] JMX metrics reporting disabled
+2025-04-21T10:57:40,753 INFO main MAIN - [CM7103] Graphite metrics reporting disabled
+2025-04-21T10:57:40,755 INFO main MAIN - [AS9000] Initialized /authz-store/rest/v2 compatibility filter
+2025-04-21T10:57:41,025 INFO main MAIN - [OP2900] Created new JAX-RS STS endpoint instance
+2025-04-21T10:57:41,299 INFO main MAIN - [AS0300] Created new JAX-RS authorization store endpoint instance
+2025-04-21T10:57:41,377 INFO main MAIN - [OP6800] Created new JAX-RS CIBA session endpoint instance
+2025-04-21T10:57:41,407 INFO main MAIN - [OP2810] Created new JAX-RS check session backend endpoint instance
+2025-04-21T10:57:41,494 INFO main MAIN - [SS0400] Created new JAX-RS subject session store endpoint instance
+2025-04-21T10:57:41,545 INFO main MAIN - [OP2200] Created new JAX-RS authorization session endpoint instance
+2025-04-21T10:57:41,577 INFO main MAIN - [OP0400] Created new JAX-RS configuration endpoint instance
+2025-04-21T10:57:41,600 INFO main MAIN - [OP2300] Created new JAX-RS direct authorization endpoint instance
+2025-04-21T10:57:41,624 INFO main MAIN - [OP2750] Created new JAX-RS logout session endpoint instance
+2025-04-21T10:57:41,660 INFO main MAIN - [SSV0000] Software statement verifier configuration:
+2025-04-21T10:57:41,660 INFO main MAIN - [SSV0001] Software statement verifier enabled: false
+2025-04-21T10:57:41,660 INFO main MAIN - [OP5203] Loaded RegistrationInterceptor: class=com.nimbusds.openid.connect.provider.spi.reg.statement.SoftwareStatementVerifier enabled=false
+2025-04-21T10:57:41,660 INFO main MAIN - [OP0251] No enabled RegistrationInterceptor found
+2025-04-21T10:57:41,660 INFO main MAIN - [OP5200] Client registration HTTP request entity max size: 250000 chars
+2025-04-21T10:57:41,664 FATAL main MAIN - [OP0200] Couldn't get the com.nimbusds.openid.connect.provider.ciba.endpoint.InitialCIBARequestProcessor attribute from the servlet context
+2025-04-21T10:57:42,562 INFO main MAIN - Loaded properties file /WEB-INF/monitor.properties
+2025-04-21T10:57:42,563 INFO main MAIN - [CM7110] Loaded monitor API servlet
+2025-04-21T10:57:42,572 INFO main MAIN - Loaded properties file /WEB-INF/monitor.properties
+2025-04-21T10:57:42,572 INFO main MAIN - [CM7111] Loaded Prometheus monitor API servlet
+2025-04-21T10:58:11,967 INFO http-nio-8080-exec-6 MAIN - [OP0012] Loaded SystemPropertiesSource [1]: class=com.nimbusds.openid.connect.provider.spi.config.source.URLSystemPropertiesSource
+2025-04-21T10:58:11,975 INFO http-nio-8080-exec-6 MAIN - [SP0001] URLSystemPropertiesSource: No properties retrieved, systemPropertiesURL not set
+2025-04-21T10:58:11,980 INFO http-nio-8080-exec-6 MAIN - [CM8000] Starting Infinispan...
+2025-04-21T10:58:11,980 INFO http-nio-8080-exec-6 MAIN - [CM8002] Infinispan configuration file: /WEB-INF/infinispan-local-h2.xml
+2025-04-21T10:58:12,596 INFO http-nio-8080-exec-6 ClusteredLockModuleLifecycle - ISPN029009: Configuration is not clustered, clustered locks are disabled
+2025-04-21T10:58:12,667 INFO http-nio-8080-exec-6 CONTAINER - ISPN000556: Starting user marshaller 'org.infinispan.commons.marshall.ImmutableProtoStreamMarshaller'
+2025-04-21T10:58:13,293 INFO http-nio-8080-exec-6 threads - JBoss Threads version 2.3.6.Final
+2025-04-21T10:58:13,305 INFO blocking-thread--p3-t1 MAIN - [IS0100] SQL store: Infinispan cache store configuration for authzStore.idAccessTokenMap:
+2025-04-21T10:58:13,305 INFO blocking-thread--p3-t1 MAIN - [IS0000] Infinispan SQL store: Record transformer class: com.nimbusds.authzstore.impl.persistence.sql.IDAccessTokenTransformer 
+2025-04-21T10:58:13,306 INFO blocking-thread--p3-t1 MAIN - [IS0001] Infinispan SQL store: Query executor class: not specified 
+2025-04-21T10:58:13,306 INFO blocking-thread--p3-t1 MAIN - [IS0002] Infinispan SQL store: SQL dialect: sqlDialect=H2 
+2025-04-21T10:58:13,306 INFO blocking-thread--p3-t1 MAIN - [IS0004] Infinispan SQL store: Create table if missing: createTableIfMissing=true 
+2025-04-21T10:58:13,306 INFO blocking-thread--p3-t1 MAIN - [IS0009] Infinispan SQL store: Create table ignore errors: createTableIgnoreErrors=false 
+2025-04-21T10:58:13,306 INFO blocking-thread--p3-t1 MAIN - [IS0008] Infinispan SQL store: Connection pool reference: keyStore.jwkSetMap 
+2025-04-21T10:58:13,306 INFO blocking-thread--p3-t1 MAIN - [IS0010] Infinispan SQL store: Expired record select query page limit: 1000
+2025-04-21T10:58:13,306 INFO blocking-thread--p3-t1 MAIN - [IS0140] SQL store: Expiration thread wake up interval for cache authzStore.idAccessTokenMap: 300000
+2025-04-21T10:58:13,318 INFO blocking-thread--p3-t1 MAIN - [IS0102] Initialized SQL external store for cache authzStore.idAccessTokenMap with table id_access_tokens
+2025-04-21T10:58:13,318 INFO blocking-thread--p3-t1 MAIN - [IS0139] SQL store: Deferred start of store using a shared connection pool: authzStore.idAccessTokenMap
+2025-04-21T10:58:13,328 INFO blocking-thread--p3-t1 MAIN - [IS0100] SQL store: Infinispan cache store configuration for authzStore.longLivedAuthzMap:
+2025-04-21T10:58:13,329 INFO blocking-thread--p3-t1 MAIN - [IS0000] Infinispan SQL store: Record transformer class: com.nimbusds.authzstore.impl.persistence.sql.AuthorizationRecordTransformer 
+2025-04-21T10:58:13,329 INFO blocking-thread--p3-t1 MAIN - [IS0001] Infinispan SQL store: Query executor class: com.nimbusds.authzstore.impl.persistence.sql.AuthorizationRecordQueryExecutor 
+2025-04-21T10:58:13,329 INFO blocking-thread--p3-t1 MAIN - [IS0002] Infinispan SQL store: SQL dialect: sqlDialect=H2 
+2025-04-21T10:58:13,329 INFO blocking-thread--p3-t1 MAIN - [IS0004] Infinispan SQL store: Create table if missing: createTableIfMissing=true 
+2025-04-21T10:58:13,329 INFO blocking-thread--p3-t1 MAIN - [IS0009] Infinispan SQL store: Create table ignore errors: createTableIgnoreErrors=false 
+2025-04-21T10:58:13,329 INFO blocking-thread--p3-t1 MAIN - [IS0008] Infinispan SQL store: Connection pool reference: keyStore.jwkSetMap 
+2025-04-21T10:58:13,329 INFO blocking-thread--p3-t1 MAIN - [IS0010] Infinispan SQL store: Expired record select query page limit: 250
+2025-04-21T10:58:13,329 INFO blocking-thread--p3-t1 MAIN - [IS0140] SQL store: Expiration thread wake up interval for cache authzStore.longLivedAuthzMap: 0
+2025-04-21T10:58:13,330 INFO blocking-thread--p3-t1 MAIN - [IS0102] Initialized SQL external store for cache authzStore.longLivedAuthzMap with table long_lived_authorizations
+2025-04-21T10:58:13,330 INFO blocking-thread--p3-t1 MAIN - [IS0138] SQL store: Deferred start of store using a shared connection pool: authzStore.longLivedAuthzMap
+2025-04-21T10:58:13,331 INFO http-nio-8080-exec-6 CONTAINER - ISPN000025: wakeUpInterval is <= 0, not starting expired purge thread
+2025-04-21T10:58:13,334 INFO blocking-thread--p3-t1 MAIN - [IS0100] SQL store: Infinispan cache store configuration for authzStore.revocationJournalMap:
+2025-04-21T10:58:13,334 INFO blocking-thread--p3-t1 MAIN - [IS0000] Infinispan SQL store: Record transformer class: com.nimbusds.authzstore.impl.persistence.sql.RevocationRecordTransformer 
+2025-04-21T10:58:13,334 INFO blocking-thread--p3-t1 MAIN - [IS0001] Infinispan SQL store: Query executor class: not specified 
+2025-04-21T10:58:13,334 INFO blocking-thread--p3-t1 MAIN - [IS0002] Infinispan SQL store: SQL dialect: sqlDialect=H2 
+2025-04-21T10:58:13,334 INFO blocking-thread--p3-t1 MAIN - [IS0004] Infinispan SQL store: Create table if missing: createTableIfMissing=true 
+2025-04-21T10:58:13,334 INFO blocking-thread--p3-t1 MAIN - [IS0009] Infinispan SQL store: Create table ignore errors: createTableIgnoreErrors=false 
+2025-04-21T10:58:13,335 INFO blocking-thread--p3-t1 MAIN - [IS0008] Infinispan SQL store: Connection pool reference: keyStore.jwkSetMap 
+2025-04-21T10:58:13,335 INFO blocking-thread--p3-t1 MAIN - [IS0010] Infinispan SQL store: Expired record select query page limit: 250
+2025-04-21T10:58:13,335 INFO blocking-thread--p3-t1 MAIN - [IS0140] SQL store: Expiration thread wake up interval for cache authzStore.revocationJournalMap: 0
+2025-04-21T10:58:13,335 INFO blocking-thread--p3-t1 MAIN - [IS0102] Initialized SQL external store for cache authzStore.revocationJournalMap with table revocation_journal
+2025-04-21T10:58:13,335 INFO blocking-thread--p3-t1 MAIN - [IS0138] SQL store: Deferred start of store using a shared connection pool: authzStore.revocationJournalMap
+2025-04-21T10:58:13,336 INFO http-nio-8080-exec-6 CONTAINER - ISPN000025: wakeUpInterval is <= 0, not starting expired purge thread
+2025-04-21T10:58:13,338 INFO blocking-thread--p3-t1 MAIN - [IS0100] SQL store: Infinispan cache store configuration for clients.registrationsMap:
+2025-04-21T10:58:13,338 INFO blocking-thread--p3-t1 MAIN - [IS0000] Infinispan SQL store: Record transformer class: com.nimbusds.openid.connect.provider.reg.store.persistence.sql.OIDCClientInformationTransformer 
+2025-04-21T10:58:13,339 INFO blocking-thread--p3-t1 MAIN - [IS0001] Infinispan SQL store: Query executor class: not specified 
+2025-04-21T10:58:13,339 INFO blocking-thread--p3-t1 MAIN - [IS0002] Infinispan SQL store: SQL dialect: sqlDialect=H2 
+2025-04-21T10:58:13,339 INFO blocking-thread--p3-t1 MAIN - [IS0004] Infinispan SQL store: Create table if missing: createTableIfMissing=true 
+2025-04-21T10:58:13,339 INFO blocking-thread--p3-t1 MAIN - [IS0009] Infinispan SQL store: Create table ignore errors: createTableIgnoreErrors=false 
+2025-04-21T10:58:13,339 INFO blocking-thread--p3-t1 MAIN - [IS0008] Infinispan SQL store: Connection pool reference: keyStore.jwkSetMap 
+2025-04-21T10:58:13,339 INFO blocking-thread--p3-t1 MAIN - [IS0010] Infinispan SQL store: Expired record select query page limit: 250
+2025-04-21T10:58:13,339 INFO blocking-thread--p3-t1 MAIN - [IS0140] SQL store: Expiration thread wake up interval for cache clients.registrationsMap: 0
+2025-04-21T10:58:13,343 INFO blocking-thread--p3-t1 MAIN - [IS0102] Initialized SQL external store for cache clients.registrationsMap with table clients
+2025-04-21T10:58:13,343 INFO blocking-thread--p3-t1 MAIN - [IS0138] SQL store: Deferred start of store using a shared connection pool: clients.registrationsMap
+2025-04-21T10:58:13,351 INFO http-nio-8080-exec-6 CONTAINER - ISPN000025: wakeUpInterval is <= 0, not starting expired purge thread
+2025-04-21T10:58:13,354 INFO http-nio-8080-exec-6 CONTAINER - ISPN000025: wakeUpInterval is <= 0, not starting expired purge thread
+2025-04-21T10:58:13,356 INFO http-nio-8080-exec-6 CONTAINER - ISPN000025: wakeUpInterval is <= 0, not starting expired purge thread
+2025-04-21T10:58:13,359 INFO blocking-thread--p3-t1 MAIN - [IS0100] SQL store: Infinispan cache store configuration for federation.registrationsMap:
+2025-04-21T10:58:13,359 INFO blocking-thread--p3-t1 MAIN - [IS0000] Infinispan SQL store: Record transformer class: com.nimbusds.openid.connect.provider.federation.reg.store.persistence.sql.FederationClientTransformer 
+2025-04-21T10:58:13,359 INFO blocking-thread--p3-t1 MAIN - [IS0001] Infinispan SQL store: Query executor class: not specified 
+2025-04-21T10:58:13,359 INFO blocking-thread--p3-t1 MAIN - [IS0002] Infinispan SQL store: SQL dialect: sqlDialect=H2 
+2025-04-21T10:58:13,359 INFO blocking-thread--p3-t1 MAIN - [IS0004] Infinispan SQL store: Create table if missing: createTableIfMissing=true 
+2025-04-21T10:58:13,359 INFO blocking-thread--p3-t1 MAIN - [IS0009] Infinispan SQL store: Create table ignore errors: createTableIgnoreErrors=false 
+2025-04-21T10:58:13,359 INFO blocking-thread--p3-t1 MAIN - [IS0008] Infinispan SQL store: Connection pool reference: keyStore.jwkSetMap 
+2025-04-21T10:58:13,359 INFO blocking-thread--p3-t1 MAIN - [IS0010] Infinispan SQL store: Expired record select query page limit: 250
+2025-04-21T10:58:13,359 INFO blocking-thread--p3-t1 MAIN - [IS0140] SQL store: Expiration thread wake up interval for cache federation.registrationsMap: 0
+2025-04-21T10:58:13,360 INFO blocking-thread--p3-t1 MAIN - [IS0102] Initialized SQL external store for cache federation.registrationsMap with table federation_clients
+2025-04-21T10:58:13,360 INFO blocking-thread--p3-t1 MAIN - [IS0138] SQL store: Deferred start of store using a shared connection pool: federation.registrationsMap
+2025-04-21T10:58:13,361 INFO http-nio-8080-exec-6 CONTAINER - ISPN000025: wakeUpInterval is <= 0, not starting expired purge thread
+2025-04-21T10:58:13,364 INFO blocking-thread--p3-t1 MAIN - [IS0100] SQL store: Infinispan cache store configuration for keyStore.jwkSetHistoryMap:
+2025-04-21T10:58:13,364 INFO blocking-thread--p3-t1 MAIN - [IS0000] Infinispan SQL store: Record transformer class: com.nimbusds.keystore.impl.persistence.sql.JWKSetHistoryTransformer 
+2025-04-21T10:58:13,364 INFO blocking-thread--p3-t1 MAIN - [IS0001] Infinispan SQL store: Query executor class: not specified 
+2025-04-21T10:58:13,364 INFO blocking-thread--p3-t1 MAIN - [IS0002] Infinispan SQL store: SQL dialect: sqlDialect=H2 
+2025-04-21T10:58:13,364 INFO blocking-thread--p3-t1 MAIN - [IS0004] Infinispan SQL store: Create table if missing: createTableIfMissing=true 
+2025-04-21T10:58:13,364 INFO blocking-thread--p3-t1 MAIN - [IS0009] Infinispan SQL store: Create table ignore errors: createTableIgnoreErrors=false 
+2025-04-21T10:58:13,364 INFO blocking-thread--p3-t1 MAIN - [IS0008] Infinispan SQL store: Connection pool reference: keyStore.jwkSetMap 
+2025-04-21T10:58:13,364 INFO blocking-thread--p3-t1 MAIN - [IS0010] Infinispan SQL store: Expired record select query page limit: 250
+2025-04-21T10:58:13,364 INFO blocking-thread--p3-t1 MAIN - [IS0140] SQL store: Expiration thread wake up interval for cache keyStore.jwkSetHistoryMap: 0
+2025-04-21T10:58:13,365 INFO blocking-thread--p3-t1 MAIN - [IS0102] Initialized SQL external store for cache keyStore.jwkSetHistoryMap with table jwks_history
+2025-04-21T10:58:13,365 INFO blocking-thread--p3-t1 MAIN - [IS0138] SQL store: Deferred start of store using a shared connection pool: keyStore.jwkSetHistoryMap
+2025-04-21T10:58:13,365 INFO http-nio-8080-exec-6 CONTAINER - ISPN000025: wakeUpInterval is <= 0, not starting expired purge thread
+2025-04-21T10:58:13,369 INFO blocking-thread--p3-t1 MAIN - [IS0100] SQL store: Infinispan cache store configuration for keyStore.jwkSetMap:
+2025-04-21T10:58:13,369 INFO blocking-thread--p3-t1 MAIN - [IS0000] Infinispan SQL store: Record transformer class: com.nimbusds.keystore.impl.persistence.sql.JWKSetTransformer 
+2025-04-21T10:58:13,369 INFO blocking-thread--p3-t1 MAIN - [IS0001] Infinispan SQL store: Query executor class: not specified 
+2025-04-21T10:58:13,369 INFO blocking-thread--p3-t1 MAIN - [IS0002] Infinispan SQL store: SQL dialect: sqlDialect=H2 
+2025-04-21T10:58:13,370 INFO blocking-thread--p3-t1 MAIN - [IS0004] Infinispan SQL store: Create table if missing: createTableIfMissing=true 
+2025-04-21T10:58:13,370 INFO blocking-thread--p3-t1 MAIN - [IS0009] Infinispan SQL store: Create table ignore errors: createTableIgnoreErrors=false 
+2025-04-21T10:58:13,370 INFO blocking-thread--p3-t1 MAIN - [IS0008] Infinispan SQL store: Connection pool reference: not specified 
+2025-04-21T10:58:13,370 INFO blocking-thread--p3-t1 MAIN - [IS0010] Infinispan SQL store: Expired record select query page limit: 250
+2025-04-21T10:58:13,370 INFO blocking-thread--p3-t1 MAIN - [IS0005] Infinispan SQL store: Data source class name: org.h2.jdbcx.JdbcDataSource 
+2025-04-21T10:58:13,370 INFO blocking-thread--p3-t1 MAIN - [IS0006] Infinispan SQL store: Data source URL: jdbc:h2:file:/home/radu/connect2id-server-18.0/tomcat/../h2/c2id;DATABASE_TO_UPPER=false 
+2025-04-21T10:58:13,370 INFO blocking-thread--p3-t1 MAIN - [IS0140] SQL store: Expiration thread wake up interval for cache keyStore.jwkSetMap: 0
+2025-04-21T10:58:13,370 INFO blocking-thread--p3-t1 MAIN - [IS0102] Initialized SQL external store for cache keyStore.jwkSetMap with table jwks
+2025-04-21T10:58:13,633 INFO blocking-thread--p3-t1 MAIN - [IS0161] SQL store: Resuming start for authzStore.idAccessTokenMap using the connection pool of keyStore.jwkSetMap
+2025-04-21T10:58:13,637 INFO blocking-thread--p3-t1 MAIN - [IS0143] SQL store: Transaction isolation for cache authzStore.idAccessTokenMap: TRANSACTION_READ_COMMITTED
+2025-04-21T10:58:14,102 INFO blocking-thread--p3-t1 MAIN - [IS0136] SQL store: Executing create table id_access_tokens (if missing?) for cache authzStore.idAccessTokenMap
+2025-04-21T10:58:14,150 INFO blocking-thread--p3-t1 MAIN - [IS0129] SQL store: Create table id_access_tokens (if missing?) for cache authzStore.idAccessTokenMap returned 0 changed rows
+2025-04-21T10:58:14,150 INFO blocking-thread--p3-t1 MAIN - [IS0133] SQL store: Found table transformer
+2025-04-21T10:58:14,576 INFO blocking-thread--p3-t1 MAIN - [IS0104] Started SQL external store connector for cache authzStore.idAccessTokenMap with table id_access_tokens
+2025-04-21T10:58:14,577 INFO blocking-thread--p3-t1 MAIN - [IS0161] SQL store: Resuming start for authzStore.longLivedAuthzMap using the connection pool of keyStore.jwkSetMap
+2025-04-21T10:58:14,578 INFO blocking-thread--p3-t1 MAIN - [IS0143] SQL store: Transaction isolation for cache authzStore.longLivedAuthzMap: TRANSACTION_READ_COMMITTED
+2025-04-21T10:58:14,578 INFO blocking-thread--p3-t1 MAIN - [IS0136] SQL store: Executing create table long_lived_authorizations (if missing?) for cache authzStore.longLivedAuthzMap
+2025-04-21T10:58:14,580 INFO blocking-thread--p3-t1 MAIN - [IS0129] SQL store: Create table long_lived_authorizations (if missing?) for cache authzStore.longLivedAuthzMap returned 0 changed rows
+2025-04-21T10:58:14,580 INFO blocking-thread--p3-t1 MAIN - [IS0133] SQL store: Found table transformer
+2025-04-21T10:58:14,583 INFO blocking-thread--p3-t1 MAIN - [IS0104] Started SQL external store connector for cache authzStore.longLivedAuthzMap with table long_lived_authorizations
+2025-04-21T10:58:14,583 INFO blocking-thread--p3-t1 MAIN - [IS0161] SQL store: Resuming start for authzStore.revocationJournalMap using the connection pool of keyStore.jwkSetMap
+2025-04-21T10:58:14,583 INFO blocking-thread--p3-t1 MAIN - [IS0143] SQL store: Transaction isolation for cache authzStore.revocationJournalMap: TRANSACTION_READ_COMMITTED
+2025-04-21T10:58:14,583 INFO blocking-thread--p3-t1 MAIN - [IS0136] SQL store: Executing create table revocation_journal (if missing?) for cache authzStore.revocationJournalMap
+2025-04-21T10:58:14,584 INFO blocking-thread--p3-t1 MAIN - [IS0129] SQL store: Create table revocation_journal (if missing?) for cache authzStore.revocationJournalMap returned 0 changed rows
+2025-04-21T10:58:14,585 INFO blocking-thread--p3-t1 MAIN - [IS0104] Started SQL external store connector for cache authzStore.revocationJournalMap with table revocation_journal
+2025-04-21T10:58:14,585 INFO blocking-thread--p3-t1 MAIN - [IS0161] SQL store: Resuming start for clients.registrationsMap using the connection pool of keyStore.jwkSetMap
+2025-04-21T10:58:14,585 INFO blocking-thread--p3-t1 MAIN - [IS0143] SQL store: Transaction isolation for cache clients.registrationsMap: TRANSACTION_READ_COMMITTED
+2025-04-21T10:58:14,585 INFO blocking-thread--p3-t1 MAIN - [IS0136] SQL store: Executing create table clients (if missing?) for cache clients.registrationsMap
+2025-04-21T10:58:14,589 INFO blocking-thread--p3-t1 MAIN - [IS0129] SQL store: Create table clients (if missing?) for cache clients.registrationsMap returned 0 changed rows
+2025-04-21T10:58:14,589 INFO blocking-thread--p3-t1 MAIN - [IS0133] SQL store: Found table transformer
+2025-04-21T10:58:14,604 INFO blocking-thread--p3-t1 MAIN - [IS0104] Started SQL external store connector for cache clients.registrationsMap with table clients
+2025-04-21T10:58:14,605 INFO blocking-thread--p3-t1 MAIN - [IS0161] SQL store: Resuming start for federation.registrationsMap using the connection pool of keyStore.jwkSetMap
+2025-04-21T10:58:14,605 INFO blocking-thread--p3-t1 MAIN - [IS0143] SQL store: Transaction isolation for cache federation.registrationsMap: TRANSACTION_READ_COMMITTED
+2025-04-21T10:58:14,605 INFO blocking-thread--p3-t1 MAIN - [IS0136] SQL store: Executing create table federation_clients (if missing?) for cache federation.registrationsMap
+2025-04-21T10:58:14,606 INFO blocking-thread--p3-t1 MAIN - [IS0129] SQL store: Create table federation_clients (if missing?) for cache federation.registrationsMap returned 0 changed rows
+2025-04-21T10:58:14,606 INFO blocking-thread--p3-t1 MAIN - [IS0104] Started SQL external store connector for cache federation.registrationsMap with table federation_clients
+2025-04-21T10:58:14,606 INFO blocking-thread--p3-t1 MAIN - [IS0161] SQL store: Resuming start for keyStore.jwkSetHistoryMap using the connection pool of keyStore.jwkSetMap
+2025-04-21T10:58:14,606 INFO blocking-thread--p3-t1 MAIN - [IS0143] SQL store: Transaction isolation for cache keyStore.jwkSetHistoryMap: TRANSACTION_READ_COMMITTED
+2025-04-21T10:58:14,607 INFO blocking-thread--p3-t1 MAIN - [IS0136] SQL store: Executing create table jwks_history (if missing?) for cache keyStore.jwkSetHistoryMap
+2025-04-21T10:58:14,607 INFO blocking-thread--p3-t1 MAIN - [IS0129] SQL store: Create table jwks_history (if missing?) for cache keyStore.jwkSetHistoryMap returned 0 changed rows
+2025-04-21T10:58:14,607 INFO blocking-thread--p3-t1 MAIN - [IS0104] Started SQL external store connector for cache keyStore.jwkSetHistoryMap with table jwks_history
+2025-04-21T10:58:14,608 INFO blocking-thread--p3-t1 MAIN - [IS0143] SQL store: Transaction isolation for cache keyStore.jwkSetMap: TRANSACTION_READ_COMMITTED
+2025-04-21T10:58:14,608 INFO blocking-thread--p3-t1 MAIN - [IS0136] SQL store: Executing create table jwks (if missing?) for cache keyStore.jwkSetMap
+2025-04-21T10:58:14,608 INFO blocking-thread--p3-t1 MAIN - [IS0129] SQL store: Create table jwks (if missing?) for cache keyStore.jwkSetMap returned 0 changed rows
+2025-04-21T10:58:14,609 INFO blocking-thread--p3-t1 MAIN - [IS0104] Started SQL external store connector for cache keyStore.jwkSetMap with table jwks
+2025-04-21T10:58:14,609 INFO http-nio-8080-exec-6 CONTAINER - ISPN000025: wakeUpInterval is <= 0, not starting expired purge thread
+2025-04-21T10:58:14,623 INFO blocking-thread--p3-t1 MAIN - [IS0100] SQL store: Infinispan cache store configuration for sessionStore.sessionMap:
+2025-04-21T10:58:14,623 INFO blocking-thread--p3-t1 MAIN - [IS0000] Infinispan SQL store: Record transformer class: com.nimbusds.sessionstore.impl.persistence.sql.SubjectSessionTransformer 
+2025-04-21T10:58:14,623 INFO blocking-thread--p3-t1 MAIN - [IS0001] Infinispan SQL store: Query executor class: not specified 
+2025-04-21T10:58:14,623 INFO blocking-thread--p3-t1 MAIN - [IS0002] Infinispan SQL store: SQL dialect: sqlDialect=H2 
+2025-04-21T10:58:14,623 INFO blocking-thread--p3-t1 MAIN - [IS0004] Infinispan SQL store: Create table if missing: createTableIfMissing=true 
+2025-04-21T10:58:14,623 INFO blocking-thread--p3-t1 MAIN - [IS0009] Infinispan SQL store: Create table ignore errors: createTableIgnoreErrors=false 
+2025-04-21T10:58:14,623 INFO blocking-thread--p3-t1 MAIN - [IS0008] Infinispan SQL store: Connection pool reference: keyStore.jwkSetMap 
+2025-04-21T10:58:14,623 INFO blocking-thread--p3-t1 MAIN - [IS0010] Infinispan SQL store: Expired record select query page limit: 1000
+2025-04-21T10:58:14,623 INFO blocking-thread--p3-t1 MAIN - [IS0140] SQL store: Expiration thread wake up interval for cache sessionStore.sessionMap: 600000
+2025-04-21T10:58:14,624 INFO blocking-thread--p3-t1 MAIN - [IS0102] Initialized SQL external store for cache sessionStore.sessionMap with table subject_sessions
+2025-04-21T10:58:14,624 INFO blocking-thread--p3-t1 MAIN - [IS0143] SQL store: Transaction isolation for cache sessionStore.sessionMap: TRANSACTION_READ_COMMITTED
+2025-04-21T10:58:14,624 INFO blocking-thread--p3-t1 MAIN - [IS0136] SQL store: Executing create table subject_sessions (if missing?) for cache sessionStore.sessionMap
+2025-04-21T10:58:14,625 INFO blocking-thread--p3-t1 MAIN - [IS0129] SQL store: Create table subject_sessions (if missing?) for cache sessionStore.sessionMap returned 0 changed rows
+2025-04-21T10:58:14,625 INFO blocking-thread--p3-t1 MAIN - [IS0133] SQL store: Found table transformer
+2025-04-21T10:58:14,628 INFO blocking-thread--p3-t1 MAIN - [IS0104] Started SQL external store connector for cache sessionStore.sessionMap with table subject_sessions
+2025-04-21T10:58:14,632 INFO blocking-thread--p3-t1 MAIN - [IS0100] SQL store: Infinispan cache store configuration for sessionStore.subjectMap:
+2025-04-21T10:58:14,632 INFO blocking-thread--p3-t1 MAIN - [IS0000] Infinispan SQL store: Record transformer class: com.nimbusds.sessionstore.impl.persistence.sql.SubjectIndexTransformer 
+2025-04-21T10:58:14,632 INFO blocking-thread--p3-t1 MAIN - [IS0001] Infinispan SQL store: Query executor class: not specified 
+2025-04-21T10:58:14,632 INFO blocking-thread--p3-t1 MAIN - [IS0002] Infinispan SQL store: SQL dialect: sqlDialect=H2 
+2025-04-21T10:58:14,632 INFO blocking-thread--p3-t1 MAIN - [IS0004] Infinispan SQL store: Create table if missing: createTableIfMissing=true 
+2025-04-21T10:58:14,632 INFO blocking-thread--p3-t1 MAIN - [IS0009] Infinispan SQL store: Create table ignore errors: createTableIgnoreErrors=false 
+2025-04-21T10:58:14,632 INFO blocking-thread--p3-t1 MAIN - [IS0008] Infinispan SQL store: Connection pool reference: keyStore.jwkSetMap 
+2025-04-21T10:58:14,632 INFO blocking-thread--p3-t1 MAIN - [IS0010] Infinispan SQL store: Expired record select query page limit: 250
+2025-04-21T10:58:14,632 INFO blocking-thread--p3-t1 MAIN - [IS0140] SQL store: Expiration thread wake up interval for cache sessionStore.subjectMap: 0
+2025-04-21T10:58:14,632 INFO blocking-thread--p3-t1 MAIN - [IS0102] Initialized SQL external store for cache sessionStore.subjectMap with table subject_index
+2025-04-21T10:58:14,632 INFO blocking-thread--p3-t1 MAIN - [IS0143] SQL store: Transaction isolation for cache sessionStore.subjectMap: TRANSACTION_READ_COMMITTED
+2025-04-21T10:58:14,633 INFO blocking-thread--p3-t1 MAIN - [IS0136] SQL store: Executing create table subject_index (if missing?) for cache sessionStore.subjectMap
+2025-04-21T10:58:14,634 INFO blocking-thread--p3-t1 MAIN - [IS0129] SQL store: Create table subject_index (if missing?) for cache sessionStore.subjectMap returned 0 changed rows
+2025-04-21T10:58:14,634 INFO blocking-thread--p3-t1 MAIN - [IS0104] Started SQL external store connector for cache sessionStore.subjectMap with table subject_index
+2025-04-21T10:58:14,634 INFO http-nio-8080-exec-6 CONTAINER - ISPN000025: wakeUpInterval is <= 0, not starting expired purge thread
+2025-04-21T10:58:14,666 INFO http-nio-8080-exec-6 MAIN - [KS0300] Infinispan cache manager status: RUNNING
+2025-04-21T10:58:14,667 INFO http-nio-8080-exec-6 MAIN - Loaded properties file /WEB-INF/keyStore.properties
+2025-04-21T10:58:14,669 INFO http-nio-8080-exec-6 MAIN - [KS0307] Overriding system properties: []
+2025-04-21T10:58:14,724 INFO http-nio-8080-exec-6 MAIN - [KS0100] Key store AES encryption JWK: size=128 kid=null thumbprint=EjhINBvDjzr-KPv7IP6Ty5XQiFBM34Mh3NoBv8kcNao
+2025-04-21T10:58:14,724 WARN http-nio-8080-exec-6 MAIN - [KS0101] The key store is configured with the demo AES encryption JWK, generate a new JWK for production use: https://connect2id.com/products/server/docs/config/jwk-set
+2025-04-21T10:58:14,730 INFO http-nio-8080-exec-6 MAIN - [KS1000] Initialized key store
+2025-04-21T10:58:14,730 INFO http-nio-8080-exec-6 MAIN - [KS0304] Started key store
+2025-04-21T10:58:14,731 INFO http-nio-8080-exec-6 MAIN - [TR0002] Created single-tenant manager
+2025-04-21T10:58:14,733 INFO http-nio-8080-exec-6 MAIN - [AS0400] Infinispan cache manager status: RUNNING
+2025-04-21T10:58:14,734 INFO http-nio-8080-exec-6 MAIN - Loaded properties file /WEB-INF/authzStore.properties
+2025-04-21T10:58:14,734 INFO http-nio-8080-exec-6 MAIN - Loaded properties file /WEB-INF/oidcProvider.properties
+2025-04-21T10:58:14,735 INFO http-nio-8080-exec-6 MAIN - [AS0412] Overriding system properties: []
+2025-04-21T10:58:14,751 INFO http-nio-8080-exec-6 MAIN - [AS0000] Authorization code lifetime: 300 s
+2025-04-21T10:58:14,751 INFO http-nio-8080-exec-6 MAIN - [AS0001] Default access token lifetime: 600 s
+2025-04-21T10:58:14,751 INFO http-nio-8080-exec-6 MAIN - [AS0003] Self-contained access token JWS algorithm: RS256
+2025-04-21T10:58:14,751 INFO http-nio-8080-exec-6 MAIN - [AS0033] Self-contained access token JWE algorithm: dir
+2025-04-21T10:58:14,751 INFO http-nio-8080-exec-6 MAIN - [AS0034] Self-contained access token JWE method: A128GCM
+2025-04-21T10:58:14,751 INFO http-nio-8080-exec-6 MAIN - [AS0036] Self-contained access token include "x5c" JWT header: true
+2025-04-21T10:58:14,751 INFO http-nio-8080-exec-6 MAIN - [AS0006] Direct access token inspection is allowed: false
+2025-04-21T10:58:14,751 WARN http-nio-8080-exec-6 MAIN - [AS0032] Disabled public subject security in self-contained access tokens: false
+2025-04-21T10:58:14,751 INFO http-nio-8080-exec-6 MAIN - [AS0012] Default refresh token lifetime: 0 s
+2025-04-21T10:58:14,751 INFO http-nio-8080-exec-6 MAIN - [AS0013] Default rotate refresh token: false
+2025-04-21T10:58:14,751 INFO http-nio-8080-exec-6 MAIN - [AS0010] Always update refresh token (deprecated): false
+2025-04-21T10:58:14,751 INFO http-nio-8080-exec-6 MAIN - [AS0014] Rotated refresh token reuse grace period: 5 s
+2025-04-21T10:58:14,751 INFO http-nio-8080-exec-6 MAIN - [AS0050] Revocation timestamp check bias: 0 s
+2025-04-21T10:58:14,751 INFO http-nio-8080-exec-6 MAIN - [AS0040] Pairwise subjects: Pad local subjects to length: no padding
+2025-04-21T10:58:14,751 INFO http-nio-8080-exec-6 MAIN - [AS0030] Authorization store API access token configured / API enabled: true
+2025-04-21T10:58:14,752 INFO http-nio-8080-exec-6 MAIN - [AS0031] Additional authorization store API access tokens: 0
+2025-04-21T10:58:14,752 INFO http-nio-8080-exec-6 MAIN - [AS0029] Highly-available mode enabled: true
+2025-04-21T10:58:14,752 INFO http-nio-8080-exec-6 MAIN - [AS0028] Discarded attributes: []
+2025-04-21T10:58:14,752 INFO http-nio-8080-exec-6 MAIN - [AS0011] Issue legacy refresh tokens: false
+2025-04-21T10:58:14,752 INFO http-nio-8080-exec-6 MAIN - Loaded properties file /WEB-INF/claimsCompression.properties
+2025-04-21T10:58:14,822 INFO http-nio-8080-exec-6 MAIN - [AS0413] Validated optional symmetric encryption key for self-contained access tokens
+2025-04-21T10:58:14,834 INFO http-nio-8080-exec-6 MAIN - [AS0540] Loaded class com.nimbusds.authzstore.codecs.DefaultSelfContainedAccessTokenClaimsCodec
+2025-04-21T10:58:14,836 INFO http-nio-8080-exec-6 MAIN - [AS0530] Loaded class com.nimbusds.authzstore.codecs.DefaultIdentifierAccessTokenCodec
+2025-04-21T10:58:14,839 INFO http-nio-8080-exec-6 MAIN - [AS0236] Code map entry count strategy: DEFAULT
+2025-04-21T10:58:14,839 INFO http-nio-8080-exec-6 MAIN - [AS0235] Identifier-based access token map entry count strategy: DIRECT
+2025-04-21T10:58:14,840 INFO http-nio-8080-exec-6 MAIN - [AS0234] Long-lived authorization map entry count strategy: DIRECT
+2025-04-21T10:58:14,841 INFO http-nio-8080-exec-6 MAIN - [AS0237] Revocation journal map entry count strategy: DIRECT
+2025-04-21T10:58:14,841 INFO http-nio-8080-exec-6 MAIN - [AS0330] Expended token map entry count strategy: DEFAULT
+2025-04-21T10:58:14,843 INFO http-nio-8080-exec-6 MAIN - [AS0200] Completed initialization of the Infinispan authorization store
+2025-04-21T10:58:14,843 INFO http-nio-8080-exec-6 MAIN - [AS0410] Started authorization store
+2025-04-21T10:58:14,844 INFO http-nio-8080-exec-6 MAIN - [SS0300] Infinispan cache manager status: RUNNING
+2025-04-21T10:58:14,844 INFO http-nio-8080-exec-6 MAIN - Loaded properties file /WEB-INF/sessionStore.properties
+2025-04-21T10:58:14,844 INFO http-nio-8080-exec-6 MAIN - [SS0307] Overriding system properties: []
+2025-04-21T10:58:14,844 INFO http-nio-8080-exec-6 MAIN - [SS0120] Orphaned subject key purge interval: -1s
+2025-04-21T10:58:14,844 INFO http-nio-8080-exec-6 MAIN - Loaded properties file /WEB-INF/sessionStore.properties
+2025-04-21T10:58:14,844 INFO http-nio-8080-exec-6 MAIN - [SS0306] Overriding system properties: []
+2025-04-21T10:58:14,845 INFO http-nio-8080-exec-6 MAIN - [SS0100] Default max subject session lifetime: 259200 minutes
+2025-04-21T10:58:14,845 INFO http-nio-8080-exec-6 MAIN - [SS0102] Default subject authentication lifetime: 43200 minutes
+2025-04-21T10:58:14,846 INFO http-nio-8080-exec-6 MAIN - [SS0104] Default max idle subject session time: 14400 minutes
+2025-04-21T10:58:14,846 INFO http-nio-8080-exec-6 MAIN - [SS0106] Web and native client group session quota per subject: 5
+2025-04-21T10:58:14,846 INFO http-nio-8080-exec-6 MAIN - [SS0111] Native IdP app session quota per subject: 1
+2025-04-21T10:58:14,846 INFO http-nio-8080-exec-6 MAIN - [SS0107] Policy on subject session quota exhaustion: CLOSE_OLD_SESSION
+2025-04-21T10:58:14,846 INFO http-nio-8080-exec-6 MAIN - [SS0109] Session store API access token configured / API enabled: true
+2025-04-21T10:58:14,846 INFO http-nio-8080-exec-6 MAIN - [SS0112] Additional session store API access tokens: 0
+2025-04-21T10:58:14,846 INFO http-nio-8080-exec-6 MAIN - [SS0110] Accepts legacy SIDs (without appended HMAC): false
+2025-04-21T10:58:14,853 INFO http-nio-8080-exec-6 MAIN - [SS0211] Subject session map entry count strategy: DIRECT_WITH_PASSIVATION
+2025-04-21T10:58:14,854 INFO http-nio-8080-exec-6 MAIN - [SS0207] Task to remove orphaned subject keys not scheduled
+2025-04-21T10:58:14,854 INFO http-nio-8080-exec-6 MAIN - [SS0304] Started subject session store
+2025-04-21T10:58:14,863 INFO http-nio-8080-exec-6 MAIN - [OP0115] Connect2id server version: 18.0
+2025-04-21T10:58:14,864 INFO http-nio-8080-exec-6 MAIN - [OP0130] Starting Connect2id server on lenss-10/127.0.1.1
+2025-04-21T10:58:14,980 INFO http-nio-8080-exec-6 MAIN - [OP0147] Installed BouncyCastle JCA provider for JOSE algorithms: [XC20P, A256CBC+HS512, EdDSA, RSA-OAEP-384, A128CBC+HS256]
+2025-04-21T10:58:14,981 INFO http-nio-8080-exec-6 MAIN - Loaded properties file /WEB-INF/oidcProvider.properties
+2025-04-21T10:58:14,981 INFO http-nio-8080-exec-6 MAIN - [OP0128] Overriding system properties: []
+2025-04-21T10:58:15,111 WARN http-nio-8080-exec-6 MAIN - [OP0001] Invalid OP / AS issuer: http://127.0.0.1:8080/c2id
+2025-04-21T10:58:15,112 INFO http-nio-8080-exec-6 MAIN - [OP0009] Issuer alias mode: MIGRATION
+2025-04-21T10:58:15,112 INFO http-nio-8080-exec-6 MAIN - [OP0002] Policy URI: none
+2025-04-21T10:58:15,112 INFO http-nio-8080-exec-6 MAIN - [OP0003] Terms of service URI: none
+2025-04-21T10:58:15,112 INFO http-nio-8080-exec-6 MAIN - [OP0004] Service documentation URI: none
+2025-04-21T10:58:15,112 INFO http-nio-8080-exec-6 MAIN - [OP0007] Splash page: urn:c2id:splash_page:default
+2025-04-21T10:58:15,112 INFO http-nio-8080-exec-6 MAIN - [OP0005] Custom OP / AS metadata: none
+2025-04-21T10:58:15,112 INFO http-nio-8080-exec-6 MAIN - [OP0008] Published OP / AS metadata overlay: none
+2025-04-21T10:58:15,112 INFO http-nio-8080-exec-6 MAIN - [OP5102] Client registry configuration:
+2025-04-21T10:58:15,112 INFO http-nio-8080-exec-6 MAIN - [OP5103] Client registration endpoint allows open registration: false
+2025-04-21T10:58:15,112 INFO http-nio-8080-exec-6 MAIN - [OP5104] Client registration rejects non-TLS (unprotected) redirection URIs: true
+2025-04-21T10:58:15,112 INFO http-nio-8080-exec-6 MAIN - [OP5114] Client registration allows localhost redirection URIs for testing and development purposes: false
+2025-04-21T10:58:15,112 INFO http-nio-8080-exec-6 MAIN - [OP5115] Client registration allows non-TLS front and back-channel logout URIs for testing and development purposes: false
+2025-04-21T10:58:15,112 INFO http-nio-8080-exec-6 MAIN - [OP5101] Client registration endpoint allows provider managed sector ID URNs: false
+2025-04-21T10:58:15,112 INFO http-nio-8080-exec-6 MAIN - [OP5105] Client registration access token length: 32 bytes
+2025-04-21T10:58:15,112 INFO http-nio-8080-exec-6 MAIN - [OP5110] Client registration access token length refreshed on update: true
+2025-04-21T10:58:15,112 INFO http-nio-8080-exec-6 MAIN - [OP5106] Client ID length: 8 bytes
+2025-04-21T10:58:15,112 INFO http-nio-8080-exec-6 MAIN - [OP5108] Client secret lifetime: 0 hours
+2025-04-21T10:58:15,112 INFO http-nio-8080-exec-6 MAIN - [OP5111] Client secret always refreshed on update: true
+2025-04-21T10:58:15,113 INFO http-nio-8080-exec-6 MAIN - [OP5113] Client request URI quota: 10
+2025-04-21T10:58:15,113 INFO http-nio-8080-exec-6 MAIN - [OP5112] Client registration initial access token requires audience: true
+2025-04-21T10:58:15,113 INFO http-nio-8080-exec-6 MAIN - [OP5109] Client registration master API access token configured / API enabled: true
+2025-04-21T10:58:15,113 INFO http-nio-8080-exec-6 MAIN - [OP5190] Resource retriever HTTP connect timeout: 1000ms
+2025-04-21T10:58:15,113 INFO http-nio-8080-exec-6 MAIN - [OP5191] Resource retriever HTTP read timeout: 1000ms
+2025-04-21T10:58:15,113 INFO http-nio-8080-exec-6 MAIN - [OP0090] Disabled SSO for selected clients: none
+2025-04-21T10:58:15,113 INFO http-nio-8080-exec-6 MAIN - [OP0091] Native client group SSO enabled: false
+2025-04-21T10:58:15,113 INFO http-nio-8080-exec-6 MAIN - [OP0060] Pairwise subjects: Pad local subjects to length: no padding
+2025-04-21T10:58:15,113 INFO http-nio-8080-exec-6 MAIN - [OP1000] ID token default lifetime: 300 seconds
+2025-04-21T10:58:15,116 INFO http-nio-8080-exec-6 MAIN - [OP1001] ID token JWS algorithms: RS256, RS384, RS512, PS256, PS384, PS512, ES256, ES256K, ES384, ES512, HS256, HS384, HS512, EdDSA
+2025-04-21T10:58:15,116 INFO http-nio-8080-exec-6 MAIN - [OP1003] ID token JWE algorithms: RSA-OAEP-256, RSA-OAEP-384, RSA-OAEP-512, ECDH-ES, ECDH-ES+A128KW, ECDH-ES+A192KW, ECDH-ES+A256KW, dir, A128KW, A192KW, A256KW, A128GCMKW, A192GCMKW, A256GCMKW
+2025-04-21T10:58:15,116 INFO http-nio-8080-exec-6 MAIN - [OP1004] ID token JWE methods: A128CBC-HS256, A192CBC-HS384, A256CBC-HS512, A128GCM, A192GCM, A256GCM, XC20P
+2025-04-21T10:58:15,116 INFO http-nio-8080-exec-6 MAIN - [OP1005] ID token includes s_hash: disabled
+2025-04-21T10:58:15,116 INFO http-nio-8080-exec-6 MAIN - [OP1009] ID token includes jti: disabled
+2025-04-21T10:58:15,116 INFO http-nio-8080-exec-6 MAIN - [OP1010] ID token includes x5c: enabled
+2025-04-21T10:58:15,116 INFO http-nio-8080-exec-6 MAIN - [OP2015] ID token includes subject session claims: * (all)
+2025-04-21T10:58:15,116 INFO http-nio-8080-exec-6 MAIN - [OP1002] ID token issue ignores claims sources exceptions: true
+2025-04-21T10:58:15,116 INFO http-nio-8080-exec-6 MAIN - [OP1006] ID token JWT 'typ' (type): null
+2025-04-21T10:58:15,116 INFO http-nio-8080-exec-6 MAIN - [OP0011] Supported authorization_details types: null
+2025-04-21T10:58:15,116 INFO http-nio-8080-exec-6 MAIN - [OP0030] PAR lifetime: 60 seconds
+2025-04-21T10:58:15,117 INFO http-nio-8080-exec-6 MAIN - [OP0031] PAR required: false
+2025-04-21T10:58:15,117 WARN http-nio-8080-exec-6 MAIN - [OP2004] Authorization endpoint (consider using HTTPS): http://127.0.0.1:8080/c2id-login
+2025-04-21T10:58:15,117 INFO http-nio-8080-exec-6 MAIN - [OP2005] Authorization session lifetime: 15 minutes
+2025-04-21T10:58:15,117 INFO http-nio-8080-exec-6 MAIN - [OP2006] Enabled OAuth 2.0 response types: code, token, id_token, id_token token, code id_token, code id_token token
+2025-04-21T10:58:15,117 INFO http-nio-8080-exec-6 MAIN - [OP2016] Enabled OAuth 2.0 response modes: query, fragment, form_post, query.jwt, fragment.jwt, form_post.jwt, jwt
+2025-04-21T10:58:15,117 INFO http-nio-8080-exec-6 MAIN - [OP2032] Prohibit switch between basic query and fragment response_mode: false
+2025-04-21T10:58:15,117 INFO http-nio-8080-exec-6 MAIN - [OP2045] Scope limited to registered: true
+2025-04-21T10:58:15,117 INFO http-nio-8080-exec-6 MAIN - [OP2017] Accepted request JWS algorithms: [HS256, HS384, HS512, RS256, RS384, RS512, PS256, PS384, PS512, ES256, ES256K, ES384, ES512]
+2025-04-21T10:58:15,117 INFO http-nio-8080-exec-6 MAIN - [OP2025] Accepted request JWE algorithms: [RSA-OAEP-256, RSA-OAEP-384, RSA-OAEP-512, ECDH-ES, ECDH-ES+A128KW, ECDH-ES+A192KW, ECDH-ES+A256KW, dir]
+2025-04-21T10:58:15,117 INFO http-nio-8080-exec-6 MAIN - [OP2026] Accepted request JWE encryption methods: [A128CBC-HS256, A192CBC-HS384, A256CBC-HS512, A128GCM, A192GCM, A256GCM, XC20P]
+2025-04-21T10:58:15,117 INFO http-nio-8080-exec-6 MAIN - [OP2033] Accepted JARM JWS algorithms: [HS256, HS384, HS512, RS256, RS384, RS512, PS256, PS384, PS512, ES256, ES256K, ES384, ES512, EdDSA]
+2025-04-21T10:58:15,117 INFO http-nio-8080-exec-6 MAIN - [OP2034] Accepted JARM JWE algorithms: [RSA-OAEP-256, RSA-OAEP-384, RSA-OAEP-512, ECDH-ES, ECDH-ES+A128KW, ECDH-ES+A192KW, ECDH-ES+A256KW, dir]
+2025-04-21T10:58:15,118 INFO http-nio-8080-exec-6 MAIN - [OP2035] Accepted JARM JWE encryption methods: [A128CBC-HS256, A192CBC-HS384, A256CBC-HS512, A128GCM, A192GCM, A256GCM, XC20P]
+2025-04-21T10:58:15,118 INFO http-nio-8080-exec-6 MAIN - [OP2038] JARM JWT includes x5c: enabled
+2025-04-21T10:58:15,118 INFO http-nio-8080-exec-6 MAIN - [OP2013] Include OAuth 2.0 client information in auth prompt: false
+2025-04-21T10:58:15,118 INFO http-nio-8080-exec-6 MAIN - [OP2020] Include OAuth 2.0 client information in final response: false
+2025-04-21T10:58:15,118 INFO http-nio-8080-exec-6 MAIN - [OP2021] Include subject session in final response: false
+2025-04-21T10:58:15,118 INFO http-nio-8080-exec-6 MAIN - [OP2014] Include other previously consented scope and claims in consent prompt: false
+2025-04-21T10:58:15,118 INFO http-nio-8080-exec-6 MAIN - [OP2028] Include raw OpenID claims request parameter in consent prompt: false
+2025-04-21T10:58:15,118 INFO http-nio-8080-exec-6 MAIN - [OP2036] Authorization parameters to include in auth prompt: []
+2025-04-21T10:58:15,118 INFO http-nio-8080-exec-6 MAIN - [OP2037] Authorization parameters to include in consent prompt: []
+2025-04-21T10:58:15,118 INFO http-nio-8080-exec-6 MAIN - [OP2018] Always prompt for authentication: false
+2025-04-21T10:58:15,118 INFO http-nio-8080-exec-6 MAIN - [OP2002] Always prompt for consent: false
+2025-04-21T10:58:15,118 INFO http-nio-8080-exec-6 MAIN - [OP2001] Always prompt mode: PROMPT_NONE
+2025-04-21T10:58:15,118 INFO http-nio-8080-exec-6 MAIN - [OP2000] ID token hint (id_token_hint) required with prompt=none: false
+2025-04-21T10:58:15,118 INFO http-nio-8080-exec-6 MAIN - [OP2042] Always require redirect_uri: false
+2025-04-21T10:58:15,118 INFO http-nio-8080-exec-6 MAIN - [OP2029] Allowed PKCE methods: [plain, S256]
+2025-04-21T10:58:15,118 INFO http-nio-8080-exec-6 MAIN - [OP2027] Required PKCE methods: []
+2025-04-21T10:58:15,118 INFO http-nio-8080-exec-6 MAIN - [OP2030] Request JWT policy for OAuth: STRICT
+2025-04-21T10:58:15,118 INFO http-nio-8080-exec-6 MAIN - [OP2031] Request JWT policy for OpenID Connect: MERGE_UNSECURED
+2025-04-21T10:58:15,118 INFO http-nio-8080-exec-6 MAIN - [OP2043] Always require signed request JWT: false
+2025-04-21T10:58:15,119 INFO http-nio-8080-exec-6 MAIN - [OP2023] Request JWT exp required: false
+2025-04-21T10:58:15,119 INFO http-nio-8080-exec-6 MAIN - [OP2039] Request JWT nbf required: false
+2025-04-21T10:58:15,119 INFO http-nio-8080-exec-6 MAIN - [OP2040] Max lifetime of request JWT exp: not specified
+2025-04-21T10:58:15,119 INFO http-nio-8080-exec-6 MAIN - [OP2041] Max age of request JWT nbf: not specified
+2025-04-21T10:58:15,119 INFO http-nio-8080-exec-6 MAIN - [OP2024] Request JWTs must include all authorization request parameters: false
+2025-04-21T10:58:15,119 INFO http-nio-8080-exec-6 MAIN - [OP2044] Always require signed response: false
+2025-04-21T10:58:15,119 INFO http-nio-8080-exec-6 MAIN - [OP2019] Additional custom error codes for the authorization endpoint: []
+2025-04-21T10:58:15,119 INFO http-nio-8080-exec-6 MAIN - [OP2008] Advertised OAuth 2.0 scopes: openid
+2025-04-21T10:58:15,119 INFO http-nio-8080-exec-6 MAIN - [OP2009] Advertised OpenID Connect claims: sub
+2025-04-21T10:58:15,119 INFO http-nio-8080-exec-6 MAIN - [OP2010] Advertised ACRs: null
+2025-04-21T10:58:15,119 INFO http-nio-8080-exec-6 MAIN - [OP2011] Advertised display types: page
+2025-04-21T10:58:15,119 INFO http-nio-8080-exec-6 MAIN - [OP2012] Advertised UI locales: null
+2025-04-21T10:58:15,119 INFO http-nio-8080-exec-6 MAIN - [OP2022] Additional authorization API access tokens: 0
+2025-04-21T10:58:15,119 INFO http-nio-8080-exec-6 MAIN - [OP6100] Client authentication methods: client_secret_basic, client_secret_post, client_secret_jwt, private_key_jwt, none
+2025-04-21T10:58:15,119 INFO http-nio-8080-exec-6 MAIN - [OP6101] Client authentication JWS algorithms: HS256, HS384, HS512, RS256, RS384, RS512, PS256, PS384, PS512, ES256, ES256K, ES384, ES512
+2025-04-21T10:58:15,119 INFO http-nio-8080-exec-6 MAIN - [OP6109] JWT authentication audience check: LEGACY
+2025-04-21T10:58:15,120 INFO http-nio-8080-exec-6 MAIN - [OP6110] JWT authentication audience check JSON query: none
+2025-04-21T10:58:15,120 INFO http-nio-8080-exec-6 MAIN - [OP6107] Prevent client_secret_jwt and private_key_jwt replay: true
+2025-04-21T10:58:15,120 INFO http-nio-8080-exec-6 MAIN - [OP6108] Maximum exp time ahead for client_secret_jwt and private_key_jwt: disabled
+2025-04-21T10:58:15,120 INFO http-nio-8080-exec-6 MAIN - [OP6105] Token endpoint requires client X.509 certificate: false
+2025-04-21T10:58:15,120 INFO http-nio-8080-exec-6 MAIN - [OP6106] Token introspection prune audience: true
+2025-04-21T10:58:15,120 INFO http-nio-8080-exec-6 MAIN - [OP6103] Token introspection response always JWT: false
+2025-04-21T10:58:15,120 INFO http-nio-8080-exec-6 MAIN - [OP6104] Token introspection JWT 'typ' (type): token-introspection+jwt
+2025-04-21T10:58:15,120 INFO http-nio-8080-exec-6 MAIN - [OP7200] UserInfo endpoint JWS algorithms: RS256, RS384, RS512, PS256, PS384, PS512, ES256, ES256K, ES384, ES512, HS256, HS384, HS512, EdDSA
+2025-04-21T10:58:15,120 INFO http-nio-8080-exec-6 MAIN - [OP7202] UserInfo endpoint JWE algorithms: RSA-OAEP-256, RSA-OAEP-384, RSA-OAEP-512, ECDH-ES, ECDH-ES+A128KW, ECDH-ES+A192KW, ECDH-ES+A256KW, dir, A128KW, A192KW, A256KW, A128GCMKW, A192GCMKW, A256GCMKW
+2025-04-21T10:58:15,120 INFO http-nio-8080-exec-6 MAIN - [OP7204] UserInfo endpoint JWE methods: A128CBC-HS256, A192CBC-HS384, A256CBC-HS512, A128GCM, A192GCM, A256GCM, XC20P
+2025-04-21T10:58:15,120 INFO http-nio-8080-exec-6 MAIN - [OP7206] UserInfo endpoint allows access token in URI query: false
+2025-04-21T10:58:15,120 INFO http-nio-8080-exec-6 MAIN - [OP7207] UserInfo JWT 'typ' (type): null
+2025-04-21T10:58:15,121 INFO http-nio-8080-exec-6 MAIN - [OP2700] Logout (end-session) endpoint disabled
+2025-04-21T10:58:15,121 INFO http-nio-8080-exec-6 MAIN - [OP2772] Back-channel logout tokens explicitly typed with JWT logout+jwt type ("typ") header: true
+2025-04-21T10:58:15,121 INFO http-nio-8080-exec-6 MAIN - [OP2770] Back-channel logout HTTP connect timeout: 1000ms
+2025-04-21T10:58:15,121 INFO http-nio-8080-exec-6 MAIN - [OP2771] Back-channel logout HTTP read timeout: 1000ms
+2025-04-21T10:58:15,121 INFO http-nio-8080-exec-6 MAIN - [OP2800] Check session iframe: disabled
+2025-04-21T10:58:15,121 INFO http-nio-8080-exec-6 MAIN - [OP0081] CIBA enabled: false
+2025-04-21T10:58:15,121 INFO http-nio-8080-exec-6 MAIN - [OP0040] OpenID Federation: Enabled: false
+2025-04-21T10:58:15,121 INFO http-nio-8080-exec-6 MAIN - [OP0020] Supports identity assurance / verified claims: false
+2025-04-21T10:58:15,121 INFO http-nio-8080-exec-6 MAIN - [OP2910] General STS API access token configured / API enabled: false
+2025-04-21T10:58:15,121 INFO http-nio-8080-exec-6 MAIN - [OP2911] STS private_key_jwt API access token configured / API enabled: false
+2025-04-21T10:58:15,121 INFO http-nio-8080-exec-6 MAIN - [OP2911] STS login_hint_token API access token configured / API enabled: false
+2025-04-21T10:58:15,121 INFO http-nio-8080-exec-6 MAIN - [OP2911] STS JAR API access token configured / API enabled: false
+2025-04-21T10:58:15,121 INFO http-nio-8080-exec-6 MAIN - [OP2913] STS login_hint_token direct issue allowed (API access token not required): false 
+2025-04-21T10:58:15,121 INFO http-nio-8080-exec-6 MAIN - [OP6901] Client X.509 certificates accepted
+2025-04-21T10:58:15,121 INFO http-nio-8080-exec-6 MAIN - [OP6900] TLS termination proxy: Client X.509 certificate HTTP header: not configured
+2025-04-21T10:58:15,123 INFO http-nio-8080-exec-6 MAIN - [OP0006] OP / AS issuer aliases: none
+2025-04-21T10:58:15,123 INFO http-nio-8080-exec-6 MAIN - Loaded properties file /WEB-INF/keyStore.properties
+2025-04-21T10:58:15,123 INFO http-nio-8080-exec-6 MAIN - [KS0303] Overriding system properties: []
+2025-04-21T10:58:15,124 INFO http-nio-8080-exec-6 MAIN - [KS0156] Key store default size for new generated RSA JWKs: 2048 bits
+2025-04-21T10:58:15,124 INFO http-nio-8080-exec-6 MAIN - [KS0154] Key store mode for OP JWK set context: DYNAMIC
+2025-04-21T10:58:15,124 INFO http-nio-8080-exec-6 MAIN - [KS0154] Key store mode for FEDERATION JWK set context: DYNAMIC
+2025-04-21T10:58:15,124 INFO http-nio-8080-exec-6 MAIN - [KS0150] Key store generate FEDERATION JWK set if empty: true
+2025-04-21T10:58:15,124 INFO http-nio-8080-exec-6 MAIN - [KS0150] Key store generate OP JWK set if empty: true
+2025-04-21T10:58:15,124 INFO http-nio-8080-exec-6 MAIN - [KS0160] Key store PKCS#11 enabled for FEDERATION JWK set: false
+2025-04-21T10:58:15,124 INFO http-nio-8080-exec-6 MAIN - [KS0160] Key store PKCS#11 enabled for OP JWK set: false
+2025-04-21T10:58:15,124 INFO http-nio-8080-exec-6 MAIN - [KS0154] Key store JWK set cache lifetime: 60s
+2025-04-21T10:58:15,124 INFO http-nio-8080-exec-6 MAIN - [KS0152] Key store API access token configured / API enabled: false
+2025-04-21T10:58:15,384 INFO http-nio-8080-exec-6 MAIN - [OP0119] Loaded OpenID claims map file /WEB-INF/customClaimsMap.properties with 0 entries
+2025-04-21T10:58:15,384 INFO http-nio-8080-exec-6 MAIN - [OP0080] Custom scope value - OpenID claims map:
+2025-04-21T10:58:15,388 INFO http-nio-8080-exec-6 MAIN - [OP0214] Created event dispatcher with 0 listeners in total
+2025-04-21T10:58:15,394 INFO http-nio-8080-exec-6 MAIN - [PWW0000] Password grant handler enabled: true
+2025-04-21T10:58:15,394 INFO http-nio-8080-exec-6 MAIN - [PWW0001] Password grant handler: Endpoint URL: http://127.0.0.1:8080/password-grant-handler
+2025-04-21T10:58:15,394 INFO http-nio-8080-exec-6 MAIN - [PWW0002] Password grant handler: Accepted custom token request parameters: []
+2025-04-21T10:58:15,394 INFO http-nio-8080-exec-6 MAIN - [PWW0005] Password grant handler: Included client metadata parameters: [scope, default_max_age, application_type, data, require_auth_time, subject_type, default_acr_values, sector_identifier_uri]
+2025-04-21T10:58:15,394 INFO http-nio-8080-exec-6 MAIN - [PWW0003] Password grant handler: HTTP connect timeout: 250 ms
+2025-04-21T10:58:15,394 INFO http-nio-8080-exec-6 MAIN - [PWW0004] Password grant handler: HTTP read timeout: 500 ms
+2025-04-21T10:58:15,395 INFO http-nio-8080-exec-6 MAIN - [OP7106] Loaded PasswordGrantHandler: class=com.nimbusds.openid.connect.provider.spi.impl.grants.handlers.web.password.PasswordGrantDelegator enabled=true
+2025-04-21T10:58:15,395 INFO http-nio-8080-exec-6 MAIN - [OP7103] Active password grant handler: class=com.nimbusds.openid.connect.provider.spi.impl.grants.handlers.web.password.PasswordGrantDelegator
+2025-04-21T10:58:15,398 INFO http-nio-8080-exec-6 MAIN - [CCW0000] Client credentials grant handler enabled: false
+2025-04-21T10:58:15,398 INFO http-nio-8080-exec-6 MAIN - [OP7106] Loaded ClientCredentialsGrantHandler: class=com.nimbusds.openid.connect.provider.spi.impl.grants.handlers.web.clientcredentials.ClientCredentialsGrantDelegator enabled=false
+2025-04-21T10:58:15,400 INFO http-nio-8080-exec-6 MAIN - [CGH0000] Client credentials grant handler enabled: true
+2025-04-21T10:58:15,400 INFO http-nio-8080-exec-6 MAIN - [CGH0101] Access token lifetime: default
+2025-04-21T10:58:15,400 INFO http-nio-8080-exec-6 MAIN - [CGH0102] Access token encoding: SELF_CONTAINED
+2025-04-21T10:58:15,400 INFO http-nio-8080-exec-6 MAIN - [CGH0103] Access JWT encrypt: false
+2025-04-21T10:58:15,400 INFO http-nio-8080-exec-6 MAIN - [CGH0104] Access token audience: null
+2025-04-21T10:58:15,400 INFO http-nio-8080-exec-6 MAIN - [CGH0105] Client metadata fields to include in access tokens: []
+2025-04-21T10:58:15,401 INFO http-nio-8080-exec-6 MAIN - [OP7106] Loaded ClientCredentialsGrantHandler: class=com.nimbusds.openid.connect.provider.spi.impl.grants.handlers.local.clientcredentials.SimpleClientCredentialsGrantHandler enabled=true
+2025-04-21T10:58:15,401 INFO http-nio-8080-exec-6 MAIN - [OP7103] Active client_credentials grant handler: class=com.nimbusds.openid.connect.provider.spi.impl.grants.handlers.local.clientcredentials.SimpleClientCredentialsGrantHandler
+2025-04-21T10:58:15,404 INFO http-nio-8080-exec-6 MAIN - [SJH0000] JWT bearer grant handler enabled: true
+2025-04-21T10:58:15,404 INFO http-nio-8080-exec-6 MAIN - [SJH0101] Access token lifetime: default
+2025-04-21T10:58:15,404 INFO http-nio-8080-exec-6 MAIN - [SJH0102] Access token encoding: SELF_CONTAINED
+2025-04-21T10:58:15,404 INFO http-nio-8080-exec-6 MAIN - [SJH0103] Access JWT encrypt: false
+2025-04-21T10:58:15,404 INFO http-nio-8080-exec-6 MAIN - [SJH0104] Access token audience: null
+2025-04-21T10:58:15,404 INFO http-nio-8080-exec-6 MAIN - [SJH0105] Client metadata fields to include in access tokens: []
+2025-04-21T10:58:15,404 INFO http-nio-8080-exec-6 MAIN - [OP7106] Loaded SelfIssuedJWTGrantHandler: class=com.nimbusds.openid.connect.provider.spi.impl.grants.handlers.local.jwt.selfissued.SimpleSelfIssuedJWTGrantHandler enabled=true
+2025-04-21T10:58:15,404 INFO http-nio-8080-exec-6 MAIN - [OP7103] Active urn:ietf:params:oauth:grant-type:jwt-bearer grant handler: class=com.nimbusds.openid.connect.provider.spi.impl.grants.handlers.local.jwt.selfissued.SimpleSelfIssuedJWTGrantHandler
+2025-04-21T10:58:15,405 INFO http-nio-8080-exec-6 MAIN - [OP0251] No enabled ThirdPartyJWTGrantHandler found
+2025-04-21T10:58:15,407 INFO http-nio-8080-exec-6 MAIN - [OP0251] No enabled SelfIssuedSAML2GrantHandler found
+2025-04-21T10:58:15,408 INFO http-nio-8080-exec-6 MAIN - [OP0251] No enabled ThirdPartySAML2GrantHandler found
+2025-04-21T10:58:15,411 INFO http-nio-8080-exec-6 MAIN - [TEW0000] Token exchange grant handler enabled: false
+2025-04-21T10:58:15,411 INFO http-nio-8080-exec-6 MAIN - [OP7106] Loaded TokenExchangeGrantHandler: class=com.nimbusds.openid.connect.provider.spi.impl.grants.handlers.web.tokenexchange.TokenExchangeGrantDelegator enabled=false
+2025-04-21T10:58:15,411 INFO http-nio-8080-exec-6 MAIN - [OP0251] No enabled TokenExchangeGrantHandler found
+2025-04-21T10:58:15,414 INFO http-nio-8080-exec-6 MAIN - [OP0251] No enabled PrivateKeyJWTCertificateVerifier found
+2025-04-21T10:58:15,431 INFO http-nio-8080-exec-6 MAIN - [CMC0001] Additional client metadata checks: true
+2025-04-21T10:58:15,431 INFO http-nio-8080-exec-6 MAIN - [OP5177] Loaded FinalMetadataValidator: class=com.nimbusds.openid.connect.provider.reg.spi.AdditionalClientMetadataChecks enabled=true
+2025-04-21T10:58:15,431 INFO http-nio-8080-exec-6 MAIN - [OP0135] Client registry entry count strategy: DIRECT
+2025-04-21T10:58:15,431 INFO http-nio-8080-exec-6 MAIN - [OP0136] Client JWK set cache entry count strategy: DEFAULT
+2025-04-21T10:58:15,431 INFO http-nio-8080-exec-6 MAIN - [OP0137] Request JWT cache entry count strategy: DEFAULT
+2025-04-21T10:58:15,434 INFO http-nio-8080-exec-6 MAIN - [OP0106] Started the client registry
+2025-04-21T10:58:15,436 INFO http-nio-8080-exec-6 FED-REG - [OP8042] Started periodic task for reaping expired federation client registrations
+2025-04-21T10:58:15,437 INFO http-nio-8080-exec-6 MAIN - [OP0144] Started the federation client index and reaper
+2025-04-21T10:58:15,439 INFO http-nio-8080-exec-6 MAIN - [CSLDAP0003] Initializing LDAP claims source...
+2025-04-21T10:58:15,440 INFO http-nio-8080-exec-6 MAIN - [CSLDAP0002] Overriding system properties: 
+2025-04-21T10:58:15,465 INFO http-nio-8080-exec-6 MAIN - [CSLDAP0000] LDAP claims source configuration:
+2025-04-21T10:58:15,465 INFO http-nio-8080-exec-6 MAIN - [CSLDAP0001] LDAP claims source enabled: true
+2025-04-21T10:58:15,465 INFO http-nio-8080-exec-6 MAIN - [CSLDAP0005] LDAP attribute map: /WEB-INF/ldapClaimsMap.json
+2025-04-21T10:58:15,465 INFO http-nio-8080-exec-6 MAIN - [CM1001] LDAP server [0]: 127.0.0.1:11389 (transport security NONE)
+2025-04-21T10:58:15,465 WARN http-nio-8080-exec-6 MAIN - [CM1002] LDAP server connection not protected (security=NONE), consider using STARTTLS or SSL
+2025-04-21T10:58:15,465 INFO http-nio-8080-exec-6 MAIN - [CM1004] LDAP server connect timeout: 250 ms
+2025-04-21T10:58:15,465 INFO http-nio-8080-exec-6 MAIN - [CM1005] LDAP server response timeout: Determined by LDAP client library
+2025-04-21T10:58:15,466 INFO http-nio-8080-exec-6 MAIN - [CM1006] Self-signed LDAP server certificates are trusted: false
+2025-04-21T10:58:15,466 INFO http-nio-8080-exec-6 MAIN - [CM1100] LDAP server connection pool size: 5
+2025-04-21T10:58:15,466 INFO http-nio-8080-exec-6 MAIN - [CM1103] LDAP server connection pool initial size: 0
+2025-04-21T10:58:15,466 INFO http-nio-8080-exec-6 MAIN - [CM1101] LDAP server connection pool max wait time: 250 ms
+2025-04-21T10:58:15,466 INFO http-nio-8080-exec-6 MAIN - [CM1102] LDAP server connection pool max age: 0 ms
+2025-04-21T10:58:15,471 INFO http-nio-8080-exec-6 MAIN - [CM1050] Directory user DN: uid=alice,ou=people,dc=wonderland,dc=net
+2025-04-21T10:58:15,471 INFO http-nio-8080-exec-6 MAIN - LDAP claims source: Base DN: ou=people,dc=wonderland,dc=net
+2025-04-21T10:58:15,471 INFO http-nio-8080-exec-6 MAIN - LDAP claims source: Search scope: ONE
+2025-04-21T10:58:15,471 INFO http-nio-8080-exec-6 MAIN - LDAP claims source: Filter: (uid=%u)
+2025-04-21T10:58:15,471 INFO http-nio-8080-exec-6 MAIN - [CM1200] Custom certificate trust store enabled: false
+2025-04-21T10:58:15,471 INFO http-nio-8080-exec-6 MAIN - [CM1210] Custom key store enabled: false
+2025-04-21T10:58:15,472 INFO http-nio-8080-exec-6 MAIN - [CSLDAP0100] Loading LDAP attribute map from file resource
+2025-04-21T10:58:15,515 INFO http-nio-8080-exec-6 MAIN - [OP7101] Loaded ClaimsSource [1]: com.nimbusds.openid.connect.provider.spi.claims.ldap.LDAPClaimsSource
+2025-04-21T10:58:15,515 INFO http-nio-8080-exec-6 MAIN - [OP7107] Claims source enabled at init [1]: true
+2025-04-21T10:58:15,516 INFO http-nio-8080-exec-6 MAIN - [OP7102] Claims supported by source [1]: sub email_verified address x_employee_number name nickname phone_number_verified phone_number preferred_username given_name family_name email 
+2025-04-21T10:58:15,517 INFO http-nio-8080-exec-6 MAIN - [CSS0011] Initializing subject session-based claims source...
+2025-04-21T10:58:15,518 INFO http-nio-8080-exec-6 MAIN - [CSS0010] Overriding system properties: []
+2025-04-21T10:58:15,518 INFO http-nio-8080-exec-6 MAIN - [CSS0000] Subject session-based claims source configuration:
+2025-04-21T10:58:15,518 INFO http-nio-8080-exec-6 MAIN - [CSS0001] Subject session-based claims source enabled: false
+2025-04-21T10:58:15,518 INFO http-nio-8080-exec-6 MAIN - [OP7104] Loaded AdvancedClaimsSource [2]: com.nimbusds.openid.connect.provider.spi.claims.session.SubjectSessionBasedClaimsSource
+2025-04-21T10:58:15,518 INFO http-nio-8080-exec-6 MAIN - [OP7107] Claims source enabled at init [2]: false
+2025-04-21T10:58:15,519 INFO http-nio-8080-exec-6 MAIN - [OP7102] Claims supported by source [2]: 
+2025-04-21T10:58:15,520 INFO http-nio-8080-exec-6 MAIN - [CSHTTP0011] Initializing HTTP claims source...
+2025-04-21T10:58:15,520 INFO http-nio-8080-exec-6 MAIN - [CSHTTP0010] Overriding system properties: []
+2025-04-21T10:58:15,521 INFO http-nio-8080-exec-6 MAIN - [CSHTTP0000] HTTP claims source configuration:
+2025-04-21T10:58:15,521 INFO http-nio-8080-exec-6 MAIN - [CSHTTP0001] HTTP claims source enabled: false
+2025-04-21T10:58:15,521 INFO http-nio-8080-exec-6 MAIN - [OP7104] Loaded AdvancedClaimsSource [3]: com.nimbusds.openid.connect.provider.spi.claims.http.HTTPClaimsSource
+2025-04-21T10:58:15,521 INFO http-nio-8080-exec-6 MAIN - [OP7107] Claims source enabled at init [3]: false
+2025-04-21T10:58:15,521 INFO http-nio-8080-exec-6 MAIN - [OP7102] Claims supported by source [3]: 
+2025-04-21T10:58:15,522 INFO http-nio-8080-exec-6 MAIN - [OP7003] Initialized the claims collector
+2025-04-21T10:58:15,522 INFO http-nio-8080-exec-6 MAIN - [OP0108] Started the claims source aggregator
+2025-04-21T10:58:15,523 INFO http-nio-8080-exec-6 MAIN - [OP0110] Started the JWT factory
+2025-04-21T10:58:15,531 INFO http-nio-8080-exec-6 MAIN - [OP0112] Started the ID token factory
+2025-04-21T10:58:15,531 INFO http-nio-8080-exec-6 MAIN - [OP2940] Login hint token map entry count strategy: DEFAULT
+2025-04-21T10:58:15,544 INFO http-nio-8080-exec-6 MAIN - [OP0251] No enabled AuthorizationRequestValidator found
+2025-04-21T10:58:15,544 INFO http-nio-8080-exec-6 MAIN - [OP0251] No enabled PARValidator found
+2025-04-21T10:58:15,546 INFO http-nio-8080-exec-6 MAIN - [OP2171] Authentication session entry count strategy: DEFAULT
+2025-04-21T10:58:15,546 INFO http-nio-8080-exec-6 MAIN - [OP2172] Consent session entry count strategy: DEFAULT
+2025-04-21T10:58:15,555 INFO http-nio-8080-exec-6 MAIN - [OP0251] No enabled AuthorizationRequestValidator found
+2025-04-21T10:58:15,558 INFO http-nio-8080-exec-6 MAIN - [OP2100] Created new authorization session handler
+2025-04-21T10:58:15,561 INFO http-nio-8080-exec-6 MAIN - [OP0251] No enabled CIBARequestHandler found
+2025-04-21T10:58:15,565 INFO http-nio-8080-exec-6 MAIN - [OP6740] Loaded LoginHintResolver: class=com.nimbusds.openid.connect.provider.spi.impl.subjects.LoginHintResolverDelegator enabled=false
+2025-04-21T10:58:15,565 INFO http-nio-8080-exec-6 MAIN - [OP0251] No enabled LoginHintResolver found
+2025-04-21T10:58:15,571 INFO http-nio-8080-exec-6 MAIN - [CM8008] Infinispan clustering: not configured
+2025-04-21T10:58:15,571 INFO http-nio-8080-exec-6 MAIN - [CM8006] Started Infinispan LOCAL cache op.dPoPJTICache in 906 ms
+2025-04-21T10:58:15,585 INFO http-nio-8080-exec-6 MAIN - [OP6210] Token request handler: Found delegating password grant handler class com.nimbusds.openid.connect.provider.spi.impl.grants.handlers.web.password.PasswordGrantDelegator: enabled
+2025-04-21T10:58:15,586 INFO http-nio-8080-exec-6 MAIN - [OP6210] Token request handler: Found delegating client_credentials grant handler class com.nimbusds.openid.connect.provider.spi.impl.grants.handlers.local.clientcredentials.SimpleClientCredentialsGrantHandler: enabled
+2025-04-21T10:58:15,587 INFO http-nio-8080-exec-6 MAIN - [OP6210] Token request handler: Found delegating urn:ietf:params:oauth:grant-type:jwt-bearer grant handler class com.nimbusds.openid.connect.provider.spi.impl.grants.handlers.local.jwt.selfissued.SimpleSelfIssuedJWTGrantHandler: enabled
+2025-04-21T10:58:15,594 INFO http-nio-8080-exec-6 MAIN - [DS0000] Device SSO handler enabled: true
+2025-04-21T10:58:15,594 INFO http-nio-8080-exec-6 MAIN - [DS0001] Device SSO handler scope values requiring interaction: []
+2025-04-21T10:58:15,594 INFO http-nio-8080-exec-6 MAIN - [DS0101] Access token lifetime: default
+2025-04-21T10:58:15,594 INFO http-nio-8080-exec-6 MAIN - [DS0102] Access token encoding: SELF_CONTAINED
+2025-04-21T10:58:15,594 INFO http-nio-8080-exec-6 MAIN - [DS0103] Access JWT encrypt: false
+2025-04-21T10:58:15,594 INFO http-nio-8080-exec-6 MAIN - [DS0104] Access token audience: null
+2025-04-21T10:58:15,594 INFO http-nio-8080-exec-6 MAIN - [DS0105] Client metadata fields to include in access tokens: []
+2025-04-21T10:58:15,594 INFO http-nio-8080-exec-6 MAIN - [DS0106] Refresh token issue: true
+2025-04-21T10:58:15,594 INFO http-nio-8080-exec-6 MAIN - [DS0107] Refresh token lifetime: default
+2025-04-21T10:58:15,594 INFO http-nio-8080-exec-6 MAIN - [DS0108] Refresh token max idle time: 0
+2025-04-21T10:58:15,594 INFO http-nio-8080-exec-6 MAIN - [DS0109] Refresh token rotate: default
+2025-04-21T10:58:15,594 INFO http-nio-8080-exec-6 MAIN - [DS0002] Device SSO handler preferred claims transport: USERINFO
+2025-04-21T10:58:15,594 INFO http-nio-8080-exec-6 MAIN - [OP7106] Loaded DeviceSSOHandler: class=com.nimbusds.openid.connect.provider.spi.impl.nativesso.handlers.LocalDeviceSSOHandler enabled=true
+2025-04-21T10:58:15,596 INFO http-nio-8080-exec-6 MAIN - [OP0251] No enabled CustomTokenResponseComposer found
+2025-04-21T10:58:15,599 INFO http-nio-8080-exec-6 MAIN - [OP0251] No enabled TokenIntrospectionResponseComposer found
+2025-04-21T10:58:15,600 INFO http-nio-8080-exec-6 MAIN - [OP6530] Using default TokenIntrospectionResponseComposer: class=class com.nimbusds.openid.connect.provider.token.introspection.DefaultResponseComposer
+2025-04-21T10:58:15,610 INFO http-nio-8080-exec-6 SESSION-STORE - [SS0604] Added session ended event listener: class com.nimbusds.openid.connect.provider.logout.channel.back.LogoutTokenDispatcher
+2025-04-21T10:58:15,610 INFO http-nio-8080-exec-6 SESSION-STORE - [SS0602] Added session expired event listener: class com.nimbusds.openid.connect.provider.logout.channel.back.LogoutTokenDispatcher
+2025-04-21T10:58:15,616 INFO http-nio-8080-exec-6 MAIN - [CM7106] Started Dropwizard metrics and health checks
+2025-04-21T10:58:15,616 INFO http-nio-8080-exec-6 MAIN - Loaded properties file /WEB-INF/monitor.properties
+2025-04-21T10:58:15,618 INFO http-nio-8080-exec-6 MAIN - [CM7000] Overriding system properties: []
+2025-04-21T10:58:15,618 INFO http-nio-8080-exec-6 MAIN - [CM7020] Entry count cache timeout: 1800s
+2025-04-21T10:58:15,618 INFO http-nio-8080-exec-6 MAIN - [CM7001] JMX reporting enabled: false
+2025-04-21T10:58:15,618 INFO http-nio-8080-exec-6 MAIN - [CM7002] Graphite reporting enabled: false
+2025-04-21T10:58:15,618 INFO http-nio-8080-exec-6 MAIN - [CM7101] JMX metrics reporting disabled
+2025-04-21T10:58:15,618 INFO http-nio-8080-exec-6 MAIN - [CM7103] Graphite metrics reporting disabled
+2025-04-21T10:58:15,620 INFO http-nio-8080-exec-6 MAIN - [AS9000] Initialized /authz-store/rest/v2 compatibility filter
+2025-04-21T10:58:15,821 INFO http-nio-8080-exec-6 MAIN - [OP2900] Created new JAX-RS STS endpoint instance
+2025-04-21T10:58:16,042 INFO http-nio-8080-exec-6 MAIN - [AS0300] Created new JAX-RS authorization store endpoint instance
+2025-04-21T10:58:16,108 INFO http-nio-8080-exec-6 MAIN - [OP6800] Created new JAX-RS CIBA session endpoint instance
+2025-04-21T10:58:16,136 INFO http-nio-8080-exec-6 MAIN - [OP2810] Created new JAX-RS check session backend endpoint instance
+2025-04-21T10:58:16,211 INFO http-nio-8080-exec-6 MAIN - [SS0400] Created new JAX-RS subject session store endpoint instance
+2025-04-21T10:58:16,263 INFO http-nio-8080-exec-6 MAIN - [OP2200] Created new JAX-RS authorization session endpoint instance
+2025-04-21T10:58:16,292 INFO http-nio-8080-exec-6 MAIN - [OP0400] Created new JAX-RS configuration endpoint instance
+2025-04-21T10:58:16,315 INFO http-nio-8080-exec-6 MAIN - [OP2300] Created new JAX-RS direct authorization endpoint instance
+2025-04-21T10:58:16,337 INFO http-nio-8080-exec-6 MAIN - [OP2750] Created new JAX-RS logout session endpoint instance
+2025-04-21T10:58:16,371 INFO http-nio-8080-exec-6 MAIN - [SSV0000] Software statement verifier configuration:
+2025-04-21T10:58:16,371 INFO http-nio-8080-exec-6 MAIN - [SSV0001] Software statement verifier enabled: false
+2025-04-21T10:58:16,371 INFO http-nio-8080-exec-6 MAIN - [OP5203] Loaded RegistrationInterceptor: class=com.nimbusds.openid.connect.provider.spi.reg.statement.SoftwareStatementVerifier enabled=false
+2025-04-21T10:58:16,371 INFO http-nio-8080-exec-6 MAIN - [OP0251] No enabled RegistrationInterceptor found
+2025-04-21T10:58:16,371 INFO http-nio-8080-exec-6 MAIN - [OP5200] Client registration HTTP request entity max size: 250000 chars
+2025-04-21T10:58:16,375 FATAL http-nio-8080-exec-6 MAIN - [OP0200] Couldn't get the com.nimbusds.openid.connect.provider.ciba.endpoint.InitialCIBARequestProcessor attribute from the servlet context
+2025-04-21T10:58:16,391 INFO http-nio-8080-exec-6 MAIN - Loaded properties file /WEB-INF/monitor.properties
+2025-04-21T10:58:16,391 INFO http-nio-8080-exec-6 MAIN - [CM7110] Loaded monitor API servlet
+2025-04-21T10:58:16,399 INFO http-nio-8080-exec-6 MAIN - Loaded properties file /WEB-INF/monitor.properties
+2025-04-21T10:58:16,399 INFO http-nio-8080-exec-6 MAIN - [CM7111] Loaded Prometheus monitor API servlet

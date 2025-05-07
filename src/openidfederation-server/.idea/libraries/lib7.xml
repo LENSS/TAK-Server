@@ -1,0 +1,28 @@
+<component name="libraryTable">
+  <library name="lib7">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/tomcat/webapps/password-grant-handler/WEB-INF/lib/commons-codec-1.15.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tomcat/webapps/password-grant-handler/WEB-INF/lib/oauth-grant-handlers-web-2.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tomcat/webapps/password-grant-handler/WEB-INF/lib/commons-lang3-3.12.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tomcat/webapps/password-grant-handler/WEB-INF/lib/content-type-2.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tomcat/webapps/password-grant-handler/WEB-INF/lib/password-grant-web-api-example-2.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tomcat/webapps/password-grant-handler/WEB-INF/lib/accessors-smart-2.5.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tomcat/webapps/password-grant-handler/WEB-INF/lib/json-smart-2.5.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tomcat/webapps/password-grant-handler/WEB-INF/lib/nimbus-jose-jwt-9.37.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tomcat/webapps/password-grant-handler/WEB-INF/lib/checker-qual-3.41.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tomcat/webapps/password-grant-handler/WEB-INF/lib/asm-9.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tomcat/webapps/password-grant-handler/WEB-INF/lib/oauth2-oidc-sdk-11.9.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tomcat/webapps/password-grant-handler/WEB-INF/lib/log4j-core-2.23.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tomcat/webapps/password-grant-handler/WEB-INF/lib/unboundid-ldapsdk-6.0.11.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tomcat/webapps/password-grant-handler/WEB-INF/lib/lang-tag-1.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tomcat/webapps/password-grant-handler/WEB-INF/lib/c2id-server-sdk-5.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tomcat/webapps/password-grant-handler/WEB-INF/lib/java-property-utils-1.17.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tomcat/webapps/password-grant-handler/WEB-INF/lib/log4j-api-2.23.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tomcat/webapps/password-grant-handler/WEB-INF/lib/log4j-web-2.23.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tomcat/webapps/password-grant-handler/WEB-INF/lib/jcip-annotations-1.0-1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tomcat/webapps/password-grant-handler/WEB-INF/lib/common-3.0.3.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

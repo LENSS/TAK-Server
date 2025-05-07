@@ -1,0 +1,403 @@
+<infinispan xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="urn:infinispan:config:14.0 http://www.infinispan.org/schemas/infinispan-config-14.0.xsd
+                                urn:infinispan:config:store:simple-redis:10.0 http://www.infinispan.org/schemas/infinispan-cachestore-simple-redis-config-10.0.xsd
+                                urn:infinispan:config:store:redis:10.0 http://www.infinispan.org/schemas/infinispan-cachestore-redis-config-10.0.xsd"
+            xmlns="urn:infinispan:config:14.0"
+            xmlns:sql="urn:infinispan:config:store:sql:3.2">
+
+    <!-- ************************************************************************************* -->
+    <!-- For more information see https://connect2id.com/products/server/docs/config/infinispan -->
+    <!-- ************************************************************************************* -->
+
+    <cache-container name="c2id.cluster" default-cache="sessionStore.sessionMap" statistics="true">
+
+        <local-cache-configuration name="base">
+            <expiration interval="${infinispan.defaultExpirationInterval:300000}"/>
+            <memory max-count="1"/>
+        </local-cache-configuration>
+
+        <!-- ************************* -->
+        <!-- *** Key store objects *** -->
+        <!-- ************************* -->
+
+        <!-- JWK sets -->
+        <local-cache name="keyStore.jwkSetMap" configuration="base">
+            <expiration interval="0"/>
+            <persistence>
+                <sql:sql-store record-transformer="com.nimbusds.keystore.impl.persistence.sql.JWKSetTransformer"
+                               sql-dialect="ORACLE"
+                               create-table-if-missing="${dataSource.createTableIfMissing:true}"
+                               create-table-ignore-errors="true"
+                               segmented="false">
+                    <!-- HikariCP properties -->
+                    <property name="driverClassName">oracle.jdbc.OracleDriver</property>
+                    <property name="jdbcUrl">${jdbc.url:jdbc:oracle:thin:@//localhost:1521/XE}</property>
+                    <property name="dataSource.user">${dataSource.user:c2id}</property>
+                    <property name="dataSource.password">${dataSource.password:secret}</property>
+                    <property name="dataSource.databaseName">${dataSource.databaseName:c2id}</property>
+                    <property name="maximumPoolSize">${dataSource.maxPoolSize:5}</property>
+                    <property name="maxLifetime">${dataSource.maxLifetime:1800000}</property>
+                    <property name="poolName">sqlStore</property>
+                </sql:sql-store>
+            </persistence>
+        </local-cache>
+
+        <!-- JWK sets history -->
+        <local-cache name="keyStore.jwkSetHistoryMap" configuration="base">
+            <expiration interval="0"/>
+            <persistence>
+                <sql:sql-store record-transformer="com.nimbusds.keystore.impl.persistence.sql.JWKSetHistoryTransformer"
+                               sql-dialect="ORACLE"
+                               create-table-if-missing="${dataSource.createTableIfMissing:true}"
+                               create-table-ignore-errors="true"
+                               connection-pool="keyStore.jwkSetMap"
+                               segmented="false"/>
+            </persistence>
+        </local-cache>
+
+        <!-- ***************************** -->
+        <!-- *** Session store objects *** -->
+        <!-- ***************************** -->
+
+        <!-- End-user sessions -->
+        <local-cache name="sessionStore.sessionMap" configuration="base">
+            <expiration interval="0"/>
+            <persistence>
+                <redis-store xmlns="urn:infinispan:config:store:redis:10.0"
+                             database="1"
+                             topology="server"
+                             socket-timeout="10000"
+                             connection-timeout="10000"
+                             password="${redisMapPassword:}"
+                             segmented="false">
+                    <redis-server host="${redisMapHost:localhost}" port="${redisMapPort:6379}"/>
+                    <connection-pool min-idle="6"
+                                     max-idle="10"
+                                     max-total="20"
+                                     min-evictable-idle-time="30000"
+                                     time-between-eviction-runs="30000"/>
+                </redis-store>
+            </persistence>
+        </local-cache>
+
+        <!-- End-user session index -->
+        <local-cache name="sessionStore.subjectMap" configuration="base">
+            <expiration interval="0"/>
+            <persistence>
+                <redis-store xmlns="urn:infinispan:config:store:redis:10.0"
+                             database="2"
+                             topology="server"
+                             socket-timeout="10000"
+                             connection-timeout="10000"
+                             password="${redisMapPassword:}"
+                             segmented="false">
+                    <redis-server host="${redisMapHost:localhost}" port="${redisMapPort:6379}"/>
+                    <connection-pool min-idle="6"
+                                     max-idle="10"
+                                     max-total="20"
+                                     min-evictable-idle-time="30000"
+                                     time-between-eviction-runs="30000"/>
+                </redis-store>
+            </persistence>
+        </local-cache>
+
+
+        <!-- *********************************** -->
+        <!-- *** Authorisation store objects *** -->
+        <!-- *********************************** -->
+
+        <!-- Pending authorisation codes -->
+        <local-cache name="authzStore.codeMap" configuration="base">
+            <expiration interval="0"/>
+            <persistence>
+                <redis-store xmlns="urn:infinispan:config:store:redis:10.0"
+                             database="3"
+                             topology="server"
+                             socket-timeout="10000"
+                             connection-timeout="10000"
+                             password="${redisMapPassword:}"
+                             segmented="false">
+                    <redis-server host="${redisMapHost:localhost}" port="${redisMapPort:6379}"/>
+                    <connection-pool min-idle="6"
+                                     max-idle="10"
+                                     max-total="20"
+                                     min-evictable-idle-time="30000"
+                                     time-between-eviction-runs="30000"/>
+                </redis-store>
+            </persistence>
+        </local-cache>
+
+        <!-- Identifier-based access tokens -->
+        <local-cache name="authzStore.idAccessTokenMap" configuration="base">
+            <persistence>
+                <simple-redis-store xmlns="urn:infinispan:config:store:simple-redis:10.0"
+                                    database="14"
+                                    topology="server"
+                                    socket-timeout="10000"
+                                    connection-timeout="10000"
+                                    password="${redisCachePassword:}"
+                                    segmented="false">
+                    <redis-server host="${redisCacheHost:localhost}" port="${redisCachePort:6379}"/>
+                    <connection-pool min-idle="6"
+                                     max-idle="10"
+                                     max-total="20"
+                                     min-evictable-idle-time="30000"
+                                     time-between-eviction-runs="30000"/>
+                </simple-redis-store>
+                <sql:sql-store record-transformer="com.nimbusds.authzstore.impl.persistence.sql.IDAccessTokenTransformer"
+                               sql-dialect="ORACLE"
+                               create-table-if-missing="${dataSource.createTableIfMissing:true}"
+                               expired-query-page-limit="${dataSource.expiredQueryPageLimit:1000}"
+                               create-table-ignore-errors="true"
+                               connection-pool="keyStore.jwkSetMap"
+                               segmented="false"/>
+            </persistence>
+        </local-cache>
+
+        <!-- Long-lived authorisations -->
+        <local-cache name="authzStore.longLivedAuthzMap" configuration="base">
+            <expiration interval="0"/>
+            <persistence>
+                <simple-redis-store xmlns="urn:infinispan:config:store:simple-redis:10.0"
+                                    database="5"
+                                    topology="server"
+                                    socket-timeout="10000"
+                                    connection-timeout="10000"
+                                    password="${redisCachePassword:}"
+                                    segmented="false">
+                    <redis-server host="${redisCacheHost:localhost}" port="${redisCachePort:6379}"/>
+                    <connection-pool min-idle="6"
+                                     max-idle="10"
+                                     max-total="20"
+                                     min-evictable-idle-time="30000"
+                                     time-between-eviction-runs="30000"/>
+                    <write-behind/>
+                </simple-redis-store>
+                <sql:sql-store record-transformer="com.nimbusds.authzstore.impl.persistence.sql.AuthorizationRecordTransformer"
+                               query-executor="com.nimbusds.authzstore.impl.persistence.sql.AuthorizationRecordQueryExecutor"
+                               sql-dialect="ORACLE"
+                               create-table-if-missing="${dataSource.createTableIfMissing:true}"
+                               create-table-ignore-errors="true"
+                               connection-pool="keyStore.jwkSetMap"
+                               segmented="false"/>
+            </persistence>
+        </local-cache>
+
+        <!-- Revocation journal -->
+        <local-cache name="authzStore.revocationJournalMap" configuration="base">
+            <expiration interval="0"/>
+            <persistence>
+                <simple-redis-store xmlns="urn:infinispan:config:store:simple-redis:10.0"
+                                    database="6"
+                                    topology="server"
+                                    socket-timeout="10000"
+                                    connection-timeout="10000"
+                                    password="${redisCachePassword:}"
+                                    segmented="false">
+                    <redis-server host="${redisCacheHost:localhost}" port="${redisCachePort:6379}"/>
+                    <connection-pool min-idle="6"
+                                     max-idle="10"
+                                     max-total="20"
+                                     min-evictable-idle-time="30000"
+                                     time-between-eviction-runs="30000"/>
+                    <write-behind/>
+                </simple-redis-store>
+                <sql:sql-store record-transformer="com.nimbusds.authzstore.impl.persistence.sql.RevocationRecordTransformer"
+                               sql-dialect="ORACLE"
+                               create-table-if-missing="${dataSource.createTableIfMissing:true}"
+                               create-table-ignore-errors="true"
+                               connection-pool="keyStore.jwkSetMap"
+                               segmented="false"/>
+            </persistence>
+        </local-cache>
+
+        <!-- Expended tokens -->
+        <local-cache name="authzStore.expendedTokenMap" configuration="base">
+            <expiration interval="0"/>
+            <persistence>
+                <redis-store xmlns="urn:infinispan:config:store:redis:10.0"
+                             database="12"
+                             topology="server"
+                             socket-timeout="10000"
+                             connection-timeout="10000"
+                             password="${redisMapPassword:}"
+                             segmented="false">
+                    <redis-server host="${redisMapHost:localhost}" port="${redisMapPort:6379}"/>
+                    <connection-pool min-idle="6"
+                                     max-idle="10"
+                                     max-total="20"
+                                     min-evictable-idle-time="30000"
+                                     time-between-eviction-runs="30000"/>
+                </redis-store>
+            </persistence>
+        </local-cache>
+
+
+        <!-- ************************* -->
+        <!-- Connect2id server objects -->
+        <!-- ************************* -->
+
+        <!-- Pending authentications at the authorisation endpoint -->
+        <local-cache name="op.authSessionMap" configuration="base">
+            <expiration interval="0"/>
+            <persistence>
+                <redis-store xmlns="urn:infinispan:config:store:redis:10.0"
+                             database="7"
+                             topology="server"
+                             socket-timeout="10000"
+                             connection-timeout="10000"
+                             password="${redisMapPassword:}"
+                             segmented="false">
+                    <redis-server host="${redisMapHost:localhost}" port="${redisMapPort:6379}"/>
+                    <connection-pool min-idle="6"
+                                     max-idle="10"
+                                     max-total="20"
+                                     min-evictable-idle-time="30000"
+                                     time-between-eviction-runs="30000"/>
+                </redis-store>
+            </persistence>
+        </local-cache>
+
+        <!-- Pending consents at the authorisation endpoint -->
+        <local-cache name="op.consentSessionMap" configuration="base">
+            <expiration interval="0"/>
+            <persistence>
+                <redis-store xmlns="urn:infinispan:config:store:redis:10.0"
+                             database="8"
+                             topology="server"
+                             socket-timeout="10000"
+                             connection-timeout="10000"
+                             password="${redisMapPassword:}"
+                             segmented="false">
+                    <redis-server host="${redisMapHost:localhost}" port="${redisMapPort:6379}"/>
+                    <connection-pool min-idle="6"
+                                     max-idle="10"
+                                     max-total="20"
+                                     min-evictable-idle-time="30000"
+                                     time-between-eviction-runs="30000"/>
+                </redis-store>
+            </persistence>
+        </local-cache>
+
+        <!-- OAuth 2.0 clients -->
+        <local-cache name="clients.registrationsMap" configuration="base">
+            <expiration interval="0"/>
+            <persistence>
+                <simple-redis-store xmlns="urn:infinispan:config:store:simple-redis:10.0"
+                                    database="9"
+                                    topology="server"
+                                    socket-timeout="10000"
+                                    connection-timeout="10000"
+                                    password="${redisCachePassword:}"
+                                    segmented="false">
+                    <redis-server host="${redisCacheHost:localhost}" port="${redisCachePort:6379}"/>
+                    <connection-pool min-idle="6"
+                                     max-idle="10"
+                                     max-total="20"
+                                     min-evictable-idle-time="30000"
+                                     time-between-eviction-runs="30000"/>
+                    <write-behind/>
+                </simple-redis-store>
+                <sql:sql-store record-transformer="com.nimbusds.openid.connect.provider.reg.store.persistence.sql.OIDCClientInformationTransformer"
+                               sql-dialect="ORACLE"
+                               create-table-if-missing="${dataSource.createTableIfMissing:true}"
+                               create-table-ignore-errors="true"
+                               connection-pool="keyStore.jwkSetMap"
+                               segmented="false"/>
+            </persistence>
+        </local-cache>
+
+        <!-- Federation clients tracker -->
+        <local-cache name="federation.registrationsMap" configuration="base">
+            <expiration interval="0"/>
+            <persistence>
+                <simple-redis-store xmlns="urn:infinispan:config:store:simple-redis:10.0"
+                                    database="15"
+                                    topology="server"
+                                    socket-timeout="10000"
+                                    connection-timeout="10000"
+                                    password="${redisCachePassword:}"
+                                    segmented="false">
+                    <redis-server host="${redisCacheHost:localhost}" port="${redisCachePort:6379}"/>
+                    <connection-pool min-idle="6"
+                                     max-idle="10"
+                                     max-total="20"
+                                     min-evictable-idle-time="30000"
+                                     time-between-eviction-runs="30000"/>
+                    <write-behind/>
+                </simple-redis-store>
+                <sql:sql-store record-transformer="com.nimbusds.openid.connect.provider.federation.reg.store.persistence.sql.FederationClientTransformer"
+                               sql-dialect="ORACLE"
+                               create-table-if-missing="${dataSource.createTableIfMissing:true}"
+                               create-table-ignore-errors="true"
+                               connection-pool="keyStore.jwkSetMap"
+                               segmented="false"/>
+            </persistence>
+        </local-cache>
+
+        <!-- CIBA login hint tokens -->
+        <local-cache name="op.loginHintTokenMap" configuration="base">
+            <expiration interval="0"/>
+            <persistence>
+                <redis-store xmlns="urn:infinispan:config:store:redis:10.0"
+                             database="4"
+                             topology="server"
+                             socket-timeout="10000"
+                             connection-timeout="10000"
+                             password="${redisMapPassword:}"
+                             segmented="false">
+                    <redis-server host="${redisMapHost:localhost}" port="${redisMapPort:6379}"/>
+                    <connection-pool min-idle="6"
+                                     max-idle="10"
+                                     max-total="20"
+                                     min-evictable-idle-time="30000"
+                                     time-between-eviction-runs="30000"/>
+                </redis-store>
+            </persistence>
+        </local-cache>
+
+        <!-- Cached remote client JWK sets -->
+        <local-cache name="clients.remoteJWKSetCache" configuration="base">
+            <expiration interval="0"/>
+            <persistence>
+                <redis-store xmlns="urn:infinispan:config:store:redis:10.0"
+                             database="10"
+                             topology="server"
+                             socket-timeout="10000"
+                             connection-timeout="10000"
+                             password="${redisCachePassword:}"
+                             segmented="false">
+                    <redis-server host="${redisCacheHost:localhost}" port="${redisCachePort:6379}"/>
+                    <connection-pool min-idle="6"
+                                     max-idle="10"
+                                     max-total="20"
+                                     min-evictable-idle-time="30000"
+                                     time-between-eviction-runs="30000"/>
+                </redis-store>
+            </persistence>
+        </local-cache>
+
+        <!-- Cached remote request JWT objects -->
+        <local-cache name="clients.remoteRequestJWTClaimsCache" configuration="base">
+            <expiration interval="0"/>
+            <persistence>
+                <redis-store xmlns="urn:infinispan:config:store:redis:10.0"
+                             database="11"
+                             topology="server"
+                             socket-timeout="10000"
+                             connection-timeout="10000"
+                             password="${redisCachePassword:}"
+                             segmented="false">
+                    <redis-server host="${redisCacheHost:localhost}" port="${redisCachePort:6379}"/>
+                    <connection-pool min-idle="6"
+                                     max-idle="10"
+                                     max-total="20"
+                                     min-evictable-idle-time="30000"
+                                     time-between-eviction-runs="30000"/>
+                </redis-store>
+            </persistence>
+        </local-cache>
+
+    </cache-container>
+
+</infinispan>

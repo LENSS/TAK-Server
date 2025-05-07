@@ -1,0 +1,123 @@
+{
+	"global": {
+		"title": "Login with Connect2id",
+		"browsehappy": "You are using an <strong>outdated</strong> browser. Please <a href=\"http://browsehappy.com/?locale=en\">upgrade your browser</a> to improve your experience.",
+		"login": "Login",
+		"logout": "Logout",
+		"email": "E-mail",
+		"email.placeholder": "Your e-mail",
+		"back": "Back",
+		"cancel": "Cancel",
+		"delete": "Delete",
+		"edit": "Edit",
+		"open": "Open",
+		"save": "Save",
+		"view": "View",
+		"yes": "Yes",
+		"no": "No",
+		"messages": {
+			"noconnection": "Failed to connect to a Connect2id server.",
+			"connected": "Connect2id server found on {{host}}.",
+			"badrequest": "400 - Invalid OpenID Connect authentication request: Missing query string."
+		}
+	},
+	"error": {
+		"title": "Invalid request",
+		"validation": "Invalid request!",
+		"internalServerError": "Internal server error",
+		"accessDenied": "Access denied!",
+		"methodNotSupported": "Method not supported",
+		"server.not.reachable": "Server not reachable",
+		"url.not.found": "Not found",
+		"NotNull": "This field cannot be empty!",
+		"Size": "This field does not meet min/max size requirements!",
+		"userexists": "Login name already used!",
+		"emailexists": "E-mail is already in use!",
+		"authentication": "<strong>Failed to log in!</strong> Please check your credentials and try again."
+	},
+	"home": {
+		"title": "Login with Connect2id",
+		"subtitle": "development mode"
+	},
+	"login": {
+		"title": "Login with Connect2id",
+		"hint": "Hint: Enter username \"alice\" and password \"secret\".",
+		"form": {
+			"username": "Username",
+			"username.placeholder": "Your username",
+			"password": "Password",
+			"password.placeholder": "Your password",
+			"rememberme": "Remember me"
+		}
+	},
+	"logout": {
+		"title": "Logout from Connect2id",
+		"prompt": "Do you wish to log out of the OpenID provider?",
+		"invalid_session": "You are already logged out or your session expired",
+		"invalid_logout_request": "The OpenID client made an invalid logout request",
+		"invalid_id_token_hint": "The OpenID client submitted an invalid ID token",
+		"post_logout_redirect_uri_not_registered": "The OpenID client submitted a post logout redirection URI that is not registered",
+		"success": "You have been logged out!"
+	},
+	"consent": {
+		"title": "Authorize OpenID Connect client",
+		"subtitle": "wants permission to access your account",
+		"scope": "Scope",
+		"claims": "Claims",
+		"new": "Newly requested",
+		"previous": "Previously consented",
+		"essential": "Essential",
+		"voluntary": "Voluntary",
+		"form": {
+			"button": "Authorize client"
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

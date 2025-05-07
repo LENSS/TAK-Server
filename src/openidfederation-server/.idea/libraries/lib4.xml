@@ -1,0 +1,18 @@
+<component name="libraryTable">
+  <library name="lib4">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/tomcat/webapps/c2id-logout/WEB-INF/lib/content-type-2.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tomcat/webapps/c2id-logout/WEB-INF/lib/asm-9.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tomcat/webapps/c2id-logout/WEB-INF/lib/jcip-annotations-1.0-1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tomcat/webapps/c2id-logout/WEB-INF/lib/oauth2-oidc-sdk-11.8.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tomcat/webapps/c2id-logout/WEB-INF/lib/nimbus-jose-jwt-9.37.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tomcat/webapps/c2id-logout/WEB-INF/lib/checker-qual-3.36.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tomcat/webapps/c2id-logout/WEB-INF/lib/json-smart-2.5.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tomcat/webapps/c2id-logout/WEB-INF/lib/java-property-utils-1.17.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tomcat/webapps/c2id-logout/WEB-INF/lib/lang-tag-1.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tomcat/webapps/c2id-logout/WEB-INF/lib/accessors-smart-2.5.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

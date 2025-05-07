@@ -1,0 +1,3 @@
+2025-04-21 10:57:24.146  INFO 89119 --- [main] com.nimbusds.login.C2idLogin             : Starting C2idLogin v3.4.5-migrated-1.0.9 using Java 17.0.14 on lenss-10 with PID 89119 (/home/radu/connect2id-server-18.0/tomcat/webapps/c2id-login/WEB-INF/classes started by radu in /home/radu/connect2id-server-18.0/tomcat/bin)
+2025-04-21 10:57:24.148  INFO 89119 --- [main] com.nimbusds.login.C2idLogin             : The following profiles are active: prod
+2025-04-21 10:57:25.566  INFO 89119 --- [main] com.nimbusds.login.C2idLogin             : Started C2idLogin in 2.06 seconds (JVM running for 17.811)

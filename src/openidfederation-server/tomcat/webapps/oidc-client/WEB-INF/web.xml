@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0"
+         xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+
+    <display-name>OpenID Connect client 2.11</display-name>
+
+    <description>
+        Client for testing OpenID Connect and OpenID Connect providers.
+
+        Copyright (c) Connect2id Ltd., 2012 - 2021
+    </description>
+
+    <!-- Log4j logging -->
+    <context-param>
+        <description>
+            The location of the Log4j configuration file. Must be relative to
+            the web application root directory.
+        </description>
+        <param-name>log4jConfiguration</param-name>
+        <param-value>/WEB-INF/log4j.xml</param-value>
+    </context-param>
+
+</web-app>

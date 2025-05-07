@@ -598,7 +598,6 @@ public class FederationServer {
 				String id = getCurrentSessionId();
 				String socketAddressToString = getCurrentSocketAddress().toString().replace("/", "").split(":")[0];;
 				if (logger.isDebugEnabled()) {
-					logger.debug("clientEventStream session id: " + id);
 					logger.debug("clientEventStream session socket address: " + socketAddressToString);
 				}
 				fs.clientStreamMap.put(id, streamHolder);
