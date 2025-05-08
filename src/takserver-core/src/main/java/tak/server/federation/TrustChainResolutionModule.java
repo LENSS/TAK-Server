@@ -1,56 +1,71 @@
 package tak.server.federation;
 
+import com.nimbusds.jose.jwk.JWKSet;
+import com.nimbusds.openid.connect.sdk.federation.entities.*;
+import com.nimbusds.openid.connect.sdk.federation.trust.*;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.nimbusds.openid.connect.sdk.federation.entities.*;
-import com.nimbusds.openid.connect.sdk.federation.policy.*;
-import com.nimbusds.openid.connect.sdk.federation.trust.*;
-import com.nimbusds.openid.connect.sdk.federation.trust.ResolveException;
+
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class TrustChainResolutionModule {
 
+    private EntityID trustAnchor;
+    private Map<EntityID, JWKSet> trustAnchors = new ConcurrentHashMap<>();
+    private EntityID leafEntity;
 
-    EntityID trustAnchor;
-
-    EntityID leafEntity;
-
-    TrustChainResolver resolver;
-
-    TrustChainSet resolvedChains;
+    private TrustChainResolver resolver;
+    private TrustChainSet resolvedChains;
+    private TrustChain shortestResolvedChain;
+    private List<String> trustChainJWT;
+    private boolean resolutionSuccess = false;
 
     private static final Logger logger = LoggerFactory.getLogger(TrustChainResolutionModule.class);
 
-    public TrustChainResolutionModule(String trustAnchorAddress, String leafAddress) {
+    // Trust Chain Resolution Module based on a single Trust Anchor
+    public TrustChainResolutionModule(String trustAnchorAddress) throws Exception {
         trustAnchor = new EntityID(trustAnchorAddress);
-        leafEntity = new EntityID(leafAddress);
+        // JWKSet trustAnchorJWKSet = JWKFetcher.fetch(trustAnchorAddress + "/jwks.json");
+        // trustAnchors.put(trustAnchor, trustAnchorJWKSet);
         resolver = new TrustChainResolver(trustAnchor);
     }
 
-    private void resolve() {
+    // Trust Chain Resolution Module based on a Trust Anchor set
+    public TrustChainResolutionModule(Map<EntityID, JWKSet> trustAnchors) throws Exception {
+        this.trustAnchors = trustAnchors;
+        resolver = new TrustChainResolver(trustAnchors, DefaultEntityStatementRetriever.DEFAULT_HTTP_CONNECT_TIMEOUT_MS, DefaultEntityStatementRetriever.DEFAULT_HTTP_READ_TIMEOUT_MS);
+    }
+
+    public void resolve(String leafAddress) {
+        leafEntity = new EntityID(leafAddress);
         try {
             resolvedChains = resolver.resolveTrustChains(leafEntity);
+            shortestResolvedChain = resolvedChains.getShortest();
+            trustChainJWT = shortestResolvedChain.toSerializedJWTs();
+            resolutionSuccess = true;
         } catch (ResolveException e) {
-            // Couldn't resolve a valid trust chain
-            System.err.println(e.getMessage());
-            return;
+            logger.error("Error while resolving Trust Chains", e);
+            resolutionSuccess = false;
         }
     }
 
-    private TrustChainSet getResolvedChains() {
+    public TrustChainSet getResolvedChains() {
         return resolvedChains;
     }
 
-    private TrustChain getShortestResolvedChain() {
-        return resolvedChains.getShortest();
+    public TrustChain getShortestResolvedChain() {
+        return shortestResolvedChain;
     }
 
-    private MetadataPolicy getMetadataPolicy() {
-        return resolvedChains.getShortest();
-    }
-        // Get the policy for registering a relying party with the OpenID provider
-        MetadataPolicy metadataPolicy = chain.resolveCombinedMetadataPolicy();
-        System.out.println(metadataPolicy.toJSONObject());
+    public List<String> getTrustChainJWT() {
+        return trustChainJWT;
     }
 
+    public boolean isResolved() {
+        return resolutionSuccess;
+    }
 
 }

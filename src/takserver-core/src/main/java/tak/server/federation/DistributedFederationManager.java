@@ -140,7 +140,7 @@ public class DistributedFederationManager implements FederationManager, Service 
 
 	private final Map<String, TakFigClient> activeTakFigClients = new ConcurrentHashMap<>();
 
-	private OpenIDFederationServer oidfServer;
+	private OIDFServer oidfServer;
 
 	public DistributedFederationManager(Ignite ignite) {
 
@@ -207,7 +207,7 @@ public class DistributedFederationManager implements FederationManager, Service 
 				SSLConfig.getInstance(config.getFederation().getFederationServer().getTls()));
 
 		if (oidfServer == null) {
-			oidfServer = new OpenIDFederationServer();
+			oidfServer = new OIDFServer();
 			oidfServer.start();
 		}
 
