@@ -1,3 +1,0 @@
-2025-05-08 13:58:49.162  INFO 99000 --- [main] com.nimbusds.login.C2idLogin             : Starting C2idLogin v3.4.5-migrated-1.0.9 using Java 17.0.15 on lenss-10 with PID 99000 (/home/radu/TAK-Server/src/oidf-server/tomcat/webapps/c2id-login/WEB-INF/classes started by radu in /home/radu/TAK-Server/src/takserver-core/example)
-2025-05-08 13:58:49.191  INFO 99000 --- [main] com.nimbusds.login.C2idLogin             : The following profiles are active: prod
-2025-05-08 13:58:56.348  INFO 99000 --- [main] com.nimbusds.login.C2idLogin             : Started C2idLogin in 9.761 seconds (JVM running for 21.475)
