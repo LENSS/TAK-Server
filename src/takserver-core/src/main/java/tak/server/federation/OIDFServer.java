@@ -34,10 +34,15 @@ public class OIDFServer {
     private static final String TRUST_MARKS_PREFIX = "op.federation.trustMarks.";
     private static final String STATIC_JWK_SET_FEDERATION_KEY = "keyStore.staticJWKSet.federation";
 
+    private boolean isTrustAnchor;
+    private boolean hasNoSuperiors;
+
     public OIDFServer() throws IOException {
         // Loads current properties files and stores them in Properties instances
         loadProperties(oidcProviderProperties, oidcProviderPropertiesFile);
         loadProperties(keyStoreProperties, keyStorePropertiesFile);
+        isTrustAnchor = false;
+        hasNoSuperiors = false;
     }
 
     public void start() {
@@ -158,6 +163,11 @@ public class OIDFServer {
     }
 
     public OIDFServer setAuthorityHint(String authorityHintAddress) {
+        if (isTrustAnchor && hasNoSuperiors) {
+            logger.info("Trust Anchors without Superiors cannot have authority hints.");
+            return this;
+        }
+
         String baseUrl = getBaseUrl(authorityHintAddress);
 
         if (isNotDuplicate(AUTHORITY_HINTS_PREFIX, baseUrl)) {
@@ -178,6 +188,11 @@ public class OIDFServer {
     }
 
     public OIDFServer setAuthorityHints(List<String> authorityHints) {
+        if (isTrustAnchor && hasNoSuperiors) {
+            logger.info("Trust Anchors without Superiors cannot have authority hints.");
+            return this;
+        }
+
         int index = 1;
 
         for (String address : authorityHints) {
@@ -302,6 +317,26 @@ public class OIDFServer {
     public OIDFServer setJWKSet() throws JOSEException, IOException {
         String json = JWKSetGenerator.generateAndSaveOIDFJWKSetBase64(JWKSetPath.toString());
         keyStoreProperties.setProperty(STATIC_JWK_SET_FEDERATION_KEY, json);
+        return this;
+    }
+
+    private OIDFServer setThisAsTrustAnchor() {
+        isTrustAnchor = true;
+        return this;
+    }
+
+    private OIDFServer setThisAsNotTrustAnchor() {
+        isTrustAnchor = false;
+        return this;
+    }
+
+    private OIDFServer setThisHasNoSuperiors() {
+        hasNoSuperiors = true;
+        return this;
+    }
+
+    private OIDFServer setThisHasSuperiors() {
+        hasNoSuperiors = false;
         return this;
     }
 
