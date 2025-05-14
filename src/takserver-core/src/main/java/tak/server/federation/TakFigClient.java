@@ -784,6 +784,18 @@ public class TakFigClient implements Serializable {
 					}
 				}
 
+                TrustChainResolutionModule module = null;
+                try {
+					logger.info("Initializing Trust Chain Resolution Module.");
+					module = new TrustChainResolutionModule("35.209.193.175");
+                } catch (Exception e) {
+					logger.info("Error while initializing Trust Chain Resolution Module.");
+					throw new RuntimeException(e);
+                }
+                module.resolve("35.209.26.203");
+				List<String> trustCHainJWT = module.getTrustChainJWT();
+				logger.info("Resolved Trust Chain: {}", trustCHainJWT);
+
 				// Dynamic cert fetch logic
 				if (!attemptedCertFetch.getAndSet(true) && isCertValidationFailure(t)) {
 					logger.info("Detected certificate path validation error. Attempting dynamic cert fetch...");

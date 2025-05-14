@@ -28,7 +28,6 @@ public class OIDFServer {
 
     private static final String TRUST_ANCHORS_PREFIX = "op.federation.trustAnchors.";
     private static final String AUTHORITY_HINTS_PREFIX = "op.federation.authorityHints.";
-    private static final String ISSUER_KEY = "op.issuer";
     private static final String ENABLE_FEDERATION_KEY = "op.federation.enable";
     private static final String MAX_PATH_LENGTH_KEY = "op.federation.constraints.maxPathLength";
     private static final String HTTP_CONNECT_TIMEOUT_KEY = "op.federation.httpConnectTimeout";
@@ -88,11 +87,6 @@ public class OIDFServer {
         } catch (Exception e) {
             logger.error("OpenID Federation server failed to shutdown", e);
         }
-    }
-
-    public OIDFServer setIssuerID() {
-        oidcProviderProperties.setProperty(ISSUER_KEY, "true");
-        return this;
     }
 
     public OIDFServer enableOpenIDFederation() {
@@ -412,25 +406,6 @@ public class OIDFServer {
 
     private String getBaseUrl(String address) {
         return "http://" + address + ":8080/c2id";
-    }
-
-
-    private String getExternalIP() {
-        try {
-            Enumeration<NetworkInterface> interfaces = NetworkInterface.getNetworkInterfaces();
-            while (interfaces.hasMoreElements()) {
-                NetworkInterface ni = interfaces.nextElement();
-                Enumeration<InetAddress> addresses = ni.getInetAddresses();
-                while (addresses.hasMoreElements()) {
-                    InetAddress addr = addresses.nextElement();
-                    if (!addr.isLoopbackAddress() && addr instanceof Inet4Address) {
-                        return addr.getHostAddress();
-                    }
-                }
-            }
-        } catch (SocketException e) {
-            e.printStackTrace();
-        }
     }
 
 }

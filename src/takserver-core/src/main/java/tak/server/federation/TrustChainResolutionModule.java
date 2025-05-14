@@ -28,8 +28,8 @@ public class TrustChainResolutionModule {
     // Trust Chain Resolution Module based on a single Trust Anchor
     public TrustChainResolutionModule(String trustAnchorAddress) throws Exception {
         trustAnchor = new EntityID(trustAnchorAddress);
-        // JWKSet trustAnchorJWKSet = JWKFetcher.fetch(trustAnchorAddress + "/jwks.json");
-        // trustAnchors.put(trustAnchor, trustAnchorJWKSet);
+        JWKSet trustAnchorJWKSet = JWKFetcher.fetch(trustAnchorAddress + "/jwks.json");
+        trustAnchors.put(trustAnchor, trustAnchorJWKSet);
         resolver = new TrustChainResolver(trustAnchor);
     }
 
