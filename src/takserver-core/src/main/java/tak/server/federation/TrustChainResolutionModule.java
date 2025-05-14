@@ -31,7 +31,7 @@ public class TrustChainResolutionModule {
         trustAnchor = new EntityID(addr);
         JWKSet trustAnchorJWKSet = JWKFetcher.fetch(addr + "/jwks.json");
         trustAnchors.put(trustAnchor, trustAnchorJWKSet);
-        resolver = new TrustChainResolver(trustAnchor);
+        resolver = new TrustChainResolver(trustAnchors, 10000, 10000);
     }
 
     // Trust Chain Resolution Module based on a Trust Anchor set
