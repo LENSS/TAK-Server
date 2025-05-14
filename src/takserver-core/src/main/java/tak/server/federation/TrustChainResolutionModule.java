@@ -27,8 +27,9 @@ public class TrustChainResolutionModule {
 
     // Trust Chain Resolution Module based on a single Trust Anchor
     public TrustChainResolutionModule(String trustAnchorAddress) throws Exception {
-        trustAnchor = new EntityID(trustAnchorAddress);
-        JWKSet trustAnchorJWKSet = JWKFetcher.fetch(trustAnchorAddress + "/jwks.json");
+        String addr = getBaseUrl(trustAnchorAddress);
+        trustAnchor = new EntityID(addr);
+        JWKSet trustAnchorJWKSet = JWKFetcher.fetch(addr + "/jwks.json");
         trustAnchors.put(trustAnchor, trustAnchorJWKSet);
         resolver = new TrustChainResolver(trustAnchor);
     }
@@ -40,7 +41,7 @@ public class TrustChainResolutionModule {
     }
 
     public void resolve(String leafAddress) {
-        leafEntity = new EntityID(leafAddress);
+        leafEntity = new EntityID(getBaseUrl(leafAddress));
         try {
             resolvedChains = resolver.resolveTrustChains(leafEntity);
             shortestResolvedChain = resolvedChains.getShortest();
@@ -66,6 +67,10 @@ public class TrustChainResolutionModule {
 
     public boolean isResolved() {
         return resolutionSuccess;
+    }
+
+    private String getBaseUrl(String address) {
+        return "http://" + address + ":8080/c2id";
     }
 
 }
