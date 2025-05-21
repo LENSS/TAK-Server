@@ -15,7 +15,7 @@
  * specific language governing permissions and limitations under the License.
  */
 
-package tak.server.federation;
+package tak.server.federation.oidf;
 
 
 import java.net.URI;

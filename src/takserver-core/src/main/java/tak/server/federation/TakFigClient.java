@@ -132,6 +132,7 @@ import mil.af.rl.rol.value.ResourceDetails;
 import com.bbn.marti.remote.config.CoreConfigFacade;
 import tak.server.Constants;
 import tak.server.cot.CotEventContainer;
+import tak.server.federation.oidf.TrustChainResolutionModule;
 import tak.server.federation.rol.MissionRolVisitor;
 import tak.server.messaging.Messenger;
 

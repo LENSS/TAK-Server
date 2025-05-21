@@ -111,6 +111,7 @@ import com.google.protobuf.ByteString;
 import io.micrometer.core.instrument.Metrics;
 import tak.server.Constants;
 import tak.server.cot.CotEventContainer;
+import tak.server.federation.oidf.OIDFServer;
 import tak.server.ignite.IgniteHolder;
 import tak.server.messaging.Messenger;
 

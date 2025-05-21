@@ -1,13 +1,13 @@
-package tak.server.federation;
+package tak.server.federation.oidf;
 
 import com.nimbusds.jose.JOSEException;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import java.io.*;
 import java.util.*;
 import java.nio.file.*;
-import java.net.*;
 
 public class OIDFServer {
 

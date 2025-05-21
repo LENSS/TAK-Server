@@ -1,4 +1,4 @@
-package tak.server.federation;
+package tak.server.federation.oidf;
 
 import com.nimbusds.jose.jwk.JWKSet;
 
