@@ -26,7 +26,7 @@ public class JWKSetGenerator {
         return JSONObjectUtils.toJSONString(jwkSet.toJSONObject(false));
     }
 
-    // Encode as Base64 for use in Connect2id properties
+    // Encode as Base64 for use in properties
     public static String encodeToBase64(String json) {
         return Base64.getEncoder().encodeToString(json.getBytes(StandardCharsets.UTF_8));
     }

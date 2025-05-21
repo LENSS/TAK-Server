@@ -54,6 +54,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
+import org.eclipse.jetty.server.Server;
 
 import com.atakmap.Tak.BinaryBlob;
 import com.atakmap.Tak.CRUD;
@@ -111,7 +112,7 @@ import com.google.protobuf.ByteString;
 import io.micrometer.core.instrument.Metrics;
 import tak.server.Constants;
 import tak.server.cot.CotEventContainer;
-import tak.server.federation.oidf.OIDFServer;
+import tak.server.federation.oidf.FederationEntityServer;
 import tak.server.ignite.IgniteHolder;
 import tak.server.messaging.Messenger;
 
@@ -141,7 +142,7 @@ public class DistributedFederationManager implements FederationManager, Service 
 
 	private final Map<String, TakFigClient> activeTakFigClients = new ConcurrentHashMap<>();
 
-	private OIDFServer oidfServer;
+	private FederationEntityServer federationEntityServer;
 
 	public DistributedFederationManager(Ignite ignite) {
 
@@ -184,8 +185,12 @@ public class DistributedFederationManager implements FederationManager, Service 
 
 	@Override
 	public void cancel(ServiceContext ctx) {
-		oidfServer.stop();
-		if (logger.isDebugEnabled()) {
+        try {
+            federationEntityServer.stop();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        if (logger.isDebugEnabled()) {
 			logger.debug("DistributedFederationManager service cancelled");
 		}
 	}
@@ -207,9 +212,9 @@ public class DistributedFederationManager implements FederationManager, Service 
 		getSSLCache().putIfAbsent(SSL_TRUSTSTORE_KEY,
 				SSLConfig.getInstance(config.getFederation().getFederationServer().getTls()));
 
-		if (oidfServer == null) {
-			oidfServer = new OIDFServer();
-			oidfServer.start();
+		if (federationEntityServer == null) {
+			federationEntityServer = new FederationEntityServer();
+			federationEntityServer.setup().start();
 		}
 
 	}
@@ -2673,13 +2678,21 @@ public class DistributedFederationManager implements FederationManager, Service 
 			} else {
 				logger.info("federation v2 is not enabled, so stopping if running.");
 				tak.server.federation.FederationServer.stopServer();
-				oidfServer.stop();
-			}
+                try {
+                    federationEntityServer.stop();
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+            }
 		} else {
 			logger.info("federation is disabled, stopping federation server if running");
 			tak.server.federation.FederationServer.stopServer();
-			oidfServer.stop();
-			disableAllOutgoing();
+            try {
+                federationEntityServer.stop();
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+            disableAllOutgoing();
 		}
 	}
 

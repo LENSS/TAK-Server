@@ -35,7 +35,7 @@ public class TrustChainResolutionModule {
     }
 
     // Trust Chain Resolution Module based on a Trust Anchor set
-    public TrustChainResolutionModule(Map<EntityID, JWKSet> trustAnchors) throws Exception {
+    public TrustChainResolutionModule(Map<EntityID, JWKSet> trustAnchors) {
         this.trustAnchors = trustAnchors;
         resolver = new TakTrustChainResolver(trustAnchors, DefaultEntityStatementRetriever.DEFAULT_HTTP_CONNECT_TIMEOUT_MS, DefaultEntityStatementRetriever.DEFAULT_HTTP_READ_TIMEOUT_MS);
     }
