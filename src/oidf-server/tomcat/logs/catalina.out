@@ -6575,3 +6575,261 @@ SLF4J(W): See https://www.slf4j.org/codes.html#ignoredBindings for an explanatio
  platform/java.net.http@17.0.15/jdk.internal.net.http.HttpClientImpl$SelectorManager.run(HttpClientImpl.java:894)
 14-May-2025 12:49:02.745 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
 14-May-2025 12:49:02.755 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+21-May-2025 02:07:28.792 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.39
+21-May-2025 02:07:28.796 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Mar 4 2025 19:02:32 UTC
+21-May-2025 02:07:28.797 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.39.0
+21-May-2025 02:07:28.797 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+21-May-2025 02:07:28.797 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            6.8.0-59-generic
+21-May-2025 02:07:28.797 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+21-May-2025 02:07:28.797 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/java-17-openjdk-amd64
+21-May-2025 02:07:28.797 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           17.0.15+6-Ubuntu-0ubuntu122.04
+21-May-2025 02:07:28.797 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Ubuntu
+21-May-2025 02:07:28.798 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /home/radu/TAK-Server/src/oidf-server/tomcat
+21-May-2025 02:07:28.798 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /home/radu/TAK-Server/src/oidf-server/tomcat
+21-May-2025 02:07:28.816 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [/home/radu/opt/lib::/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib]
+21-May-2025 02:07:29.088 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+21-May-2025 02:07:29.112 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [487] milliseconds
+21-May-2025 02:07:29.156 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+21-May-2025 02:07:29.156 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.39]
+21-May-2025 02:07:29.196 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/home/radu/TAK-Server/src/oidf-server/tomcat/webapps/ldapauth.war]
+21-May-2025 02:07:29.554 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+21-May-2025 02:07:30.202 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/home/radu/TAK-Server/src/oidf-server/tomcat/webapps/ldapauth.war] has finished in [1,005] ms
+21-May-2025 02:07:30.215 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/home/radu/TAK-Server/src/oidf-server/tomcat/webapps/password-grant-handler.war]
+21-May-2025 02:07:30.448 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+21-May-2025 02:07:30.702 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/home/radu/TAK-Server/src/oidf-server/tomcat/webapps/password-grant-handler.war] has finished in [487] ms
+21-May-2025 02:07:30.731 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/home/radu/TAK-Server/src/oidf-server/tomcat/webapps/c2id-login.war]
+21-May-2025 02:07:31.661 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+
+                                  _   ___  _     _
+                                 | | |__ \(_)   | |
+   ___ ___  _ __  _ __   ___  ___| |_   ) )_  __| |
+  / __/ _ \| '_ \| '_ \ / _ \/ __| __| / /| |/ _` |
+ | (_| (_) | | | | | | |  __/ (__| |_ / /_| | (_| |
+  \___\___/|_| |_|_| |_|\___|\___|\__|____|_|\__,_|  Login  (v3.4.5-migrated-1.0.9)
+
+2025-05-21 02:07:32.544  INFO 765098 --- [           main] com.nimbusds.login.C2idLogin             : Starting C2idLogin v3.4.5-migrated-1.0.9 using Java 17.0.15 on lenss-10 with PID 765098 (/home/radu/TAK-Server/src/oidf-server/tomcat/webapps/c2id-login/WEB-INF/classes started by radu in /home/radu/TAK-Server/src/oidf-server/tomcat/bin)
+2025-05-21 02:07:32.550  INFO 765098 --- [           main] com.nimbusds.login.C2idLogin             : The following profiles are active: prod
+2025-05-21 02:07:34.096  INFO 765098 --- [           main] com.nimbusds.login.C2idLogin             : Started C2idLogin in 2.163 seconds (JVM running for 5.702)
+21-May-2025 02:07:34.106 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/home/radu/TAK-Server/src/oidf-server/tomcat/webapps/c2id-login.war] has finished in [3,375] ms
+21-May-2025 02:07:34.125 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/home/radu/TAK-Server/src/oidf-server/tomcat/webapps/oidc-client.war]
+May 21, 2025 2:07:34 AM org.apache.jasper.servlet.TldScanner scanJars
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+May 21, 2025 2:07:34 AM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing AtmosphereFramework
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework addAtmosphereHandler
+INFO: Installed AtmosphereHandler com.vaadin.server.communication.PushAtmosphereHandler mapped to context-path: /*
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework addAtmosphereHandler
+INFO: Installed the following AtmosphereInterceptor mapped to AtmosphereHandler com.vaadin.server.communication.PushAtmosphereHandler
+May 21, 2025 2:07:35 AM org.atmosphere.util.IOUtils readServiceFile
+INFO: META-INF/services/org.atmosphere.cpr.AtmosphereFramework not found in class loader
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework autoConfigureService
+INFO: Atmosphere is using org.atmosphere.util.VoidAnnotationProcessor for processing annotation
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework initWebSocket
+INFO: Installed WebSocketProtocol org.atmosphere.websocket.protocol.SimpleHttpProtocol 
+May 21, 2025 2:07:35 AM org.atmosphere.container.JSR356AsyncSupport <init>
+INFO: JSR 356 Mapping path /cb
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework configureAtmosphereInterceptor
+INFO: Installing Default AtmosphereInterceptors
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework newAInterceptor
+INFO: 	org.atmosphere.interceptor.CorsInterceptor : CORS Interceptor Support
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework newAInterceptor
+INFO: 	org.atmosphere.interceptor.CacheHeadersInterceptor : Default Response's Headers Interceptor
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework newAInterceptor
+INFO: 	org.atmosphere.interceptor.PaddingAtmosphereInterceptor : Browser Padding Interceptor Support
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework newAInterceptor
+INFO: 	org.atmosphere.interceptor.AndroidAtmosphereInterceptor : Android Interceptor Support
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework configureAtmosphereInterceptor
+INFO: Dropping Interceptor org.atmosphere.interceptor.HeartbeatInterceptor
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework newAInterceptor
+INFO: 	org.atmosphere.interceptor.SSEAtmosphereInterceptor : SSE Interceptor Support
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework newAInterceptor
+INFO: 	org.atmosphere.interceptor.JSONPAtmosphereInterceptor : JSONP Interceptor Support
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework newAInterceptor
+INFO: 	org.atmosphere.interceptor.JavaScriptProtocol : Atmosphere JavaScript Protocol
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework newAInterceptor
+INFO: 	org.atmosphere.interceptor.WebSocketMessageSuspendInterceptor : org.atmosphere.interceptor.WebSocketMessageSuspendInterceptor
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework newAInterceptor
+INFO: 	org.atmosphere.interceptor.OnDisconnectInterceptor : Browser disconnection detection
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework newAInterceptor
+INFO: 	org.atmosphere.interceptor.IdleResourceInterceptor : org.atmosphere.interceptor.IdleResourceInterceptor
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework configureAtmosphereInterceptor
+INFO: Set org.atmosphere.cpr.AtmosphereInterceptor.disableDefaults to disable them.
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework info
+INFO: Using EndpointMapper class org.atmosphere.util.DefaultEndpointMapper
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework info
+INFO: Using BroadcasterCache: org.atmosphere.cache.UUIDBroadcasterCache
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework info
+INFO: Default Broadcaster Class: org.atmosphere.cpr.DefaultBroadcaster
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework info
+INFO: Broadcaster Polling Wait Time 100
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework info
+INFO: Shared ExecutorService supported: true
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework info
+INFO: Messaging Thread Pool Size: Unlimited
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework info
+INFO: Async I/O Thread Pool Size: 200
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework info
+INFO: Using BroadcasterFactory: org.atmosphere.cpr.DefaultBroadcasterFactory
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework info
+INFO: Using WebSocketProcessor: org.atmosphere.websocket.DefaultWebSocketProcessor
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework info
+INFO: Invoke AtmosphereInterceptor on WebSocket message true
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework info
+INFO: HttpSession supported: true
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework info
+INFO: Atmosphere is using DefaultAtmosphereObjectFactory for dependency injection and object creation
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework info
+INFO: Atmosphere is using async support: org.atmosphere.container.JSR356AsyncSupport running under container: Apache Tomcat/10.1.39 using jakarta.servlet/3.0 and jsr356/WebSocket API
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework info
+INFO: Atmosphere Framework 2.2.13.vaadin1 started.
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework interceptor
+INFO: Installed AtmosphereInterceptor  Track Message Size Interceptor using | with priority BEFORE_DEFAULT 
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework addAtmosphereHandler
+INFO: Installed AtmosphereHandler com.vaadin.server.communication.PushAtmosphereHandler mapped to context-path: /*
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework addAtmosphereHandler
+INFO: Installed the following AtmosphereInterceptor mapped to AtmosphereHandler com.vaadin.server.communication.PushAtmosphereHandler
+May 21, 2025 2:07:35 AM org.atmosphere.util.IOUtils readServiceFile
+INFO: META-INF/services/org.atmosphere.cpr.AtmosphereFramework not found in class loader
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework autoConfigureService
+INFO: Atmosphere is using org.atmosphere.util.VoidAnnotationProcessor for processing annotation
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework initWebSocket
+INFO: Installed WebSocketProtocol org.atmosphere.websocket.protocol.SimpleHttpProtocol 
+May 21, 2025 2:07:35 AM org.atmosphere.container.JSR356AsyncSupport <init>
+INFO: JSR 356 Mapping path /{path}
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework configureAtmosphereInterceptor
+INFO: Installing Default AtmosphereInterceptors
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework newAInterceptor
+INFO: 	org.atmosphere.interceptor.CorsInterceptor : CORS Interceptor Support
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework newAInterceptor
+INFO: 	org.atmosphere.interceptor.CacheHeadersInterceptor : Default Response's Headers Interceptor
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework newAInterceptor
+INFO: 	org.atmosphere.interceptor.PaddingAtmosphereInterceptor : Browser Padding Interceptor Support
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework newAInterceptor
+INFO: 	org.atmosphere.interceptor.AndroidAtmosphereInterceptor : Android Interceptor Support
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework configureAtmosphereInterceptor
+INFO: Dropping Interceptor org.atmosphere.interceptor.HeartbeatInterceptor
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework newAInterceptor
+INFO: 	org.atmosphere.interceptor.SSEAtmosphereInterceptor : SSE Interceptor Support
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework newAInterceptor
+INFO: 	org.atmosphere.interceptor.JSONPAtmosphereInterceptor : JSONP Interceptor Support
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework newAInterceptor
+INFO: 	org.atmosphere.interceptor.JavaScriptProtocol : Atmosphere JavaScript Protocol
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework newAInterceptor
+INFO: 	org.atmosphere.interceptor.WebSocketMessageSuspendInterceptor : org.atmosphere.interceptor.WebSocketMessageSuspendInterceptor
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework newAInterceptor
+INFO: 	org.atmosphere.interceptor.OnDisconnectInterceptor : Browser disconnection detection
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework newAInterceptor
+INFO: 	org.atmosphere.interceptor.IdleResourceInterceptor : org.atmosphere.interceptor.IdleResourceInterceptor
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework configureAtmosphereInterceptor
+INFO: Set org.atmosphere.cpr.AtmosphereInterceptor.disableDefaults to disable them.
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework info
+INFO: Using EndpointMapper class org.atmosphere.util.DefaultEndpointMapper
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework info
+INFO: Using BroadcasterCache: org.atmosphere.cache.UUIDBroadcasterCache
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework info
+INFO: Default Broadcaster Class: org.atmosphere.cpr.DefaultBroadcaster
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework info
+INFO: Broadcaster Polling Wait Time 100
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework info
+INFO: Shared ExecutorService supported: true
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework info
+INFO: Messaging Thread Pool Size: Unlimited
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework info
+INFO: Async I/O Thread Pool Size: 200
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework info
+INFO: Using BroadcasterFactory: org.atmosphere.cpr.DefaultBroadcasterFactory
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework info
+INFO: Using WebSocketProcessor: org.atmosphere.websocket.DefaultWebSocketProcessor
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework info
+INFO: Invoke AtmosphereInterceptor on WebSocket message true
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework info
+INFO: HttpSession supported: true
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework info
+INFO: Atmosphere is using DefaultAtmosphereObjectFactory for dependency injection and object creation
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework info
+INFO: Atmosphere is using async support: org.atmosphere.container.JSR356AsyncSupport running under container: Apache Tomcat/10.1.39 using jakarta.servlet/3.0 and jsr356/WebSocket API
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework info
+INFO: Atmosphere Framework 2.2.13.vaadin1 started.
+May 21, 2025 2:07:35 AM org.atmosphere.cpr.AtmosphereFramework interceptor
+INFO: Installed AtmosphereInterceptor  Track Message Size Interceptor using | with priority BEFORE_DEFAULT 
+21-May-2025 02:07:35.093 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/home/radu/TAK-Server/src/oidf-server/tomcat/webapps/oidc-client.war] has finished in [967] ms
+21-May-2025 02:07:35.121 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/home/radu/TAK-Server/src/oidf-server/tomcat/webapps/c2id-logout.war]
+21-May-2025 02:07:35.261 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+21-May-2025 02:07:35.270 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/home/radu/TAK-Server/src/oidf-server/tomcat/webapps/c2id-logout.war] has finished in [149] ms
+21-May-2025 02:07:35.288 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/home/radu/TAK-Server/src/oidf-server/tomcat/webapps/c2id.war]
+21-May-2025 02:07:41.000 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+SLF4J(W): No SLF4J providers were found.
+SLF4J(W): Defaulting to no-operation (NOP) logger implementation
+SLF4J(W): See https://www.slf4j.org/codes.html#noProviders for further details.
+SLF4J(W): Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
+SLF4J(W): Ignoring binding found at [jar:file:/home/radu/TAK-Server/src/oidf-server/tomcat/webapps/c2id/WEB-INF/lib/log4j-slf4j-impl-2.24.2.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J(W): See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+21-May-2025 02:07:48.966 WARNING [main] org.glassfish.jersey.message.internal.MessagingBinders$EnabledProvidersBinder.bindToBinder A class jakarta.activation.DataSource for a default provider MessageBodyWriter<jakarta.activation.DataSource> was not found. The provider is not available.
+21-May-2025 02:07:48.991 WARNING [main] org.glassfish.jersey.server.wadl.WadlFeature.configure JAX-B API not found . WADL feature is disabled.
+21-May-2025 02:07:49.080 WARNING [main] org.glassfish.jersey.internal.inject.Providers.checkProviderRuntime A provider com.nimbusds.openid.connect.provider.sts.STSEndpoint registered in SERVER runtime does not implement any provider interfaces applicable in the SERVER runtime. Due to constraint configuration problems the provider com.nimbusds.openid.connect.provider.sts.STSEndpoint will be ignored. 
+21-May-2025 02:07:49.244 WARNING [main] org.glassfish.jersey.server.wadl.WadlFeature.configure JAX-B API not found . WADL feature is disabled.
+21-May-2025 02:07:49.259 WARNING [main] org.glassfish.jersey.internal.inject.Providers.checkProviderRuntime A provider com.nimbusds.authzstore.rest.WebAPI registered in SERVER runtime does not implement any provider interfaces applicable in the SERVER runtime. Due to constraint configuration problems the provider com.nimbusds.authzstore.rest.WebAPI will be ignored. 
+21-May-2025 02:07:49.348 WARNING [main] org.glassfish.jersey.server.wadl.WadlFeature.configure JAX-B API not found . WADL feature is disabled.
+21-May-2025 02:07:49.353 WARNING [main] org.glassfish.jersey.internal.inject.Providers.checkProviderRuntime A provider com.nimbusds.openid.connect.provider.ciba.sessions.CIBASessionsEndpoint registered in SERVER runtime does not implement any provider interfaces applicable in the SERVER runtime. Due to constraint configuration problems the provider com.nimbusds.openid.connect.provider.ciba.sessions.CIBASessionsEndpoint will be ignored. 
+21-May-2025 02:07:49.382 WARNING [main] org.glassfish.jersey.server.wadl.WadlFeature.configure JAX-B API not found . WADL feature is disabled.
+21-May-2025 02:07:49.386 WARNING [main] org.glassfish.jersey.internal.inject.Providers.checkProviderRuntime A provider com.nimbusds.openid.connect.provider.checksession.CheckSessionBackendEndpoint registered in SERVER runtime does not implement any provider interfaces applicable in the SERVER runtime. Due to constraint configuration problems the provider com.nimbusds.openid.connect.provider.checksession.CheckSessionBackendEndpoint will be ignored. 
+21-May-2025 02:07:49.418 WARNING [main] org.glassfish.jersey.server.wadl.WadlFeature.configure JAX-B API not found . WADL feature is disabled.
+21-May-2025 02:07:49.468 WARNING [main] org.glassfish.jersey.server.wadl.WadlFeature.configure JAX-B API not found . WADL feature is disabled.
+21-May-2025 02:07:49.475 WARNING [main] org.glassfish.jersey.internal.inject.Providers.checkProviderRuntime A provider com.nimbusds.sessionstore.rest.WebAPI registered in SERVER runtime does not implement any provider interfaces applicable in the SERVER runtime. Due to constraint configuration problems the provider com.nimbusds.sessionstore.rest.WebAPI will be ignored. 
+21-May-2025 02:07:49.517 WARNING [main] org.glassfish.jersey.server.wadl.WadlFeature.configure JAX-B API not found . WADL feature is disabled.
+21-May-2025 02:07:49.521 WARNING [main] org.glassfish.jersey.internal.inject.Providers.checkProviderRuntime A provider com.nimbusds.openid.connect.provider.authz.AuthorizationSessionEndpoint registered in SERVER runtime does not implement any provider interfaces applicable in the SERVER runtime. Due to constraint configuration problems the provider com.nimbusds.openid.connect.provider.authz.AuthorizationSessionEndpoint will be ignored. 
+21-May-2025 02:07:49.547 WARNING [main] org.glassfish.jersey.server.wadl.WadlFeature.configure JAX-B API not found . WADL feature is disabled.
+21-May-2025 02:07:49.549 WARNING [main] org.glassfish.jersey.internal.inject.Providers.checkProviderRuntime A provider com.nimbusds.openid.connect.provider.config.ConfigurationEndpoint registered in SERVER runtime does not implement any provider interfaces applicable in the SERVER runtime. Due to constraint configuration problems the provider com.nimbusds.openid.connect.provider.config.ConfigurationEndpoint will be ignored. 
+21-May-2025 02:07:49.572 WARNING [main] org.glassfish.jersey.server.wadl.WadlFeature.configure JAX-B API not found . WADL feature is disabled.
+21-May-2025 02:07:49.574 WARNING [main] org.glassfish.jersey.internal.inject.Providers.checkProviderRuntime A provider com.nimbusds.openid.connect.provider.authz.DirectAuthorizationEndpoint registered in SERVER runtime does not implement any provider interfaces applicable in the SERVER runtime. Due to constraint configuration problems the provider com.nimbusds.openid.connect.provider.authz.DirectAuthorizationEndpoint will be ignored. 
+21-May-2025 02:07:49.594 WARNING [main] org.glassfish.jersey.server.wadl.WadlFeature.configure JAX-B API not found . WADL feature is disabled.
+21-May-2025 02:07:49.597 WARNING [main] org.glassfish.jersey.internal.inject.Providers.checkProviderRuntime A provider com.nimbusds.openid.connect.provider.logout.endpoint.LogoutSessionEndpoint registered in SERVER runtime does not implement any provider interfaces applicable in the SERVER runtime. Due to constraint configuration problems the provider com.nimbusds.openid.connect.provider.logout.endpoint.LogoutSessionEndpoint will be ignored. 
+21-May-2025 02:07:49.743 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/home/radu/TAK-Server/src/oidf-server/tomcat/webapps/c2id.war] has finished in [14,455] ms
+21-May-2025 02:07:49.743 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/radu/TAK-Server/src/oidf-server/tomcat/webapps/manager]
+21-May-2025 02:07:49.769 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/radu/TAK-Server/src/oidf-server/tomcat/webapps/manager] has finished in [26] ms
+21-May-2025 02:07:49.769 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/radu/TAK-Server/src/oidf-server/tomcat/webapps/ROOT]
+21-May-2025 02:07:49.780 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/radu/TAK-Server/src/oidf-server/tomcat/webapps/ROOT] has finished in [11] ms
+21-May-2025 02:07:49.780 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/radu/TAK-Server/src/oidf-server/tomcat/webapps/host-manager]
+21-May-2025 02:07:49.795 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/radu/TAK-Server/src/oidf-server/tomcat/webapps/host-manager] has finished in [14] ms
+21-May-2025 02:07:49.798 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+21-May-2025 02:07:49.807 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [20694] milliseconds
+21-May-2025 02:08:14.665 INFO [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+21-May-2025 02:08:14.666 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+21-May-2025 02:08:14.667 INFO [main] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+[CM8005] Stopping Infinispan...
+[CM8015] Stopped Infinispan cache clients.remoteRequestJWTClaimsCache in 3 ms
+[CM8015] Stopped Infinispan cache op.loginHintTokenMap in 5 ms
+[CM8015] Stopped Infinispan cache op.dPoPJTICache in 5 ms
+[CM8015] Stopped Infinispan cache keyStore.jwkSetMap in 1260 ms
+[CM8015] Stopped Infinispan cache sessionStore.sessionMap in 1273 ms
+[CM8015] Stopped Infinispan cache federation.registrationsMap in 1274 ms
+[CM8015] Stopped Infinispan cache op.authSessionMap in 1275 ms
+[CM8015] Stopped Infinispan cache authzStore.revocationJournalMap in 1275 ms
+[CM8015] Stopped Infinispan cache clients.registrationsMap in 1276 ms
+[CM8015] Stopped Infinispan cache authzStore.expendedTokenMap in 1276 ms
+[CM8015] Stopped Infinispan cache clients.remoteJWKSetCache in 1277 ms
+[CM8015] Stopped Infinispan cache authzStore.codeMap in 1277 ms
+[CM8015] Stopped Infinispan cache authzStore.longLivedAuthzMap in 1278 ms
+[CM8015] Stopped Infinispan cache keyStore.jwkSetHistoryMap in 1278 ms
+[CM8015] Stopped Infinispan cache authzStore.idAccessTokenMap in 1278 ms
+[CM8015] Stopped Infinispan cache op.consentSessionMap in 1279 ms
+[CM8015] Stopped Infinispan cache sessionStore.subjectMap in 1280 ms
+[CM8015] Stopped Infinispan cache org.infinispan.CONFIG in 1280 ms
+21-May-2025 02:08:16.030 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [c2id] appears to have started a thread named [RxCachedWorkerPoolEvictor-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.15/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.15/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.15/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1679)
+ java.base@17.0.15/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.15/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.15/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.15/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.15/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.15/java.lang.Thread.run(Thread.java:840)
+21-May-2025 02:08:16.031 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [c2id] appears to have started a thread named [HttpClient-1-SelectorManager] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.15/sun.nio.ch.EPoll.wait(Native Method)
+ java.base@17.0.15/sun.nio.ch.EPollSelectorImpl.doSelect(EPollSelectorImpl.java:118)
+ java.base@17.0.15/sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:129)
+ java.base@17.0.15/sun.nio.ch.SelectorImpl.select(SelectorImpl.java:141)
+ platform/java.net.http@17.0.15/jdk.internal.net.http.HttpClientImpl$SelectorManager.run(HttpClientImpl.java:894)
+21-May-2025 02:08:16.049 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+21-May-2025 02:08:16.061 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]

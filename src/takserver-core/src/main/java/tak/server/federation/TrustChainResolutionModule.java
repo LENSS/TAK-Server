@@ -17,7 +17,7 @@ public class TrustChainResolutionModule {
     private Map<EntityID, JWKSet> trustAnchors = new ConcurrentHashMap<>();
     private EntityID leafEntity;
 
-    private TrustChainResolver resolver;
+    private TakTrustChainResolver resolver;
     private TrustChainSet resolvedChains;
     private TrustChain shortestResolvedChain;
     private List<String> trustChainJWT;
@@ -31,13 +31,13 @@ public class TrustChainResolutionModule {
         trustAnchor = new EntityID(addr);
         JWKSet trustAnchorJWKSet = JWKFetcher.fetch(addr + "/jwks.json");
         trustAnchors.put(trustAnchor, trustAnchorJWKSet);
-        resolver = new TrustChainResolver(trustAnchors, 10000, 10000);
+        resolver = new TakTrustChainResolver(trustAnchors, 10000, 10000);
     }
 
     // Trust Chain Resolution Module based on a Trust Anchor set
     public TrustChainResolutionModule(Map<EntityID, JWKSet> trustAnchors) throws Exception {
         this.trustAnchors = trustAnchors;
-        resolver = new TrustChainResolver(trustAnchors, DefaultEntityStatementRetriever.DEFAULT_HTTP_CONNECT_TIMEOUT_MS, DefaultEntityStatementRetriever.DEFAULT_HTTP_READ_TIMEOUT_MS);
+        resolver = new TakTrustChainResolver(trustAnchors, DefaultEntityStatementRetriever.DEFAULT_HTTP_CONNECT_TIMEOUT_MS, DefaultEntityStatementRetriever.DEFAULT_HTTP_READ_TIMEOUT_MS);
     }
 
     public void resolve(String leafAddress) {
