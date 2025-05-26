@@ -30,8 +30,11 @@ public class TrustChainResolutionModule {
         logger.info("Constructing new module using Trust Anchor address: {}", trustAnchorAddress);
         String addr = getBaseUrl(trustAnchorAddress);
         trustAnchor = new EntityID(addr);
+        logger.info("Trust Anchor Entity: {}", trustAnchor);
         JWKSet trustAnchorJWKSet = JWKFetcher.fetch(addr + "/jwks.json");
+        logger.info("Trust Anchor JWK Set: {}", trustAnchorJWKSet);
         trustAnchors.put(trustAnchor, trustAnchorJWKSet);
+        logger.info("Trust Anchor Set: {}", trustAnchors);
         resolver = new TakTrustChainResolver(trustAnchors, 10000, 10000);
         logger.info("Created Trust Chain Resolver: {},", resolver);
     }
