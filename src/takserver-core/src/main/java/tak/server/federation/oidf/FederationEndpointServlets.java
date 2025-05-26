@@ -1,5 +1,6 @@
 package tak.server.federation.oidf;
 
+
 import com.nimbusds.jose.jwk.JWKSet;
 import com.nimbusds.jose.jwk.RSAKey;
 import com.nimbusds.jose.util.JSONObjectUtils;
@@ -9,8 +10,12 @@ import com.nimbusds.jwt.SignedJWT;
 import java.io.IOException;
 import java.net.URI;
 import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class FederationEndpointServlets {
+
+    private static final Logger logger = LoggerFactory.getLogger(OpenidFederationServer.class);
 
     public static class EntityConfigurationServlet extends HttpServlet {
 
@@ -28,6 +33,9 @@ public class FederationEndpointServlets {
         protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
             try {
                 SignedJWT entityConfig = generator.generateEntityConfiguration(authorityHints, fetchEndpoint);
+                if (logger.isDebugEnabled()) {
+                    logger.debug("Entity Configuration generated: {}", entityConfig);
+                }
                 resp.setContentType("application/entity-statement+jwt");
                 resp.getWriter().write(entityConfig.serialize());
             } catch (Exception e) {
@@ -59,6 +67,9 @@ public class FederationEndpointServlets {
             try {
                 URI subject = new URI(sub);
                 SignedJWT subordinateStatement = generator.generateSubordinateStatement(authorityHints, subject);
+                if (logger.isDebugEnabled()) {
+                    logger.debug("Subordinate Statement generated: {}", subordinateStatement);
+                }
                 resp.setContentType("application/entity-statement+jwt");
                 resp.getWriter().write(subordinateStatement.serialize());
             } catch (Exception e) {
@@ -80,6 +91,9 @@ public class FederationEndpointServlets {
         protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
             resp.setContentType("application/json");
             resp.getWriter().write(JSONObjectUtils.toJSONString(jwks.toJSONObject(false)));
+            if (logger.isDebugEnabled()) {
+                logger.debug("JWK Set generated: {}", jwks);
+            }
         }
     }
 }

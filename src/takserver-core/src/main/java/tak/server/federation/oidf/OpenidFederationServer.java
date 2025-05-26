@@ -10,16 +10,10 @@ import java.io.FileInputStream;
 import java.net.URI;
 import java.nio.file.*;
 import java.util.List;
-//import java.util.Map;
 import java.util.Properties;
-//import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Stream;
 
 import com.nimbusds.jose.jwk.*;
-//import com.nimbusds.jwt.SignedJWT;
-//import com.nimbusds.jose.JOSEException;
-//import com.nimbusds.oauth2.sdk.ParseException;
-
 
 public class OpenidFederationServer {
 
@@ -56,18 +50,21 @@ public class OpenidFederationServer {
         URI issuer = new URI(props.getProperty("issuer"));
         federationFetchEndpoint = issuer.resolve("/fetch");
         if (logger.isDebugEnabled()) {
-            logger.debug("issuer: {}", issuer);
-            logger.debug("federation_fetch_endpoint: {}", federationFetchEndpoint);
+            logger.debug("Set issuer: {}", issuer);
+            logger.debug("Set federation_fetch_endpoint: {}", federationFetchEndpoint);
         }
 
         String authorityHintsString = props.getProperty("authorityHints", "").trim();
         authorityHints = authorityHintsString.isEmpty() ? List.of() :
                 Stream.of(authorityHintsString.split(",")).map(String::trim).map(URI::create).toList();
         if (logger.isDebugEnabled()) {
-            logger.debug("authority_hints: {}", authorityHints);
+            logger.debug("Set authority_hints: {}", authorityHints);
         }
 
         JWKSet jwks = JWKSetGenerator.generateOIDFJWKSet();
+        if (logger.isDebugEnabled()) {
+            logger.debug("Set jwks: {}", jwks);
+        }
         RSAKey rsaKey = null;
         for (JWK jwk : jwks.getKeys()) {
             try {
@@ -90,7 +87,7 @@ public class OpenidFederationServer {
 
         Server jettyServer = new Server(port);
         if (logger.isDebugEnabled()) {
-            logger.debug("starting OpenID Federation Server.");
+            logger.debug("Starting OpenID Federation Server.");
         }
 
         jettyServer.setHandler(handler);

@@ -1,5 +1,6 @@
 package tak.server.federation.oidf;
 
+
 import com.nimbusds.jose.*;
 import com.nimbusds.jose.crypto.RSASSASigner;
 import com.nimbusds.jose.jwk.*;
@@ -16,7 +17,12 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class EntityStatementGenerator {
+
+    private static final Logger logger = LoggerFactory.getLogger(OpenidFederationServer.class);
 
     private final RSAKey signingJWK;
     private final URI issuer;

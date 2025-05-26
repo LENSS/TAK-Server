@@ -27,35 +27,53 @@ public class TrustChainResolutionModule {
 
     // Trust Chain Resolution Module based on a single Trust Anchor
     public TrustChainResolutionModule(String trustAnchorAddress) throws Exception {
-        logger.info("Constructing new module using Trust Anchor address: {}", trustAnchorAddress);
+        if (logger.isDebugEnabled()) {
+            logger.debug("Constructing new module using Trust Anchor address: {}", trustAnchorAddress);
+        }
         String addr = getBaseUrl(trustAnchorAddress);
         trustAnchor = new EntityID(addr);
-        logger.info("Trust Anchor Entity: {}", trustAnchor);
+        if (logger.isDebugEnabled()) {
+            logger.debug("Trust Anchor Entity: {}", trustAnchor);
+        }
         JWKSet trustAnchorJWKSet = JWKFetcher.fetch(addr + "/jwks.json");
-        logger.info("Trust Anchor JWK Set: {}", trustAnchorJWKSet);
+        if (logger.isDebugEnabled()) {
+            logger.debug("Trust Anchor JWK Set: {}", trustAnchorJWKSet);
+        }
         trustAnchors.put(trustAnchor, trustAnchorJWKSet);
-        logger.info("Trust Anchor Set: {}", trustAnchors);
+        if (logger.isDebugEnabled()) {
+            logger.debug("Trust Anchor Set: {}", trustAnchors);
+        }
         resolver = new TakTrustChainResolver(trustAnchors, 10000, 10000);
-        logger.info("Created Trust Chain Resolver: {},", resolver);
+        if (logger.isDebugEnabled()) {
+            logger.debug("Created Trust Chain Resolver: {},", resolver);
+        }
     }
 
     // Trust Chain Resolution Module based on a Trust Anchor set
     public TrustChainResolutionModule(Map<EntityID, JWKSet> trustAnchors) {
-        logger.info("Constructing new module using Trust Anchors: {}", trustAnchors);
+        if (logger.isDebugEnabled()) {
+            logger.debug("Constructing new module using Trust Anchors: {}", trustAnchors);
+        }
         this.trustAnchors = trustAnchors;
         resolver = new TakTrustChainResolver(trustAnchors, DefaultEntityStatementRetriever.DEFAULT_HTTP_CONNECT_TIMEOUT_MS, DefaultEntityStatementRetriever.DEFAULT_HTTP_READ_TIMEOUT_MS);
-        logger.info("Created Trust Chain Resolver: {},", resolver);
+        if (logger.isDebugEnabled()) {
+            logger.debug("Created Trust Chain Resolver: {},", resolver);
+        }
     }
 
     public void resolve(String leafAddress) {
         leafEntity = new EntityID(getBaseUrl(leafAddress));
-        logger.info("Leaf Entity address: {}", leafEntity);
+        if (logger.isDebugEnabled()) {
+            logger.debug("Leaf Entity address: {}", leafEntity);
+        }
         try {
             resolvedChains = resolver.resolveTrustChains(leafEntity);
             shortestResolvedChain = resolvedChains.getShortest();
             trustChainJWT = shortestResolvedChain.toSerializedJWTs();
             resolutionSuccess = true;
-            logger.info("Found the shortest Trust Chain: {}", trustChainJWT);
+            if (logger.isDebugEnabled()) {
+                logger.debug("Found the shortest Trust Chain: {}", trustChainJWT);
+            }
         } catch (ResolveException e) {
             logger.error("Error while resolving Trust Chains", e);
             resolutionSuccess = false;
