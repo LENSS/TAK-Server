@@ -42,11 +42,13 @@ public class TrustChainResolutionModule {
 
     public void resolve(String leafAddress) {
         leafEntity = new EntityID(getBaseUrl(leafAddress));
+        logger.info("Leaf Entity address: {}", leafEntity);
         try {
             resolvedChains = resolver.resolveTrustChains(leafEntity);
             shortestResolvedChain = resolvedChains.getShortest();
             trustChainJWT = shortestResolvedChain.toSerializedJWTs();
             resolutionSuccess = true;
+            logger.info("Found the shortest Trust Chain: {}", trustChainJWT);
         } catch (ResolveException e) {
             logger.error("Error while resolving Trust Chains", e);
             resolutionSuccess = false;
@@ -70,7 +72,7 @@ public class TrustChainResolutionModule {
     }
 
     private String getBaseUrl(String address) {
-        return "http://" + address + ":8081/";
+        return "http://" + address + ":8081";
     }
 
 }

@@ -90,7 +90,7 @@ public class OpenidFederationServer {
 
         Server jettyServer = new Server(port);
         if (logger.isDebugEnabled()) {
-            logger.debug("starting FederationEntityServer.");
+            logger.debug("starting OpenID Federation Server.");
         }
 
         jettyServer.setHandler(handler);
@@ -101,9 +101,9 @@ public class OpenidFederationServer {
     public void start() throws Exception {
         try {
             server.start();
-            logger.info("FederationEntityServer started.");
+            logger.info("OpenID Federation Server started.");
         } catch (Exception e) {
-            logger.error("Failed to start FederationEntityServer: {}", e.getMessage());
+            logger.error("Failed to start OpenID Federation Server: {}", e.getMessage());
             throw e;
         }
     }
@@ -111,9 +111,9 @@ public class OpenidFederationServer {
     public void stop() throws Exception {
         try {
             server.stop();
-            logger.info("FederationEntityServer stopped.");
+            logger.info("OpenID Federation Server stopped.");
         } catch (Exception e) {
-            logger.error("Exception while stopping FederationEntityServer: {}", e.getMessage());
+            logger.error("Exception while stopping OpenID Federation Server: {}", e.getMessage());
             throw e;
         }
     }
