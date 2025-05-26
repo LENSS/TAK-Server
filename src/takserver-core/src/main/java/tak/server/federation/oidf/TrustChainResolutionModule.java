@@ -27,17 +27,21 @@ public class TrustChainResolutionModule {
 
     // Trust Chain Resolution Module based on a single Trust Anchor
     public TrustChainResolutionModule(String trustAnchorAddress) throws Exception {
+        logger.info("Constructing new module using Trust Anchor address: {}", trustAnchorAddress);
         String addr = getBaseUrl(trustAnchorAddress);
         trustAnchor = new EntityID(addr);
         JWKSet trustAnchorJWKSet = JWKFetcher.fetch(addr + "/jwks.json");
         trustAnchors.put(trustAnchor, trustAnchorJWKSet);
         resolver = new TakTrustChainResolver(trustAnchors, 10000, 10000);
+        logger.info("Created Trust Chain Resolver: {},", resolver);
     }
 
     // Trust Chain Resolution Module based on a Trust Anchor set
     public TrustChainResolutionModule(Map<EntityID, JWKSet> trustAnchors) {
+        logger.info("Constructing new module using Trust Anchors: {}", trustAnchors);
         this.trustAnchors = trustAnchors;
         resolver = new TakTrustChainResolver(trustAnchors, DefaultEntityStatementRetriever.DEFAULT_HTTP_CONNECT_TIMEOUT_MS, DefaultEntityStatementRetriever.DEFAULT_HTTP_READ_TIMEOUT_MS);
+        logger.info("Created Trust Chain Resolver: {},", resolver);
     }
 
     public void resolve(String leafAddress) {
