@@ -4,11 +4,11 @@ import com.nimbusds.jose.JOSEException;
 import com.nimbusds.jose.JWSAlgorithm;
 import com.nimbusds.jose.jwk.*;
 import com.nimbusds.jose.jwk.gen.*;
-import com.nimbusds.jose.util.JSONObjectUtils;
+//import com.nimbusds.jose.util.JSONObjectUtils;
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
+//import java.io.FileWriter;
+//import java.io.IOException;
+//import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 public class JWKSetGenerator {
@@ -21,6 +21,7 @@ public class JWKSetGenerator {
                 .generate());
     }
 
+    /*
     // Serialize to JSON including private keys
     public static String jwkSetToJSON(JWKSet jwkSet) {
         return JSONObjectUtils.toJSONString(jwkSet.toJSONObject(false));
@@ -42,5 +43,5 @@ public class JWKSetGenerator {
         saveToFile(base64, fileName);
         return base64;
     }
-
+    */
 }

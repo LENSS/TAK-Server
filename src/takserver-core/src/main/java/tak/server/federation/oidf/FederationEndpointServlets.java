@@ -1,5 +1,8 @@
 package tak.server.federation.oidf;
 
+import com.nimbusds.jose.jwk.JWKSet;
+import com.nimbusds.jose.jwk.RSAKey;
+import com.nimbusds.jose.util.JSONObjectUtils;
 import jakarta.servlet.http.*;
 import com.nimbusds.jwt.SignedJWT;
 
@@ -62,6 +65,21 @@ public class FederationEndpointServlets {
                 resp.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
                 resp.getWriter().write("Error generating subordinate statement: " + e.getMessage());
             }
+        }
+    }
+
+    public static class JWKSServlet extends HttpServlet {
+
+        private final JWKSet jwks;
+
+        public JWKSServlet(RSAKey privateKey) {
+            this.jwks = new JWKSet(privateKey.toPublicJWK());
+        }
+
+        @Override
+        protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+            resp.setContentType("application/json");
+            resp.getWriter().write(JSONObjectUtils.toJSONString(jwks.toJSONObject(false)));
         }
     }
 }

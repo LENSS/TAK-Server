@@ -70,7 +70,7 @@ public class TrustChainResolutionModule {
     }
 
     private String getBaseUrl(String address) {
-        return "http://" + address + ":8080/c2id";
+        return "http://" + address + ":8081/";
     }
 
 }

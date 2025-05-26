@@ -10,20 +10,20 @@ import java.io.FileInputStream;
 import java.net.URI;
 import java.nio.file.*;
 import java.util.List;
-import java.util.Map;
+//import java.util.Map;
 import java.util.Properties;
-import java.util.concurrent.ConcurrentHashMap;
+//import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Stream;
 
 import com.nimbusds.jose.jwk.*;
-import com.nimbusds.jwt.SignedJWT;
-import com.nimbusds.jose.JOSEException;
-import com.nimbusds.oauth2.sdk.ParseException;
+//import com.nimbusds.jwt.SignedJWT;
+//import com.nimbusds.jose.JOSEException;
+//import com.nimbusds.oauth2.sdk.ParseException;
 
 
-public class FederationEntityServer {
+public class OpenidFederationServer {
 
-    private static final Logger logger = LoggerFactory.getLogger(FederationEntityServer.class);
+    private static final Logger logger = LoggerFactory.getLogger(OpenidFederationServer.class);
 
     private Server server;
 
@@ -33,17 +33,17 @@ public class FederationEntityServer {
 
     private EntityStatementGenerator generator;
 
-    public SignedJWT entityConfiguration;
+    //public SignedJWT entityConfiguration;
 
-    public Map<URI, SignedJWT> subordinateStatements = new ConcurrentHashMap<>();
+    //public Map<URI, SignedJWT> subordinateStatements = new ConcurrentHashMap<>();
 
-    public FederationEntityServer() { }
+    public OpenidFederationServer() { }
 
-    public FederationEntityServer(Server server) {
+    public OpenidFederationServer(Server server) {
         this.server = server;
     }
 
-    public FederationEntityServer setup() throws Exception {
+    public OpenidFederationServer setup() throws Exception {
 
         Properties props = new Properties();
         Path propertiesPath = Paths.get("..", "src", "main", "java", "tak", "server", "federation", "oidf", "federationEntity.properties").toAbsolutePath().normalize();
@@ -86,6 +86,7 @@ public class FederationEntityServer {
         handler.setContextPath("/");
         handler.addServlet(new ServletHolder(new FederationEndpointServlets.EntityConfigurationServlet(generator, authorityHints, federationFetchEndpoint)), "/.well-known/openid-federation");
         handler.addServlet(new ServletHolder(new FederationEndpointServlets.FederationFetchServlet(generator, authorityHints)), "/fetch");
+        handler.addServlet(new ServletHolder(new FederationEndpointServlets.JWKSServlet(rsaKey)), "/jwks.json");
 
         Server jettyServer = new Server(port);
         if (logger.isDebugEnabled()) {
@@ -94,7 +95,7 @@ public class FederationEntityServer {
 
         jettyServer.setHandler(handler);
 
-        return new FederationEntityServer(jettyServer);
+        return new OpenidFederationServer(jettyServer);
     }
 
     public void start() throws Exception {
@@ -117,6 +118,7 @@ public class FederationEntityServer {
         }
     }
 
+    /*
     public SignedJWT getEntityConfiguration() {
         return entityConfiguration;
     }
@@ -132,4 +134,5 @@ public class FederationEntityServer {
     public SignedJWT setSubordinateStatement(URI subject) throws ParseException, JOSEException {
         return subordinateStatements.put(subject, generator.generateSubordinateStatement(authorityHints, subject));
     }
+     */
 }
