@@ -15,7 +15,7 @@ import org.slf4j.LoggerFactory;
 
 public class FederationEndpointServlets {
 
-    private static final Logger logger = LoggerFactory.getLogger(OpenidFederationServer.class);
+    private static final Logger logger = LoggerFactory.getLogger(FederationEndpointServlets.class);
 
     public static class EntityConfigurationServlet extends HttpServlet {
 

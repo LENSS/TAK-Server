@@ -22,7 +22,7 @@ import org.slf4j.LoggerFactory;
 
 public class EntityStatementGenerator {
 
-    private static final Logger logger = LoggerFactory.getLogger(OpenidFederationServer.class);
+    private static final Logger logger = LoggerFactory.getLogger(EntityStatementGenerator.class);
 
     private final RSAKey signingJWK;
     private final URI issuer;
@@ -51,7 +51,7 @@ public class EntityStatementGenerator {
         claims.setAuthorityHints(authorityHintsID);
         claims.setMetadata(EntityType.FEDERATION_ENTITY, fedMetadata);
 
-        JWSHeader header = new JWSHeader.Builder(JWSAlgorithm.RS256).keyID(signingJWK.getKeyID()).type(JOSEObjectType.JWT).build();
+        JWSHeader header = new JWSHeader.Builder(JWSAlgorithm.RS256).keyID(signingJWK.getKeyID()).type(new JOSEObjectType("entity-statement+jwt")).build();
         SignedJWT jwt = new SignedJWT(header, claims.toJWTClaimsSet());
         jwt.sign(new RSASSASigner(signingJWK.toPrivateKey()));
         return jwt;
@@ -71,7 +71,7 @@ public class EntityStatementGenerator {
         EntityStatementClaimsSet claims = new EntityStatementClaimsSet(issuerID, subjectID, iat, exp, jwks);
         claims.setAuthorityHints(authorityHintsID);
 
-        JWSHeader header = new JWSHeader.Builder(JWSAlgorithm.RS256).keyID(signingJWK.getKeyID()).type(JOSEObjectType.JWT).build();
+        JWSHeader header = new JWSHeader.Builder(JWSAlgorithm.RS256).keyID(signingJWK.getKeyID()).type(new JOSEObjectType("entity-statement+jwt")).build();
         SignedJWT jwt = new SignedJWT(header, claims.toJWTClaimsSet());
         jwt.sign(new RSASSASigner(signingJWK.toPrivateKey()));
         return jwt;
