@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Configuration xmlns="http://bbn.com/marti/xml/config">
-    <network multicastTTL="5" serverId="70518d1ac9594e938f206061d7e51ad7" version="5.2-RELEASE-16-feature/custom-federation-entity">
+    <network multicastTTL="5" serverId="70518d1ac9594e938f206061d7e51ad7" version="5.2-RELEASE-16-main">
         <input _name="stdssl" protocol="tls" port="8089" coreVersion="2"/>
         <connector port="8443" _name="https"/>
         <connector port="8444" useFederationTruststore="true" _name="fed_https"/>

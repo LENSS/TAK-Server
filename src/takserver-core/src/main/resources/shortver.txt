@@ -1,1 +1,1 @@
-5.2-RELEASE-16-feature/custom-federation-entity
+5.2-RELEASE-16-main
