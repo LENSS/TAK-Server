@@ -84,16 +84,10 @@ public class OpenidFederationServer {
         handler.addServlet(new ServletHolder(new FederationEndpointServlets.FederationFetchServlet(generator, authorityHints)), "/fetch");
         handler.addServlet(new ServletHolder(new FederationEndpointServlets.JWKSServlet(rsaKey)), "/jwks.json");
 
-        Server jettyServer = new Server(port);
-        if (logger.isDebugEnabled()) {
-            logger.debug("Port 1: {}", port);
-        }
+        Server jettyServer = new Server();
         ServerConnector connector = new ServerConnector(jettyServer);
         connector.setHost("0.0.0.0"); // bind to all interfaces
         connector.setPort(port);
-        if (logger.isDebugEnabled()) {
-            logger.debug("Port 2: {}", connector.getPort());
-        }
         jettyServer.addConnector(connector);
         jettyServer.setHandler(handler);
 
