@@ -66,7 +66,7 @@ public class FederationEndpointServlets {
 
             try {
                 URI subject = new URI(sub);
-                SignedJWT subordinateStatement = generator.generateSubordinateStatement(authorityHints, subject);
+                SignedJWT subordinateStatement = generator.generateSubordinateStatement(subject);
                 if (logger.isDebugEnabled()) {
                     logger.debug("Subordinate Statement generated: {}", subordinateStatement);
                 }

@@ -57,19 +57,17 @@ public class EntityStatementGenerator {
         return jwt;
     }
 
-    public SignedJWT generateSubordinateStatement(List<URI> authorityHints, URI subject) throws JOSEException, ParseException {
+    public SignedJWT generateSubordinateStatement(URI subject) throws Exception {
         Instant now = Instant.now();
         Date iat = Date.from(now);
         Date exp = Date.from(now.plusSeconds(3600));
 
         EntityID issuerID = new EntityID(issuer);
         EntityID subjectID = new EntityID(subject);
-        List<EntityID> authorityHintsID = authorityHints.stream()
-                .map(EntityID::new)
-                .collect(Collectors.toList());
 
-        EntityStatementClaimsSet claims = new EntityStatementClaimsSet(issuerID, subjectID, iat, exp, jwks);
-        claims.setAuthorityHints(authorityHintsID);
+        JWKSet subordinateJWKSet = JWKFetcher.fetch(subject + "/jwks.json");
+
+        EntityStatementClaimsSet claims = new EntityStatementClaimsSet(issuerID, subjectID, iat, exp, subordinateJWKSet);
 
         JWSHeader header = new JWSHeader.Builder(JWSAlgorithm.RS256).keyID(signingJWK.getKeyID()).type(new JOSEObjectType("entity-statement+jwt")).build();
         SignedJWT jwt = new SignedJWT(header, claims.toJWTClaimsSet());
