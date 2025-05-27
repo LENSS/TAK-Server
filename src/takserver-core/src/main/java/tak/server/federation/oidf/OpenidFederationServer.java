@@ -96,6 +96,7 @@ public class OpenidFederationServer {
 
     public void start() throws Exception {
         try {
+            logger.info("Instance ID of this.server: {}", System.identityHashCode(this));
             server.start();
             logger.info("OpenID Federation server started at {}", server.getURI());
         } catch (Exception e) {
@@ -106,6 +107,7 @@ public class OpenidFederationServer {
 
     public void stop() throws Exception {
         try {
+            logger.info("Instance ID of this.server: {}", System.identityHashCode(this));
             server.stop();
             logger.info("OpenID Federation Server stopped.");
         } catch (Exception e) {
