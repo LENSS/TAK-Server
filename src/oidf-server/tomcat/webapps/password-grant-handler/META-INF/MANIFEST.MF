@@ -1,8 +1,0 @@
-Manifest-Version: 1.0
-Created-By: Maven WAR Plugin 3.4.0
-Build-Jdk-Spec: 17
-Build-Date: 
-Build-Number: 
-Build-Tag: 
-Built-By: connect2id
-

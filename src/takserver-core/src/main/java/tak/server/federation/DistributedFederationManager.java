@@ -111,6 +111,7 @@ import com.google.protobuf.ByteString;
 import io.micrometer.core.instrument.Metrics;
 import tak.server.Constants;
 import tak.server.cot.CotEventContainer;
+import tak.server.federation.oidf.OpenidFederationServer;
 import tak.server.ignite.IgniteHolder;
 import tak.server.messaging.Messenger;
 
@@ -140,7 +141,7 @@ public class DistributedFederationManager implements FederationManager, Service 
 
 	private final Map<String, TakFigClient> activeTakFigClients = new ConcurrentHashMap<>();
 
-	private OIDFServer oidfServer;
+	private transient OpenidFederationServer oidfServer;
 
 	public DistributedFederationManager(Ignite ignite) {
 
@@ -183,8 +184,14 @@ public class DistributedFederationManager implements FederationManager, Service 
 
 	@Override
 	public void cancel(ServiceContext ctx) {
-		oidfServer.stop();
-		if (logger.isDebugEnabled()) {
+        try {
+			if (this.oidfServer != null) {
+				this.oidfServer.stop();
+			}
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        if (logger.isDebugEnabled()) {
 			logger.debug("DistributedFederationManager service cancelled");
 		}
 	}
@@ -206,10 +213,8 @@ public class DistributedFederationManager implements FederationManager, Service 
 		getSSLCache().putIfAbsent(SSL_TRUSTSTORE_KEY,
 				SSLConfig.getInstance(config.getFederation().getFederationServer().getTls()));
 
-		if (oidfServer == null) {
-			oidfServer = new OIDFServer();
-			oidfServer.start();
-		}
+		this.oidfServer = new OpenidFederationServer();
+		this.oidfServer.setup().start();
 
 	}
 
@@ -2672,13 +2677,25 @@ public class DistributedFederationManager implements FederationManager, Service 
 			} else {
 				logger.info("federation v2 is not enabled, so stopping if running.");
 				tak.server.federation.FederationServer.stopServer();
-				oidfServer.stop();
-			}
+                try {
+					if (this.oidfServer != null) {
+						this.oidfServer.stop();
+					}
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+            }
 		} else {
 			logger.info("federation is disabled, stopping federation server if running");
 			tak.server.federation.FederationServer.stopServer();
-			oidfServer.stop();
-			disableAllOutgoing();
+            try {
+				if (this.oidfServer != null) {
+					this.oidfServer.stop();
+				}
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+            disableAllOutgoing();
 		}
 	}
 
