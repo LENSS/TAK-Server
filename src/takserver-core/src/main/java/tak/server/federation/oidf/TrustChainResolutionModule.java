@@ -97,7 +97,7 @@ public class TrustChainResolutionModule {
     }
 
     private String getBaseUrl(String address) {
-        return "http://" + address + ":8081";
+        return "http://" + address + ":8181";
     }
 
 }
