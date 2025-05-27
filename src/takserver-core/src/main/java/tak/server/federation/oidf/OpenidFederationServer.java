@@ -2,6 +2,7 @@ package tak.server.federation.oidf;
 
 
 import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.server.ServerConnector;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 import org.slf4j.Logger;
@@ -26,10 +27,6 @@ public class OpenidFederationServer {
     private URI federationFetchEndpoint;
 
     private EntityStatementGenerator generator;
-
-    //public SignedJWT entityConfiguration;
-
-    //public Map<URI, SignedJWT> subordinateStatements = new ConcurrentHashMap<>();
 
     public OpenidFederationServer() { }
 
@@ -86,10 +83,10 @@ public class OpenidFederationServer {
         handler.addServlet(new ServletHolder(new FederationEndpointServlets.JWKSServlet(rsaKey)), "/jwks.json");
 
         Server jettyServer = new Server(port);
-        if (logger.isDebugEnabled()) {
-            logger.debug("Starting OpenID Federation Server.");
-        }
-
+        ServerConnector connector = new ServerConnector(jettyServer);
+        connector.setHost("0.0.0.0"); // bind to all interfaces
+        connector.setPort(port);
+        jettyServer.addConnector(connector);
         jettyServer.setHandler(handler);
 
         return new OpenidFederationServer(jettyServer);
@@ -115,21 +112,4 @@ public class OpenidFederationServer {
         }
     }
 
-    /*
-    public SignedJWT getEntityConfiguration() {
-        return entityConfiguration;
-    }
-
-    public SignedJWT setEntityConfiguration() throws ParseException, JOSEException {
-        return generator.generateEntityConfiguration(authorityHints, federationFetchEndpoint);
-    }
-
-    public SignedJWT getSubordinateStatement(URI subject) {
-        return subordinateStatements.get(subject);
-    }
-
-    public SignedJWT setSubordinateStatement(URI subject) throws ParseException, JOSEException {
-        return subordinateStatements.put(subject, generator.generateSubordinateStatement(authorityHints, subject));
-    }
-     */
 }
