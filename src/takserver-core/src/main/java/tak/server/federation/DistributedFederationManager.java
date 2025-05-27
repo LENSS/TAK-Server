@@ -141,7 +141,7 @@ public class DistributedFederationManager implements FederationManager, Service 
 
 	private final Map<String, TakFigClient> activeTakFigClients = new ConcurrentHashMap<>();
 
-	private final OpenidFederationServer openidFederationServer = new OpenidFederationServer();
+	private transient OpenidFederationServer oidfServer;
 
 	public DistributedFederationManager(Ignite ignite) {
 
@@ -185,7 +185,9 @@ public class DistributedFederationManager implements FederationManager, Service 
 	@Override
 	public void cancel(ServiceContext ctx) {
         try {
-            openidFederationServer.stop();
+			if (this.oidfServer != null) {
+				this.oidfServer.stop();
+			}
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -211,7 +213,8 @@ public class DistributedFederationManager implements FederationManager, Service 
 		getSSLCache().putIfAbsent(SSL_TRUSTSTORE_KEY,
 				SSLConfig.getInstance(config.getFederation().getFederationServer().getTls()));
 
-		openidFederationServer.setup().start();
+		this.oidfServer = new OpenidFederationServer();
+		this.oidfServer.setup().start();
 
 	}
 
@@ -2675,7 +2678,9 @@ public class DistributedFederationManager implements FederationManager, Service 
 				logger.info("federation v2 is not enabled, so stopping if running.");
 				tak.server.federation.FederationServer.stopServer();
                 try {
-                    openidFederationServer.stop();
+					if (this.oidfServer != null) {
+						this.oidfServer.stop();
+					}
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
@@ -2684,7 +2689,9 @@ public class DistributedFederationManager implements FederationManager, Service 
 			logger.info("federation is disabled, stopping federation server if running");
 			tak.server.federation.FederationServer.stopServer();
             try {
-                openidFederationServer.stop();
+				if (this.oidfServer != null) {
+					this.oidfServer.stop();
+				}
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
