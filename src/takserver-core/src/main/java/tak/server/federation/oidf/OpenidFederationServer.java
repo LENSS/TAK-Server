@@ -22,6 +22,8 @@ public class OpenidFederationServer {
 
     private Server server;
 
+    private int port;
+
     private List<URI> authorityHints;
 
     private URI federationFetchEndpoint;
@@ -42,7 +44,7 @@ public class OpenidFederationServer {
             props.load(in);
         }
 
-        int port = Integer.parseInt(props.getProperty("server.port"));
+        port = Integer.parseInt(props.getProperty("server.port"));
 
         URI issuer = new URI(props.getProperty("issuer"));
         federationFetchEndpoint = issuer.resolve("/fetch");
@@ -95,9 +97,9 @@ public class OpenidFederationServer {
     public void start() throws Exception {
         try {
             server.start();
-            logger.info("OpenID Federation Server started.");
+            logger.info("OpenID Federation server started at {}", server.getURI());
         } catch (Exception e) {
-            logger.error("Failed to start OpenID Federation Server: {}", e.getMessage());
+            logger.error("Port {} already in use. Choose a different one.", port, e);
             throw e;
         }
     }
