@@ -39,10 +39,8 @@ public class EntityStatementGenerator {
         Date iat = Date.from(now);
         Date exp = Date.from(now.plusSeconds(3600));
 
-        JSONObject metadata = new JSONObject();
         JSONObject fedMetadata = new JSONObject();
         fedMetadata.put("federation_fetch_endpoint", federationFetchEndpoint.toString());
-        metadata.put("federation_entity", fedMetadata);
 
         EntityID issuerID = new EntityID(issuer);
         List<EntityID> authorityHintsID = authorityHints.stream()
@@ -51,7 +49,7 @@ public class EntityStatementGenerator {
 
         EntityStatementClaimsSet claims = new EntityStatementClaimsSet(issuerID, issuerID, iat, exp, jwks);
         claims.setAuthorityHints(authorityHintsID);
-        claims.setMetadata(EntityType.FEDERATION_ENTITY, metadata);
+        claims.setMetadata(EntityType.FEDERATION_ENTITY, fedMetadata);
 
         JWSHeader header = new JWSHeader.Builder(JWSAlgorithm.RS256).keyID(signingJWK.getKeyID()).type(JOSEObjectType.JWT).build();
         SignedJWT jwt = new SignedJWT(header, claims.toJWTClaimsSet());
