@@ -110,7 +110,6 @@ import com.google.protobuf.ByteString;
 import io.micrometer.core.instrument.Metrics;
 import tak.server.Constants;
 import tak.server.cot.CotEventContainer;
-import tak.server.federation.oidf.OpenidFederationServer;
 import tak.server.federation.oidf.OpenidFederationServerHolder;
 import tak.server.ignite.IgniteHolder;
 import tak.server.messaging.Messenger;
@@ -140,8 +139,6 @@ public class DistributedFederationManager implements FederationManager, Service 
 	private ContinuousQuery<String, SSLConfig> continuousTrustStoreQuery = new ContinuousQuery<>();
 
 	private final Map<String, TakFigClient> activeTakFigClients = new ConcurrentHashMap<>();
-
-	private static OpenidFederationServer oidfServer = OpenidFederationServerHolder.getInstance();
 
 	public DistributedFederationManager(Ignite ignite) {
 
@@ -185,7 +182,7 @@ public class DistributedFederationManager implements FederationManager, Service 
 	@Override
 	public void cancel(ServiceContext ctx) {
         try {
-			oidfServer.stop();
+			OpenidFederationServerHolder.getInstance().stop();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -211,7 +208,7 @@ public class DistributedFederationManager implements FederationManager, Service 
 		getSSLCache().putIfAbsent(SSL_TRUSTSTORE_KEY,
 				SSLConfig.getInstance(config.getFederation().getFederationServer().getTls()));
 
-		oidfServer.setup().start();
+		OpenidFederationServerHolder.getInstance().setup().start();
 
 	}
 
@@ -2675,7 +2672,7 @@ public class DistributedFederationManager implements FederationManager, Service 
 				logger.info("federation v2 is not enabled, so stopping if running.");
 				tak.server.federation.FederationServer.stopServer();
                 try {
-					oidfServer.stop();
+					OpenidFederationServerHolder.getInstance().stop();
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
@@ -2684,7 +2681,7 @@ public class DistributedFederationManager implements FederationManager, Service 
 			logger.info("federation is disabled, stopping federation server if running");
 			tak.server.federation.FederationServer.stopServer();
             try {
-				oidfServer.stop();
+				OpenidFederationServerHolder.getInstance().stop();
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
@@ -2757,10 +2754,6 @@ public class DistributedFederationManager implements FederationManager, Service 
 
 	public TakFigClient removeTakFigClient(String outgoingAddress) {
 		return activeTakFigClients.remove(outgoingAddress);
-	}
-
-	public OpenidFederationServer getOIDFServer() {
-		return oidfServer;
 	}
 
 }
