@@ -140,7 +140,7 @@ public class DistributedFederationManager implements FederationManager, Service 
 
 	private final Map<String, TakFigClient> activeTakFigClients = new ConcurrentHashMap<>();
 
-	private transient OpenidFederationServer oidfServer;
+	private static OpenidFederationServer oidfServer;
 
 	public DistributedFederationManager(Ignite ignite) {
 
@@ -184,8 +184,8 @@ public class DistributedFederationManager implements FederationManager, Service 
 	@Override
 	public void cancel(ServiceContext ctx) {
         try {
-			if (oidfServer != null) {
-				oidfServer.stop();
+			if (this.oidfServer != null) {
+				this.oidfServer.stop();
 			}
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -2679,8 +2679,8 @@ public class DistributedFederationManager implements FederationManager, Service 
 				logger.info("federation v2 is not enabled, so stopping if running.");
 				tak.server.federation.FederationServer.stopServer();
                 try {
-					if (oidfServer != null) {
-						oidfServer.stop();
+					if (this.oidfServer != null) {
+						this.oidfServer.stop();
 					}
                 } catch (Exception e) {
                     throw new RuntimeException(e);
@@ -2690,8 +2690,8 @@ public class DistributedFederationManager implements FederationManager, Service 
 			logger.info("federation is disabled, stopping federation server if running");
 			tak.server.federation.FederationServer.stopServer();
             try {
-				if (oidfServer != null) {
-					oidfServer.stop();
+				if (this.oidfServer != null) {
+					this.oidfServer.stop();
 				}
             } catch (Exception e) {
                 throw new RuntimeException(e);
@@ -2768,7 +2768,7 @@ public class DistributedFederationManager implements FederationManager, Service 
 	}
 
 	public OpenidFederationServer getOIDFServer() {
-		return oidfServer;
+		return this.oidfServer;
 	}
 
 }
