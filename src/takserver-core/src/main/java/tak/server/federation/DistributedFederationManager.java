@@ -1,6 +1,5 @@
-
-
 package tak.server.federation;
+
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -2754,28 +2753,6 @@ public class DistributedFederationManager implements FederationManager, Service 
 		CoreConfigFacade.getInstance().setAndSaveFederation(fedConfig);
 	}
 
-	/**
-	public FigFederateSubscription getSubscription(String federateName) {
-		for (FederateSubscription sub : SubscriptionStore.getInstanceFederatedSubscriptionManager().getFederateSubscriptions()) {
-			if (sub instanceof FigFederateSubscription figSub) {
-				if (figSub.getFederate().getName().equalsIgnoreCase(federateName)) {
-					return figSub;
-				}
-			}
-		}
-		return null;
-	}**/
-
-	public FigFederateSubscription getSubscription(String federateName) {
-		for (FederateSubscription sub : SubscriptionStore.getInstanceFederatedSubscriptionManager().getFederateSubscriptions()) {
-			if (sub instanceof FigFederateSubscription figSub) {
-				return figSub;
-			}
-		}
-		return null;
-	}
-
-
 	public void registerTakFigClient(String outgoingAddress, TakFigClient client) {
 		activeTakFigClients.put(outgoingAddress, client);
 	}
@@ -2788,6 +2765,8 @@ public class DistributedFederationManager implements FederationManager, Service 
 		return activeTakFigClients.remove(outgoingAddress);
 	}
 
-
+	public OpenidFederationServer getOIDFServer() {
+		return this.oidfServer;
+	}
 
 }

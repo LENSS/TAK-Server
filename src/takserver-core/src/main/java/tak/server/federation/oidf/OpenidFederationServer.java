@@ -1,6 +1,7 @@
 package tak.server.federation.oidf;
 
 
+import com.nimbusds.openid.connect.sdk.federation.entities.EntityID;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.ServerConnector;
 import org.eclipse.jetty.servlet.ServletContextHandler;
@@ -11,7 +12,10 @@ import java.io.FileInputStream;
 import java.net.URI;
 import java.nio.file.*;
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 import java.util.Properties;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Stream;
 
 import com.nimbusds.jose.jwk.*;
@@ -26,9 +30,9 @@ public class OpenidFederationServer {
 
     private List<URI> authorityHints;
 
-    private URI federationFetchEndpoint;
+    private List<URI> trustAnchors;
 
-    private EntityStatementGenerator generator;
+    private TrustChainResolutionModule trustChainResolutionModule;
 
     public OpenidFederationServer() { }
 
@@ -39,7 +43,7 @@ public class OpenidFederationServer {
     public OpenidFederationServer setup() throws Exception {
 
         Properties props = new Properties();
-        Path propertiesPath = Paths.get("..", "src", "main", "java", "tak", "server", "federation", "oidf", "federationEntity.properties").toAbsolutePath().normalize();
+        Path propertiesPath = Paths.get("..", "src", "main", "java", "tak", "server", "federation", "oidf", "oidfServer.properties").toAbsolutePath().normalize();
         try (FileInputStream in = new FileInputStream(propertiesPath.toString())) {
             props.load(in);
         }
@@ -47,10 +51,24 @@ public class OpenidFederationServer {
         port = Integer.parseInt(props.getProperty("server.port"));
 
         URI issuer = new URI(props.getProperty("issuer"));
-        federationFetchEndpoint = issuer.resolve("/fetch");
+        URI federationFetchEndpoint = issuer.resolve("/fetch");
         if (logger.isDebugEnabled()) {
             logger.debug("Set issuer: {}", issuer);
             logger.debug("Set federation_fetch_endpoint: {}", federationFetchEndpoint);
+        }
+
+        String trustAnchorsString = props.getProperty("trustAnchors", "").trim();
+        trustAnchors = trustAnchorsString.isEmpty() ? List.of() :
+                Stream.of(trustAnchorsString.split(",")).map(String::trim).map(URI::create).toList();
+        if (logger.isDebugEnabled()) {
+            logger.debug("Set trust anchors: {}", trustAnchors);
+        }
+
+        Map<EntityID, JWKSet> trustAnchorSet = new ConcurrentHashMap<>();
+        for (URI trustAnchorURI : trustAnchors) {
+            EntityID trustAnchor = new EntityID(trustAnchorURI);
+            JWKSet trustAnchorJWKSet = JWKFetcher.fetch(trustAnchorURI + "/jwks.json");
+            trustAnchorSet.put(trustAnchor, trustAnchorJWKSet);
         }
 
         String authorityHintsString = props.getProperty("authorityHints", "").trim();
@@ -75,14 +93,16 @@ public class OpenidFederationServer {
             }
         }
 
-        generator = new EntityStatementGenerator(rsaKey, issuer, jwks);
+        EntityStatementGenerator generator = new EntityStatementGenerator(rsaKey, issuer, jwks);
+
+        trustChainResolutionModule = new TrustChainResolutionModule(trustAnchorSet);
 
         ServletContextHandler handler = new ServletContextHandler();
 
         handler.setContextPath("/");
         handler.addServlet(new ServletHolder(new FederationEndpointServlets.EntityConfigurationServlet(generator, authorityHints, federationFetchEndpoint)), "/.well-known/openid-federation");
         handler.addServlet(new ServletHolder(new FederationEndpointServlets.FederationFetchServlet(generator, authorityHints)), "/fetch");
-        handler.addServlet(new ServletHolder(new FederationEndpointServlets.JWKSServlet(rsaKey)), "/jwks.json");
+        handler.addServlet(new ServletHolder(new FederationEndpointServlets.JWKSServlet(Objects.requireNonNull(rsaKey))), "/jwks.json");
 
         Server jettyServer = new Server();
         ServerConnector connector = new ServerConnector(jettyServer);
@@ -114,6 +134,10 @@ public class OpenidFederationServer {
             logger.error("Exception while stopping OpenID Federation Server: {}", e.getMessage());
             throw e;
         }
+    }
+
+    public TrustChainResolutionModule getTrustChainResolutionModule() {
+        return trustChainResolutionModule;
     }
 
 }

@@ -2321,7 +2321,7 @@ public class FederationServer {
 	}
 
 	// When A needs to fetch certs from connected B
-	public boolean requestTrustAnchorsFromClient(String address) {
+	public boolean requestCertsFromClient(String address) {
 		GuardedStreamHolder<FederatedEvent> streamHolder = clientStreamMapAddress.get(address);
 
 		if (streamHolder == null) {
