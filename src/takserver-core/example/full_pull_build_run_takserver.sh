@@ -4,7 +4,7 @@
 
 cd ~/TAK-Server/
 
-git pull origin feature/custom-federation-entity || exit 1
+git pull origin main || exit 1
 
 cd src
 

@@ -5,7 +5,7 @@
 cd ~/TAK-Server/
 
 # Pull from the remote repository
-git pull origin feature/custom-federation-entity || exit 1
+git pull origin main || exit 1
 
 # Rebuild the TAK server
 cd src/takserver-core
