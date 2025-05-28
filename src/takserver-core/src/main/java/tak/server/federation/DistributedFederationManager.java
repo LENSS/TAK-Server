@@ -208,7 +208,8 @@ public class DistributedFederationManager implements FederationManager, Service 
 		getSSLCache().putIfAbsent(SSL_TRUSTSTORE_KEY,
 				SSLConfig.getInstance(config.getFederation().getFederationServer().getTls()));
 
-		OpenidFederationServerHolder.getInstance().setup().start();
+		OpenidFederationServerHolder.getInstance().setup();
+		OpenidFederationServerHolder.getInstance().start();
 
 	}
 

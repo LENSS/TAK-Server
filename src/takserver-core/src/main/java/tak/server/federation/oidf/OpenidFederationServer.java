@@ -36,13 +36,7 @@ public class OpenidFederationServer {
 
     private TrustChainResolutionModule trustChainResolutionModule;
 
-    public OpenidFederationServer() { }
-
-    public OpenidFederationServer(Server server) {
-        this.server = server;
-    }
-
-    public OpenidFederationServer setup() throws Exception {
+    public void setup() throws Exception {
 
         Properties props = new Properties();
         Path propertiesPath = Paths.get("..", "src", "main", "java", "tak", "server", "federation", "oidf", "oidfServer.properties").toAbsolutePath().normalize();
@@ -50,25 +44,28 @@ public class OpenidFederationServer {
             props.load(in);
         }
 
-        port = Integer.parseInt(props.getProperty("server.port"));
+        this.port = Integer.parseInt(props.getProperty("server.port"));
 
         URI issuer = new URI(props.getProperty("issuer"));
         URI federationFetchEndpoint = issuer.resolve("/fetch");
+
         if (logger.isDebugEnabled()) {
             logger.debug("Set issuer: {}", issuer);
             logger.debug("Set federation_fetch_endpoint: {}", federationFetchEndpoint);
         }
 
         String trustAnchorsString = props.getProperty("trustAnchors", "").trim();
-        trustAnchors = trustAnchorsString.isEmpty() ? List.of() :
+        this.trustAnchors = trustAnchorsString.isEmpty() ? List.of() :
                 Stream.of(trustAnchorsString.split(",")).map(String::trim).map(URI::create).toList();
+
         if (logger.isDebugEnabled()) {
             logger.debug("Set trust anchors: {}", trustAnchors);
         }
 
         String authorityHintsString = props.getProperty("authorityHints", "").trim();
-        authorityHints = authorityHintsString.isEmpty() ? List.of() :
+        this.authorityHints = authorityHintsString.isEmpty() ? List.of() :
                 Stream.of(authorityHintsString.split(",")).map(String::trim).map(URI::create).toList();
+
         if (logger.isDebugEnabled()) {
             logger.debug("Set authority_hints: {}", authorityHints);
         }
@@ -77,6 +74,7 @@ public class OpenidFederationServer {
         if (logger.isDebugEnabled()) {
             logger.debug("Set jwks: {}", jwks);
         }
+
         RSAKey rsaKey = null;
         for (JWK jwk : jwks.getKeys()) {
             try {
@@ -91,7 +89,6 @@ public class OpenidFederationServer {
         EntityStatementGenerator generator = new EntityStatementGenerator(rsaKey, issuer, jwks);
 
         ServletContextHandler handler = new ServletContextHandler();
-
         handler.setContextPath("/");
         handler.addServlet(new ServletHolder(new FederationEndpointServlets.EntityConfigurationServlet(generator, authorityHints, federationFetchEndpoint)), "/.well-known/openid-federation");
         handler.addServlet(new ServletHolder(new FederationEndpointServlets.FederationFetchServlet(generator, authorityHints)), "/fetch");
@@ -100,11 +97,11 @@ public class OpenidFederationServer {
         Server jettyServer = new Server();
         ServerConnector connector = new ServerConnector(jettyServer);
         connector.setHost("0.0.0.0"); // bind to all interfaces
-        connector.setPort(port);
+        connector.setPort(this.port);
         jettyServer.addConnector(connector);
         jettyServer.setHandler(handler);
 
-        return new OpenidFederationServer(jettyServer);
+        this.server = jettyServer;
     }
 
     public void start() throws Exception {
