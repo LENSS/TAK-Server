@@ -184,8 +184,8 @@ public class DistributedFederationManager implements FederationManager, Service 
 	@Override
 	public void cancel(ServiceContext ctx) {
         try {
-			if (this.oidfServer != null) {
-				this.oidfServer.stop();
+			if (oidfServer != null) {
+				oidfServer.stop();
 			}
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -212,8 +212,10 @@ public class DistributedFederationManager implements FederationManager, Service 
 		getSSLCache().putIfAbsent(SSL_TRUSTSTORE_KEY,
 				SSLConfig.getInstance(config.getFederation().getFederationServer().getTls()));
 
-		this.oidfServer = new OpenidFederationServer();
-		this.oidfServer.setup().start();
+		if (this.oidfServer == null) {
+			this.oidfServer = new OpenidFederationServer();
+			this.oidfServer.setup().start();
+		}
 
 	}
 
@@ -2677,8 +2679,8 @@ public class DistributedFederationManager implements FederationManager, Service 
 				logger.info("federation v2 is not enabled, so stopping if running.");
 				tak.server.federation.FederationServer.stopServer();
                 try {
-					if (this.oidfServer != null) {
-						this.oidfServer.stop();
+					if (oidfServer != null) {
+						oidfServer.stop();
 					}
                 } catch (Exception e) {
                     throw new RuntimeException(e);
@@ -2688,8 +2690,8 @@ public class DistributedFederationManager implements FederationManager, Service 
 			logger.info("federation is disabled, stopping federation server if running");
 			tak.server.federation.FederationServer.stopServer();
             try {
-				if (this.oidfServer != null) {
-					this.oidfServer.stop();
+				if (oidfServer != null) {
+					oidfServer.stop();
 				}
             } catch (Exception e) {
                 throw new RuntimeException(e);
@@ -2766,7 +2768,7 @@ public class DistributedFederationManager implements FederationManager, Service 
 	}
 
 	public OpenidFederationServer getOIDFServer() {
-		return this.oidfServer;
+		return oidfServer;
 	}
 
 }

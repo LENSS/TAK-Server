@@ -26,6 +26,8 @@ public class OpenidFederationServer {
 
     private Server server;
 
+    private boolean started = false;
+
     private int port;
 
     private List<URI> authorityHints;
@@ -115,9 +117,12 @@ public class OpenidFederationServer {
     }
 
     public void start() throws Exception {
+        if (started) return;
+
         try {
             logger.info("Instance ID of this.server: {}", System.identityHashCode(this));
             server.start();
+            started = true;
             logger.info("OpenID Federation server started at {}", server.getURI());
         } catch (Exception e) {
             logger.error("Port {} already in use. Choose a different one.", port, e);
@@ -129,6 +134,7 @@ public class OpenidFederationServer {
         try {
             logger.info("Instance ID of this.server: {}", System.identityHashCode(this));
             server.stop();
+            started = false;
             logger.info("OpenID Federation Server stopped.");
         } catch (Exception e) {
             logger.error("Exception while stopping OpenID Federation Server: {}", e.getMessage());
