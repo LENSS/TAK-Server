@@ -1,0 +1,4 @@
+src/takserver-core/src/main/java/tak/server/federation/oidf/oidfServer.properties merge=ours
+src/takserver-core/scripts/certs/cert-metadata.sh merge=ours
+src/takserver-core/example/CoreConfig.xml merge=ours
+src/takserver-core/example/CoreConfig.xml.backup merge=ours
