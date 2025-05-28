@@ -662,6 +662,9 @@ public class FederationServer {
 		 */
 		@Override
 		public void clientROLStream(Subscription subscription, StreamObserver<ROL> clientStream) {
+			if (logger.isDebugEnabled()) {
+				logger.debug("clientROLStream running");
+			}
 			requireNonNull(subscription, "client-specified subscription");
 			requireNonNull(subscription.getIdentity(), "client-specified identity");
 
@@ -869,6 +872,9 @@ public class FederationServer {
 		 */
 		@Override
 		public StreamObserver<ROL> serverROLStream(StreamObserver<Subscription> responseObserver) {
+			if (logger.isDebugEnabled()) {
+				logger.debug("serverROLStream running");
+			}
 			String sessionId = getCurrentSessionId();
 
         	Subscription subscription = Subscription.newBuilder()
@@ -1068,6 +1074,9 @@ public class FederationServer {
 		// handle subscription requests from other takservers and open a stream of messages to send back to them
 		@Override
 		public StreamObserver<FederatedEvent> serverEventStream(StreamObserver<Subscription> responseObserver) {
+			if (logger.isDebugEnabled()) {
+				logger.debug("serverEventStream running");
+			}
 			String sessionId = getCurrentSessionId();
 
         	Subscription subscription = Subscription.newBuilder()
@@ -1421,6 +1430,9 @@ public class FederationServer {
 		}
 
 		public StreamObserver<FederateGroups> clientFederateGroupsStream(StreamObserver<Subscription> responseObserver) {
+			if (logger.isDebugEnabled()) {
+				logger.debug("clientFederateGroupsStream running");
+			}
 			String sessionId = getCurrentSessionId();
 
         	Subscription subscription = Subscription.newBuilder()
@@ -1460,6 +1472,9 @@ public class FederationServer {
 
 		@Override
 		public void serverFederateGroupsStream(Subscription subscription, StreamObserver<FederateGroups> responseObserver) {
+			if (logger.isDebugEnabled()) {
+				logger.debug("serverFederateGroupsStream running");
+			}
 			String clientName = subscription.getIdentity().getName();
 
 			if (Strings.isNullOrEmpty(clientName)) {
