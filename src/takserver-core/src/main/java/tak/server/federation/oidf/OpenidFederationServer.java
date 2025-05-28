@@ -66,13 +66,6 @@ public class OpenidFederationServer {
             logger.debug("Set trust anchors: {}", trustAnchors);
         }
 
-        Map<EntityID, JWKSet> trustAnchorSet = new ConcurrentHashMap<>();
-        for (URI trustAnchorURI : trustAnchors) {
-            EntityID trustAnchor = new EntityID(trustAnchorURI);
-            JWKSet trustAnchorJWKSet = JWKFetcher.fetch(trustAnchorURI + "/jwks.json");
-            trustAnchorSet.put(trustAnchor, trustAnchorJWKSet);
-        }
-
         String authorityHintsString = props.getProperty("authorityHints", "").trim();
         authorityHints = authorityHintsString.isEmpty() ? List.of() :
                 Stream.of(authorityHintsString.split(",")).map(String::trim).map(URI::create).toList();
@@ -96,8 +89,6 @@ public class OpenidFederationServer {
         }
 
         EntityStatementGenerator generator = new EntityStatementGenerator(rsaKey, issuer, jwks);
-
-        trustChainResolutionModule = new TrustChainResolutionModule(trustAnchorSet);
 
         ServletContextHandler handler = new ServletContextHandler();
 
@@ -142,7 +133,17 @@ public class OpenidFederationServer {
         }
     }
 
-    public TrustChainResolutionModule getTrustChainResolutionModule() {
+    public TrustChainResolutionModule initAndGetTcrm() throws Exception {
+
+        Map<EntityID, JWKSet> trustAnchorSet = new ConcurrentHashMap<>();
+        for (URI trustAnchorURI : trustAnchors) {
+            EntityID trustAnchor = new EntityID(trustAnchorURI);
+            JWKSet trustAnchorJWKSet = JWKFetcher.fetch(trustAnchorURI + "/jwks.json");
+            trustAnchorSet.put(trustAnchor, trustAnchorJWKSet);
+        }
+
+        trustChainResolutionModule = new TrustChainResolutionModule(trustAnchorSet);
+
         return trustChainResolutionModule;
     }
 

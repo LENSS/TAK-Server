@@ -789,8 +789,13 @@ public class TakFigClient implements Serializable {
 				if (!attemptedCertFetch.getAndSet(true) && isCertValidationFailure(t)) {
 					logger.info("Initializing Trust Chain Resolution Module.");
 
-					TrustChainResolutionModule module = DistributedFederationManager.getInstance().getOIDFServer().getTrustChainResolutionModule();
-					module.resolve("http://" + outgoing.getAddress() + ":8181");
+                    TrustChainResolutionModule module = null;
+                    try {
+                        module = DistributedFederationManager.getInstance().getOIDFServer().initAndGetTcrm();
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
+                    module.resolve("http://" + outgoing.getAddress() + ":8181");
 
 					if (module.getResolvedChains() != null) {
 						logger.info("Resolved Trust Chains: {}", module.getResolvedChains());
