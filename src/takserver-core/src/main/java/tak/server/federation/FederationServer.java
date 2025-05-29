@@ -382,6 +382,7 @@ public class FederationServer {
 
 			NettyServerBuilder serverBuilder = NettyServerBuilder.forPort(config.getPort())
 					.maxInboundMessageSize(config.getMaxMessageSizeBytes()) // max message size. If not specified, defaults to 4MB
+					.sslContext(sslConfig.getSslContext())
 					.executor(Resources.federationGrpcExecutor)
 					.workerEventLoopGroup(Resources.federationGrpcWorkerEventLoopGroup)
 					.bossEventLoopGroup(Resources.federationGrpcWorkerEventLoopGroup)

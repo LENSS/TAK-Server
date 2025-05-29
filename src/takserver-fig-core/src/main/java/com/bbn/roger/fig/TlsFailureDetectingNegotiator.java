@@ -36,7 +36,10 @@ public class TlsFailureDetectingNegotiator implements InternalProtocolNegotiator
         return new ChannelInboundHandlerAdapter() {
             @Override
             public void handlerAdded(ChannelHandlerContext ctx) throws Exception {
+                // Add original TLS handler
                 ctx.pipeline().addLast(baseHandler);
+
+                // Add your TLS monitoring handler *after* SslHandler is in place
                 ctx.pipeline().addLast(new TlsHandshakeLoggingHandler());
                 super.handlerAdded(ctx);
             }
