@@ -48,8 +48,6 @@ import com.google.common.hash.Hashing;
 import com.google.common.primitives.Longs;
 
 import com.google.protobuf.ByteString;
-import com.nimbusds.openid.connect.sdk.federation.trust.TrustChain;
-import com.nimbusds.openid.connect.sdk.federation.trust.TrustChainSet;
 import io.grpc.Context;
 import io.grpc.Contexts;
 import io.grpc.Grpc;
@@ -135,8 +133,6 @@ import com.bbn.marti.remote.config.CoreConfigFacade;
 import tak.server.cot.CotEventContainer;
 import tak.server.federation.message.AddressableEntity;
 import tak.server.federation.message.Message;
-import tak.server.federation.oidf.OpenidFederationServerHolder;
-import tak.server.federation.oidf.TrustChainResolutionModule;
 import tak.server.federation.rol.MissionRolVisitor;
 import tak.server.messaging.Messenger;
 
@@ -375,25 +371,22 @@ public class FederationServer {
 				throw new TakException(e);
 			}
 
-
+/*
 			NettyServerBuilder serverBuilder = NettyServerBuilder.forPort(config.getPort())
 					.maxInboundMessageSize(config.getMaxMessageSizeBytes()) // max message size. If not specified, defaults to 4MB
 					.sslContext(sslConfig.getSslContext())
 					.executor(Resources.federationGrpcExecutor)
 					.workerEventLoopGroup(Resources.federationGrpcWorkerEventLoopGroup)
 					.bossEventLoopGroup(Resources.federationGrpcWorkerEventLoopGroup)
-					.channelType(NioServerSocketChannel.class);
+					.channelType(NioServerSocketChannel.class);*/
 
-/*
 			NettyServerBuilder serverBuilder = NettyServerBuilder.forPort(config.getPort())
 					.maxInboundMessageSize(config.getMaxMessageSizeBytes()) // max message size. If not specified, defaults to 4MB
 					.executor(Resources.federationGrpcExecutor)
 					.workerEventLoopGroup(Resources.federationGrpcWorkerEventLoopGroup)
 					.bossEventLoopGroup(Resources.federationGrpcWorkerEventLoopGroup)
 					.channelType(NioServerSocketChannel.class)
-					.protocolNegotiator(new TlsFailureDetectingNegotiator(sslConfig.getSslContext(), cause -> {
-						logger.warn("TLS Handshake failed: {}", cause.getMessage());
-					}));*/
+					.protocolNegotiator(new TlsFailureDetectingNegotiator(sslConfig.getSslContext()));
 
 			if (config.getMaxConcurrentCallsPerConnection() != null && config.getMaxConcurrentCallsPerConnection() > 0) {
 				serverBuilder.maxConcurrentCallsPerConnection(config.getMaxConcurrentCallsPerConnection());

@@ -23,22 +23,29 @@ public class TlsFailureDetectingNegotiator implements InternalProtocolNegotiator
 
     private static final Logger logger = LoggerFactory.getLogger(TlsFailureDetectingNegotiator.class);
 
-    private final InternalProtocolNegotiator.ProtocolNegotiator delegate;
-    private final Consumer<Throwable> handshakeFailureHandler;
+    private final InternalProtocolNegotiator.ProtocolNegotiator base;
 
-    public TlsFailureDetectingNegotiator(SslContext sslContext, Consumer<Throwable> handshakeFailureHandler) {
-        this.delegate = InternalProtocolNegotiators.serverTls(sslContext);
-        this.handshakeFailureHandler = handshakeFailureHandler;
-    }
-
-    @Override
-    public AsciiString scheme() {
-        return delegate.scheme();
+    public TlsFailureDetectingNegotiator(SslContext sslContext) {
+        this.base = InternalProtocolNegotiators.serverTls(sslContext);
     }
 
     @Override
     public ChannelHandler newHandler(GrpcHttp2ConnectionHandler grpcHandler) {
-        ChannelHandler originalHandler = delegate.newHandler(grpcHandler);
+        ChannelHandler baseHandler = base.newHandler(grpcHandler);
+
+        return new ChannelInboundHandlerAdapter() {
+            @Override
+            public void handlerAdded(ChannelHandlerContext ctx) throws Exception {
+                ctx.pipeline().addLast(baseHandler);
+                ctx.pipeline().addLast(new TlsHandshakeLoggingHandler());
+                super.handlerAdded(ctx);
+            }
+        };
+    }
+    /*
+    @Override
+    public ChannelHandler newHandler(GrpcHttp2ConnectionHandler grpcHandler) {
+        ChannelHandler originalHandler = base.newHandler(grpcHandler);
         return new ChannelInboundHandlerAdapter() {
             @Override
             public void handlerAdded(ChannelHandlerContext ctx) throws Exception {
@@ -58,10 +65,16 @@ public class TlsFailureDetectingNegotiator implements InternalProtocolNegotiator
                 super.userEventTriggered(ctx, evt);
             }
         };
+    }   */
+
+    @Override
+    public AsciiString scheme() {
+        return base.scheme();
     }
 
     @Override
     public void close() {
-        delegate.close();
+        base.close();
     }
+
 }
