@@ -36,6 +36,7 @@ import javax.naming.ldap.Rdn;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLSession;
 
+import com.bbn.roger.fig.TlsFailureDetectingNegotiator;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -47,6 +48,8 @@ import com.google.common.hash.Hashing;
 import com.google.common.primitives.Longs;
 
 import com.google.protobuf.ByteString;
+import com.nimbusds.openid.connect.sdk.federation.trust.TrustChain;
+import com.nimbusds.openid.connect.sdk.federation.trust.TrustChainSet;
 import io.grpc.Context;
 import io.grpc.Contexts;
 import io.grpc.Grpc;
@@ -132,6 +135,8 @@ import com.bbn.marti.remote.config.CoreConfigFacade;
 import tak.server.cot.CotEventContainer;
 import tak.server.federation.message.AddressableEntity;
 import tak.server.federation.message.Message;
+import tak.server.federation.oidf.OpenidFederationServerHolder;
+import tak.server.federation.oidf.TrustChainResolutionModule;
 import tak.server.federation.rol.MissionRolVisitor;
 import tak.server.messaging.Messenger;
 
@@ -370,6 +375,7 @@ public class FederationServer {
 				throw new TakException(e);
 			}
 
+			/* original code not adopting TLS handshake detecter
 			NettyServerBuilder serverBuilder = NettyServerBuilder.forPort(config.getPort())
 					.maxInboundMessageSize(config.getMaxMessageSizeBytes()) // max message size. If not specified, defaults to 4MB
 					.sslContext(sslConfig.getSslContext())
@@ -377,6 +383,17 @@ public class FederationServer {
 					.workerEventLoopGroup(Resources.federationGrpcWorkerEventLoopGroup)
 					.bossEventLoopGroup(Resources.federationGrpcWorkerEventLoopGroup)
 					.channelType(NioServerSocketChannel.class);
+			 */
+
+			NettyServerBuilder serverBuilder = NettyServerBuilder.forPort(config.getPort())
+					.maxInboundMessageSize(config.getMaxMessageSizeBytes()) // max message size. If not specified, defaults to 4MB
+					.executor(Resources.federationGrpcExecutor)
+					.workerEventLoopGroup(Resources.federationGrpcWorkerEventLoopGroup)
+					.bossEventLoopGroup(Resources.federationGrpcWorkerEventLoopGroup)
+					.channelType(NioServerSocketChannel.class)
+					.protocolNegotiator(new TlsFailureDetectingNegotiator(sslConfig.getSslContext(), cause -> {
+						logger.warn("TLS Handshake failed: {}", cause.getMessage());
+					}));
 
 			if (config.getMaxConcurrentCallsPerConnection() != null && config.getMaxConcurrentCallsPerConnection() > 0) {
 				serverBuilder.maxConcurrentCallsPerConnection(config.getMaxConcurrentCallsPerConnection());
@@ -2372,5 +2389,20 @@ public class FederationServer {
 	public static FederationServer getInstance() {
 		return fedServer;
 	}
+	/*
+	private void fetchCertFromTrustAnchors(TrustChain trustChain) {
+			TakFigClient trustAnchorFigClient = federationManager.getTakFigClient(chain.getTrustAnchorEntityID().toURI().getHost());
+			if (trustAnchorFigClient != null) {
+				logger.info("Trust Anchor connection found as outgoing client");
+				boolean fetched = fetchCertFromTrustAnchorStub(trustAnchorFigClient.getFederatedChannelStub());
+				if (fetched) {
+					logger.info("Successfully fetched CA certs from the Trust Anchor. Retrying connection...");
+					FederationOutgoing outgoing = fedManager().getOutgoingConnection(outgoingName);
+					start(outgoing, status);
+					return;
+				}
+			}
 
+	}
+	*/
 }
