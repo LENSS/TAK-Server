@@ -375,7 +375,7 @@ public class FederationServer {
 				throw new TakException(e);
 			}
 
-			/* original code not adopting TLS handshake detecter
+
 			NettyServerBuilder serverBuilder = NettyServerBuilder.forPort(config.getPort())
 					.maxInboundMessageSize(config.getMaxMessageSizeBytes()) // max message size. If not specified, defaults to 4MB
 					.sslContext(sslConfig.getSslContext())
@@ -383,8 +383,8 @@ public class FederationServer {
 					.workerEventLoopGroup(Resources.federationGrpcWorkerEventLoopGroup)
 					.bossEventLoopGroup(Resources.federationGrpcWorkerEventLoopGroup)
 					.channelType(NioServerSocketChannel.class);
-			 */
 
+/*
 			NettyServerBuilder serverBuilder = NettyServerBuilder.forPort(config.getPort())
 					.maxInboundMessageSize(config.getMaxMessageSizeBytes()) // max message size. If not specified, defaults to 4MB
 					.executor(Resources.federationGrpcExecutor)
@@ -393,7 +393,7 @@ public class FederationServer {
 					.channelType(NioServerSocketChannel.class)
 					.protocolNegotiator(new TlsFailureDetectingNegotiator(sslConfig.getSslContext(), cause -> {
 						logger.warn("TLS Handshake failed: {}", cause.getMessage());
-					}));
+					}));*/
 
 			if (config.getMaxConcurrentCallsPerConnection() != null && config.getMaxConcurrentCallsPerConnection() > 0) {
 				serverBuilder.maxConcurrentCallsPerConnection(config.getMaxConcurrentCallsPerConnection());
