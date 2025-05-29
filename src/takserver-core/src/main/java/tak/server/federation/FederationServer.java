@@ -139,7 +139,6 @@ import com.atakmap.Tak.CertificatesResponse;
 import com.atakmap.Tak.CertificatesRequest;
 import java.io.ByteArrayInputStream;
 
-
 public class FederationServer {
 	private static final Logger logger = LoggerFactory.getLogger(FederationServer.class);
 	private static final Logger rolLogger = LoggerFactory.getLogger("rol");
@@ -238,7 +237,6 @@ public class FederationServer {
 
 	@EventListener({ContextRefreshedEvent.class})
 	private void init() {
-		logger.info("Federation server init");
 		fedServer = this;
 
 		InternalLoggerFactory.setDefaultFactory(Slf4JLoggerFactory.INSTANCE);
@@ -344,9 +342,6 @@ public class FederationServer {
 	}
 
 	private void start() {
-		if (logger.isDebugEnabled()) {
-			logger.debug("run start.");
-		}
 		try {
 			requireNonNull(config, "v2 fed configuration object");
 
@@ -417,7 +412,6 @@ public class FederationServer {
 							logger.debug("in v2 fed start executor");
 						}
 
-						// this server is grpc Server server
 						server.start();
 
 						logger.info("Federation server (v2) started, listening on port " + config.getPort());
@@ -468,9 +462,6 @@ public class FederationServer {
 
 		@Override
 		public StreamObserver<BinaryBlob> binaryMessageStream(StreamObserver<Empty> responseObserver) {
-			if (logger.isDebugEnabled()) {
-				logger.debug("binaryMessageStream running.");
-			}
 			return new StreamObserver<BinaryBlob>() {
 
 				@Override
@@ -496,9 +487,6 @@ public class FederationServer {
 
 		@Override
 		public void sendOneBlob(BinaryBlob request, StreamObserver<Empty> resp) {
-			if (logger.isDebugEnabled()) {
-				logger.debug("sendOneBlob running.");
-			}
 			start.compareAndSet(null, System.currentTimeMillis());
 
 			SSLSession session = (SSLSession) sslSessionKey.get(Context.current());
@@ -576,7 +564,6 @@ public class FederationServer {
 
 				ConnectionInfo connection = new ConnectionInfo();
 				connection.setConnectionId(getCurrentSessionId());
-
 				fedSub = (FigServerFederateSubscription) federatedSubscriptionManager.getFederateSubscription(connection);
 
 				// try and set here if federate is available
@@ -667,9 +654,6 @@ public class FederationServer {
 		 */
 		@Override
 		public void clientROLStream(Subscription subscription, StreamObserver<ROL> clientStream) {
-			if (logger.isDebugEnabled()) {
-				logger.debug("clientROLStream running");
-			}
 			requireNonNull(subscription, "client-specified subscription");
 			requireNonNull(subscription.getIdentity(), "client-specified identity");
 
@@ -877,9 +861,6 @@ public class FederationServer {
 		 */
 		@Override
 		public StreamObserver<ROL> serverROLStream(StreamObserver<Subscription> responseObserver) {
-			if (logger.isDebugEnabled()) {
-				logger.debug("serverROLStream running");
-			}
 			String sessionId = getCurrentSessionId();
 
         	Subscription subscription = Subscription.newBuilder()
@@ -1079,9 +1060,6 @@ public class FederationServer {
 		// handle subscription requests from other takservers and open a stream of messages to send back to them
 		@Override
 		public StreamObserver<FederatedEvent> serverEventStream(StreamObserver<Subscription> responseObserver) {
-			if (logger.isDebugEnabled()) {
-				logger.debug("serverEventStream running");
-			}
 			String sessionId = getCurrentSessionId();
 
         	Subscription subscription = Subscription.newBuilder()
@@ -1130,11 +1108,6 @@ public class FederationServer {
 
 						// serialize federate config get/set operations
 						Federate federate = federationManager.getFederate(fingerprint);
-
-						if (logger.isDebugEnabled()) {
-							logger.debug("Outcome of Federate federate = federationManager.getFederate(fingerprint) : "+ federate);
-						}
-
 						if (federate == null) {
 							if (logger.isDebugEnabled()) {
 								logger.debug("CoreConfig federate not found for fingerprint / id: " + fingerprint);
@@ -1160,11 +1133,6 @@ public class FederationServer {
 			                        }
 			                    }
 							}
-
-							if (logger.isDebugEnabled()) {
-								logger.debug("Outcome of Federate federate = federationManager.getFederate(fingerprint) : "+ federate);
-							}
-
 							federationManager.addFederateToConfig(federate);
 
 							if (logger.isDebugEnabled()) {
@@ -1435,9 +1403,6 @@ public class FederationServer {
 		}
 
 		public StreamObserver<FederateGroups> clientFederateGroupsStream(StreamObserver<Subscription> responseObserver) {
-			if (logger.isDebugEnabled()) {
-				logger.debug("clientFederateGroupsStream running");
-			}
 			String sessionId = getCurrentSessionId();
 
         	Subscription subscription = Subscription.newBuilder()
@@ -1477,9 +1442,6 @@ public class FederationServer {
 
 		@Override
 		public void serverFederateGroupsStream(Subscription subscription, StreamObserver<FederateGroups> responseObserver) {
-			if (logger.isDebugEnabled()) {
-				logger.debug("serverFederateGroupsStream running");
-			}
 			String clientName = subscription.getIdentity().getName();
 
 			if (Strings.isNullOrEmpty(clientName)) {
@@ -1529,9 +1491,6 @@ public class FederationServer {
 
 		@Override
 		public void healthCheck(ClientHealth request, StreamObserver<ServerHealth> responseObserver) {
-			if (logger.isDebugEnabled()) {
-				logger.debug("healthCheck running.");
-			}
 
 			GuardedStreamHolder<FederatedEvent> fedEventStream = null;
 
@@ -1827,9 +1786,6 @@ public class FederationServer {
 	}
 
 	private void addCaFederateToPolicyGraph(GuardedStreamHolder<?> streamHolder, Certificate[] caCertArray) {
-		if (logger.isDebugEnabled()) {
-			logger.debug("addCaFederateToPolicyGraph running.");
-		}
 		List<String> caCertNames = new LinkedList<>();
 
 		// The cert array returned by gRPC's SSLSession is padded with null entries.  This loop adds all certs in the
@@ -1856,9 +1812,6 @@ public class FederationServer {
 	}
 
 	private void sendCaGroupsToFedManager(KeyStore keyStore) throws KeyStoreException {
-		if (logger.isDebugEnabled()) {
-			logger.debug("sendCaGroupsToFedManager running.");
-		}
 		for (Enumeration<String> e = keyStore.aliases(); e.hasMoreElements();) {
 			String alias = e.nextElement();
 			X509Certificate cert = (X509Certificate) keyStore.getCertificate(alias);
@@ -1867,9 +1820,6 @@ public class FederationServer {
 	}
 
 	private void sendCaGroupToFedManager(X509Certificate cert) throws KeyStoreException {
-		if (logger.isDebugEnabled()) {
-			logger.debug("sendCaGroupToFedManager running.");
-		}
 		try {
 			String issuerName = cert.getIssuerX500Principal().getName();
 			String groupName = issuerName + "-" + FederationUtils.getBytesSHA256(cert.getEncoded());
@@ -1880,9 +1830,6 @@ public class FederationServer {
 	}
 
 	public boolean addGroupCa(X509Certificate ca) {
-		if (logger.isDebugEnabled()) {
-			logger.debug("addGroupCa running.");
-		}
 		try {
 			String dn = ca.getSubjectX500Principal().getName();
 			String alias = getCN(dn);
@@ -1898,9 +1845,6 @@ public class FederationServer {
 
 	// attempt to get the CN in a robust way
 	private static String getCN(String dn) {
-		if (logger.isDebugEnabled()) {
-			logger.debug("getCN running.");
-		}
 		if (Strings.isNullOrEmpty(dn)) {
 			throw new IllegalArgumentException("empty DN");
 		}
@@ -1935,9 +1879,6 @@ public class FederationServer {
 
 	// Send a message
 	public void send(Message message) {
-		if (logger.isDebugEnabled()) {
-			logger.debug("send running.");
-		}
 		// make a decision about which connected clients to write this message back to
 		requireNonNull(message, "null message object");
 
@@ -1956,9 +1897,6 @@ public class FederationServer {
 	}
 
 	private void sendFederatedEvent(Message message) {
-		if (logger.isDebugEnabled()) {
-			logger.debug("sendFederatedEvent running.");
-		}
 		for (AddressableEntity<?> entity : message.getDestinations()) {
 
 			if (entity.getEntity() instanceof FederateIdentity) {
@@ -1974,9 +1912,6 @@ public class FederationServer {
 
 
 	private void sendRolMessage(Message message) {
-		if (logger.isDebugEnabled()) {
-			logger.debug("sendRolMessage running.");
-		}
 		for (Map.Entry<String, GuardedStreamHolder<ROL>> stream : clientROLStreamMap.entrySet()) {
 
 			if (rolLogger.isDebugEnabled()) {
@@ -1994,9 +1929,6 @@ public class FederationServer {
 	}
 
 	private void deliver(Message message, FederateIdentity src, FederateIdentity dest) {
-		if (logger.isDebugEnabled()) {
-			logger.debug("deliver running.");
-		}
 		for (Entry<String, GuardedStreamHolder<FederatedEvent>> entry : clientStreamMap.entrySet()) {
 			if (entry.getValue().getFederateIdentity().equals(dest)) {
 
@@ -2024,9 +1956,6 @@ public class FederationServer {
 	}
 
 	private void handleRead(FederatedEvent fedEvent, String sessionId, FederateSubscription federateSubscription, ChannelHandler handler) {
-		if (logger.isDebugEnabled()) {
-			logger.debug("handleRead running.");
-		}
 
 		if (fedEvent == null) {
 
@@ -2192,9 +2121,6 @@ public class FederationServer {
 	}
 
 	private void handleRead(BinaryBlob event, byte[] sessionId) {
-		if (logger.isDebugEnabled()) {
-			logger.debug("handleRead running.");
-		}
 		// do a read
 		// create a message
 		Message federatedMessage = new Message(new HashMap<>(), new BinaryBlobPayload(event));
@@ -2220,9 +2146,6 @@ public class FederationServer {
 	}
 
 	private void sendMessage(Message federatedMessage, long startTime) {
-		if (logger.isDebugEnabled()) {
-			logger.debug("sendMessage running.");
-		}
 		try {
 			send(federatedMessage);
 		} catch (Exception e) {
@@ -2236,9 +2159,6 @@ public class FederationServer {
 	final static private Context.Key<SocketAddress> remoteAddressKey = Context.key("RemoteAddress");
 
 	public static ServerInterceptor tlsInterceptor() {
-		if (logger.isDebugEnabled()) {
-			logger.debug("tlsInterceptor running.");
-		}
 
 		return new ServerInterceptor() {
 
@@ -2268,9 +2188,6 @@ public class FederationServer {
 	}
 
 	public FigServerConfig loadConfig(String configFilename) throws JsonParseException, JsonMappingException, FileNotFoundException, IOException {
-		if (logger.isDebugEnabled()) {
-			logger.debug("loadConfig running.");
-		}
 		if (getClass().getResource(configFilename) != null) {
 			// it's a resource
 			return new ObjectMapper(new YAMLFactory()).readValue(getClass().getResourceAsStream(configFilename), FigServerConfig.class);
@@ -2318,9 +2235,6 @@ public class FederationServer {
 	}
 
 	private String getCurrentSessionId() {
-		if (logger.isDebugEnabled()) {
-			logger.debug("getCurrentSessionId running.");
-		}
 		try {
 			return new String(((SSLSession) sslSessionKey.get(Context.current())).getId(), Charsets.UTF_8);
 		} catch (Exception e) {
@@ -2329,9 +2243,6 @@ public class FederationServer {
 	}
 
 	private Certificate getCurrentClientCert() {
-		if (logger.isDebugEnabled()) {
-			logger.debug("getCurrentClientCert running.");
-		}
 		try {
 
 			SSLSession session = sslSessionKey.get(Context.current());
@@ -2356,9 +2267,6 @@ public class FederationServer {
 	}
 
 	private SocketAddress getCurrentSocketAddress() {
-		if (logger.isDebugEnabled()) {
-			logger.debug("getCurrentSocketAddress running.");
-		}
 		try {
 
 			return remoteAddressKey.get(Context.current());
@@ -2370,9 +2278,6 @@ public class FederationServer {
 	}
 
 	private Certificate getCurrentCaCert() {
-		if (logger.isDebugEnabled()) {
-			logger.debug("getCurrentCaCert running.");
-		}
 		try {
 
 			SSLSession session = sslSessionKey.get(Context.current());

@@ -26,7 +26,6 @@ public class TrustChainResolutionModule {
 
         if (logger.isDebugEnabled()) {
             logger.debug("Constructing new module using Trust Anchors: {}", trustAnchorSet);
-            logger.debug("Created Trust Chain Resolver: {},", resolver);
         }
     }
 

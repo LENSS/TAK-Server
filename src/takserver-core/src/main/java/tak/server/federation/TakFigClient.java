@@ -797,9 +797,11 @@ public class TakFigClient implements Serializable {
                         throw new RuntimeException(e);
                     }
                     module.resolve("http://" + outgoing.getAddress() + ":8181");
+					for (TrustChain chains : module.getResolvedChains()) {
+						logger.info("Resolved Trust Chain: {}", chains.toSerializedJWTs());
+					}
 
 					if (module.getResolvedChains() != null) {
-						logger.info("Resolved Trust Chains: {}", module.getResolvedChains());
 						fetchCertFromTrustAnchors(module.getResolvedChains());
 					} else {
 						logger.info("No valid Trust Chain found.");
