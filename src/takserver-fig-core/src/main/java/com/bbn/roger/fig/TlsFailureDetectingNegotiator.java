@@ -17,7 +17,7 @@ import java.util.function.Consumer;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import tak.server.federation.oidf.TrustChainHandler;
+//import tak.server.federation.oidf.TrustChainHandler;
 
 public class TlsFailureDetectingNegotiator implements InternalProtocolNegotiator.ProtocolNegotiator {
 
