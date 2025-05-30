@@ -228,7 +228,6 @@
     <logger name="tak.server.federation.oidf.FederationEndpointServlets" level="DEBUG" />
     <logger name="tak.server.federation.oidf.JWKSetGenerator" level="DEBUG" />
     <logger name="tak.server.federation.oidf.JWKFetcher" level="DEBUG" />
-    <logger name="tak.server.federation.TlsHandshakeProxy" level="DEBUG" />
     <logger name="com.bbn.roger.fig.FigProtocolNegotiator" level="DEBUG"/>
     <logger name="org.springframework" level="WARN"/>
     <logger name="org.apache" level="WARN"/>

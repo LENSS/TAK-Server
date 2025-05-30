@@ -4,7 +4,11 @@ import static com.google.common.base.Preconditions.checkNotNull;
 import static com.google.common.base.Preconditions.checkState;
 
 import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.net.HttpURLConnection;
 import java.net.URI;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.security.cert.Certificate;
 import java.security.cert.X509Certificate;
 
@@ -243,6 +247,7 @@ public class FigProtocolNegotiator {
                         logger.debug("TLS handshake failed");
                     }
                     ctx.fireExceptionCaught(handshakeEvent.cause());
+                    reportHandshakeFailureToFederationServer(handshakeEvent.cause().toString());
                 }
             }
             super.userEventTriggered0(ctx, evt);
@@ -257,6 +262,28 @@ public class FigProtocolNegotiator {
             ProtocolNegotiationEvent existingPne = InternalProtocolNegotiationEvent.withAttributes(getProtocolNegotiationEvent(), attrs);
             this.replaceProtocolNegotiationEvent(InternalProtocolNegotiationEvent.withSecurity(existingPne, security));
             this.fireProtocolNegotiationEvent(ctx);
+        }
+
+        private void reportHandshakeFailureToFederationServer(String details) throws IOException {
+            if (logger.isDebugEnabled()) {
+                logger.debug("Reporting TLS handshake failure to {}.", host);
+            }
+            try {
+                URL url = new URL("http://" + host + ":8111/handshake-failure");
+                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                conn.setRequestMethod("POST");
+                conn.setDoOutput(true);
+                byte[] body = details.getBytes(StandardCharsets.UTF_8);
+                conn.getOutputStream().write(body);
+                int code = conn.getResponseCode();
+                // Optionally check code/log
+                conn.disconnect();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+                if (logger.isDebugEnabled()) {
+                    logger.debug("Exception occured while reporting TLS handshake failure: {}.", ex);
+                }
+            }
         }
     }
 }

@@ -5,12 +5,10 @@ import static java.util.Objects.requireNonNull;
 import com.bbn.marti.config.Federation.Federate;
 import com.bbn.marti.config.Federation.FederateCA;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.math.BigInteger;
 import java.net.InetAddress;
+import java.net.InetSocketAddress;
 import java.net.SocketAddress;
 import java.nio.ByteBuffer;
 import java.rmi.RemoteException;
@@ -49,6 +47,9 @@ import com.google.common.primitives.Longs;
 import com.google.protobuf.ByteString;
 import com.nimbusds.openid.connect.sdk.federation.trust.TrustChain;
 import com.nimbusds.openid.connect.sdk.federation.trust.TrustChainSet;
+import com.sun.net.httpserver.HttpExchange;
+import com.sun.net.httpserver.HttpHandler;
+import com.sun.net.httpserver.HttpServer;
 import io.grpc.Context;
 import io.grpc.Contexts;
 import io.grpc.Grpc;
@@ -141,7 +142,6 @@ import tak.server.messaging.Messenger;
 
 import com.atakmap.Tak.CertificatesResponse;
 import com.atakmap.Tak.CertificatesRequest;
-import java.io.ByteArrayInputStream;
 
 public class FederationServer {
 	private static final Logger logger = LoggerFactory.getLogger(FederationServer.class);
@@ -152,6 +152,7 @@ public class FederationServer {
 	private FigServerConfig config = null;
 	private SSLConfig sslConfig = null;
 	private Server server;
+	private HandshakeFailureReportServer reportServer;
 
 	private static final AtomicLong clientMessageCounter = new AtomicLong(); // Count messages from all clients, over the lifetime of the server
 	private static final AtomicLong clientByteAccumulator = new AtomicLong(); // Count messages from all the clients, over the lifetime of the server
@@ -282,7 +283,6 @@ public class FederationServer {
 			FigServerConfig serverConfig = new FigServerConfig();
 
 			serverConfig.setPort(fedServerConfig.getV2Port());
-			//serverConfig.setPort(9101);
 			serverConfig.setKeystoreFile(fedServerConfig.getTls().getKeystoreFile());
 			serverConfig.setKeystorePassword(fedServerConfig.getTls().getKeystorePass());
 			serverConfig.setTruststoreFile(fedServerConfig.getTls().getTruststoreFile());
@@ -327,7 +327,6 @@ public class FederationServer {
 	    FigServerConfig serverConfig = new FigServerConfig();
 
 	    serverConfig.setPort(fedServerConfig.getV2Port());
-		//serverConfig.setPort(9101);
 		serverConfig.setKeystoreFile(fedServerConfig.getTls().getKeystoreFile());
 	    serverConfig.setKeystorePassword(fedServerConfig.getTls().getKeystorePass());
 	    serverConfig.setTruststoreFile(fedServerConfig.getTls().getTruststoreFile());
@@ -377,7 +376,6 @@ public class FederationServer {
 			}
 
 			NettyServerBuilder serverBuilder = NettyServerBuilder.forPort(config.getPort())
-			//NettyServerBuilder serverBuilder = NettyServerBuilder.forPort(9101)
 					.maxInboundMessageSize(config.getMaxMessageSizeBytes()) // max message size. If not specified, defaults to 4MB
 					.sslContext(sslConfig.getSslContext())
 					.executor(Resources.federationGrpcExecutor)
@@ -420,6 +418,7 @@ public class FederationServer {
 						}
 
 						server.start();
+						reportServer.start(8111);
 
 						logger.info("Federation server (v2) started, listening on port " + config.getPort());
 
@@ -447,6 +446,9 @@ public class FederationServer {
 	public void stop() {
 		if (server != null) {
 			server.shutdown();
+		}
+		if (reportServer != null) {
+			reportServer.stop();
 		}
 	}
 
@@ -1180,7 +1182,6 @@ public class FederationServer {
 
 						connectionInfo.setConnectionId(sessionId);
 						connectionInfo.setPort(fedConfig().getFederationServer().getV2Port());
-						//connectionInfo.setPort(9101);
 						connectionInfo.setTls(true);
 
 						FederateUser user = new FederateUser(fingerprint, connectionInfo.getConnectionId(), principalDN, "", cert, new X509Certificate[0], federate);
@@ -2422,5 +2423,45 @@ public class FederationServer {
 		}
 
 		logger.error("Fetching CA certs from the Trust Anchor failed.");
+	}
+
+	public class HandshakeFailureReportServer {
+		private HttpServer server;
+
+		public void start(int port) throws IOException {
+			server = HttpServer.create(new InetSocketAddress(port), 0);
+			server.createContext("/handshake-failure", new HandshakeFailureHandler());
+			server.setExecutor(null); // single-threaded for demo
+			server.start();
+			logger.info("Handshake failure report endpoint listening on port {}", port);
+		}
+
+		public void stop() {
+			if (server != null) server.stop(0);
+		}
+
+		private class HandshakeFailureHandler implements HttpHandler {
+			@Override
+			public void handle(HttpExchange exchange) throws IOException {
+				if ("POST".equals(exchange.getRequestMethod())) {
+					// Read client info (you could parse JSON or just log remote address)
+					byte[] requestBody = exchange.getRequestBody().readAllBytes();
+					String body = new String(requestBody);
+					if (logger.isDebugEnabled()) {
+						logger.debug("Received handshake failure report: {}", body);
+					}
+
+					resolveTrustChainAndFetchCert(exchange.getRemoteAddress().getAddress().getHostAddress());
+
+					String response = "Failure reported";
+					exchange.sendResponseHeaders(200, response.length());
+					OutputStream os = exchange.getResponseBody();
+					os.write(response.getBytes());
+					os.close();
+				} else {
+					exchange.sendResponseHeaders(405, -1); // Method Not Allowed
+				}
+			}
+		}
 	}
 }
