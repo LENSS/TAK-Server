@@ -47,6 +47,8 @@ import com.google.common.hash.Hashing;
 import com.google.common.primitives.Longs;
 
 import com.google.protobuf.ByteString;
+import com.nimbusds.openid.connect.sdk.federation.trust.TrustChain;
+import com.nimbusds.openid.connect.sdk.federation.trust.TrustChainSet;
 import io.grpc.Context;
 import io.grpc.Contexts;
 import io.grpc.Grpc;
@@ -132,6 +134,8 @@ import com.bbn.marti.remote.config.CoreConfigFacade;
 import tak.server.cot.CotEventContainer;
 import tak.server.federation.message.AddressableEntity;
 import tak.server.federation.message.Message;
+import tak.server.federation.oidf.OpenidFederationServerHolder;
+import tak.server.federation.oidf.TrustChainResolutionModule;
 import tak.server.federation.rol.MissionRolVisitor;
 import tak.server.messaging.Messenger;
 
@@ -1601,7 +1605,6 @@ public class FederationServer {
 			}
 		}
 
-
 		private String pemEncode(X509Certificate cert) throws CertificateEncodingException {
 			return "-----BEGIN CERTIFICATE-----\n" +
 					Base64.getMimeEncoder(64, new byte[]{'\n'}).encodeToString(cert.getEncoded()) +
@@ -2376,20 +2379,48 @@ public class FederationServer {
 	public static FederationServer getInstance() {
 		return fedServer;
 	}
-	/*
-	private void fetchCertFromTrustAnchors(TrustChain trustChain) {
+
+	public void resolveTrustChainAndFetchCert(String hostAddress) {
+		logger.info("Initializing Trust Chain Resolution Module.");
+
+		TrustChainResolutionModule module;
+		try {
+			module = OpenidFederationServerHolder.getInstance().initAndGetTcrm();
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+		module.resolve("http://" + hostAddress + ":8181");
+		for (TrustChain chains : module.getResolvedChains()) {
+			logger.info("Resolved Trust Chain: {}", chains.toSerializedJWTs());
+		}
+
+		if (module.getResolvedChains() != null) {
+			fetchCertFromTrustAnchors(module.getResolvedChains());
+		} else {
+			logger.info("No valid Trust Chain found.");
+		}
+	}
+
+	private void fetchCertFromTrustAnchors(TrustChainSet trustChainSet) {
+		for (TrustChain chain : trustChainSet) {
 			TakFigClient trustAnchorFigClient = federationManager.getTakFigClient(chain.getTrustAnchorEntityID().toURI().getHost());
 			if (trustAnchorFigClient != null) {
-				logger.info("Trust Anchor connection found as outgoing client");
-				boolean fetched = fetchCertFromTrustAnchorStub(trustAnchorFigClient.getFederatedChannelStub());
-				if (fetched) {
-					logger.info("Successfully fetched CA certs from the Trust Anchor. Retrying connection...");
-					FederationOutgoing outgoing = fedManager().getOutgoingConnection(outgoingName);
-					start(outgoing, status);
+				boolean fetched = trustAnchorFigClient.fetchCertFromTrustAnchorStub(trustAnchorFigClient.getFederatedChannelStub());
+				if (fetched){
 					return;
 				}
 			}
+		}
 
+		logger.info("No outgoing connection to Trust Anchor. Attempting reverse fetch from FederationServer...");
+
+		for (TrustChain chain : trustChainSet) {
+			boolean fetched = requestCertsFromClient(chain.getTrustAnchorEntityID().toURI().getHost());  // try fetching from the Federation Server
+			if (fetched) {
+				return;
+			}
+		}
+
+		logger.error("Fetching CA certs from the Trust Anchor failed.");
 	}
-	*/
 }

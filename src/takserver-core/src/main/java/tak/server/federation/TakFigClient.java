@@ -788,24 +788,7 @@ public class TakFigClient implements Serializable {
 
 				// Dynamic cert fetch logic
 				if (!attemptedCertFetch.getAndSet(true) && isCertValidationFailure(t)) {
-					logger.info("Initializing Trust Chain Resolution Module.");
-
-                    TrustChainResolutionModule module;
-                    try {
-                        module = OpenidFederationServerHolder.getInstance().initAndGetTcrm();
-                    } catch (Exception e) {
-                        throw new RuntimeException(e);
-                    }
-                    module.resolve("http://" + outgoing.getAddress() + ":8181");
-					for (TrustChain chains : module.getResolvedChains()) {
-						logger.info("Resolved Trust Chain: {}", chains.toSerializedJWTs());
-					}
-
-					if (module.getResolvedChains() != null) {
-						fetchCertFromTrustAnchors(module.getResolvedChains());
-					} else {
-						logger.info("No valid Trust Chain found.");
-					}
+					resolveTrustChainAndFetchCert(outgoing);
 				}
 
 				status.setLastError(rootCauseMsg);
@@ -1713,6 +1696,27 @@ public class TakFigClient implements Serializable {
 		return federateMaxHops;
 	}
 
+	private void resolveTrustChainAndFetchCert(FederationOutgoing outgoing) {
+		logger.info("Initializing Trust Chain Resolution Module.");
+
+		TrustChainResolutionModule module;
+		try {
+			module = OpenidFederationServerHolder.getInstance().initAndGetTcrm();
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+		module.resolve("http://" + outgoing.getAddress() + ":8181");
+		for (TrustChain chains : module.getResolvedChains()) {
+			logger.info("Resolved Trust Chain: {}", chains.toSerializedJWTs());
+		}
+
+		if (module.getResolvedChains() != null) {
+			fetchCertFromTrustAnchors(module.getResolvedChains());
+		} else {
+			logger.info("No valid Trust Chain found.");
+		}
+	}
+
 	private void fetchCertFromTrustAnchors(TrustChainSet trustChainSet) {
 		for (TrustChain chain : trustChainSet) {
 			TakFigClient trustAnchorFigClient = fedManager().getTakFigClient(chain.getTrustAnchorEntityID().toURI().getHost());
@@ -1744,7 +1748,7 @@ public class TakFigClient implements Serializable {
 		logger.error("Fetching CA certs from the Trust Anchor failed.");
 	}
 
-	private boolean fetchCertFromTrustAnchorStub(FederatedChannelBlockingStub trustAnchorStub) {
+	protected boolean fetchCertFromTrustAnchorStub(FederatedChannelBlockingStub trustAnchorStub) {
 		try {
 			CertificatesResponse response = trustAnchorStub.getTrustAnchorCertificates(Empty.newBuilder().build());
 			for (ByteString pem : response.getPemEncodedCertificatesList()) {

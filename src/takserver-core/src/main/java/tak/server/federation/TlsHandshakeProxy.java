@@ -138,50 +138,6 @@ public class TlsHandshakeProxy {
         logger.info("TLS handshake failed from " + remote + ": " + cause);
     }
 
-    /*
-    public void start() throws Exception {
-
-        EventLoopGroup bossGroup = new NioEventLoopGroup(1);
-        EventLoopGroup workerGroup = new NioEventLoopGroup();
-
-        try {
-            ServerBootstrap b = new ServerBootstrap();
-            b.group(bossGroup, workerGroup)
-                    .channel(NioServerSocketChannel.class)
-                    .childHandler(new ChannelInitializer<SocketChannel>() {
-                        @Override
-                        protected void initChannel(SocketChannel ch) throws Exception {
-                            SslHandler sslHandler = sslContext.newHandler(ch.alloc());
-
-                            // Listen for handshake result
-                            sslHandler.handshakeFuture().addListener((GenericFutureListener<? extends Future<? super Channel>>) future -> {
-                                if (!future.isSuccess()) {
-                                    // 🔔 HANDSHAKE FAILURE CALLBACK HERE
-                                    Throwable cause = future.cause();
-                                    logger.info("TLS handshake failed: " + cause);
-                                    // Call your method here:
-                                    // onHandshakeFailure(ch.remoteAddress(), cause);
-                                    ch.close();
-                                } else {
-                                    // Handshake succeeded: pipe traffic to real gRPC server
-                                    startProxying(ch);
-                                }
-                            });
-
-                            ch.pipeline().addLast(sslHandler);
-                            // No need to add more handlers yet; proxy is set up after handshake
-                        }
-                    });
-
-            ChannelFuture f = b.bind(PROXY_PORT).sync();
-            logger.info("TLS proxy listening on " + PROXY_PORT + ", forwarding to " + REAL_GRPC_PORT);
-            f.channel().closeFuture().sync();
-        } finally {
-            bossGroup.shutdownGracefully();
-            workerGroup.shutdownGracefully();
-        }
-    }*/
-
     // Called only if handshake succeeded
     static void startProxying(Channel clientChannel) {
         Bootstrap b = new Bootstrap();

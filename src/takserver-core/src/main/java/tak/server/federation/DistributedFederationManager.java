@@ -6,6 +6,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
 import java.io.ByteArrayInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.InetSocketAddress;
 import java.net.SocketAddress;
 import java.security.KeyStore;
 import java.security.KeyStoreException;
@@ -217,18 +218,14 @@ public class DistributedFederationManager implements FederationManager, Service 
 		OpenidFederationServerHolder.getInstance().setup();
 		OpenidFederationServerHolder.getInstance().start();
 
-		tlsProxy = new TlsHandshakeProxy();
-		tlsProxy.initSsl();
-
-		// Optionally override onHandshakeFailure using an anonymous class
 		tlsProxy = new TlsHandshakeProxy() {
 			@Override
 			protected void onHandshakeFailure(SocketAddress remote, Throwable cause) {
 				super.onHandshakeFailure(remote, cause);
-				// You can add logging, metrics, notification, etc.
-				// e.g., notifyAdministrator(remote, cause);
+				FederationServer.getInstance().resolveTrustChainAndFetchCert(((InetSocketAddress) remote).getAddress().getHostAddress());
 			}
 		};
+		tlsProxy.initSsl();
 
 		try {
 			tlsProxy.start();
