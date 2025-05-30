@@ -393,6 +393,8 @@ public class FederationServer {
 					.addService(ServerInterceptors.intercept(service, tlsInterceptor()))
 					.build();
 
+			reportServer = new HandshakeFailureReportServer();
+
 			service.binaryMessageStream(new StreamObserver<Empty>() {
 
 				@Override
