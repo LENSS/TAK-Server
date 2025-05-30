@@ -417,8 +417,7 @@ public class FederationServer {
 
 						server.start();
 
-						//logger.info("Federation server (v2) started, listening on port " + config.getPort());
-						logger.info("Federation server (v2) started, listening on port 9101");
+						logger.info("Federation server (v2) started, listening on port " + config.getPort());
 
 						Runtime.getRuntime().addShutdownHook(new Thread() {
 							@Override
