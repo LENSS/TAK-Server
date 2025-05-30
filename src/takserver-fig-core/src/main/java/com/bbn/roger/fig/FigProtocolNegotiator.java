@@ -266,7 +266,7 @@ public class FigProtocolNegotiator {
 
         private void reportHandshakeFailureToFederationServer(String details) throws IOException {
             if (logger.isDebugEnabled()) {
-                logger.debug("Reporting TLS handshake failure to {}.", host);
+                logger.debug("Reporting TLS handshake failure to {}", host);
             }
             try {
                 URL url = new URL("http://" + host + ":8111/handshake-failure");
@@ -281,7 +281,7 @@ public class FigProtocolNegotiator {
             } catch (IOException ex) {
                 ex.printStackTrace();
                 if (logger.isDebugEnabled()) {
-                    logger.debug("Exception occured while reporting TLS handshake failure: {}.", ex);
+                    logger.debug("Exception occured while reporting TLS handshake failure");
                 }
             }
         }

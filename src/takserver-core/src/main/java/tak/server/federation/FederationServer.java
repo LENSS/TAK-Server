@@ -2207,7 +2207,7 @@ public class FederationServer {
 
 	private void removeInactiveClientStreams() {
 		if (logger.isDebugEnabled()) {
-			logger.debug("Running inactivity check for {} client streams", clientStreamMap.size());
+			//logger.debug("Running inactivity check for {} client streams", clientStreamMap.size());
 		}
 		for (Map.Entry<String, GuardedStreamHolder<FederatedEvent>> clientStreamEntry : clientStreamMap.entrySet()) {
 

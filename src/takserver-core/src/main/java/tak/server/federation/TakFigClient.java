@@ -846,12 +846,12 @@ public class TakFigClient implements Serializable {
 						@Override
 						public void onNext(ServerHealth value) {
 							if (logger.isDebugEnabled()) {
-								logger.debug("received federated health check message from server " + value);
+								//logger.debug("received federated health check message from server " + value);
 							}
 
 							if (value.getStatus().equals(ServerHealth.ServingStatus.SERVING)) {
 								if (logger.isDebugEnabled()) {
-									logger.debug("federated server server healthy");
+									//logger.debug("federated server server healthy");
 								}
 								serverLastHealth.set(new DateTime());
 								federateSubscription.setLastProcTime(new Date().getTime());
