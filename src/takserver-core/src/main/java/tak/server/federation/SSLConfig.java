@@ -10,10 +10,12 @@ import java.security.cert.CertificateException;
 import java.util.Arrays;
 
 import javax.net.ssl.KeyManagerFactory;
+import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLEngine;
 import javax.net.ssl.TrustManagerFactory;
 
 import com.google.common.base.Strings;
+import io.netty.handler.ssl.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -21,10 +23,6 @@ import com.bbn.marti.remote.exception.TakException;
 import com.bbn.roger.fig.model.FigServerConfig;
 
 import io.grpc.netty.GrpcSslContexts;
-import io.netty.handler.ssl.ClientAuth;
-import io.netty.handler.ssl.SslContext;
-import io.netty.handler.ssl.SslContextBuilder;
-import io.netty.handler.ssl.SslProvider;
 
 public class SSLConfig {
     private final static Logger logger = LoggerFactory.getLogger(SSLConfig.class);
@@ -77,10 +75,6 @@ public class SSLConfig {
     }
 
     public SSLEngine buildServerEngine() {
-        return null;
-    }
-
-    public SSLEngine buildClientEngine() {
         return null;
     }
 

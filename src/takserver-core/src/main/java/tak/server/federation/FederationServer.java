@@ -36,7 +36,6 @@ import javax.naming.ldap.Rdn;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLSession;
 
-import com.bbn.roger.fig.TlsFailureDetectingNegotiator;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -278,7 +277,8 @@ public class FederationServer {
 
 			FigServerConfig serverConfig = new FigServerConfig();
 
-			serverConfig.setPort(fedServerConfig.getV2Port());
+			//serverConfig.setPort(fedServerConfig.getV2Port());
+			serverConfig.setPort(9101);
 			serverConfig.setKeystoreFile(fedServerConfig.getTls().getKeystoreFile());
 			serverConfig.setKeystorePassword(fedServerConfig.getTls().getKeystorePass());
 			serverConfig.setTruststoreFile(fedServerConfig.getTls().getTruststoreFile());
@@ -322,8 +322,9 @@ public class FederationServer {
 
 	    FigServerConfig serverConfig = new FigServerConfig();
 
-	    serverConfig.setPort(fedServerConfig.getV2Port());
-	    serverConfig.setKeystoreFile(fedServerConfig.getTls().getKeystoreFile());
+	    //serverConfig.setPort(fedServerConfig.getV2Port());
+		serverConfig.setPort(9101);
+		serverConfig.setKeystoreFile(fedServerConfig.getTls().getKeystoreFile());
 	    serverConfig.setKeystorePassword(fedServerConfig.getTls().getKeystorePass());
 	    serverConfig.setTruststoreFile(fedServerConfig.getTls().getTruststoreFile());
 	    serverConfig.setTruststorePass(fedServerConfig.getTls().getTruststorePass());
@@ -371,23 +372,14 @@ public class FederationServer {
 				throw new TakException(e);
 			}
 
-/*
-			NettyServerBuilder serverBuilder = NettyServerBuilder.forPort(config.getPort())
+//			NettyServerBuilder serverBuilder = NettyServerBuilder.forPort(config.getPort())
+			NettyServerBuilder serverBuilder = NettyServerBuilder.forPort(9101)
 					.maxInboundMessageSize(config.getMaxMessageSizeBytes()) // max message size. If not specified, defaults to 4MB
 					.sslContext(sslConfig.getSslContext())
 					.executor(Resources.federationGrpcExecutor)
 					.workerEventLoopGroup(Resources.federationGrpcWorkerEventLoopGroup)
 					.bossEventLoopGroup(Resources.federationGrpcWorkerEventLoopGroup)
-					.channelType(NioServerSocketChannel.class);*/
-
-			NettyServerBuilder serverBuilder = NettyServerBuilder.forPort(config.getPort())
-					.maxInboundMessageSize(config.getMaxMessageSizeBytes()) // max message size. If not specified, defaults to 4MB
-					.sslContext(sslConfig.getSslContext())
-					.executor(Resources.federationGrpcExecutor)
-					.workerEventLoopGroup(Resources.federationGrpcWorkerEventLoopGroup)
-					.bossEventLoopGroup(Resources.federationGrpcWorkerEventLoopGroup)
-					.channelType(NioServerSocketChannel.class)
-					.protocolNegotiator(new TlsFailureDetectingNegotiator(sslConfig.getSslContext()));
+					.channelType(NioServerSocketChannel.class);
 
 			if (config.getMaxConcurrentCallsPerConnection() != null && config.getMaxConcurrentCallsPerConnection() > 0) {
 				serverBuilder.maxConcurrentCallsPerConnection(config.getMaxConcurrentCallsPerConnection());
@@ -425,7 +417,8 @@ public class FederationServer {
 
 						server.start();
 
-						logger.info("Federation server (v2) started, listening on port " + config.getPort());
+						//logger.info("Federation server (v2) started, listening on port " + config.getPort());
+						logger.info("Federation server (v2) started, listening on port 9101");
 
 						Runtime.getRuntime().addShutdownHook(new Thread() {
 							@Override
@@ -1183,7 +1176,8 @@ public class FederationServer {
 						}
 
 						connectionInfo.setConnectionId(sessionId);
-						connectionInfo.setPort(fedConfig().getFederationServer().getV2Port());
+						//connectionInfo.setPort(fedConfig().getFederationServer().getV2Port());
+						connectionInfo.setPort(9101);
 						connectionInfo.setTls(true);
 
 						FederateUser user = new FederateUser(fingerprint, connectionInfo.getConnectionId(), principalDN, "", cert, new X509Certificate[0], federate);

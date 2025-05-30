@@ -4,9 +4,6 @@ package tak.server.federation.oidf;
 import com.nimbusds.openid.connect.sdk.federation.trust.TrustChain;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import tak.server.federation.DistributedFederationManager;
-
 
 public class TrustChainHandler {
 

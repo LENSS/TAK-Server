@@ -6,6 +6,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
 import java.io.ByteArrayInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.SocketAddress;
 import java.security.KeyStore;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
@@ -140,6 +141,8 @@ public class DistributedFederationManager implements FederationManager, Service 
 
 	private final Map<String, TakFigClient> activeTakFigClients = new ConcurrentHashMap<>();
 
+	private TlsHandshakeProxy tlsProxy;
+
 	public DistributedFederationManager(Ignite ignite) {
 
         if (logger.isDebugEnabled()) {
@@ -183,6 +186,9 @@ public class DistributedFederationManager implements FederationManager, Service 
 	public void cancel(ServiceContext ctx) {
         try {
 			OpenidFederationServerHolder.getInstance().stop();
+			if (tlsProxy != null) {
+				tlsProxy.stop();
+			}
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -211,6 +217,24 @@ public class DistributedFederationManager implements FederationManager, Service 
 		OpenidFederationServerHolder.getInstance().setup();
 		OpenidFederationServerHolder.getInstance().start();
 
+		tlsProxy = new TlsHandshakeProxy();
+		tlsProxy.initSsl();
+
+		// Optionally override onHandshakeFailure using an anonymous class
+		tlsProxy = new TlsHandshakeProxy() {
+			@Override
+			protected void onHandshakeFailure(SocketAddress remote, Throwable cause) {
+				super.onHandshakeFailure(remote, cause);
+				// You can add logging, metrics, notification, etc.
+				// e.g., notifyAdministrator(remote, cause);
+			}
+		};
+
+		try {
+			tlsProxy.start();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
@@ -2674,6 +2698,9 @@ public class DistributedFederationManager implements FederationManager, Service 
 				tak.server.federation.FederationServer.stopServer();
                 try {
 					OpenidFederationServerHolder.getInstance().stop();
+					if (tlsProxy != null) {
+						tlsProxy.stop();
+					}
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
@@ -2683,6 +2710,9 @@ public class DistributedFederationManager implements FederationManager, Service 
 			tak.server.federation.FederationServer.stopServer();
             try {
 				OpenidFederationServerHolder.getInstance().stop();
+				if (tlsProxy != null) {
+					tlsProxy.stop();
+				}
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
