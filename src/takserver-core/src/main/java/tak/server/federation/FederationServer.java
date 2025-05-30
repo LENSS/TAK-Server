@@ -281,8 +281,8 @@ public class FederationServer {
 
 			FigServerConfig serverConfig = new FigServerConfig();
 
-			//serverConfig.setPort(fedServerConfig.getV2Port());
-			serverConfig.setPort(9101);
+			serverConfig.setPort(fedServerConfig.getV2Port());
+			//serverConfig.setPort(9101);
 			serverConfig.setKeystoreFile(fedServerConfig.getTls().getKeystoreFile());
 			serverConfig.setKeystorePassword(fedServerConfig.getTls().getKeystorePass());
 			serverConfig.setTruststoreFile(fedServerConfig.getTls().getTruststoreFile());
@@ -326,8 +326,8 @@ public class FederationServer {
 
 	    FigServerConfig serverConfig = new FigServerConfig();
 
-	    //serverConfig.setPort(fedServerConfig.getV2Port());
-		serverConfig.setPort(9101);
+	    serverConfig.setPort(fedServerConfig.getV2Port());
+		//serverConfig.setPort(9101);
 		serverConfig.setKeystoreFile(fedServerConfig.getTls().getKeystoreFile());
 	    serverConfig.setKeystorePassword(fedServerConfig.getTls().getKeystorePass());
 	    serverConfig.setTruststoreFile(fedServerConfig.getTls().getTruststoreFile());
@@ -376,8 +376,8 @@ public class FederationServer {
 				throw new TakException(e);
 			}
 
-//			NettyServerBuilder serverBuilder = NettyServerBuilder.forPort(config.getPort())
-			NettyServerBuilder serverBuilder = NettyServerBuilder.forPort(9101)
+			NettyServerBuilder serverBuilder = NettyServerBuilder.forPort(config.getPort())
+			//NettyServerBuilder serverBuilder = NettyServerBuilder.forPort(9101)
 					.maxInboundMessageSize(config.getMaxMessageSizeBytes()) // max message size. If not specified, defaults to 4MB
 					.sslContext(sslConfig.getSslContext())
 					.executor(Resources.federationGrpcExecutor)
@@ -1179,8 +1179,8 @@ public class FederationServer {
 						}
 
 						connectionInfo.setConnectionId(sessionId);
-						//connectionInfo.setPort(fedConfig().getFederationServer().getV2Port());
-						connectionInfo.setPort(9101);
+						connectionInfo.setPort(fedConfig().getFederationServer().getV2Port());
+						//connectionInfo.setPort(9101);
 						connectionInfo.setTls(true);
 
 						FederateUser user = new FederateUser(fingerprint, connectionInfo.getConnectionId(), principalDN, "", cert, new X509Certificate[0], federate);

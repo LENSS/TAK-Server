@@ -27,9 +27,9 @@ import java.net.SocketAddress;
 
 public class TlsHandshakeProxy {
 
-    private static final int PROXY_PORT = 9001;
+    private static final int PROXY_PORT = 9101;
     private static final String GRPC_HOST = "127.0.0.1";
-    private static final int GRPC_PORT = 9101;
+    private static final int GRPC_PORT = 9001;
 
     private SslContext sslContext;
     private EventLoopGroup bossGroup;
