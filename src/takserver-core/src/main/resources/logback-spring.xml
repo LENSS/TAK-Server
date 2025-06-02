@@ -226,6 +226,9 @@
     <logger name="tak.server.federation.oidf.TrustChainResolutionModule" level="DEBUG" />
     <logger name="tak.server.federation.oidf.EntityStatementGenerator" level="DEBUG" />
     <logger name="tak.server.federation.oidf.FederationEndpointServlets" level="DEBUG" />
+    <logger name="tak.server.federation.oidf.TakTrustChainResolver" level="DEBUG" />
+    <logger name="tak.server.federation.oidf.TakTrustChainRetriever" level="DEBUG" />
+    <logger name="tak.server.federation.oidf.TakEntityStatementRetriever" level="DEBUG" />
     <logger name="tak.server.federation.oidf.JWKSetGenerator" level="DEBUG" />
     <logger name="tak.server.federation.oidf.JWKFetcher" level="DEBUG" />
     <logger name="com.bbn.roger.fig.FigProtocolNegotiator" level="DEBUG"/>

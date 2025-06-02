@@ -86,7 +86,7 @@ public class TakTrustChainResolver {
         this(
                 Collections.singletonMap(trustAnchor, trustAnchorJWKSet),
                 TrustChainConstraints.NO_CONSTRAINTS,
-                new DefaultEntityStatementRetriever()
+                new TakEntityStatementRetriever()
         );
     }
 
@@ -113,7 +113,7 @@ public class TakTrustChainResolver {
         this(
                 trustAnchors,
                 TrustChainConstraints.NO_CONSTRAINTS,
-                new DefaultEntityStatementRetriever(httpConnectTimeoutMs, httpReadTimeoutMs)
+                new TakEntityStatementRetriever(httpConnectTimeoutMs, httpReadTimeoutMs)
         );
     }
 

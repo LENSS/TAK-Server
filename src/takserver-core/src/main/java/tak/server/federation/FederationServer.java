@@ -1608,6 +1608,43 @@ public class FederationServer {
 			}
 		}
 
+		private void storeCertInTruststore(ByteString pemBytes) {
+			try {
+				String pem = pemBytes.toStringUtf8();
+				CertificateFactory cf = CertificateFactory.getInstance("X.509");
+				X509Certificate cert = (X509Certificate) cf.generateCertificate(new ByteArrayInputStream(pem.getBytes()));
+
+				com.bbn.marti.config.Federation.FederationServer fedServerConfig = fedConfig().getFederationServer();
+
+				String truststoreType = fedServerConfig.getTls().getKeystore();
+				String truststorePath = fedServerConfig.getTls().getTruststoreFile();
+				String truststorePass = fedServerConfig.getTls().getTruststorePass();
+
+				KeyStore ks = KeyStore.getInstance(truststoreType);
+				try (FileInputStream fis = new FileInputStream(truststorePath)) {
+					ks.load(fis, truststorePass.toCharArray());
+				}
+
+				String alias = RemoteUtil.getInstance().getCertSHA256Fingerprint(cert);
+				if (ks.containsAlias(alias)) {
+					logger.info("Certificate already exists: {}", alias);
+					return;
+				}
+
+				ks.setCertificateEntry(alias, cert);
+
+				try (FileOutputStream fos = new FileOutputStream(truststorePath)) {
+					ks.store(fos, truststorePass.toCharArray());
+				}
+
+				logger.info("Added cert with alias: {}", alias);
+
+				federationManager.refreshAfterDynamicCertFetch(alias, cert);
+			} catch (Exception e) {
+				logger.error("Failed to store certificate", e);
+			}
+		}
+
 		private String pemEncode(X509Certificate cert) throws CertificateEncodingException {
 			return "-----BEGIN CERTIFICATE-----\n" +
 					Base64.getMimeEncoder(64, new byte[]{'\n'}).encodeToString(cert.getEncoded()) +
@@ -2339,43 +2376,6 @@ public class FederationServer {
 		} catch (Exception e) {
 			logger.warn("Failed to send CertificatesRequest to session {}: {}", address, e.getMessage(), e);
 			return false;
-		}
-	}
-
-	private void storeCertInTruststore(ByteString pemBytes) {
-		try {
-			String pem = pemBytes.toStringUtf8();
-			CertificateFactory cf = CertificateFactory.getInstance("X.509");
-			X509Certificate cert = (X509Certificate) cf.generateCertificate(new ByteArrayInputStream(pem.getBytes()));
-
-			com.bbn.marti.config.Federation.FederationServer fedServerConfig = fedConfig().getFederationServer();
-
-			String truststoreType = fedServerConfig.getTls().getKeystore();
-			String truststorePath = fedServerConfig.getTls().getTruststoreFile();
-			String truststorePass = fedServerConfig.getTls().getTruststorePass();
-
-			KeyStore ks = KeyStore.getInstance(truststoreType);
-			try (FileInputStream fis = new FileInputStream(truststorePath)) {
-				ks.load(fis, truststorePass.toCharArray());
-			}
-
-			String alias = RemoteUtil.getInstance().getCertSHA256Fingerprint(cert);
-			if (ks.containsAlias(alias)) {
-				logger.info("Certificate already exists: {}", alias);
-				return;
-			}
-
-			ks.setCertificateEntry(alias, cert);
-
-			try (FileOutputStream fos = new FileOutputStream(truststorePath)) {
-				ks.store(fos, truststorePass.toCharArray());
-			}
-
-			logger.info("Added cert with alias: {}", alias);
-
-			federationManager.refreshAfterDynamicCertFetch(alias, cert);
-		} catch (Exception e) {
-			logger.error("Failed to store certificate", e);
 		}
 	}
 

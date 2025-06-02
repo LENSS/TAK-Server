@@ -30,6 +30,8 @@ import com.nimbusds.openid.connect.sdk.federation.entities.FederationEntityMetad
 import com.nimbusds.openid.connect.sdk.federation.entities.EntityType;
 import com.nimbusds.openid.connect.sdk.federation.trust.*;
 import com.nimbusds.openid.connect.sdk.federation.trust.constraints.TrustChainConstraints;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 /**
@@ -48,6 +50,9 @@ public class TakTrustChainRetriever implements TakTrustChainRetrieverInterface {
 
 
     private final Map<EntityID, JWKSet> accumulatedTrustAnchorJWKSets = new HashMap<>();
+
+
+    private static final Logger logger = LoggerFactory.getLogger(TakTrustChainRetriever.class);
 
 
     /**
