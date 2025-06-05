@@ -116,6 +116,9 @@ public class TakTrustChainRetriever implements TakTrustChainRetrieverInterface {
         EntityStatement targetStatement;
         try {
             targetStatement = retriever.fetchEntityConfiguration(target);
+            if (logger.isDebugEnabled()) {
+                logger.debug("Retrieved target Entity Configuration: {}", targetStatement);
+            }
         } catch (ResolveException e) {
             accumulatedExceptions.add(e);
             return new TrustChainSet();
@@ -221,6 +224,9 @@ public class TakTrustChainRetriever implements TakTrustChainRetrieverInterface {
             EntityStatement superiorEntityConfiguration;
             try {
                 superiorEntityConfiguration = retriever.fetchEntityConfiguration(authority);
+                if (logger.isDebugEnabled()) {
+                    logger.debug("Retrieved superior Entity Configuration: {}", superiorEntityConfiguration);
+                }
                 nextLevelAuthorityHints.put(authority, superiorEntityConfiguration.getClaimsSet().getAuthorityHints());
             } catch (ResolveException e) {
                 accumulatedExceptions.add(new ResolveException("Couldn't fetch entity configuration from " + authority + ": " + e.getMessage(), e));
@@ -249,6 +255,9 @@ public class TakTrustChainRetriever implements TakTrustChainRetrieverInterface {
                         fetchEndpointURI,
                         authority,
                         subject);
+                if (logger.isDebugEnabled()) {
+                    logger.debug("Retrieved Subordinate Statement from {}: {}", superiorEntityConfiguration, entityStatement);
+                }
             } catch (ResolveException e) {
                 accumulatedExceptions.add(new ResolveException("Couldn't fetch entity statement from " + fetchEndpointURI + ": " + e.getMessage(), e));
                 continue;
@@ -292,6 +301,9 @@ public class TakTrustChainRetriever implements TakTrustChainRetrieverInterface {
                     nextAuthorities,
                     trustAnchors,
                     chain));
+            if (logger.isDebugEnabled()) {
+                logger.debug("Found all Trust Chains from the tartget");
+            }
         }
 
         return anchoredChains;

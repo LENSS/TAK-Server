@@ -28,6 +28,8 @@ import com.nimbusds.openid.connect.sdk.federation.entities.EntityID;
 import com.nimbusds.openid.connect.sdk.federation.entities.EntityStatement;
 import com.nimbusds.openid.connect.sdk.federation.trust.*;
 import com.nimbusds.openid.connect.sdk.federation.trust.constraints.TrustChainConstraints;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 /**
@@ -58,6 +60,9 @@ public class TakTrustChainResolver {
      * The trust chain constraints.
      */
     private final TrustChainConstraints constraints;
+
+
+    private static final Logger logger = LoggerFactory.getLogger(TakTrustChainResolver.class);
 
 
     /**
@@ -314,6 +319,9 @@ public class TakTrustChainResolver {
 
             try {
                 chain.verifySignatures(anchorJWKSet);
+                if (logger.isDebugEnabled()) {
+                    logger.debug("Trust Chain verified: {}", chain);
+                }
             } catch (BadJOSEException | JOSEException e) {
                 verificationExceptions.add(e);
                 continue;

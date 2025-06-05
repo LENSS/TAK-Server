@@ -36,6 +36,9 @@ public class TrustChainResolutionModule {
         }
         try {
             resolvedChains = resolver.resolveTrustChains(leafEntity);
+            if (logger.isDebugEnabled()) {
+                logger.debug("Finished Trust Chain Resolution: {}", resolvedChains);
+            }
             shortestResolvedChain = resolvedChains.getShortest();
             shortestTrustChainJWT = shortestResolvedChain.toSerializedJWTs();
             resolutionSuccess = true;
