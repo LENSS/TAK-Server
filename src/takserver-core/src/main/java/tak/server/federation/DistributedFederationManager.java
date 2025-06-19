@@ -1585,8 +1585,6 @@ public class DistributedFederationManager implements FederationManager, Service 
 	}
 
 	public void refreshAfterDynamicCertFetch(String alias, X509Certificate ca) {
-		addCA(ca);
-		/**
 		try {
 
 			SSLConfig sslConfig = getSSLCache().computeIfAbsent(SSL_TRUSTSTORE_KEY, key -> SSLConfig.getInstance(CoreConfigFacade.getInstance()
@@ -1608,7 +1606,6 @@ public class DistributedFederationManager implements FederationManager, Service 
 				logger.debug("exception adding ca", e);
 			}
 		}
-		 **/
 	}
 
 
