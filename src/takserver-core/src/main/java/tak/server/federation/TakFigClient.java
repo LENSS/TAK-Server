@@ -786,14 +786,14 @@ public class TakFigClient implements Serializable {
 					}
 				}
 
-				status.setLastError(rootCauseMsg);
-				SubscriptionStore.getInstanceFederatedSubscriptionManager().updateFederateOutgoingStatusCache(outgoing.getDisplayName(), status);
-				processDisconnect(t);
-
 				// Dynamic cert fetch logic
 				if (!attemptedCertFetch.getAndSet(true) && isCertValidationFailure(t)) {
 					resolveTrustChainAndFetchCert(outgoing);
 				}
+
+				status.setLastError(rootCauseMsg);
+				SubscriptionStore.getInstanceFederatedSubscriptionManager().updateFederateOutgoingStatusCache(outgoing.getDisplayName(), status);
+				processDisconnect(t);
 			}
 
 			@Override
